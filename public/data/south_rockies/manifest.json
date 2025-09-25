@@ -1,7 +1,7 @@
 {
   "region": "south_rockies",
   "run_time_utc": "2025-09-24T06:00:00Z",
-  "version": "2025-09-24-06z-v2",
+  "version": "2025-09-24-06z-v3",
   "artifacts": {
     "forecast_json": "/data/south_rockies/forecast.json",
     "summary_json": "/data/south_rockies/summary.json",

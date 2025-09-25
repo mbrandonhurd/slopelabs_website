@@ -2,6 +2,9 @@
 @tailwind components;
 @tailwind utilities;
 
+/* Import MapLibre styles globally */
+@import 'maplibre-gl/dist/maplibre-gl.css';
+
 html, body { height: 100%; }
 body { @apply bg-white text-gray-900; }
 .container { @apply mx-auto max-w-7xl px-4; }
