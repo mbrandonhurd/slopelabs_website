@@ -1,6 +1,5 @@
 import { dangerColors } from "@/lib/colors";
 import type { ForecastJSON, ElevationBand } from "@/types/core";
-
 export default function DangerCards({ forecast }: { forecast: ForecastJSON }) {
   const bands: ElevationBand[] = ["above_treeline","treeline","below_treeline"];
   return (

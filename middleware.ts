@@ -1,6 +1,5 @@
 import { NextRequest, NextResponse } from "next/server";
 import { verifySession } from "@/lib/auth";
-
 export async function middleware(req: NextRequest) {
   const url = new URL(req.nextUrl);
   if (url.pathname.startsWith("/admin")) {
@@ -13,7 +12,4 @@ export async function middleware(req: NextRequest) {
   }
   return NextResponse.next();
 }
-
-export const config = {
-  matcher: ["/admin/:path*"]
-};
+export const config = { matcher: ["/admin/:path*"] };

@@ -1,5 +1,4 @@
 import type { ForecastJSON } from "@/types/core";
-
 export default function ProblemsChips({ forecast }: { forecast: ForecastJSON }) {
   return (
     <div className="flex flex-wrap gap-2">

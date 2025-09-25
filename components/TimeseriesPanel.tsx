@@ -1,14 +1,11 @@
 'use client';
 import dynamic from 'next/dynamic';
 const Plot = dynamic(() => import('react-plotly.js'), { ssr: false });
-
 export default function TimeseriesPanel({ region }: { region: string }) {
-  // Demo series (replace with station data)
   const x = Array.from({length: 48}, (_, i) => i);
   const temp = x.map(i => Math.sin(i/7) * 5 +  -3 + (i/48)*3);
   const wind = x.map(i => Math.cos(i/9) * 2 + 5);
   const apcp = x.map(i => (i%6===0? Math.random()*5 : 0));
-
   return (
     <div className="card">
       <div className="card-h"><h3 className="font-medium">Time Series (demo)</h3></div>

@@ -1,7 +1,7 @@
 import { NextResponse } from "next/server";
 import { promises as fs } from "fs";
 import path from "path";
-
+export const runtime = "nodejs";
 export async function GET(_: Request, { params }: { params: { region: string } }) {
   try {
     const filePath = path.join(process.cwd(), "public", "data", params.region, "manifest.json");

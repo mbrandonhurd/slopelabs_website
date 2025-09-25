@@ -2,7 +2,7 @@ export default function Home() {
   return (
     <div className="space-y-4">
       <h2 className="text-lg font-medium">Welcome</h2>
-      <p className="text-gray-700">This pro template includes auth guards, map & charts, manifest polling, and an admin skeleton.</p>
+      <p className="text-gray-700">Pro template with auth guard, maps, charts, and manifest polling.</p>
       <div className="card">
         <div className="card-c">
           <a className="btn" href="/r/south_rockies">Open South Rockies</a>

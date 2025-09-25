@@ -1,6 +1,5 @@
 'use client';
 import { useEffect, useRef } from 'react';
-
 export default function MapPanel({ tilesBase, quicklook }: { tilesBase?: string; quicklook?: string }) {
   const ref = useRef<HTMLDivElement>(null);
   useEffect(() => {
@@ -9,12 +8,7 @@ export default function MapPanel({ tilesBase, quicklook }: { tilesBase?: string;
       if (!ref.current) return;
       const maplibregl = await import('maplibre-gl');
       await import('maplibre-gl/dist/maplibre-gl.css');
-      map = new maplibregl.Map({
-        container: ref.current,
-        style: 'https://demotiles.maplibre.org/style.json',
-        center: [-116, 51],
-        zoom: 5.5
-      });
+      map = new maplibregl.Map({ container: ref.current, style: 'https://demotiles.maplibre.org/style.json', center: [-116, 51], zoom: 5.5 });
       map.on('load', () => {
         if (tilesBase) {
           map.addSource('overlay', { type: 'raster', tiles: [`${tilesBase}{z}/{x}/{y}.png`], tileSize: 256 });

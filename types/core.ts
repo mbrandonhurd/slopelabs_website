@@ -1,6 +1,5 @@
 export type ElevationBand = "above_treeline" | "treeline" | "below_treeline";
 export type DangerLevel = "low" | "moderate" | "considerable" | "high" | "extreme";
-
 export interface ForecastJSON {
   dateIssued: string;
   region: string;
@@ -8,7 +7,6 @@ export interface ForecastJSON {
   problems: Array<{ type: string; likelihood: string; size: string; where: ElevationBand[]; }>;
   summary: string;
 }
-
 export interface Manifest {
   region: string;
   run_time_utc: string;
