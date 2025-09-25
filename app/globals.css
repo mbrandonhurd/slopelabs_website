@@ -1,0 +1,11 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+html, body { height: 100%; }
+body { @apply bg-white text-gray-900; }
+.container { @apply mx-auto max-w-7xl px-4; }
+.btn { @apply inline-flex items-center gap-2 rounded-lg px-3 py-2 border bg-white hover:bg-gray-50; }
+.card { @apply rounded-lg border bg-white; }
+.card-h { @apply px-4 py-3 border-b; }
+.card-c { @apply px-4 py-3; }

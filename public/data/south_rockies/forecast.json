@@ -1,0 +1,30 @@
+{
+  "dateIssued": "2025-09-24",
+  "region": "South Rockies",
+  "dangerRatings": {
+    "above_treeline": "moderate",
+    "treeline": "considerable",
+    "below_treeline": "moderate"
+  },
+  "problems": [
+    {
+      "type": "Wind Slab",
+      "likelihood": "Likely",
+      "size": "Small to Medium",
+      "where": [
+        "above_treeline",
+        "treeline"
+      ]
+    },
+    {
+      "type": "Persistent Slab",
+      "likelihood": "Possible",
+      "size": "Medium",
+      "where": [
+        "treeline",
+        "below_treeline"
+      ]
+    }
+  ],
+  "summary": "Sample only. Replace with ML forecast JSON. Watch for wind loading at upper elevations; afternoon warming could increase activity."
+}
