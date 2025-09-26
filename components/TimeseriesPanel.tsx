@@ -19,10 +19,10 @@ export default function TimeseriesPanel({ region }: { region: string }) {
           layout={{
             height: 320,
             margin: { l: 40, r: 40, t: 10, b: 30 },
-            xaxis: { title: "Hour (relative)" },
-            yaxis: { title: "Temp" },
-            yaxis2: { overlaying: "y", side: "right", title: "Wind" },
-            yaxis3: { overlaying: "y", side: "right", position: 1.0, title: "Precip", showgrid: false }
+            xaxis: { title: { text: "Hour (relative)" } },
+            yaxis: { title: { text: "Temp" } },
+            yaxis2: { overlaying: "y", side: "right", title: { text: "Wind" } },
+            yaxis3: { overlaying: "y", side: "right", position: 1.0, title: { text: "Precip" }, showgrid: false }
           }}
           config={{ displayModeBar: false, responsive: true }}
           style={{ width: "100%", height: "100%" }}
