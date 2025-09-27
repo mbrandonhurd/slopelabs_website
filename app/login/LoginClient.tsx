@@ -12,7 +12,7 @@ export default function LoginClient({ callbackUrl = "/r/south_rockies" }: { call
     <div className="min-h-screen bg-black text-white flex items-center justify-center">
       <div className="w-full max-w-sm p-6 rounded-xl border border-neutral-800 bg-neutral-900/50 space-y-4">
         <div className="flex justify-center">
-          <Image src="/logo.svg" alt="Slope Labs" width={240} height={60} priority />
+          <Image src="/images/thumbnail_slopelabs_transparent.png" alt="Slope Labs" width={240} height={60} priority />
         </div>
         <h1 className="text-xl font-semibold text-center">Sign in to Slope Labs</h1>
 
