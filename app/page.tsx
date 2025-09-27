@@ -1,14 +1,13 @@
-export default function Home() {
+// app/page.tsx
+export default function Landing() {
   return (
-    <div className="space-y-4">
-      <h2 className="text-lg font-medium">Welcome</h2>
-      <p className="text-gray-700">Pro template with auth guard, maps, charts, and manifest polling.</p>
-      <div className="card">
-        <div className="card-c">
-          <a className="btn" href="/r/south_rockies">Open South Rockies</a>
-          <a className="btn ml-2" href="/admin">Open Admin (requires login)</a>
-        </div>
-      </div>
+    <div className="min-h-screen bg-black flex items-center justify-center p-6">
+      <img
+        src="/images/slopelabs_inverse_logo.png"
+        alt="Slope Labs"
+        className="h-auto w-[clamp(280px,60vw,1000px)]"
+      />
     </div>
+
   );
 }
