@@ -20,3 +20,8 @@ pnpm-debug.log*
 # misc
 .DS_Store
 .vercel
+/node_modules
+/.next
+/out
+/.vercel
+.env.local
