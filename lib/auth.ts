@@ -4,7 +4,8 @@ import Credentials from "next-auth/providers/credentials";
 import { PrismaAdapter } from "@next-auth/prisma-adapter";
 import { prisma } from "@/lib/prisma";
 import { z } from "zod";
-import argon2 from "argon2";
+import bcrypt from "bcryptjs";
+
 
 const CredentialsSchema = z.object({
   email: z.string().email(),
@@ -61,7 +62,7 @@ export const authOptions: NextAuthOptions = {
           // Optional: require verified email
           // if (!user.emailVerified) { console.warn("[Credentials] email not verified", { email }); return null; }
 
-          const ok = await argon2.verify(user.passwordHash, password);
+          const ok = await bcrypt.compare(password, user.passwordHash!);
           if (!ok) {
             console.warn("[Credentials] bad password", { email });
             return null;
