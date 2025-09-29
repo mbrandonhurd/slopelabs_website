@@ -88,7 +88,20 @@ export const authOptions: NextAuthOptions = {
     },
   },
 
-  // 🔎 Event hooks (run after actions). Great for surfacing errors in logs.
+  // ✅ Use logger (supported in v4) instead of events.error
+  logger: {
+    error(code, metadata) {
+      console.error("[NextAuth][error]", code, metadata);
+    },
+    warn(code, metadata) {
+      console.warn("[NextAuth][warn]", code, metadata);
+    },
+    debug(code, metadata) {
+      console.debug("[NextAuth][debug]", code, metadata);
+    },
+  },
+
+  // 🔎 Supported events you can keep
   events: {
     async signIn(message) {
       console.info("[NextAuth event] signIn", {
@@ -98,11 +111,11 @@ export const authOptions: NextAuthOptions = {
         isNewUser: message?.isNewUser,
       });
     },
-    async error(message) {
-      console.error("[NextAuth error event]", message);
-    },
     async createUser(message) {
-      console.info("[NextAuth event] createUser", { userId: message.user.id, email: message.user.email });
+      console.info("[NextAuth event] createUser", {
+        userId: message.user.id,
+        email: message.user.email,
+      });
     },
   },
 };
