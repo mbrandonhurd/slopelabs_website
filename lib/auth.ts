@@ -6,7 +6,6 @@ import { prisma } from "@/lib/prisma";
 import { z } from "zod";
 import bcrypt from "bcryptjs";
 
-
 const CredentialsSchema = z.object({
   email: z.string().email(),
   password: z.string().min(8).max(128),
@@ -21,37 +20,11 @@ console.info("[auth:init]", {
   HAS_GOOGLE_SECRET: !!process.env.GOOGLE_CLIENT_SECRET,
 });
 
-// keep this too
-// debug: true + logger already added in your config
-
-
-
 export const authOptions: NextAuthOptions = {
   adapter: PrismaAdapter(prisma),
 
-  // 🔎 TEMP: enable verbose logs in your server terminal / Vercel function logs
+  // TEMP while debugging
   debug: true,
-
-  callbacks: {
-  async jwt({ token, user, account }) {
-    // If this is the first sign-in in this session, user is set → fetch DB user id
-    if (user?.email) {
-      const dbUser = await prisma.user.findUnique({ where: { email: user.email }, select: { id: true } });
-      if (dbUser?.id) token.uid = dbUser.id;
-    }
-    // Also keep the provider subject around for reference
-    if (account?.provider && token.sub) token.providerSub = `${account.provider}:${token.sub}`;
-    return token;
-  },
-  async session({ session, token }) {
-    if (session.user) {
-      // Prefer DB id if we have it, fall back to provider subject
-      (session.user as any).id = (token as any).uid || token.sub;
-      (session.user as any).providerSub = (token as any).providerSub;
-    }
-    return session;
-  },
-}
 
   providers: [
     GoogleProvider({
@@ -80,10 +53,10 @@ export const authOptions: NextAuthOptions = {
             return null;
           }
 
-          // Optional: require verified email
+          // Optional: enforce verified email
           // if (!user.emailVerified) { console.warn("[Credentials] email not verified", { email }); return null; }
 
-          const ok = await bcrypt.compare(password, user.passwordHash!);
+          const ok = await bcrypt.compare(password, user.passwordHash);
           if (!ok) {
             console.warn("[Credentials] bad password", { email });
             return null;
@@ -93,8 +66,7 @@ export const authOptions: NextAuthOptions = {
           return { id: user.id, email: user.email, name: user.name, image: user.image };
         } catch (err) {
           console.error("[Credentials] authorize error:", err);
-          // returning null turns into ?error=CredentialsSignin (no 500)
-          return null;
+          return null; // -> ?error=CredentialsSignin
         }
       },
     }),
@@ -104,57 +76,72 @@ export const authOptions: NextAuthOptions = {
 
   pages: {
     signIn: "/login",
-    error: "/login", // route NextAuth errors to your login page
+    error: "/login",
   },
 
   callbacks: {
+    async jwt({ token, user, account }) {
+      // Persist DB user id into the token (if available)
+      if (user?.email) {
+        const dbUser = await prisma.user.findUnique({
+          where: { email: user.email },
+          select: { id: true },
+        });
+        if (dbUser?.id) (token as any).uid = dbUser.id;
+      }
+      // Keep provider subject for reference
+      if (account?.provider && token.sub) {
+        (token as any).providerSub = `${account.provider}:${token.sub}`;
+      }
+      return token;
+    },
+
     async session({ session, token }) {
-      if (session.user) (session.user as any).id = token.sub;
+      if (session.user) {
+        // Prefer DB id, fall back to provider subject
+        (session.user as any).id = (token as any).uid || token.sub;
+        (session.user as any).providerSub = (token as any).providerSub;
+      }
       return session;
     },
-    // 🔎 Optional: see every sign-in decision (OAuth + Credentials)
-    async signIn({ user, account, profile, email, credentials }) {
+
+    // Optional: see every sign-in decision (OAuth + Credentials)
+    async signIn({ user, account, email }) {
       console.info("[NextAuth] signIn callback", {
         provider: account?.provider,
         userId: user?.id,
         email: user?.email ?? email,
       });
-      // Return true to allow, false to deny; you can add checks here (e.g., domain allowlist)
       return true;
     },
   },
 
-  // ✅ Use logger (supported in v4) instead of events.error
-    logger: {
-    // error(code, ...metadata)
-    error(code, ...metadata) {
-      console.error("[NextAuth][error]", code, ...metadata);
+  // NextAuth v4 logger signatures
+  logger: {
+    error(code, ...meta) {
+      console.error("[NextAuth][error]", code, ...meta);
     },
-    // warn(code) — only one argument in v4 types
     warn(code) {
       console.warn("[NextAuth][warn]", code);
     },
-    // debug(code, ...metadata)
-    debug(code, ...metadata) {
-      console.debug("[NextAuth][debug]", code, ...metadata);
+    debug(code, ...meta) {
+      console.debug("[NextAuth][debug]", code, ...meta);
     },
   },
 
-
-  // 🔎 Supported events you can keep
   events: {
-    async signIn(message) {
+    async signIn(msg) {
       console.info("[NextAuth event] signIn", {
-        provider: message?.account?.provider,
-        userId: message?.user?.id,
-        email: message?.user?.email,
-        isNewUser: message?.isNewUser,
+        provider: msg.account?.provider,
+        userId: msg.user?.id,
+        email: msg.user?.email,
+        isNewUser: msg.isNewUser,
       });
     },
-    async createUser(message) {
+    async createUser(msg) {
       console.info("[NextAuth event] createUser", {
-        userId: message.user.id,
-        email: message.user.email,
+        userId: msg.user.id,
+        email: msg.user.email,
       });
     },
   },
