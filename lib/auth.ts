@@ -32,6 +32,27 @@ export const authOptions: NextAuthOptions = {
   // 🔎 TEMP: enable verbose logs in your server terminal / Vercel function logs
   debug: true,
 
+  callbacks: {
+  async jwt({ token, user, account }) {
+    // If this is the first sign-in in this session, user is set → fetch DB user id
+    if (user?.email) {
+      const dbUser = await prisma.user.findUnique({ where: { email: user.email }, select: { id: true } });
+      if (dbUser?.id) token.uid = dbUser.id;
+    }
+    // Also keep the provider subject around for reference
+    if (account?.provider && token.sub) token.providerSub = `${account.provider}:${token.sub}`;
+    return token;
+  },
+  async session({ session, token }) {
+    if (session.user) {
+      // Prefer DB id if we have it, fall back to provider subject
+      (session.user as any).id = (token as any).uid || token.sub;
+      (session.user as any).providerSub = (token as any).providerSub;
+    }
+    return session;
+  },
+}
+
   providers: [
     GoogleProvider({
       clientId: process.env.GOOGLE_CLIENT_ID!,
