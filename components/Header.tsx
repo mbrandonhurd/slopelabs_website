@@ -4,6 +4,8 @@ import Link from "next/link";
 import { usePathname } from "next/navigation";
 // If you prefer one-click Google SSO, uncomment the next line and the onClick below.
 // import { signIn, signOut } from "next-auth/react";
+import RegionSwitcher from "@/components/RegionSwitcher";
+
 
 export default function Header() {
   const pathname = usePathname();
@@ -61,6 +63,9 @@ export default function Header() {
           Sign out
         </button>
         */}
+        <RegionSwitcher />
+        <Link className={pathname?.startsWith("/r") ? "underline" : ""} href="/r/south_rockies">Dashboard</Link>
+        <Link className={pathname?.startsWith("/admin") ? "underline" : ""} href="/admin">Admin</Link>
       </nav>
     </header>
   );
