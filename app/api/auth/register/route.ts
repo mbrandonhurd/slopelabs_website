@@ -1,7 +1,7 @@
 export const runtime = "nodejs";
 import { NextResponse } from "next/server";
 import { prisma } from "@/lib/prisma";
-import argon2 from "argon2";
+import bcrypt from "bcryptjs";
 import { z } from "zod";
 // optional mailer:
 import nodemailer from "nodemailer";
@@ -25,7 +25,8 @@ export async function POST(req: Request) {
     return NextResponse.json({ ok: false, error: "Email already in use" }, { status: 409 });
   }
 
-  const passwordHash = await argon2.hash(password, { type: argon2.argon2id });
+  // 10–12 salt rounds are common; 12 is a solid default
+  const passwordHash = await bcrypt.hash(password, 12);
 
   let user;
   if (!existing) {
