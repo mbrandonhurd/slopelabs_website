@@ -13,14 +13,16 @@ const CredentialsSchema = z.object({
 
 export const authOptions: NextAuthOptions = {
   adapter: PrismaAdapter(prisma),
+
+  // 🔎 TEMP: enable verbose logs in your server terminal / Vercel function logs
+  debug: true,
+
   providers: [
-    // Google SSO stays
     GoogleProvider({
       clientId: process.env.GOOGLE_CLIENT_ID!,
       clientSecret: process.env.GOOGLE_CLIENT_SECRET!,
     }),
 
-    // Email + password (Credentials)
     Credentials({
       name: "Email & Password",
       credentials: {
@@ -28,30 +30,79 @@ export const authOptions: NextAuthOptions = {
         password: { label: "Password", type: "password" },
       },
       async authorize(raw) {
-        const parsed = CredentialsSchema.safeParse(raw);
-        if (!parsed.success) return null;
-        const { email, password } = parsed.data;
+        try {
+          const parsed = CredentialsSchema.safeParse(raw);
+          if (!parsed.success) {
+            console.warn("[Credentials] invalid payload");
+            return null;
+          }
+          const { email, password } = parsed.data;
 
-        const user = await prisma.user.findUnique({ where: { email } });
-        if (!user?.passwordHash) return null;
+          const user = await prisma.user.findUnique({ where: { email } });
+          if (!user?.passwordHash) {
+            console.warn("[Credentials] user not found or no passwordHash", { email });
+            return null;
+          }
 
-        // Optional: require verified email for password logins
-        // if (!user.emailVerified) return null;
+          // Optional: require verified email
+          // if (!user.emailVerified) { console.warn("[Credentials] email not verified", { email }); return null; }
 
-        const ok = await argon2.verify(user.passwordHash, password);
-        if (!ok) return null;
-        return { id: user.id, email: user.email, name: user.name, image: user.image };
+          const ok = await argon2.verify(user.passwordHash, password);
+          if (!ok) {
+            console.warn("[Credentials] bad password", { email });
+            return null;
+          }
+
+          console.info("[Credentials] success", { userId: user.id, email: user.email });
+          return { id: user.id, email: user.email, name: user.name, image: user.image };
+        } catch (err) {
+          console.error("[Credentials] authorize error:", err);
+          // returning null turns into ?error=CredentialsSignin (no 500)
+          return null;
+        }
       },
     }),
   ],
+
   session: { strategy: "jwt" },
-  pages: { signIn: "/login" },
+
+  pages: {
+    signIn: "/login",
+    error: "/login", // route NextAuth errors to your login page
+  },
+
   callbacks: {
     async session({ session, token }) {
-      if (session.user) {
-        (session.user as any).id = token.sub;
-      }
+      if (session.user) (session.user as any).id = token.sub;
       return session;
+    },
+    // 🔎 Optional: see every sign-in decision (OAuth + Credentials)
+    async signIn({ user, account, profile, email, credentials }) {
+      console.info("[NextAuth] signIn callback", {
+        provider: account?.provider,
+        userId: user?.id,
+        email: user?.email ?? email,
+      });
+      // Return true to allow, false to deny; you can add checks here (e.g., domain allowlist)
+      return true;
+    },
+  },
+
+  // 🔎 Event hooks (run after actions). Great for surfacing errors in logs.
+  events: {
+    async signIn(message) {
+      console.info("[NextAuth event] signIn", {
+        provider: message?.account?.provider,
+        userId: message?.user?.id,
+        email: message?.user?.email,
+        isNewUser: message?.isNewUser,
+      });
+    },
+    async error(message) {
+      console.error("[NextAuth error event]", message);
+    },
+    async createUser(message) {
+      console.info("[NextAuth event] createUser", { userId: message.user.id, email: message.user.email });
     },
   },
 };
