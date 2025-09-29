@@ -89,17 +89,21 @@ export const authOptions: NextAuthOptions = {
   },
 
   // ✅ Use logger (supported in v4) instead of events.error
-  logger: {
-    error(code, metadata) {
-      console.error("[NextAuth][error]", code, metadata);
+    logger: {
+    // error(code, ...metadata)
+    error(code, ...metadata) {
+      console.error("[NextAuth][error]", code, ...metadata);
     },
-    warn(code, metadata) {
-      console.warn("[NextAuth][warn]", code, metadata);
+    // warn(code) — only one argument in v4 types
+    warn(code) {
+      console.warn("[NextAuth][warn]", code);
     },
-    debug(code, metadata) {
-      console.debug("[NextAuth][debug]", code, metadata);
+    // debug(code, ...metadata)
+    debug(code, ...metadata) {
+      console.debug("[NextAuth][debug]", code, ...metadata);
     },
   },
+
 
   // 🔎 Supported events you can keep
   events: {
