@@ -11,6 +11,20 @@ const CredentialsSchema = z.object({
   password: z.string().min(8).max(128),
 });
 
+// TEMP: print critical env presence at init time (no secrets)
+console.info("[auth:init]", {
+  NEXTAUTH_URL: process.env.NEXTAUTH_URL,
+  HAS_SECRET: !!process.env.NEXTAUTH_SECRET,
+  HAS_DB: !!process.env.DATABASE_URL,
+  HAS_GOOGLE_ID: !!process.env.GOOGLE_CLIENT_ID,
+  HAS_GOOGLE_SECRET: !!process.env.GOOGLE_CLIENT_SECRET,
+});
+
+// keep this too
+// debug: true + logger already added in your config
+
+
+
 export const authOptions: NextAuthOptions = {
   adapter: PrismaAdapter(prisma),
 
