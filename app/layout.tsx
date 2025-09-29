@@ -11,9 +11,9 @@ export const metadata: Metadata = {
 
 export default function RootLayout({ children }: { children: React.ReactNode }) {
   return (
-    <html lang="en">
-      <body>
-        {/* Header hides itself on / and /login (see component below) */}
+    <html lang="en" className="h-full">
+      {/* bg covers entire viewport; min-h-svh handles iOS dynamic bars */}
+      <body className="min-h-svh bg-black text-white antialiased">
         <div className="container py-6">
           <Header />
           <Providers>

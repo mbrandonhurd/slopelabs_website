@@ -9,7 +9,7 @@ export default function LoginClient({ callbackUrl = "/r/south_rockies" }: { call
   const [email, setEmail] = useState("");
 
   return (
-    <div className="min-h-screen bg-black text-white flex items-center justify-center">
+    <div className="min-h-svh bg-black text-white flex items-center justify-center">
       <div className="w-full max-w-sm p-6 rounded-xl border border-neutral-800 bg-neutral-900/50 space-y-4">
         <div className="flex justify-center">
           <Image src="/images/slopelabs_inverse_transparent.svg" alt="Slope Labs" width={240} height={60} priority />

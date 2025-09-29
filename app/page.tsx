@@ -1,7 +1,7 @@
 // app/page.tsx
 export default function Landing() {
   return (
-    <div className="min-h-screen bg-black flex items-center justify-center p-6">
+    <div className="min-h-svh bg-black flex items-center justify-center p-6">
       <img
         src="/images/slopelabs_inverse_transparent.svg"
         alt="Slope Labs"
