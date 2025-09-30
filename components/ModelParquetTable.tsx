@@ -7,11 +7,25 @@ import { loadModelManifest, type ModelManifest } from "@/lib/modelManifest";
 let _dbPromise: Promise<duckdb.AsyncDuckDB> | null = null;
 async function getDB() {
   if (_dbPromise) return _dbPromise;
-  const bundles = duckdb.getJsDelivrBundles();                 // auto-choose SIMD bundle
-  const worker = new Worker(bundles.mainWorker!);
-  const db = new duckdb.AsyncDuckDB(new duckdb.ConsoleLogger(), worker);
-  await db.instantiate(bundles.mainModule, bundles.pthreadWorker);
-  return (_dbPromise = Promise.resolve(db));
+  // 1) Get the available bundles (SIMD / non-SIMD, etc.)
+  const bundles = duckdb.getJsDelivrBundles();
+  // 2) Select the best bundle for this environment
+  const bundle = await duckdb.selectBundle(bundles);
+  // 3) Create a Worker from the selected bundle
+  //
+  // In many bundlers, `new Worker(bundle.mainWorker!)` is enough.
+  // If your setup requires a URL object, uncomment the next two lines
+  // and replace the Worker creation accordingly.
+  //
+  // const workerUrl = new URL(bundle.mainWorker!, window.location.href);
+  // const worker = new Worker(workerUrl);
+  const worker = new Worker(bundle.mainWorker!);
+
+  const logger = new duckdb.ConsoleLogger();
+  const db = new duckdb.AsyncDuckDB(logger, worker);
+  await db.instantiate(bundle.mainModule, bundle.pthreadWorker);
+  _dbPromise = Promise.resolve(db);
+  return db;
 }
 
 type Row = Record<string, string | number | null | undefined>;
