@@ -1,0 +1,164 @@
+{
+  "region": "south_rockies",
+  "format": "long",
+  "rowSampled": 50000,
+  "columnCount": 13,
+  "timeColumn": "valid_date",
+  "valueColumn": "mean_value",
+  "varColumn": "variable",
+  "levelColumn": "level",
+  "valueStats": {
+    "nulls": 0,
+    "nonNulls": 50000
+  },
+  "vars": [
+    {
+      "code": "APCP",
+      "name": "Accumulated precipitation",
+      "unitsDefault": "kg m⁻²"
+    },
+    {
+      "code": "CWAT",
+      "name": "Cloud-water path",
+      "unitsDefault": "kg m⁻²"
+    },
+    {
+      "code": "DLWRF",
+      "name": "Downward long-wave radiation",
+      "unitsDefault": "W·s m⁻²"
+    },
+    {
+      "code": "DSWRF",
+      "name": "Downward short-wave radiation",
+      "unitsDefault": "W·s m⁻²"
+    },
+    {
+      "code": "FPRATE",
+      "name": "Frozen-precipitation rate",
+      "unitsDefault": "kg m⁻² s⁻¹"
+    },
+    {
+      "code": "GUST",
+      "name": "Max wind gust",
+      "unitsDefault": "m s⁻¹"
+    },
+    {
+      "code": "HGT",
+      "name": "Geopotential height",
+      "unitsDefault": "gpm"
+    },
+    {
+      "code": "HPBL",
+      "name": "PBL height",
+      "unitsDefault": "m"
+    },
+    {
+      "code": "IPRATE",
+      "name": "Ice-precipitation rate",
+      "unitsDefault": "kg m⁻² s⁻¹"
+    },
+    {
+      "code": "LHTFL",
+      "name": "Latent-heat flux",
+      "unitsDefault": "W m⁻²"
+    },
+    {
+      "code": "NLWRS",
+      "name": "Net LW radiation (sfc)",
+      "unitsDefault": "W·s m⁻²"
+    },
+    {
+      "code": "NSWRS",
+      "name": "Net SW radiation (sfc)",
+      "unitsDefault": "W·s m⁻²"
+    },
+    {
+      "code": "PRATE",
+      "name": "Total precip rate",
+      "unitsDefault": "kg m⁻² s⁻¹"
+    },
+    {
+      "code": "PRES",
+      "name": "Surface pressure",
+      "unitsDefault": "Pa"
+    },
+    {
+      "code": "RPRATE",
+      "name": "Rain precip rate",
+      "unitsDefault": "kg m⁻² s⁻¹"
+    },
+    {
+      "code": "SDEN",
+      "name": "Snow density",
+      "unitsDefault": "kg m⁻³"
+    },
+    {
+      "code": "SDWE",
+      "name": "Snow-water equivalent",
+      "unitsDefault": "kg m⁻²"
+    },
+    {
+      "code": "SHTFL",
+      "name": "Sensible-heat flux",
+      "unitsDefault": "W·s m⁻²"
+    },
+    {
+      "code": "SKINT",
+      "name": "Skin temperature",
+      "unitsDefault": "K"
+    },
+    {
+      "code": "SNOD",
+      "name": "Snow depth",
+      "unitsDefault": "m"
+    },
+    {
+      "code": "SPFH",
+      "name": "Specific humidity (2 m)",
+      "unitsDefault": "kg kg⁻¹"
+    },
+    {
+      "code": "SPRATE",
+      "name": "Snowfall rate",
+      "unitsDefault": "kg m⁻² s⁻¹"
+    },
+    {
+      "code": "TCDC",
+      "name": "Total cloud cover",
+      "unitsDefault": "fraction"
+    },
+    {
+      "code": "TMP",
+      "name": "Air temperature",
+      "unitsDefault": "K"
+    },
+    {
+      "code": "UGRD",
+      "name": "U-wind",
+      "unitsDefault": "m s⁻¹"
+    },
+    {
+      "code": "VGRD",
+      "name": "V-wind",
+      "unitsDefault": "m s⁻¹"
+    },
+    {
+      "code": "VVEL",
+      "name": "Vertical velocity",
+      "unitsDefault": "Pa s⁻¹"
+    }
+  ],
+  "levels": [
+    "AGL_10m",
+    "AGL_2m",
+    "EATM",
+    "ISBL_500hPa",
+    "ISBL_700hPa",
+    "ISBL_850hPa",
+    "Sfc"
+  ],
+  "hints": {
+    "orderBy": "valid_date",
+    "orderDir": "desc"
+  }
+}

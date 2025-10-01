@@ -6,9 +6,15 @@ import ProblemsChips from '@/components/ProblemsChips';
 import dynamic from 'next/dynamic';
 import WeatherTable from "@/components/WeatherTable";
 import AvalancheList from "@/components/AvalancheList";
+import ModelParquetTable from "@/components/ModelParquetTable";
+
 
 const MapPanel = dynamic(() => import('@/components/MapPanel'), { ssr: false });
 const TimeseriesPanel = dynamic(() => import('@/components/TimeseriesPanel'), { ssr: false });
+
+<section className="col-span-12">
+  <ModelParquetTable region={region} />
+</section>
 
 export default function RegionPage({ params }: { params: { region: string } }) {
   const region = params.region;

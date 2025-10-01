@@ -57,7 +57,7 @@ export default function ModelParquetTable({ region }: { region: string }) {
         setLevels(m.levels ?? []);
         setLevelCode((m.levels ?? [])[0] || "");
         // default metric: use valueColumn if present
-        if (m.valueColumn) setMetric(m.valueColumn);
+        if ((m as any).valueColumn) setMetric((m as any).valueColumn as string);
         else if (m.valueColumns && m.valueColumns.length) setMetric(m.valueColumns[0]);
       } catch (e: any) {
         setErr(e?.message || String(e));
@@ -76,24 +76,33 @@ export default function ModelParquetTable({ region }: { region: string }) {
         const db = await getDB();
         const conn = await db.connect();
 
+        // pick file path: manifest.parquetPath or region file
+        const parquetUrl = manifest.parquetPath || `/data/${region}/weather_model.parquet`;
+
         // load parquet file into DuckDB virtual FS (cacheable by browser)
-        const url = `/data/${region}/weather_model.parquet`;
-        const buf = new Uint8Array(await (await fetch(url, { cache: "force-cache" })).arrayBuffer());
+        const buf = new Uint8Array(await (await fetch(parquetUrl, { cache: "force-cache" })).arrayBuffer());
         await db.registerFileBuffer("model.parquet", buf);
 
         // Columns from manifest
         const tcol = manifest.timeColumn;
         const varCol = manifest.varColumn;
         const lvlCol = manifest.levelColumn;
-        const valCols = manifest.valueColumns ?? (manifest.valueColumn ? [manifest.valueColumn] : ["mean_value"]);
+        const regionCol = manifest.regionColumn; // e.g., "region"
+        const valCols = manifest.valueColumns ?? ((manifest as any).valueColumn ? [(manifest as any).valueColumn as string] : ["mean_value"]);
         const metricCol = metric && valCols.includes(metric) ? metric : valCols[0];
 
-        // SQL (long layout): filter var & level, select time + metric
-        // Most parquet types here are strings/numbers; you can CAST time if desired.
+        // SQL with region filter (only when regionCol exists)
+        const whereParts: string[] = [];
+        if (regionCol) whereParts.push(`${regionCol} = '${region}'`);
+        whereParts.push(`${varCol} = '${varCode}'`);
+        whereParts.push(`${lvlCol} = '${levelCode}'`);
+        const whereSql = "WHERE " + whereParts.join(" AND ");
+
+        // SQL (long layout): filter var/level(/region), select time + metric
         const sql = `
           SELECT ${tcol} AS time, ${metricCol} AS value
           FROM parquet_scan('model.parquet')
-          WHERE ${varCol} = '${varCode}' AND ${lvlCol} = '${levelCode}'
+          ${whereSql}
           ORDER BY ${tcol} DESC
           LIMIT 1000
         `;
@@ -118,7 +127,7 @@ export default function ModelParquetTable({ region }: { region: string }) {
 
   const varLabelMap = useMemo(() => {
     const m: Record<string, string> = {};
-    (manifest?.vars || []).forEach(v => m[v.code] = v.name ? `${v.code} — ${v.name}` : v.code);
+    (manifest?.vars || []).forEach(v => m[v.code] = (v as any).name ? `${v.code} — ${(v as any).name}` : v.code);
     return m;
   }, [manifest]);
 
@@ -128,6 +137,9 @@ export default function ModelParquetTable({ region }: { region: string }) {
   if (!manifest) {
     return <div className="text-sm text-neutral-400">Loading model manifest…</div>;
   }
+
+  // for footer note: reflect actual parquet source
+  const parquetUrlForFooter = manifest.parquetPath || `/data/${region}/weather_model.parquet`;
 
   return (
     <div className="card">
@@ -159,7 +171,7 @@ export default function ModelParquetTable({ region }: { region: string }) {
         </select>
 
         {/* Metric selector (if multiple) */}
-        { (manifest.valueColumns && manifest.valueColumns.length > 1) ? (
+        {(manifest.valueColumns && manifest.valueColumns.length > 1) ? (
           <>
             <label className="text-xs text-neutral-500">Metric</label>
             <select
@@ -179,7 +191,7 @@ export default function ModelParquetTable({ region }: { region: string }) {
 
       <div className="card-c overflow-auto">
         {!rows.length ? (
-          <div className="text-sm text-neutral-500">No rows for {varCode}@{levelCode}.</div>
+          <div className="text-sm text-neutral-500">No rows for {varCode}@{levelCode}{manifest.regionColumn ? ` in ${region}` : ""}.</div>
         ) : (
           <table className="min-w-full text-sm">
             <thead>
@@ -203,7 +215,8 @@ export default function ModelParquetTable({ region }: { region: string }) {
       </div>
 
       <div className="px-4 py-2 text-xs text-neutral-500">
-        Data from <code>/data/{region}/weather_model.parquet</code> • columns: <code>{manifest.varColumn}</code>, <code>{manifest.levelColumn}</code>, <code>{manifest.timeColumn}</code>, <code>{manifest.valueColumn ?? (manifest.valueColumns || []).join(", ")}</code>
+        Data from <code>{parquetUrlForFooter}</code> • columns: <code>{manifest.varColumn}</code>, <code>{manifest.levelColumn}</code>, <code>{manifest.timeColumn}</code>, <code>{(manifest as any).valueColumn ?? (manifest.valueColumns || []).join(", ")}</code>
+        {manifest.regionColumn ? <> • region filter column: <code>{manifest.regionColumn}</code></> : null}
       </div>
     </div>
   );
