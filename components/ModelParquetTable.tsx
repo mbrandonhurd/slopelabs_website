@@ -95,37 +95,43 @@ export default function ModelParquetTable({ region }: { region: string }) {
         const parquetUrl = manifest.parquetPath || `/data/${region}/weather_model.parquet`;
         const buf = new Uint8Array(await (await fetch(parquetUrl, { cache: "force-cache" })).arrayBuffer());
         await db.registerFileBuffer("model.parquet", buf);
-
+  
         const varCol = manifest.varColumn;
         const lvlCol = manifest.levelColumn;
-        const rCol = manifest.regionColumn; // optional
+        const rCol   = manifest.regionColumn; // optional
         const regList = rCol ? regionVariants(region) : [];
         const regWhere = rCol ? `WHERE lower(${rCol}) IN (${regList.map(r => `'${r.toLowerCase()}'`).join(",")})` : "";
-
-        // discover vars and levels from the data (filtered by region if regionCol exists)
+  
+        // discover vars and levels (filtered by region if regionCol exists)
         const varSql = `SELECT DISTINCT ${varCol} as v FROM parquet_scan('model.parquet') ${regWhere} ORDER BY 1`;
         const lvlSql = `SELECT DISTINCT ${lvlCol} as l FROM parquet_scan('model.parquet') ${regWhere} ORDER BY 1`;
-
-        const varsRes = await conn.query<{ v: string }>(varSql);
-        const levelsRes = await conn.query<{ l: string }>(lvlSql);
-        const varList = (await varsRes.toArray()).map(r => r.v);
-        const lvlList = (await levelsRes.toArray()).map(r => r.l);
-
+  
+        // No generic here; let TS treat as unknown/any and read aliases
+        const varsRes = await conn.query(varSql);
+        const levelsRes = await conn.query(lvlSql);
+  
+        const varRows = await varsRes.toArray();
+        const lvlRows = await levelsRes.toArray();
+  
+        const varList = (varRows as any[]).map(r => String((r as any).v));
+        const lvlList = (lvlRows as any[]).map(r => String((r as any).l));
+  
         setVars(varList);
         setLevels(lvlList);
-
+  
         // choose defaults that actually exist
-        // prefer manifest first entries if present, else the discovered list head
         const defVar = manifest.vars?.[0]?.code && varList.includes(manifest.vars[0].code)
           ? manifest.vars[0].code
           : (varList[0] || "");
-        const defLvl = manifest.levels?.[0] && (lvlList.includes(manifest.levels[0]) || levelVariants(manifest.levels[0]).some(v => lvlList.includes(v)))
+  
+        const defLvl = manifest.levels?.[0] &&
+          (lvlList.includes(manifest.levels[0]) || levelVariants(manifest.levels[0]).some(v => lvlList.includes(v)))
           ? manifest.levels[0]
           : (lvlList[0] || "");
-
+  
         setVarCode(defVar);
         setLevelCode(defLvl);
-
+  
         await conn.close();
       } catch (e: any) {
         setErr(e?.message || String(e));
