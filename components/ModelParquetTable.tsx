@@ -21,21 +21,19 @@ async function getDB() {
 // Self-hosted bundles (served from /public/duckdb on the same origin).
   const bundles = {
     mvp: {
-      mainModule: "/duckdb/duckdb-wasm.wasm",
-      mainWorker: "/duckdb/duckdb-browser-coi.worker.js",
+      mainModule: "/duckdb/duckdb-wasm-mvp.wasm",
+      mainWorker: "/duckdb/duckdb-browser-mvp.worker.js",
     },
     eh: {
       mainModule: "/duckdb/duckdb-wasm-eh.wasm",
       mainWorker: "/duckdb/duckdb-browser-eh.worker.js",
-      // the EH build uses pthreads; same worker path is acceptable here
+      // Some versions need pthreadWorker. If missing, selectBundle will still pick MVP.
       pthreadWorker: "/duckdb/duckdb-browser-eh.worker.js",
     },
-  } satisfies duckdb.DuckDBBundles;
-
+  } as const;
+  
   const bundle = await duckdb.selectBundle(bundles);
-  // In most Next.js setups this classic worker form is fine.
-  // If your bundler complains, you can try: new Worker(new URL(bundle.mainWorker!, window.location.href), { type: 'classic' })
-  const worker = new Worker(bundle.mainWorker!);
+  const worker = new Worker(bundle.mainWorker!); // classic worker
   const db = new duckdb.AsyncDuckDB(new duckdb.ConsoleLogger(), worker);
   await db.instantiate(bundle.mainModule, bundle.pthreadWorker);
 

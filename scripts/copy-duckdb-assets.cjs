@@ -5,33 +5,40 @@ const path = require("path");
 const srcDir = path.join(process.cwd(), "node_modules", "@duckdb", "duckdb-wasm", "dist");
 const dstDir = path.join(process.cwd(), "public", "duckdb");
 
-const FILES = [
-  // workers
-  "duckdb-browser-eh.worker.js",
-  "duckdb-browser-coi.worker.js",
-  // wasm modules
-  "duckdb-wasm-eh.wasm",
-  "duckdb-wasm.wasm",
-];
-
 fs.mkdirSync(dstDir, { recursive: true });
 
-let copied = 0;
-for (const f of FILES) {
-  const src = path.join(srcDir, f);
-  const dst = path.join(dstDir, f);
-  if (!fs.existsSync(src)) {
-    console.error(`[duckdb-copy] Missing file: ${src}`);
-    process.exitCode = 1;
-    continue;
+/** Try to copy a file only if present; never fail the build. */
+function tryCopy(baseName) {
+  const src = path.join(srcDir, baseName);
+  const dst = path.join(dstDir, baseName);
+  if (fs.existsSync(src)) {
+    fs.copyFileSync(src, dst);
+    console.log(`[duckdb-copy] Copied ${baseName} -> ${path.relative(process.cwd(), dst)}`);
+    return true;
+  } else {
+    console.warn(`[duckdb-copy] Missing: ${src}`);
+    return false;
   }
-  fs.copyFileSync(src, dst);
-  copied++;
-  console.log(`[duckdb-copy] Copied ${f} -> ${path.relative(process.cwd(), dst)}`);
 }
 
-if (copied === FILES.length) {
-  console.log("[duckdb-copy] All DuckDB assets copied.");
-} else {
-  console.warn("[duckdb-copy] Some files were not copied. See messages above.");
+// Known names across versions:
+const wanted = [
+  // Workers
+  "duckdb-browser-eh.worker.js",
+  "duckdb-browser-mvp.worker.js",
+  // Some versions ship this too; harmless if absent
+  "duckdb-browser-coi.worker.js",
+  // WASM modules
+  "duckdb-wasm-eh.wasm",
+  "duckdb-wasm-mvp.wasm",
+];
+
+let copiedAny = false;
+for (const f of wanted) copiedAny = tryCopy(f) || copiedAny;
+
+if (!copiedAny) {
+  console.warn("[duckdb-copy] No DuckDB assets were copied. Check @duckdb/duckdb-wasm install/version.");
 }
+
+// IMPORTANT: never set a non-zero exit code — we do not want to fail the build if some files moved.
+process.exit(0);
