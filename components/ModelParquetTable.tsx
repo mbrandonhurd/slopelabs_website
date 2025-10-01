@@ -8,9 +8,7 @@ let _dbPromise: Promise<duckdb.AsyncDuckDB> | null = null;
 async function getDB() {
   if (_dbPromise) return _dbPromise;
   // 1) Get the available bundles (SIMD / non-SIMD, etc.)
-  const bundles = duckdb.getJsDelivrBundles();
   // 2) Select the best bundle for this environment
-  const bundle = await duckdb.selectBundle(bundles);
   // 3) Create a Worker from the selected bundle
   //
   // In many bundlers, `new Worker(bundle.mainWorker!)` is enough.
@@ -19,11 +17,33 @@ async function getDB() {
   //
   // const workerUrl = new URL(bundle.mainWorker!, window.location.href);
   // const worker = new Worker(workerUrl);
+
+// Self-hosted bundles (served from /public/duckdb on the same origin).
+  const bundles = {
+    mvp: {
+      mainModule: "/duckdb/duckdb-wasm.wasm",
+      mainWorker: "/duckdb/duckdb-browser-coi.worker.js",
+    },
+    eh: {
+      mainModule: "/duckdb/duckdb-wasm-eh.wasm",
+      mainWorker: "/duckdb/duckdb-browser-eh.worker.js",
+      // the EH build uses pthreads; same worker path is acceptable here
+      pthreadWorker: "/duckdb/duckdb-browser-eh.worker.js",
+    },
+  } satisfies duckdb.DuckDBBundles;
+
+  const bundle = await duckdb.selectBundle(bundles);
+  // In most Next.js setups this classic worker form is fine.
+  // If your bundler complains, you can try: new Worker(new URL(bundle.mainWorker!, window.location.href), { type: 'classic' })
   const worker = new Worker(bundle.mainWorker!);
+  const db = new duckdb.AsyncDuckDB(new duckdb.ConsoleLogger(), worker);
+  await db.instantiate(bundle.mainModule, bundle.pthreadWorker);
+
 
   const logger = new duckdb.ConsoleLogger();
-  const db = new duckdb.AsyncDuckDB(logger, worker);
-  await db.instantiate(bundle.mainModule, bundle.pthreadWorker);
+
+
+
   _dbPromise = Promise.resolve(db);
   return db;
 }

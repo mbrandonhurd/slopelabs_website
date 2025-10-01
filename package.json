@@ -7,7 +7,7 @@
     "build": "next build",
     "start": "next start",
     "lint": "eslint . --ext .ts,.tsx",
-    "postinstall": "prisma generate && prisma migrate deploy"
+    "postinstall": "prisma generate && prisma migrate deploy && node scripts/copy-duckdb-assets.cjs"
   },
   "dependencies": {
     "@duckdb/duckdb-wasm": "^1.30.0",
