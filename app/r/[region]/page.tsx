@@ -6,15 +6,13 @@ import ProblemsChips from '@/components/ProblemsChips';
 import dynamic from 'next/dynamic';
 import WeatherTable from "@/components/WeatherTable";
 import AvalancheList from "@/components/AvalancheList";
-import ModelParquetTable from "@/components/ModelParquetTable";
 
 
+// Load client-only components dynamically to avoid SSR issues (duckdb-wasm)
+const ModelParquetTable = dynamic(() => import('@/components/ModelParquetTable'), { ssr: false });
 const MapPanel = dynamic(() => import('@/components/MapPanel'), { ssr: false });
 const TimeseriesPanel = dynamic(() => import('@/components/TimeseriesPanel'), { ssr: false });
 
-<section className="col-span-12">
-  <ModelParquetTable region={region} />
-</section>
 
 export default function RegionPage({ params }: { params: { region: string } }) {
   const region = params.region;
@@ -57,6 +55,10 @@ export default function RegionPage({ params }: { params: { region: string } }) {
           <AvalancheList region={region} />
         </section>
       </div>
+      {/* Model parquet table (shared parquet, filtered by region) */}
+      <section className="col-span-12">
+        <ModelParquetTable region={region} />
+      </section>
     </div>
   );
 }
