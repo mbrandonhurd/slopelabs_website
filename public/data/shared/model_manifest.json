@@ -8,8 +8,8 @@
   "regionColumn": "region",
   "valueColumns": ["mean_value", "stddev", "p05", "p95", "count"],
   "timeRange": { "min": "2025-02-06", "max": "2025-02-10" },
-  "vars": [],          // optional: leave empty; UI discovers via parquet if needed
-  "levels": [],        // same
-  "regions": [],       // same
+  "vars": [],
+  "levels": [],
+  "regions": [],
   "hints": { "orderBy": "valid_date", "orderDir": "desc" }
 }
