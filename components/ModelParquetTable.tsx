@@ -1,7 +1,6 @@
 'use client';
 
-import React from "react";
-import { useEffect, useMemo, useRef, useState } from "react";
+import React, { useEffect, useMemo, useRef, useState } from "react";
 import * as duckdb from "@duckdb/duckdb-wasm";
 import { loadModelManifest, type ModelManifest } from "@/lib/modelManifest";
 
@@ -33,57 +32,113 @@ export default function ModelParquetTable({ region }: { region: string }) {
   const [err, setErr] = useState<string | null>(null);
   const latestQuery = useRef<number>(0);
 
+  // 1) Load manifest
   useEffect(() => {
     (async () => {
       setErr(null);
       try {
         const m = await loadModelManifest(region);
         setManifest(m);
-        const v = (m.vars ?? []).map(v => v.code);
-        setVars(v);
-        setVarCode(v[0] || "");
-        setLevels(m.levels ?? []);
-        setLevelCode((m.levels ?? [])[0] || "");
+
+        // select metric default
         if ((m as any).valueColumn) setMetric((m as any).valueColumn as string);
         else if (m.valueColumns && m.valueColumns.length) setMetric(m.valueColumns[0]);
+
+        // seed var/level from manifest if provided
+        const mv = (m.vars ?? []).map(v => v.code);
+        const ml = m.levels ?? [];
+        setVars(mv);
+        setLevels(ml);
+        setVarCode(mv[0] || "");
+        setLevelCode(ml[0] || "");
+        console.debug("[ModelParquetTable] manifest loaded", { mvCount: mv.length, mlCount: ml.length });
       } catch (e: any) {
         setErr(e?.message || String(e));
       }
     })();
   }, [region]);
 
+  // 2) Fallback discovery of vars/levels if manifest didn't provide them
   useEffect(() => {
     (async () => {
-      if (!manifest || !varCode || !levelCode) return;
-      setLoading(true); setErr(null);
+      if (!manifest) return;
+      if (vars.length && levels.length) return; // nothing to do
 
-      const qid = ++latestQuery.current;
       try {
         const db = await getDB();
         const conn = await db.connect();
 
-        // Use shared parquet if provided; else fall back to per-region file
         const parquetUrl = manifest.parquetPath || `/data/${region}/weather_model.parquet`;
+        const regionCol = manifest.regionColumn || "region";
+        const varCol = manifest.varColumn;
+        const lvlCol = manifest.levelColumn;
+
+        // ensure file is registered (idempotent)
+        const buf = new Uint8Array(await (await fetch(parquetUrl, { cache: "force-cache" })).arrayBuffer());
+        await db.registerFileBuffer("model.parquet", buf);
+
+        const whereRegion = `${regionCol} = '${region}'`;
+        // discover variables/levels for this region
+        let discoveredVars: string[] = vars;
+        let discoveredLevels: string[] = levels;
+
+        if (!discoveredVars.length) {
+          const sqlV = `SELECT DISTINCT ${varCol} AS v FROM parquet_scan('model.parquet') WHERE ${whereRegion} ORDER BY 1`;
+          const resV = await conn.query<{ v: string }>(sqlV);
+          discoveredVars = (await resV.toArray()).map(x => String(x.v));
+          setVars(discoveredVars);
+          setVarCode(prev => prev || discoveredVars[0] || "");
+          console.debug("[ModelParquetTable] discovered vars", discoveredVars.slice(0, 12), `(+${Math.max(0, discoveredVars.length-12)} more)`);
+        }
+
+        if (!discoveredLevels.length) {
+          const sqlL = `SELECT DISTINCT ${lvlCol} AS l FROM parquet_scan('model.parquet') WHERE ${whereRegion} ORDER BY 1`;
+          const resL = await conn.query<{ l: string }>(sqlL);
+          discoveredLevels = (await resL.toArray()).map(x => String(x.l));
+          setLevels(discoveredLevels);
+          setLevelCode(prev => prev || discoveredLevels[0] || "");
+          console.debug("[ModelParquetTable] discovered levels", discoveredLevels);
+        }
+
+        await conn.close();
+      } catch (e: any) {
+        console.error("[ModelParquetTable] discovery error", e);
+        // don't block the page entirely—let main query show error if needed
+      }
+    })();
+  }, [manifest, region, vars.length, levels.length]);
+
+  // 3) Main query
+  useEffect(() => {
+    (async () => {
+      if (!manifest) return;
+      // If we still don't have defaults, defer query until discovery completes
+      if (!varCode || !levelCode) return;
+
+      setLoading(true); setErr(null);
+      const qid = ++latestQuery.current;
+
+      try {
+        const db = await getDB();
+        const conn = await db.connect();
+
+        const parquetUrl = manifest.parquetPath || `/data/${region}/weather_model.parquet`;
+        const tcol = manifest.timeColumn;
+        const varCol = manifest.varColumn;
+        const lvlCol = manifest.levelColumn;
+        const regionCol = manifest.regionColumn || "region";
+        const valCols = manifest.valueColumns ?? ((manifest as any).valueColumn ? [(manifest as any).valueColumn as string] : ["mean_value"]);
+        const metricCol = metric && valCols.includes(metric) ? metric : valCols[0];
 
         const buf = new Uint8Array(await (await fetch(parquetUrl, { cache: "force-cache" })).arrayBuffer());
         await db.registerFileBuffer("model.parquet", buf);
 
-        const tcol = manifest.timeColumn;
-        const varCol = manifest.varColumn;
-        const lvlCol = manifest.levelColumn;
-        const regionCol = manifest.regionColumn; // optional
-
-        const valCols = manifest.valueColumns ?? ((manifest as any).valueColumn ? [(manifest as any).valueColumn as string] : ["mean_value"]);
-        const metricCol = metric && valCols.includes(metric) ? metric : valCols[0];
-
-        // WHERE clause
         const whereParts: string[] = [];
         if (regionCol) whereParts.push(`${regionCol} = '${region}'`);
         whereParts.push(`${varCol} = '${varCode}'`);
         whereParts.push(`${lvlCol} = '${levelCode}'`);
         const whereSql = "WHERE " + whereParts.join(" AND ");
 
-        // Build SQL without backticks (avoid accidental template literal parse issues)
         const sql = [
           `SELECT ${tcol} AS time, ${metricCol} AS value`,
           `FROM parquet_scan('model.parquet')`,
@@ -92,17 +147,23 @@ export default function ModelParquetTable({ region }: { region: string }) {
           `LIMIT 1000`
         ].join("\n");
 
+        console.debug("[ModelParquetTable] parquetUrl", parquetUrl);
+        console.debug("[ModelParquetTable] WHERE", whereSql);
+        console.debug("[ModelParquetTable] metric", metricCol);
+
         const res = await conn.query(sql);
         const table = await res.toArray();
 
         if (qid === latestQuery.current) {
           setRows(table as Row[]);
           setCols(["time", "value"]);
+          console.debug("[ModelParquetTable] rows", table.length);
         }
 
         await conn.close();
       } catch (e: any) {
         if (qid === latestQuery.current) setErr(e?.message || String(e));
+        console.error("[ModelParquetTable] query error", e);
       } finally {
         if (qid === latestQuery.current) setLoading(false);
       }
@@ -132,7 +193,7 @@ export default function ModelParquetTable({ region }: { region: string }) {
 
         <label className="text-xs text-neutral-500">Level</label>
         <select value={levelCode} onChange={(e) => setLevelCode(e.target.value)} className="rounded-md border border-neutral-300 bg-white px-2 py-1 text-sm text-black">
-          {(manifest.levels ?? []).map(l => <option key={l} value={l}>{l}</option>)}
+          {levels.map(l => <option key={l} value={l}>{l}</option>)}
         </select>
 
         {manifest.valueColumns && manifest.valueColumns.length > 1 ? (
@@ -152,7 +213,7 @@ export default function ModelParquetTable({ region }: { region: string }) {
       <div className="card-c overflow-auto">
         {!rows.length ? (
           <div className="text-sm text-neutral-500">
-            No rows for {varCode}@{levelCode}{manifest.regionColumn ? ` in ${region}` : ""}.
+            No rows for {varCode || "(variable)"}@{levelCode || "(level)"}{manifest.regionColumn ? ` in ${region}` : ""}.
           </div>
         ) : (
           <table className="min-w-full text-sm">
