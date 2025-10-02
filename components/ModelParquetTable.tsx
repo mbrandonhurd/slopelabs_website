@@ -84,8 +84,9 @@ export default function ModelParquetTable({ region }: { region: string }) {
 
         if (!discoveredVars.length) {
           const sqlV = `SELECT DISTINCT ${varCol} AS v FROM parquet_scan('model.parquet') WHERE ${whereRegion} ORDER BY 1`;
-          const resV = await conn.query<{ v: string }>(sqlV);
-          discoveredVars = (await resV.toArray()).map(x => String(x.v));
+          const resV = await conn.query(sqlV);
+          const arrV = (await resV.toArray()) as Array<Record<string, unknown>>;
+          discoveredVars = arrV.map(x => String(x["v"]));
           setVars(discoveredVars);
           setVarCode(prev => prev || discoveredVars[0] || "");
           console.debug("[ModelParquetTable] discovered vars", discoveredVars.slice(0, 12), `(+${Math.max(0, discoveredVars.length-12)} more)`);
@@ -93,8 +94,9 @@ export default function ModelParquetTable({ region }: { region: string }) {
 
         if (!discoveredLevels.length) {
           const sqlL = `SELECT DISTINCT ${lvlCol} AS l FROM parquet_scan('model.parquet') WHERE ${whereRegion} ORDER BY 1`;
-          const resL = await conn.query<{ l: string }>(sqlL);
-          discoveredLevels = (await resL.toArray()).map(x => String(x.l));
+          const resL = await conn.query(sqlL);
+          const arrL = (await resL.toArray()) as Array<Record<string, unknown>>;
+          discoveredLevels = arrL.map(x => String(x["l"]));
           setLevels(discoveredLevels);
           setLevelCode(prev => prev || discoveredLevels[0] || "");
           console.debug("[ModelParquetTable] discovered levels", discoveredLevels);
