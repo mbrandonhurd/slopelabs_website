@@ -1,5 +1,6 @@
 'use client';
 
+import React from "react";
 import { useEffect, useMemo, useRef, useState } from "react";
 import * as duckdb from "@duckdb/duckdb-wasm";
 import { loadModelManifest, type ModelManifest } from "@/lib/modelManifest";
@@ -61,10 +62,9 @@ export default function ModelParquetTable({ region }: { region: string }) {
         const db = await getDB();
         const conn = await db.connect();
 
-        // pick the shared parquet (or fallback) from the manifest
+        // Use shared parquet if provided; else fall back to per-region file
         const parquetUrl = manifest.parquetPath || `/data/${region}/weather_model.parquet`;
 
-        // load parquet into DuckDB FS
         const buf = new Uint8Array(await (await fetch(parquetUrl, { cache: "force-cache" })).arrayBuffer());
         await db.registerFileBuffer("model.parquet", buf);
 
@@ -76,20 +76,21 @@ export default function ModelParquetTable({ region }: { region: string }) {
         const valCols = manifest.valueColumns ?? ((manifest as any).valueColumn ? [(manifest as any).valueColumn as string] : ["mean_value"]);
         const metricCol = metric && valCols.includes(metric) ? metric : valCols[0];
 
-        // WHERE clause with region filter if present
+        // WHERE clause
         const whereParts: string[] = [];
         if (regionCol) whereParts.push(`${regionCol} = '${region}'`);
         whereParts.push(`${varCol} = '${varCode}'`);
         whereParts.push(`${lvlCol} = '${levelCode}'`);
         const whereSql = "WHERE " + whereParts.join(" AND ");
 
-        const sql = `
-          SELECT ${tcol} AS time, ${metricCol} AS value
-          FROM parquet_scan('model.parquet')
-          ${whereSql}
-          ORDER BY ${tcol} DESC
-          LIMIT 1000
-        `;
+        // Build SQL without backticks (avoid accidental template literal parse issues)
+        const sql = [
+          `SELECT ${tcol} AS time, ${metricCol} AS value`,
+          `FROM parquet_scan('model.parquet')`,
+          whereSql,
+          `ORDER BY ${tcol} DESC`,
+          `LIMIT 1000`
+        ].join("\n");
 
         const res = await conn.query(sql);
         const table = await res.toArray();
@@ -139,4 +140,40 @@ export default function ModelParquetTable({ region }: { region: string }) {
             <label className="text-xs text-neutral-500">Metric</label>
             <select value={metric} onChange={(e) => setMetric(e.target.value)} className="rounded-md border border-neutral-300 bg-white px-2 py-1 text-sm text-black">
               {manifest.valueColumns.map(c => <option key={c} value={c}>{c}</option>)}
-            </sele
+            </select>
+          </>
+        ) : null}
+
+        <span className="ml-auto text-xs text-neutral-500">
+          {loading ? "Querying…" : `${rows.length} rows`}
+        </span>
+      </div>
+
+      <div className="card-c overflow-auto">
+        {!rows.length ? (
+          <div className="text-sm text-neutral-500">
+            No rows for {varCode}@{levelCode}{manifest.regionColumn ? ` in ${region}` : ""}.
+          </div>
+        ) : (
+          <table className="min-w-full text-sm">
+            <thead>
+              <tr>{cols.map(c => <th key={c} className="text-left px-2 py-1 border-b font-semibold">{c}</th>)}</tr>
+            </thead>
+            <tbody>
+              {rows.map((r, i) => (
+                <tr key={i} className="border-b last:border-0">
+                  {cols.map(c => <td key={c} className="px-2 py-1 whitespace-nowrap">{String(r[c] ?? "")}</td>)}
+                </tr>
+              ))}
+            </tbody>
+          </table>
+        )}
+      </div>
+
+      <div className="px-4 py-2 text-xs text-neutral-500">
+        Data from <code>{parquetUrlForFooter}</code> • columns: <code>{manifest.varColumn}</code>, <code>{manifest.levelColumn}</code>, <code>{manifest.timeColumn}</code>, <code>{(manifest as any).valueColumn ?? (manifest.valueColumns || []).join(", ")}</code>
+        {manifest.regionColumn ? <> • region filter column: <code>{manifest.regionColumn}</code></> : null}
+      </div>
+    </div>
+  );
+}
