@@ -21,10 +21,11 @@ async function discoverRegionsFromParquet(): Promise<string[]> {
     const buf = new Uint8Array(await (await fetch(parquetPath, { cache: "force-cache" })).arrayBuffer());
     await db.registerFileBuffer("shared_model.parquet", buf);
 
-    const res = await conn.query<{ region: string }>(
+    const res = await conn.query(
       `SELECT DISTINCT ${regionCol} AS region FROM parquet_scan('shared_model.parquet') ORDER BY 1`
     );
-    const regions = (await res.toArray()).map(r => String(r.region));
+    const rows = (await res.toArray()) as Array<Record<string, unknown>>;
+    const regions = rows.map(r => String(r["region"]));
     await conn.close();
 
     console.debug('[RegionSwitcher] discovered regions from parquet:', regions);
