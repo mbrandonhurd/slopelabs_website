@@ -28,7 +28,7 @@ import sys
 from dataclasses import dataclass
 from datetime import datetime
 from pathlib import Path
-from typing import Iterable, List, Sequence
+from typing import Iterable, List, Sequence, Set, Tuple
 
 import duckdb
 import pandas as pd
@@ -195,6 +195,31 @@ def load_model_dataframe(
     )
     df["__band_lower"] = df["__band_original"].astype(str).str.lower()
     return df
+
+
+def discover_model_specs(df: pd.DataFrame, time_col: str) -> List[ModelSpec]:
+    exclude_cols = {time_col, "variable", "level", "__band_original", "__band_lower", "__region_lower"}
+    numeric_cols = [
+        col
+        for col in df.columns
+        if col not in exclude_cols and pd.api.types.is_numeric_dtype(df[col])
+    ]
+    specs: List[ModelSpec] = []
+    seen: Set[Tuple[str, str]] = set()
+    unique_pairs = df[["variable", "level"]].drop_duplicates()
+    for _, row in unique_pairs.iterrows():
+        variable = str(row["variable"])
+        level = str(row["level"])
+        subset = df[(df["variable"] == variable) & (df["level"] == level)]
+        metrics = [col for col in numeric_cols if subset[col].notna().any()]
+        if not metrics:
+            continue
+        key = (variable, level)
+        if key in seen:
+            continue
+        seen.add(key)
+        specs.append(ModelSpec(variable=variable, level=level, metrics=metrics))
+    return specs
 
 
 def load_station_dataframe(
@@ -408,9 +433,6 @@ def main(argv: Sequence[str] | None = None) -> int:
 
     args = parser.parse_args(argv)
 
-    if not args.model_spec:
-        parser.error("At least one --model-spec is required")
-
     station_metrics = [m.strip() for m in args.station_metrics.split(",") if m.strip()]
 
     if args.region:
@@ -458,6 +480,10 @@ def main(argv: Sequence[str] | None = None) -> int:
         if args.quicklook:
             bundle["quicklook_png"] = args.quicklook
 
+        model_specs = args.model_spec or discover_model_specs(model_df, args.model_time_column)
+        if not model_specs:
+            print(f"[warn] No model metrics discovered for region '{region_slug}'. Skipping model summary/time-series.")
+
         station_payload = build_station_payload(
             station_df,
             station_metrics,
@@ -467,9 +493,9 @@ def main(argv: Sequence[str] | None = None) -> int:
         )
         model_payload = build_model_payload(
             model_df,
-            args.model_spec,
+            model_specs,
             args.model_time_column,
-        )
+        ) if model_specs else {"summary": {band: [] for band in BANDS}, "timeseries": {band: [] for band in BANDS}}
 
         summary_json = None
         timeseries_json = None
