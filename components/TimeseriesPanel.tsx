@@ -1,20 +1,27 @@
 'use client';
 import dynamic from 'next/dynamic';
-import type { Layout } from 'plotly.js';
-import type { TimeseriesPayload } from '@/types/core';
+import type { Data, Layout } from 'plotly.js';
+import type { TimeseriesSeries } from '@/types/core';
 
 const Plot = dynamic(() => import('react-plotly.js'), { ssr: false });
 
-type Props = {
-  region: string;
-  series?: TimeseriesPayload | null;
+type TimeseriesInput = {
+  x: string[];
+  series: TimeseriesSeries[];
 };
 
-export default function TimeseriesPanel({ region, series }: Props) {
-  if (!series || !Array.isArray(series.x) || !series.x.length || !Array.isArray(series.series)) {
+type Props = {
+  region: string;
+  data?: TimeseriesInput | null;
+  title?: string;
+  subtitle?: string;
+};
+
+export default function TimeseriesPanel({ region, data, title, subtitle }: Props) {
+  if (!data || !Array.isArray(data.x) || !data.x.length || !Array.isArray(data.series)) {
     return (
       <div className="card">
-        <div className="card-h"><h3 className="font-medium">Time Series</h3></div>
+        <div className="card-h"><h3 className="font-medium">{title ?? 'Time Series'}</h3></div>
         <div className="card-c text-sm text-neutral-500">
           No preprocessed time-series data was provided for {region.replace(/_/g, ' ')}.
         </div>
@@ -22,16 +29,23 @@ export default function TimeseriesPanel({ region, series }: Props) {
     );
   }
 
-  const traces = series.series
-    .filter((entry) => Array.isArray(entry.values) && entry.values.length === series.x.length)
-    .map((entry) => ({
-      x: series.x,
-      y: entry.values,
-      name: entry.name,
-      type: entry.type === 'bar' ? 'bar' : 'scatter',
-      mode: entry.type === 'bar' ? undefined : 'lines',
-      yaxis: entry.yAxis && entry.yAxis !== 'y' ? entry.yAxis : undefined,
-    }));
+  const traces: Data[] = data.series
+    .filter((entry) => Array.isArray(entry.values) && entry.values.length === data.x.length)
+    .map<Data>((entry, idx) => {
+      const type = entry.type === 'bar' ? 'bar' : 'scatter';
+      const yValues = entry.values.map((val) => Number(val));
+      const trace: Data = {
+        x: data.x,
+        y: yValues,
+        name: entry.name,
+        type,
+        yaxis: entry.yAxis && entry.yAxis !== 'y' ? entry.yAxis : undefined,
+      };
+      if (type === 'scatter') {
+        trace.mode = 'lines';
+      }
+      return trace;
+    });
 
   const layout: Partial<Layout> = {
     height: 320,
@@ -50,7 +64,10 @@ export default function TimeseriesPanel({ region, series }: Props) {
 
   return (
     <div className="card">
-      <div className="card-h"><h3 className="font-medium">Time Series</h3></div>
+      <div className="card-h">
+        <h3 className="font-medium">{title ?? 'Time Series'}</h3>
+        {subtitle ? <p className="text-xs text-neutral-500 mt-1">{subtitle}</p> : null}
+      </div>
       <div className="card-c">
         <Plot
           data={traces}

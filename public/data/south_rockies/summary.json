@@ -1,3 +1,139 @@
 {
-  "note": "Placeholder summary."
+  "region": "south_rockies",
+  "run_time_utc": "2025-09-24T06:00:00Z",
+  "version": "2025-09-24-06z-v3",
+  "tiles_base": "https://tile.openstreetmap.org/",
+  "quicklook_png": "/images/slopelabs_inverse_transparent.svg",
+  "forecast": {
+    "dateIssued": "2025-09-24",
+    "region": "South Rockies",
+    "dangerRatings": {
+      "above_treeline": "moderate",
+      "treeline": "considerable",
+      "below_treeline": "moderate"
+    },
+    "problems": [
+      {
+        "type": "Wind Slab",
+        "likelihood": "Likely",
+        "size": "Small to Medium",
+        "where": ["above_treeline", "treeline"]
+      },
+      {
+        "type": "Persistent Slab",
+        "likelihood": "Possible",
+        "size": "Medium",
+        "where": ["treeline", "below_treeline"]
+      }
+    ],
+    "summary": "Sample only. Replace with ML forecast JSON. Watch for wind loading at upper elevations; afternoon warming could increase activity."
+  },
+  "summary": {
+    "headline": "Wind slabs remain the main concern on lee features.",
+    "confidence": "Moderate",
+    "travel_advice": "Stick to supported terrain below treeline if visibility deteriorates.",
+    "last_updated": "2025-09-24T06:15:00Z"
+  },
+  "avalanches": [
+    {
+      "id": "sr-2025-09-23-1",
+      "date": "2025-09-23",
+      "location": "Castle Chutes",
+      "elevationBand": "above_treeline",
+      "type": "Wind Slab",
+      "size": "D1.5",
+      "notes": "Natural cycle overnight on E aspects."
+    },
+    {
+      "id": "sr-2025-09-22-2",
+      "date": "2025-09-22",
+      "location": "Lizard Range",
+      "elevationBand": "treeline",
+      "type": "Persistent Slab",
+      "size": "D2",
+      "notes": "Remotely triggered from ridgeline, no involvement."
+    }
+  ],
+  "stations": {
+    "above_treeline": [
+      {
+        "columns": ["station_id", "station_name", "elevation_m", "temp_c", "wind_mps", "new_snow_cm", "hs_cm", "obs_time"],
+        "rows": [
+          {
+            "station_id": "SR-01",
+            "station_name": "Castle South Ridge",
+            "elevation_m": 2050,
+            "temp_c": -6.2,
+            "wind_mps": 5.4,
+            "new_snow_cm": 6,
+            "hs_cm": 78,
+            "obs_time": "2025-09-24T06:00:00Z"
+          }
+        ]
+      }
+    ],
+    "treeline": [
+      {
+        "columns": ["station_id", "station_name", "elevation_m", "temp_c", "wind_mps", "new_snow_cm", "hs_cm", "obs_time"],
+        "rows": [
+          {
+            "station_id": "SR-02",
+            "station_name": "Fernie Alpine",
+            "elevation_m": 1890,
+            "temp_c": -4.8,
+            "wind_mps": 7.1,
+            "new_snow_cm": 4,
+            "hs_cm": 92,
+            "obs_time": "2025-09-24T06:00:00Z"
+          }
+        ]
+      }
+    ],
+    "below_treeline": [
+      {
+        "columns": ["station_id", "station_name", "elevation_m", "temp_c", "wind_mps", "new_snow_cm", "hs_cm", "obs_time"],
+        "rows": [
+          {
+            "station_id": "SR-03",
+            "station_name": "Crowsnest Summit",
+            "elevation_m": 1440,
+            "temp_c": -2.3,
+            "wind_mps": 3.8,
+            "new_snow_cm": 2,
+            "hs_cm": 54,
+            "obs_time": "2025-09-24T06:00:00Z"
+          }
+        ]
+      }
+    ]
+  },
+  "model": {
+    "above_treeline": [
+      {
+        "columns": ["time", "mean_value", "p05", "p95"],
+        "rows": [
+          { "time": "2025-09-24T06:00:00Z", "mean_value": -12.1, "p05": -14.3, "p95": -9.7 }
+        ],
+        "metadata": { "variable": "TMP", "level": "ISBL_700hPa" }
+      }
+    ],
+    "treeline": [
+      {
+        "columns": ["time", "mean_value", "p05", "p95"],
+        "rows": [
+          { "time": "2025-09-24T06:00:00Z", "mean_value": -8.4, "p05": -10.1, "p95": -6.2 }
+        ],
+        "metadata": { "variable": "TMP", "level": "ISBL_850hPa" }
+      }
+    ],
+    "below_treeline": [
+      {
+        "columns": ["time", "mean_value", "p05", "p95"],
+        "rows": [
+          { "time": "2025-09-24T06:00:00Z", "mean_value": -5.2, "p05": -6.8, "p95": -3.4 }
+        ],
+        "metadata": { "variable": "TMP", "level": "Sfc" }
+      }
+    ]
+  }
 }

@@ -1,16 +1,20 @@
 'use client';
 import { useEffect, useMemo, useState } from "react";
 
-type Row = Record<string, string | number | null>;
+type Row = Record<string, string | number | null | undefined>;
 
 export default function WeatherTable({
   region,
-  kind = "model",   // "model" | "station"
+  kind = "model", // "model" | "station"
   initialRows,
+  columns: presetColumns,
+  title,
 }: {
   region: string;
   kind?: "model" | "station";
   initialRows?: Row[];
+  columns?: string[];
+  title?: string;
 }) {
   const [rows, setRows] = useState<Row[]>(() => initialRows ?? []);
   const [q, setQ] = useState("");
@@ -44,9 +48,10 @@ export default function WeatherTable({
   }, [region, kind, initialRows]);
 
   const cols = useMemo(() => {
+    if (presetColumns?.length) return presetColumns;
     const first = rows[0] || {};
     return Object.keys(first);
-  }, [rows]);
+  }, [rows, presetColumns]);
 
   const filtered = useMemo(() => {
     const term = q.trim().toLowerCase();
@@ -75,7 +80,9 @@ export default function WeatherTable({
   return (
     <div className="card">
       <div className="card-h flex items-center gap-2">
-        <h3 className="font-medium">{kind === "model" ? "Weather Model" : "Weather Station"} Table</h3>
+        <h3 className="font-medium">
+          {title ?? (kind === "model" ? "Weather Model Table" : "Weather Station Table")}
+        </h3>
         <input
           placeholder="Filter…"
           value={q}

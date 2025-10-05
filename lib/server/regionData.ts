@@ -4,17 +4,22 @@ import { parse } from 'csv-parse/sync';
 
 import type {
   AvalancheObservation,
+  BandSummaryMap,
+  BandTimeseriesMap,
   ForecastJSON,
   Manifest,
-  ModelTablePayload,
+  ModelTimeseriesEntry,
   RegionBundleJSON,
-  TimeseriesPayload,
+  RegionSummaryFile,
+  RegionTimeseriesFile,
+  StationTimeseriesEntry,
   WeatherStationRow,
 } from '@/types/core';
 
 const DATA_ROOT = path.join(process.cwd(), 'public', 'data');
 const SHARED_DIR = path.join(DATA_ROOT, 'shared');
 const shouldCache = process.env.NODE_ENV === 'production';
+const BANDS = ['above_treeline', 'treeline', 'below_treeline'];
 
 type RegionBundle = {
   region: string;
@@ -22,9 +27,10 @@ type RegionBundle = {
   forecast: ForecastJSON | null;
   summary: Record<string, unknown> | null;
   avalanches: AvalancheObservation[];
-  weatherStations: WeatherStationRow[];
-  timeseries: TimeseriesPayload | null;
-  modelTable: ModelTablePayload | null;
+  stationSummary: BandSummaryMap;
+  stationTimeseries: BandTimeseriesMap<StationTimeseriesEntry>;
+  modelSummary: BandSummaryMap;
+  modelTimeseries: BandTimeseriesMap<ModelTimeseriesEntry>;
 };
 
 const bundleCache = new Map<string, RegionBundle>();
@@ -88,6 +94,64 @@ function extractAvalancheArray(source: unknown): AvalancheObservation[] {
   return [];
 }
 
+function ensureBandSummary(map?: BandSummaryMap): BandSummaryMap {
+  const result: BandSummaryMap = {};
+  if (map) {
+    for (const [key, value] of Object.entries(map)) {
+      result[key] = Array.isArray(value) ? value : [];
+    }
+  }
+  for (const band of BANDS) {
+    if (!result[band]) result[band] = [];
+  }
+  return result;
+}
+
+function ensureBandTimeseries<T>(map?: BandTimeseriesMap<T>): BandTimeseriesMap<T> {
+  const result: BandTimeseriesMap<T> = {};
+  if (map) {
+    for (const [key, value] of Object.entries(map)) {
+      result[key] = Array.isArray(value) ? value : [];
+    }
+  }
+  for (const band of BANDS) {
+    if (!result[band]) result[band] = [];
+  }
+  return result;
+}
+
+async function loadStructuredBundle(region: string): Promise<RegionBundle | null> {
+  const summaryPath = path.join(DATA_ROOT, region, 'summary.json');
+  const summaryData = await readJsonIfPresent<RegionSummaryFile>(summaryPath);
+  if (!summaryData) return null;
+
+  const timeseriesPath = path.join(DATA_ROOT, region, 'timeseries.json');
+  const timeseriesData = await readJsonIfPresent<RegionTimeseriesFile>(timeseriesPath);
+
+  const manifest = withArtifactDefaults(region, {
+    run_time_utc: summaryData.run_time_utc,
+    version: summaryData.version,
+    artifacts: {
+      forecast_json: summaryData.forecast ? `/data/${region}/summary.json` : `/data/${region}/forecast.json`,
+      summary_json: `/data/${region}/summary.json`,
+      tiles_base: summaryData.tiles_base,
+      quicklook_png: summaryData.quicklook_png,
+    },
+  });
+
+  return {
+    region,
+    manifest,
+    forecast: summaryData.forecast ?? null,
+    summary: summaryData.summary ?? null,
+    avalanches: summaryData.avalanches ?? [],
+    stationSummary: ensureBandSummary(summaryData.stations),
+    stationTimeseries: ensureBandTimeseries(timeseriesData?.stations),
+    modelSummary: ensureBandSummary(summaryData.model),
+    modelTimeseries: ensureBandTimeseries(timeseriesData?.model),
+  };
+}
+
 async function loadBundleJson(region: string): Promise<RegionBundle | null> {
   const bundlePath = path.join(DATA_ROOT, region, 'bundle.json');
   const payload = await readJsonIfPresent<RegionBundleJSON>(bundlePath);
@@ -110,9 +174,60 @@ async function loadBundleJson(region: string): Promise<RegionBundle | null> {
     forecast: payload.forecast ?? null,
     summary: payload.summary ?? null,
     avalanches: payload.avalanches ?? [],
-    weatherStations: payload.weatherStations ?? [],
-    timeseries: payload.timeseries ?? null,
-    modelTable: payload.modelTable ?? null,
+    stationSummary: ensureBandSummary(
+      payload.weatherStations && payload.weatherStations.length
+        ? {
+            legacy: [
+              {
+                columns: Object.keys(payload.weatherStations[0] ?? {}),
+                rows: payload.weatherStations,
+                metadata: { note: 'legacy bundle rows' },
+              },
+            ],
+          }
+        : undefined
+    ),
+    stationTimeseries: ensureBandTimeseries(
+      payload.timeseries
+        ? {
+            legacy: [
+              {
+                station_id: 'legacy',
+                station_name: 'Legacy',
+                x: payload.timeseries.x,
+                series: payload.timeseries.series,
+              },
+            ],
+          }
+        : undefined
+    ),
+    modelSummary: ensureBandSummary(
+      payload.modelTable
+        ? {
+            legacy: [
+              {
+                columns: payload.modelTable.columns,
+                rows: payload.modelTable.rows,
+                metadata: payload.modelTable.metadata,
+              },
+            ],
+          }
+        : undefined
+    ),
+    modelTimeseries: ensureBandTimeseries(
+      payload.timeseries
+        ? {
+            legacy_model: [
+              {
+                variable: 'legacy',
+                level: 'legacy',
+                x: payload.timeseries.x,
+                series: payload.timeseries.series,
+              },
+            ],
+          }
+        : undefined
+    ),
   };
 }
 
@@ -164,6 +279,12 @@ export async function loadRegionBundle(regionParam: string): Promise<RegionBundl
     return bundleCache.get(region)!;
   }
 
+  const structured = await loadStructuredBundle(region);
+  if (structured) {
+    if (shouldCache) bundleCache.set(region, structured);
+    return structured;
+  }
+
   const preprocessed = await loadBundleJson(region);
   if (preprocessed) {
     if (shouldCache) bundleCache.set(region, preprocessed);
@@ -178,15 +299,22 @@ export async function loadRegionBundle(regionParam: string): Promise<RegionBundl
     loadWeatherStations(region),
   ]);
 
+  const legacySummary = weatherStations.length
+    ? ensureBandSummary({ legacy: [
+        { columns: Object.keys(weatherStations[0] ?? {}), rows: weatherStations },
+      ] })
+    : ensureBandSummary();
+
   const bundle: RegionBundle = {
     region,
     manifest,
     forecast,
     summary,
     avalanches,
-    weatherStations,
-    timeseries: null,
-    modelTable: null,
+    stationSummary: legacySummary,
+    stationTimeseries: ensureBandTimeseries(),
+    modelSummary: ensureBandSummary(),
+    modelTimeseries: ensureBandTimeseries(),
   };
 
   if (shouldCache) {

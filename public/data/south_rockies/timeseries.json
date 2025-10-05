@@ -1,0 +1,106 @@
+{
+  "region": "south_rockies",
+  "generated_at": "2025-09-24T06:05:00Z",
+  "stations": {
+    "above_treeline": [
+      {
+        "station_id": "SR-01",
+        "station_name": "Castle South Ridge",
+        "x": [
+          "2025-09-24T00:00:00Z",
+          "2025-09-24T03:00:00Z",
+          "2025-09-24T06:00:00Z"
+        ],
+        "series": [
+          { "name": "Temp (°C)", "values": [-8.4, -7.6, -6.2] },
+          { "name": "Wind (m/s)", "values": [4.9, 5.2, 5.4], "yAxis": "y2" }
+        ]
+      }
+    ],
+    "treeline": [
+      {
+        "station_id": "SR-02",
+        "station_name": "Fernie Alpine",
+        "x": [
+          "2025-09-24T00:00:00Z",
+          "2025-09-24T03:00:00Z",
+          "2025-09-24T06:00:00Z"
+        ],
+        "series": [
+          { "name": "Temp (°C)", "values": [-5.3, -5.1, -4.8] },
+          { "name": "Wind (m/s)", "values": [6.5, 6.8, 7.1], "yAxis": "y2" }
+        ]
+      }
+    ],
+    "below_treeline": [
+      {
+        "station_id": "SR-03",
+        "station_name": "Crowsnest Summit",
+        "x": [
+          "2025-09-24T00:00:00Z",
+          "2025-09-24T03:00:00Z",
+          "2025-09-24T06:00:00Z"
+        ],
+        "series": [
+          { "name": "Temp (°C)", "values": [-3.1, -2.7, -2.3] },
+          { "name": "Wind (m/s)", "values": [3.2, 3.5, 3.8], "yAxis": "y2" },
+          { "name": "HS (cm)", "values": [52, 53, 54], "type": "bar", "yAxis": "y3" }
+        ]
+      }
+    ]
+  },
+  "model": {
+    "above_treeline": [
+      {
+        "variable": "TMP",
+        "level": "ISBL_700hPa",
+        "x": [
+          "2025-09-24T00:00:00Z",
+          "2025-09-24T06:00:00Z",
+          "2025-09-24T12:00:00Z",
+          "2025-09-24T18:00:00Z",
+          "2025-09-25T00:00:00Z"
+        ],
+        "series": [
+          { "name": "Mean (°C)", "values": [-12.8, -12.1, -10.4, -8.6, -9.8] },
+          { "name": "P95 (°C)", "values": [-9.9, -9.7, -8.3, -6.4, -7.5], "yAxis": "y2" }
+        ],
+        "metadata": { "metrics": ["mean_value", "p95"] }
+      }
+    ],
+    "treeline": [
+      {
+        "variable": "TMP",
+        "level": "ISBL_850hPa",
+        "x": [
+          "2025-09-24T00:00:00Z",
+          "2025-09-24T06:00:00Z",
+          "2025-09-24T12:00:00Z",
+          "2025-09-24T18:00:00Z",
+          "2025-09-25T00:00:00Z"
+        ],
+        "series": [
+          { "name": "Mean (°C)", "values": [-9.6, -8.4, -5.7, -4.1, -5.3] }
+        ],
+        "metadata": { "metrics": ["mean_value"] }
+      }
+    ],
+    "below_treeline": [
+      {
+        "variable": "PRATE",
+        "level": "Sfc",
+        "x": [
+          "2025-09-24T00:00:00Z",
+          "2025-09-24T06:00:00Z",
+          "2025-09-24T12:00:00Z",
+          "2025-09-24T18:00:00Z",
+          "2025-09-25T00:00:00Z"
+        ],
+        "series": [
+          { "name": "Precip (mm/hr)", "values": [0.0, 0.3, 0.6, 0.2, 0.0], "type": "bar" }
+        ],
+        "metadata": { "metrics": ["mean_value"] }
+      }
+    ]
+  }
+}

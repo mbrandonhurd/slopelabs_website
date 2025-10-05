@@ -12,8 +12,17 @@ export async function GET(req: Request, { params }: { params: { region: string }
       return NextResponse.json({ rows: [] });
     }
 
-    const { weatherStations } = await loadRegionBundle(params.region);
-    return NextResponse.json({ rows: weatherStations });
+    const bundle = await loadRegionBundle(params.region);
+    const rows: Record<string, unknown>[] = [];
+    Object.entries(bundle.stationSummary || {}).forEach(([band, tables]) => {
+      tables?.forEach((table) => {
+        table.rows.forEach((row) => {
+          rows.push({ ...row, elevation_band: band });
+        });
+      });
+    });
+
+    return NextResponse.json({ rows });
   } catch (e: any) {
     return NextResponse.json(
       { rows: [], error: e?.message || "parse failed" },

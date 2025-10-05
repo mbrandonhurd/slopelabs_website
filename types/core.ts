@@ -33,25 +33,61 @@ export type AvalancheObservation = {
 };
 
 export type WeatherStationRow = Record<string, string | number | null>;
-
-export type TimeseriesPayload = {
-  x: string[];
-  series: Array<{
-    name: string;
-    values: number[];
-    type?: 'line' | 'bar';
-    yAxis?: 'y' | 'y2' | 'y3';
-  }>;
+export type TimeseriesSeries = {
+  name: string;
+  values: number[];
+  type?: 'line' | 'bar';
+  yAxis?: 'y' | 'y2' | 'y3';
 };
 
-export type ModelTablePayload = {
-  title?: string;
+export type BandSummaryTable = {
   columns: string[];
   rows: Array<Record<string, string | number | null>>;
   metadata?: Record<string, unknown>;
 };
 
-export interface RegionBundleJSON {
+export type BandSummaryMap = Record<string, BandSummaryTable[]>;
+
+export type StationTimeseriesEntry = {
+  station_id: string;
+  station_name?: string;
+  x: string[];
+  series: TimeseriesSeries[];
+  metadata?: Record<string, unknown>;
+};
+
+export type ModelTimeseriesEntry = {
+  variable: string;
+  level: string;
+  x: string[];
+  series: TimeseriesSeries[];
+  metadata?: Record<string, unknown>;
+};
+
+export type BandTimeseriesMap<T> = Record<string, T[]>;
+
+export interface RegionSummaryFile {
+  region: string;
+  run_time_utc?: string;
+  version?: string;
+  tiles_base?: string;
+  quicklook_png?: string;
+  forecast?: ForecastJSON;
+  summary?: Record<string, unknown>;
+  avalanches?: AvalancheObservation[];
+  stations?: BandSummaryMap;
+  model?: BandSummaryMap;
+}
+
+export interface RegionTimeseriesFile {
+  region: string;
+  generated_at?: string;
+  stations?: BandTimeseriesMap<StationTimeseriesEntry>;
+  model?: BandTimeseriesMap<ModelTimeseriesEntry>;
+}
+
+// Legacy bundle format support
+export type RegionBundleJSON = {
   region: string;
   run_time_utc?: string;
   version?: string;
@@ -61,6 +97,19 @@ export interface RegionBundleJSON {
   summary?: Record<string, unknown>;
   weatherStations?: WeatherStationRow[];
   avalanches?: AvalancheObservation[];
-  timeseries?: TimeseriesPayload;
-  modelTable?: ModelTablePayload;
-}
+  timeseries?: {
+    x: string[];
+    series: Array<{
+      name: string;
+      values: number[];
+      type?: 'line' | 'bar';
+      yAxis?: 'y' | 'y2' | 'y3';
+    }>;
+  };
+  modelTable?: {
+    title?: string;
+    columns: string[];
+    rows: Array<Record<string, string | number | null>>;
+    metadata?: Record<string, unknown>;
+  };
+};
