@@ -6,19 +6,42 @@ type Row = Record<string, string | number | null>;
 export default function WeatherTable({
   region,
   kind = "model",   // "model" | "station"
+  initialRows,
 }: {
-  region: string; kind?: "model" | "station";
+  region: string;
+  kind?: "model" | "station";
+  initialRows?: Row[];
 }) {
-  const [rows, setRows] = useState<Row[]>([]);
+  const [rows, setRows] = useState<Row[]>(() => initialRows ?? []);
   const [q, setQ] = useState("");
   const [sortKey, setSortKey] = useState<string | null>(null);
   const [sortDir, setSortDir] = useState<"asc" | "desc">("asc");
 
   useEffect(() => {
+    if (initialRows !== undefined) {
+      setRows(initialRows);
+      return;
+    }
+
+    if (kind !== "station") {
+      setRows([]);
+      return;
+    }
+
+    let cancelled = false;
     fetch(`/api/data/${region}/weather?kind=${kind}`)
       .then(r => r.json())
-      .then(d => setRows(Array.isArray(d.rows) ? d.rows : []));
-  }, [region, kind]);
+      .then((d) => {
+        if (cancelled) return;
+        setRows(Array.isArray(d.rows) ? d.rows : []);
+      })
+      .catch(() => {
+        if (!cancelled) setRows([]);
+      });
+    return () => {
+      cancelled = true;
+    };
+  }, [region, kind, initialRows]);
 
   const cols = useMemo(() => {
     const first = rows[0] || {};

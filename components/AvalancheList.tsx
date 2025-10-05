@@ -11,13 +11,28 @@ type Avy = {
   notes?: string;
 };
 
-export default function AvalancheList({ region }: { region: string }) {
-  const [list, setList] = useState<Avy[]>([]);
+export default function AvalancheList({ region, initialList }: { region: string; initialList?: Avy[] }) {
+  const [list, setList] = useState<Avy[]>(() => initialList ?? []);
   useEffect(() => {
+    if (initialList !== undefined) {
+      setList(initialList);
+      return;
+    }
+
+    let cancelled = false;
     fetch(`/api/data/${region}/avalanches`)
       .then(r => r.json())
-      .then(d => setList(d.avalanches || []));
-  }, [region]);
+      .then(d => {
+        if (!cancelled) setList(d.avalanches || []);
+      })
+      .catch(() => {
+        if (!cancelled) setList([]);
+      });
+
+    return () => {
+      cancelled = true;
+    };
+  }, [region, initialList]);
 
   if (!list.length) return null;
 

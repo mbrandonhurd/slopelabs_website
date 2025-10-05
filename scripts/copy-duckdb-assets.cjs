@@ -14,17 +14,17 @@ function copyOne(src, dst) {
 }
 
 function resolveDistFile(rel) {
-  // Primary dist dir: location of eh worker
+  // Base dist dir: where the EH worker lives for this package
   const distDir = path.dirname(
     require.resolve("@duckdb/duckdb-wasm/dist/duckdb-browser-eh.worker.js")
   );
-  const p1 = path.join(distDir, rel);
-  if (fs.existsSync(p1)) return p1;
-
-  // Some releases put wasm under dist/wasm/
-  const p2 = path.join(distDir, "wasm", rel);
-  if (fs.existsSync(p2)) return p2;
-
+  const tries = [
+    path.join(distDir, rel),
+    path.join(distDir, "wasm", rel),
+  ];
+  for (const t of tries) {
+    if (fs.existsSync(t)) return t;
+  }
   return null;
 }
 
@@ -32,16 +32,31 @@ function resolveDistFile(rel) {
   const outDir = path.join(process.cwd(), "public", "duckdb");
   fs.mkdirSync(outDir, { recursive: true });
 
-  const files = [
+  // Workers (names are stable)
+  const workerFiles = [
     "duckdb-browser-eh.worker.js",
     "duckdb-browser-mvp.worker.js",
     "duckdb-browser-coi.worker.js",
+  ];
+
+  // WASM may be named with or without "-wasm-"
+  const wasmCandidates = [
     "duckdb-wasm-eh.wasm",
+    "duckdb-eh.wasm",
     "duckdb-wasm-mvp.wasm",
+    "duckdb-mvp.wasm",
   ];
 
   let copiedAny = false;
-  for (const f of files) {
+
+  for (const f of workerFiles) {
+    const src = resolveDistFile(f);
+    const dst = path.join(outDir, f);
+    if (src) copiedAny = copyOne(src, dst) || copiedAny;
+    else console.warn(`[duckdb-copy] Missing: ${f}`);
+  }
+
+  for (const f of wasmCandidates) {
     const src = resolveDistFile(f);
     const dst = path.join(outDir, f);
     if (src) copiedAny = copyOne(src, dst) || copiedAny;

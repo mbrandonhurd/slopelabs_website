@@ -1,120 +1,88 @@
-'use client';
-
-import { useQuery } from '@tanstack/react-query';
-import { getManifest, getForecast } from '@/lib/api';
 import DangerCards from '@/components/DangerCards';
 import ProblemsChips from '@/components/ProblemsChips';
 import dynamic from 'next/dynamic';
 import WeatherTable from "@/components/WeatherTable";
 import AvalancheList from "@/components/AvalancheList";
+import { loadRegionBundle } from '@/lib/server/regionData';
 
 // client-only components (duckdb-wasm, maplibre)
 const ModelParquetTable = dynamic(() => import('@/components/ModelParquetTable'), { ssr: false });
 const MapPanel = dynamic(() => import('@/components/MapPanel'), { ssr: false });
 const TimeseriesPanel = dynamic(() => import('@/components/TimeseriesPanel'), { ssr: false });
 
-export default function RegionPage({ params }: { params: { region: string } }) {
-  console.debug('[RegionPage] params =', params);
-
+export default async function RegionPage({ params }: { params: { region: string } }) {
   const region = params?.region;
   if (!region) {
-    console.error('[RegionPage] missing region param; refusing to render content');
     return <div className="text-sm text-red-500">Missing region slug.</div>;
   }
 
-  // 1) Fetch manifest for this region (this hits /api/regions/:region/manifest)
-  const {
-    data: manifest,
-    isLoading: mLoading,
-    error: mError,
-  } = useQuery({
-    queryKey: ['manifest', region],
-    queryFn: () => getManifest(region),
-    staleTime: 0,
-    refetchOnWindowFocus: false,
-  });
+  try {
+    const bundle = await loadRegionBundle(region);
+    const { manifest, forecast, summary, avalanches, weatherStations, timeseries, modelTable } = bundle;
 
-  // helpful debug
-  console.debug('[RegionPage] manifest =', manifest);
-  if (mError) console.error('[RegionPage] manifest error =', mError);
-
-  // 2) If the (legacy) forecast URL is present, fetch forecast; otherwise skip
-  const forecastUrl = manifest?.artifacts?.forecast_json;
-  const {
-    data: forecast,
-    isLoading: fLoading,
-    error: fError,
-  } = useQuery({
-    enabled: !!forecastUrl,
-    queryKey: ['forecast', forecastUrl],
-    queryFn: () => getForecast(forecastUrl!),
-    staleTime: 1000 * 60 * 60,
-    refetchOnWindowFocus: false,
-  });
-
-  console.debug('[RegionPage] forecastUrl =', forecastUrl);
-  if (fError) console.error('[RegionPage] forecast error =', fError);
-
-  // 3) Loading states
-  if (mLoading || fLoading) return <div>Loading…</div>;
-
-  // 4) If manifest failed hard
-  if (!manifest) {
-    return <div className="text-sm text-red-500">No manifest for region: {region}</div>;
-  }
-
-  // 5) Render
-  return (
-    <div className="space-y-4">
-      <div className="flex items-center justify-between">
-        <h2 className="text-lg font-semibold capitalize">
-          {region.replace("_", " ")} — {manifest.run_time_utc ? new Date(manifest.run_time_utc).toUTCString() : '—'}
-        </h2>
-        <span className="text-sm text-gray-500">version {manifest.version ?? '—'}</span>
-      </div>
-
-      {/* If we have a forecast JSON, render the forecast cards; otherwise skip gracefully */}
-      {forecast ? (
-        <>
-          <DangerCards forecast={forecast} />
-          <ProblemsChips forecast={forecast} />
-        </>
-      ) : (
-        <div className="text-xs text-neutral-500">
-          No forecast JSON for this region (using shared model data instead).
+    return (
+      <div className="space-y-4">
+        <div className="flex items-center justify-between">
+          <h2 className="text-lg font-semibold capitalize">
+            {region.replace(/_/g, ' ')} — {manifest.run_time_utc ? new Date(manifest.run_time_utc).toUTCString() : '—'}
+          </h2>
+          <span className="text-sm text-gray-500">version {manifest.version ?? '—'}</span>
         </div>
-      )}
 
-      {/* Map + demo timeseries */}
-      <div className="grid grid-cols-12 gap-4">
-        <section className="col-span-12 lg:col-span-7">
-          <MapPanel
-            tilesBase={manifest.artifacts?.tiles_base}
-            quicklook={manifest.artifacts?.quicklook_png}
-          />
-        </section>
-        <section className="col-span-12 lg:col-span-5">
-          <TimeseriesPanel region={region} />
+        {forecast ? (
+          <>
+            <DangerCards forecast={forecast} />
+            <ProblemsChips forecast={forecast} />
+          </>
+        ) : (
+          <div className="text-xs text-neutral-500">
+            No forecast data found for this region.
+          </div>
+        )}
+
+        {(forecast?.summary || summary) ? (
+          <div className="card">
+            <div className="card-h"><h3 className="font-medium">Summary</h3></div>
+            <div className="card-c space-y-2 text-sm text-neutral-700">
+              {forecast?.summary ? <p>{forecast.summary}</p> : null}
+              {summary && Object.entries(summary).map(([key, value]) => (
+                <p key={key}>
+                  <span className="font-medium capitalize">{key}:</span>{' '}
+                  {typeof value === 'string' ? value : JSON.stringify(value)}
+                </p>
+              ))}
+            </div>
+          </div>
+        ) : null}
+
+        <div className="grid grid-cols-12 gap-4">
+          <section className="col-span-12 lg:col-span-7">
+            <MapPanel
+              tilesBase={manifest.artifacts?.tiles_base}
+              quicklook={manifest.artifacts?.quicklook_png}
+            />
+          </section>
+          <section className="col-span-12 lg:col-span-5">
+            <TimeseriesPanel region={region} series={timeseries} />
+          </section>
+        </div>
+
+        <div className="grid grid-cols-12 gap-4">
+          <section className="col-span-12 lg:col-span-7">
+            <WeatherTable region={region} kind="station" initialRows={weatherStations} />
+          </section>
+          <section className="col-span-12 lg:col-span-5">
+            <AvalancheList region={region} initialList={avalanches} />
+          </section>
+        </div>
+
+        <section className="col-span-12">
+          <ModelParquetTable region={region} data={modelTable} />
         </section>
       </div>
-
-      {/* CSV-backed tables (optional) */}
-      <div className="grid grid-cols-12 gap-4">
-        <section className="col-span-12">
-          <WeatherTable region={region} kind="model" />
-        </section>
-        <section className="col-span-12">
-          <WeatherTable region={region} kind="station" />
-        </section>
-        <section className="col-span-12">
-          <AvalancheList region={region} />
-        </section>
-      </div>
-
-      {/* Shared-parquet model table (filters by manifest.regionColumn) */}
-      <section className="col-span-12">
-        <ModelParquetTable region={region} />
-      </section>
-    </div>
-  );
+    );
+  } catch (err) {
+    console.error('[RegionPage] bundle load failed', err);
+    return <div className="text-sm text-red-500">Unable to load data for region: {region}</div>;
+  }
 }
