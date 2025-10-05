@@ -163,7 +163,7 @@ async function loadBundleJson(region: string): Promise<RegionBundle | null> {
     artifacts: {
       forecast_json: `/data/${region}/bundle.json`,
       summary_json: `/data/${region}/bundle.json`,
-      tiles_base: payload.tiles_base,
+      tiles_base: payload.tiles_base ?? 'https://tile.openstreetmap.org/',
       quicklook_png: payload.quicklook_png,
     },
   });
