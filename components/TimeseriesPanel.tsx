@@ -10,6 +10,8 @@ type TimeseriesInput = {
   series: TimeseriesSeries[];
 };
 
+type TraceWithAxis = Data & { yaxis?: 'y' | 'y2' | 'y3' };
+
 type Props = {
   region: string;
   data?: TimeseriesInput | null;
@@ -29,7 +31,7 @@ export default function TimeseriesPanel({ region, data, title, subtitle }: Props
     );
   }
 
-  const traces: Data[] = data.series
+  const traces: TraceWithAxis[] = data.series
     .filter((entry) => Array.isArray(entry.values) && entry.values.length === data.x.length)
     .map<Data>((entry, idx) => {
       const type = entry.type === 'bar' ? 'bar' : 'scatter';
@@ -39,10 +41,12 @@ export default function TimeseriesPanel({ region, data, title, subtitle }: Props
         y: yValues,
         name: entry.name,
         type,
-        yaxis: entry.yAxis && entry.yAxis !== 'y' ? entry.yAxis : undefined,
       };
       if (type === 'scatter') {
         trace.mode = 'lines';
+      }
+      if (entry.yAxis && entry.yAxis !== 'y') {
+        (trace as TraceWithAxis).yaxis = entry.yAxis;
       }
       return trace;
     });
@@ -55,10 +59,10 @@ export default function TimeseriesPanel({ region, data, title, subtitle }: Props
     legend: { orientation: 'h', y: -0.2 },
   };
 
-  if (traces.some((t) => t.yaxis === 'y2')) {
+  if (traces.some((t) => (t as TraceWithAxis).yaxis === 'y2')) {
     layout.yaxis2 = { overlaying: 'y', side: 'right', title: { text: 'Secondary' } };
   }
-  if (traces.some((t) => t.yaxis === 'y3')) {
+  if (traces.some((t) => (t as TraceWithAxis).yaxis === 'y3')) {
     layout.yaxis3 = { overlaying: 'y', side: 'right', position: 1.0, showgrid: false, title: { text: 'Tertiary' } };
   }
 
