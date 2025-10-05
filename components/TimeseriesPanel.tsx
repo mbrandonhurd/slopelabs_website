@@ -10,7 +10,7 @@ type TimeseriesInput = {
   series: TimeseriesSeries[];
 };
 
-type TraceWithAxis = Data & { yaxis?: 'y' | 'y2' | 'y3' };
+type PlotTrace = Partial<Data> & { yaxis?: 'y' | 'y2' | 'y3' };
 
 type Props = {
   region: string;
@@ -31,12 +31,12 @@ export default function TimeseriesPanel({ region, data, title, subtitle }: Props
     );
   }
 
-  const traces: TraceWithAxis[] = data.series
+  const traces: PlotTrace[] = data.series
     .filter((entry) => Array.isArray(entry.values) && entry.values.length === data.x.length)
-    .map<Data>((entry, idx) => {
+    .map<PlotTrace>((entry) => {
       const type = entry.type === 'bar' ? 'bar' : 'scatter';
       const yValues = entry.values.map((val) => Number(val));
-      const trace: Data = {
+      const trace: PlotTrace = {
         x: data.x,
         y: yValues,
         name: entry.name,
@@ -46,7 +46,7 @@ export default function TimeseriesPanel({ region, data, title, subtitle }: Props
         trace.mode = 'lines';
       }
       if (entry.yAxis && entry.yAxis !== 'y') {
-        (trace as TraceWithAxis).yaxis = entry.yAxis;
+        trace.yaxis = entry.yAxis;
       }
       return trace;
     });
@@ -59,10 +59,10 @@ export default function TimeseriesPanel({ region, data, title, subtitle }: Props
     legend: { orientation: 'h', y: -0.2 },
   };
 
-  if (traces.some((t) => (t as TraceWithAxis).yaxis === 'y2')) {
+  if (traces.some((t) => t.yaxis === 'y2')) {
     layout.yaxis2 = { overlaying: 'y', side: 'right', title: { text: 'Secondary' } };
   }
-  if (traces.some((t) => (t as TraceWithAxis).yaxis === 'y3')) {
+  if (traces.some((t) => t.yaxis === 'y3')) {
     layout.yaxis3 = { overlaying: 'y', side: 'right', position: 1.0, showgrid: false, title: { text: 'Tertiary' } };
   }
 
@@ -74,7 +74,7 @@ export default function TimeseriesPanel({ region, data, title, subtitle }: Props
       </div>
       <div className="card-c">
         <Plot
-          data={traces}
+          data={traces as Data[]}
           layout={layout}
           config={{ displayModeBar: false, responsive: true }}
           style={{ width: '100%', height: '100%' }}
