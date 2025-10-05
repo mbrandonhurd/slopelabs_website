@@ -1,0 +1,4319 @@
+{
+  "region": "northwest_coastal",
+  "run_time_utc": "2025-10-05T21:40:17Z",
+  "version": "202510052140",
+  "tiles_base": "https://tile.openstreetmap.org/",
+  "stations": {
+    "above_treeline": [],
+    "treeline": [],
+    "below_treeline": [
+      {
+        "columns": [
+          "station_id",
+          "obs_time"
+        ],
+        "rows": [
+          {
+            "station_id": "station",
+            "obs_time": "2025-02-12T00:00:00Z"
+          }
+        ],
+        "metadata": {
+          "count": 1
+        }
+      }
+    ]
+  },
+  "model": {
+    "above_treeline": [
+      {
+        "columns": [
+          "valid_date",
+          "forecast_hour",
+          "mean_value",
+          "stddev",
+          "p05",
+          "p95",
+          "count"
+        ],
+        "rows": [
+          {
+            "valid_date": "2025-02-12T00:00:00Z",
+            "forecast_hour": 6,
+            "mean_value": 0.0,
+            "stddev": 0.0,
+            "p05": 0.0,
+            "p95": 0.0,
+            "count": 10562
+          }
+        ],
+        "metadata": {
+          "variable": "APCP",
+          "level": "Sfc",
+          "metrics": [
+            "forecast_hour",
+            "mean_value",
+            "stddev",
+            "p05",
+            "p95",
+            "count"
+          ]
+        }
+      },
+      {
+        "columns": [
+          "valid_date",
+          "forecast_hour",
+          "mean_value",
+          "stddev",
+          "p05",
+          "p95",
+          "count"
+        ],
+        "rows": [
+          {
+            "valid_date": "2025-02-12T00:00:00Z",
+            "forecast_hour": 6,
+            "mean_value": 1.5111448181088776,
+            "stddev": 0.485061591983792,
+            "p05": 0.9528440004220762,
+            "p95": 2.497758816595251,
+            "count": 10562
+          }
+        ],
+        "metadata": {
+          "variable": "CWAT",
+          "level": "EATM",
+          "metrics": [
+            "forecast_hour",
+            "mean_value",
+            "stddev",
+            "p05",
+            "p95",
+            "count"
+          ]
+        }
+      },
+      {
+        "columns": [
+          "valid_date",
+          "forecast_hour",
+          "mean_value",
+          "stddev",
+          "p05",
+          "p95",
+          "count"
+        ],
+        "rows": [
+          {
+            "valid_date": "2025-02-12T00:00:00Z",
+            "forecast_hour": 6,
+            "mean_value": 3741141.613706583,
+            "stddev": 323407.78481443017,
+            "p05": 3354455.739248784,
+            "p95": 4291373.249450122,
+            "count": 10562
+          }
+        ],
+        "metadata": {
+          "variable": "DLWRF",
+          "level": "Sfc",
+          "metrics": [
+            "forecast_hour",
+            "mean_value",
+            "stddev",
+            "p05",
+            "p95",
+            "count"
+          ]
+        }
+      },
+      {
+        "columns": [
+          "valid_date",
+          "forecast_hour",
+          "mean_value",
+          "stddev",
+          "p05",
+          "p95",
+          "count"
+        ],
+        "rows": [
+          {
+            "valid_date": "2025-02-12T00:00:00Z",
+            "forecast_hour": 6,
+            "mean_value": 347669.032944112,
+            "stddev": 76728.62266972258,
+            "p05": 219495.59412378116,
+            "p95": 437480.030973044,
+            "count": 10562
+          }
+        ],
+        "metadata": {
+          "variable": "DSWRF",
+          "level": "Sfc",
+          "metrics": [
+            "forecast_hour",
+            "mean_value",
+            "stddev",
+            "p05",
+            "p95",
+            "count"
+          ]
+        }
+      },
+      {
+        "columns": [
+          "valid_date",
+          "forecast_hour",
+          "mean_value",
+          "stddev",
+          "p05",
+          "p95",
+          "count"
+        ],
+        "rows": [
+          {
+            "valid_date": "2025-02-12T00:00:00Z",
+            "forecast_hour": 6,
+            "mean_value": 0.0,
+            "stddev": 0.0,
+            "p05": 0.0,
+            "p95": 0.0,
+            "count": 10562
+          }
+        ],
+        "metadata": {
+          "variable": "FPRATE",
+          "level": "Sfc",
+          "metrics": [
+            "forecast_hour",
+            "mean_value",
+            "stddev",
+            "p05",
+            "p95",
+            "count"
+          ]
+        }
+      },
+      {
+        "columns": [
+          "valid_date",
+          "forecast_hour",
+          "mean_value",
+          "stddev",
+          "p05",
+          "p95",
+          "count"
+        ],
+        "rows": [
+          {
+            "valid_date": "2025-02-12T00:00:00Z",
+            "forecast_hour": 6,
+            "mean_value": 0.662297535101265,
+            "stddev": 0.5010244123886856,
+            "p05": 0.1282271046949614,
+            "p95": 1.7192587810524105,
+            "count": 10562
+          }
+        ],
+        "metadata": {
+          "variable": "GUST",
+          "level": "AGL-10m",
+          "metrics": [
+            "forecast_hour",
+            "mean_value",
+            "stddev",
+            "p05",
+            "p95",
+            "count"
+          ]
+        }
+      },
+      {
+        "columns": [
+          "valid_date",
+          "forecast_hour",
+          "mean_value",
+          "stddev",
+          "p05",
+          "p95",
+          "count"
+        ],
+        "rows": [
+          {
+            "valid_date": "2025-02-12T00:00:00Z",
+            "forecast_hour": 6,
+            "mean_value": 5508.2669948240855,
+            "stddev": 20.127899154578422,
+            "p05": 5470.650369596359,
+            "p95": 5530.417820395178,
+            "count": 10562
+          }
+        ],
+        "metadata": {
+          "variable": "HGT",
+          "level": "ISBL_0500",
+          "metrics": [
+            "forecast_hour",
+            "mean_value",
+            "stddev",
+            "p05",
+            "p95",
+            "count"
+          ]
+        }
+      },
+      {
+        "columns": [
+          "valid_date",
+          "forecast_hour",
+          "mean_value",
+          "stddev",
+          "p05",
+          "p95",
+          "count"
+        ],
+        "rows": [
+          {
+            "valid_date": "2025-02-12T00:00:00Z",
+            "forecast_hour": 6,
+            "mean_value": 2980.732605473657,
+            "stddev": 11.852488634372358,
+            "p05": 2958.483049934015,
+            "p95": 2994.0852659962748,
+            "count": 10562
+          }
+        ],
+        "metadata": {
+          "variable": "HGT",
+          "level": "ISBL_0700",
+          "metrics": [
+            "forecast_hour",
+            "mean_value",
+            "stddev",
+            "p05",
+            "p95",
+            "count"
+          ]
+        }
+      },
+      {
+        "columns": [
+          "valid_date",
+          "forecast_hour",
+          "mean_value",
+          "stddev",
+          "p05",
+          "p95",
+          "count"
+        ],
+        "rows": [
+          {
+            "valid_date": "2025-02-12T00:00:00Z",
+            "forecast_hour": 6,
+            "mean_value": 10.476637091754949,
+            "stddev": 44.27710704837882,
+            "p05": 2.000000040081755,
+            "p95": 11.592306958410722,
+            "count": 10562
+          }
+        ],
+        "metadata": {
+          "variable": "HPBL",
+          "level": "Sfc",
+          "metrics": [
+            "forecast_hour",
+            "mean_value",
+            "stddev",
+            "p05",
+            "p95",
+            "count"
+          ]
+        }
+      },
+      {
+        "columns": [
+          "valid_date",
+          "forecast_hour",
+          "mean_value",
+          "stddev",
+          "p05",
+          "p95",
+          "count"
+        ],
+        "rows": [
+          {
+            "valid_date": "2025-02-12T00:00:00Z",
+            "forecast_hour": 6,
+            "mean_value": 0.0,
+            "stddev": 0.0,
+            "p05": 0.0,
+            "p95": 0.0,
+            "count": 10562
+          }
+        ],
+        "metadata": {
+          "variable": "IPRATE",
+          "level": "Sfc",
+          "metrics": [
+            "forecast_hour",
+            "mean_value",
+            "stddev",
+            "p05",
+            "p95",
+            "count"
+          ]
+        }
+      },
+      {
+        "columns": [
+          "valid_date",
+          "forecast_hour",
+          "mean_value",
+          "stddev",
+          "p05",
+          "p95",
+          "count"
+        ],
+        "rows": [
+          {
+            "valid_date": "2025-02-12T00:00:00Z",
+            "forecast_hour": 6,
+            "mean_value": 1.504981835180599,
+            "stddev": 4.296228173387605,
+            "p05": -0.1835793871855734,
+            "p95": 10.699999616303064,
+            "count": 10562
+          }
+        ],
+        "metadata": {
+          "variable": "LHTFL",
+          "level": "Sfc",
+          "metrics": [
+            "forecast_hour",
+            "mean_value",
+            "stddev",
+            "p05",
+            "p95",
+            "count"
+          ]
+        }
+      },
+      {
+        "columns": [
+          "valid_date",
+          "forecast_hour",
+          "mean_value",
+          "stddev",
+          "p05",
+          "p95",
+          "count"
+        ],
+        "rows": [
+          {
+            "valid_date": "2025-02-12T00:00:00Z",
+            "forecast_hour": 6,
+            "mean_value": -1146019.409329597,
+            "stddev": 540695.866933485,
+            "p05": -2219272.0703408937,
+            "p95": -505619.7210371568,
+            "count": 10562
+          }
+        ],
+        "metadata": {
+          "variable": "NLWRS",
+          "level": "Sfc",
+          "metrics": [
+            "forecast_hour",
+            "mean_value",
+            "stddev",
+            "p05",
+            "p95",
+            "count"
+          ]
+        }
+      },
+      {
+        "columns": [
+          "valid_date",
+          "forecast_hour",
+          "mean_value",
+          "stddev",
+          "p05",
+          "p95",
+          "count"
+        ],
+        "rows": [
+          {
+            "valid_date": "2025-02-12T00:00:00Z",
+            "forecast_hour": 6,
+            "mean_value": -184815.3374790169,
+            "stddev": 91975.29025749576,
+            "p05": -351746.94321607146,
+            "p95": -88427.78813126001,
+            "count": 10562
+          }
+        ],
+        "metadata": {
+          "variable": "NSWRS",
+          "level": "Sfc",
+          "metrics": [
+            "forecast_hour",
+            "mean_value",
+            "stddev",
+            "p05",
+            "p95",
+            "count"
+          ]
+        }
+      },
+      {
+        "columns": [
+          "valid_date",
+          "forecast_hour",
+          "mean_value",
+          "stddev",
+          "p05",
+          "p95",
+          "count"
+        ],
+        "rows": [
+          {
+            "valid_date": "2025-02-12T00:00:00Z",
+            "forecast_hour": 6,
+            "mean_value": 0.0,
+            "stddev": 0.0,
+            "p05": 0.0,
+            "p95": 0.0,
+            "count": 10562
+          }
+        ],
+        "metadata": {
+          "variable": "PRATE",
+          "level": "Sfc",
+          "metrics": [
+            "forecast_hour",
+            "mean_value",
+            "stddev",
+            "p05",
+            "p95",
+            "count"
+          ]
+        }
+      },
+      {
+        "columns": [
+          "valid_date",
+          "forecast_hour",
+          "mean_value",
+          "stddev",
+          "p05",
+          "p95",
+          "count"
+        ],
+        "rows": [
+          {
+            "valid_date": "2025-02-12T00:00:00Z",
+            "forecast_hour": 6,
+            "mean_value": 90129.4215726045,
+            "stddev": 5865.6072196335135,
+            "p05": 82346.58836306074,
+            "p95": 100036.27805998526,
+            "count": 10562
+          }
+        ],
+        "metadata": {
+          "variable": "PRES",
+          "level": "Sfc",
+          "metrics": [
+            "forecast_hour",
+            "mean_value",
+            "stddev",
+            "p05",
+            "p95",
+            "count"
+          ]
+        }
+      },
+      {
+        "columns": [
+          "valid_date",
+          "forecast_hour",
+          "mean_value",
+          "stddev",
+          "p05",
+          "p95",
+          "count"
+        ],
+        "rows": [
+          {
+            "valid_date": "2025-02-12T00:00:00Z",
+            "forecast_hour": 6,
+            "mean_value": 0.0,
+            "stddev": 0.0,
+            "p05": 0.0,
+            "p95": 0.0,
+            "count": 10562
+          }
+        ],
+        "metadata": {
+          "variable": "RPRATE",
+          "level": "Sfc",
+          "metrics": [
+            "forecast_hour",
+            "mean_value",
+            "stddev",
+            "p05",
+            "p95",
+            "count"
+          ]
+        }
+      },
+      {
+        "columns": [
+          "valid_date",
+          "forecast_hour",
+          "mean_value",
+          "stddev",
+          "p05",
+          "p95",
+          "count"
+        ],
+        "rows": [
+          {
+            "valid_date": "2025-02-12T00:00:00Z",
+            "forecast_hour": 6,
+            "mean_value": 292.90825290726843,
+            "stddev": 62.226101937253546,
+            "p05": 220.4082711963379,
+            "p95": 379.6036725524513,
+            "count": 10562
+          }
+        ],
+        "metadata": {
+          "variable": "SDEN",
+          "level": "Sfc",
+          "metrics": [
+            "forecast_hour",
+            "mean_value",
+            "stddev",
+            "p05",
+            "p95",
+            "count"
+          ]
+        }
+      },
+      {
+        "columns": [
+          "valid_date",
+          "forecast_hour",
+          "mean_value",
+          "stddev",
+          "p05",
+          "p95",
+          "count"
+        ],
+        "rows": [
+          {
+            "valid_date": "2025-02-12T00:00:00Z",
+            "forecast_hour": 6,
+            "mean_value": 344.2938284434775,
+            "stddev": 312.1996804977706,
+            "p05": 8.854437155380586,
+            "p95": 962.1821708846904,
+            "count": 10562
+          }
+        ],
+        "metadata": {
+          "variable": "SDWE",
+          "level": "Sfc",
+          "metrics": [
+            "forecast_hour",
+            "mean_value",
+            "stddev",
+            "p05",
+            "p95",
+            "count"
+          ]
+        }
+      },
+      {
+        "columns": [
+          "valid_date",
+          "forecast_hour",
+          "mean_value",
+          "stddev",
+          "p05",
+          "p95",
+          "count"
+        ],
+        "rows": [
+          {
+            "valid_date": "2025-02-12T00:00:00Z",
+            "forecast_hour": 6,
+            "mean_value": 0.3379611794190572,
+            "stddev": 3.124489623285562,
+            "p05": -1.755064033785351,
+            "p95": 7.837242884543617,
+            "count": 10562
+          }
+        ],
+        "metadata": {
+          "variable": "SHTFL",
+          "level": "Sfc",
+          "metrics": [
+            "forecast_hour",
+            "mean_value",
+            "stddev",
+            "p05",
+            "p95",
+            "count"
+          ]
+        }
+      },
+      {
+        "columns": [
+          "valid_date",
+          "forecast_hour",
+          "mean_value",
+          "stddev",
+          "p05",
+          "p95",
+          "count"
+        ],
+        "rows": [
+          {
+            "valid_date": "2025-02-12T00:00:00Z",
+            "forecast_hour": 6,
+            "mean_value": 246.0033988573857,
+            "stddev": 10.245989663943284,
+            "p05": 235.86137126674265,
+            "p95": 266.7827260202983,
+            "count": 10562
+          }
+        ],
+        "metadata": {
+          "variable": "SKINT",
+          "level": "Sfc",
+          "metrics": [
+            "forecast_hour",
+            "mean_value",
+            "stddev",
+            "p05",
+            "p95",
+            "count"
+          ]
+        }
+      },
+      {
+        "columns": [
+          "valid_date",
+          "forecast_hour",
+          "mean_value",
+          "stddev",
+          "p05",
+          "p95",
+          "count"
+        ],
+        "rows": [
+          {
+            "valid_date": "2025-02-12T00:00:00Z",
+            "forecast_hour": 6,
+            "mean_value": 1.1708819051873838,
+            "stddev": 1.1270659518791453,
+            "p05": 0.0345876451382054,
+            "p95": 3.0004782157393195,
+            "count": 10562
+          }
+        ],
+        "metadata": {
+          "variable": "SNOD",
+          "level": "Sfc",
+          "metrics": [
+            "forecast_hour",
+            "mean_value",
+            "stddev",
+            "p05",
+            "p95",
+            "count"
+          ]
+        }
+      },
+      {
+        "columns": [
+          "valid_date",
+          "forecast_hour",
+          "mean_value",
+          "stddev",
+          "p05",
+          "p95",
+          "count"
+        ],
+        "rows": [
+          {
+            "valid_date": "2025-02-12T00:00:00Z",
+            "forecast_hour": 6,
+            "mean_value": 0.0005396651232745,
+            "stddev": 0.000405409384083,
+            "p05": 0.0002478040464071,
+            "p95": 0.0014377395104514,
+            "count": 10562
+          }
+        ],
+        "metadata": {
+          "variable": "SPFH",
+          "level": "AGL-2m",
+          "metrics": [
+            "forecast_hour",
+            "mean_value",
+            "stddev",
+            "p05",
+            "p95",
+            "count"
+          ]
+        }
+      },
+      {
+        "columns": [
+          "valid_date",
+          "forecast_hour",
+          "mean_value",
+          "stddev",
+          "p05",
+          "p95",
+          "count"
+        ],
+        "rows": [
+          {
+            "valid_date": "2025-02-12T00:00:00Z",
+            "forecast_hour": 6,
+            "mean_value": 0.0001263551731242,
+            "stddev": 2.4728423067537445e-05,
+            "p05": 9.0095805792256e-05,
+            "p95": 0.0001660940495041,
+            "count": 10562
+          }
+        ],
+        "metadata": {
+          "variable": "SPFH",
+          "level": "ISBL_0500",
+          "metrics": [
+            "forecast_hour",
+            "mean_value",
+            "stddev",
+            "p05",
+            "p95",
+            "count"
+          ]
+        }
+      },
+      {
+        "columns": [
+          "valid_date",
+          "forecast_hour",
+          "mean_value",
+          "stddev",
+          "p05",
+          "p95",
+          "count"
+        ],
+        "rows": [
+          {
+            "valid_date": "2025-02-12T00:00:00Z",
+            "forecast_hour": 6,
+            "mean_value": 0.0002413084788272,
+            "stddev": 3.3024262034058616e-05,
+            "p05": 0.000188940078117,
+            "p95": 0.0002941413506626,
+            "count": 10562
+          }
+        ],
+        "metadata": {
+          "variable": "SPFH",
+          "level": "ISBL_0700",
+          "metrics": [
+            "forecast_hour",
+            "mean_value",
+            "stddev",
+            "p05",
+            "p95",
+            "count"
+          ]
+        }
+      },
+      {
+        "columns": [
+          "valid_date",
+          "forecast_hour",
+          "mean_value",
+          "stddev",
+          "p05",
+          "p95",
+          "count"
+        ],
+        "rows": [
+          {
+            "valid_date": "2025-02-12T00:00:00Z",
+            "forecast_hour": 6,
+            "mean_value": 0.0004979477122767,
+            "stddev": 0.0001333715981358,
+            "p05": 0.0002507562968678,
+            "p95": 0.0006523859042618,
+            "count": 10562
+          }
+        ],
+        "metadata": {
+          "variable": "SPFH",
+          "level": "ISBL_0850",
+          "metrics": [
+            "forecast_hour",
+            "mean_value",
+            "stddev",
+            "p05",
+            "p95",
+            "count"
+          ]
+        }
+      },
+      {
+        "columns": [
+          "valid_date",
+          "forecast_hour",
+          "mean_value",
+          "stddev",
+          "p05",
+          "p95",
+          "count"
+        ],
+        "rows": [
+          {
+            "valid_date": "2025-02-12T00:00:00Z",
+            "forecast_hour": 6,
+            "mean_value": 0.0,
+            "stddev": 0.0,
+            "p05": 0.0,
+            "p95": 0.0,
+            "count": 10562
+          }
+        ],
+        "metadata": {
+          "variable": "SPRATE",
+          "level": "Sfc",
+          "metrics": [
+            "forecast_hour",
+            "mean_value",
+            "stddev",
+            "p05",
+            "p95",
+            "count"
+          ]
+        }
+      },
+      {
+        "columns": [
+          "valid_date",
+          "forecast_hour",
+          "mean_value",
+          "stddev",
+          "p05",
+          "p95",
+          "count"
+        ],
+        "rows": [
+          {
+            "valid_date": "2025-02-12T00:00:00Z",
+            "forecast_hour": 6,
+            "mean_value": 0.0780188735993559,
+            "stddev": 0.8255165778822012,
+            "p05": 0.0,
+            "p95": 0.1844674407370955,
+            "count": 10562
+          }
+        ],
+        "metadata": {
+          "variable": "TCDC",
+          "level": "Sfc",
+          "metrics": [
+            "forecast_hour",
+            "mean_value",
+            "stddev",
+            "p05",
+            "p95",
+            "count"
+          ]
+        }
+      },
+      {
+        "columns": [
+          "valid_date",
+          "forecast_hour",
+          "mean_value",
+          "stddev",
+          "p05",
+          "p95",
+          "count"
+        ],
+        "rows": [
+          {
+            "valid_date": "2025-02-12T00:00:00Z",
+            "forecast_hour": 6,
+            "mean_value": 261.351603304485,
+            "stddev": 4.8400839041489645,
+            "p05": 251.46949649532056,
+            "p95": 267.6017506485319,
+            "count": 10562
+          }
+        ],
+        "metadata": {
+          "variable": "TMP",
+          "level": "AGL-2m",
+          "metrics": [
+            "forecast_hour",
+            "mean_value",
+            "stddev",
+            "p05",
+            "p95",
+            "count"
+          ]
+        }
+      },
+      {
+        "columns": [
+          "valid_date",
+          "forecast_hour",
+          "mean_value",
+          "stddev",
+          "p05",
+          "p95",
+          "count"
+        ],
+        "rows": [
+          {
+            "valid_date": "2025-02-12T00:00:00Z",
+            "forecast_hour": 6,
+            "mean_value": 248.12280693694296,
+            "stddev": 0.7269649150939185,
+            "p05": 246.7057239174769,
+            "p95": 248.85952540327057,
+            "count": 10562
+          }
+        ],
+        "metadata": {
+          "variable": "TMP",
+          "level": "ISBL_0500",
+          "metrics": [
+            "forecast_hour",
+            "mean_value",
+            "stddev",
+            "p05",
+            "p95",
+            "count"
+          ]
+        }
+      },
+      {
+        "columns": [
+          "valid_date",
+          "forecast_hour",
+          "mean_value",
+          "stddev",
+          "p05",
+          "p95",
+          "count"
+        ],
+        "rows": [
+          {
+            "valid_date": "2025-02-12T00:00:00Z",
+            "forecast_hour": 6,
+            "mean_value": 264.7567099032594,
+            "stddev": 0.8803078568693635,
+            "p05": 262.9493971254694,
+            "p95": 265.72145276810846,
+            "count": 10562
+          }
+        ],
+        "metadata": {
+          "variable": "TMP",
+          "level": "ISBL_0700",
+          "metrics": [
+            "forecast_hour",
+            "mean_value",
+            "stddev",
+            "p05",
+            "p95",
+            "count"
+          ]
+        }
+      },
+      {
+        "columns": [
+          "valid_date",
+          "forecast_hour",
+          "mean_value",
+          "stddev",
+          "p05",
+          "p95",
+          "count"
+        ],
+        "rows": [
+          {
+            "valid_date": "2025-02-12T00:00:00Z",
+            "forecast_hour": 6,
+            "mean_value": 266.2179863766903,
+            "stddev": 4.919754630491807,
+            "p05": 257.7036267975064,
+            "p95": 271.243248717233,
+            "count": 10562
+          }
+        ],
+        "metadata": {
+          "variable": "TMP",
+          "level": "ISBL_0850",
+          "metrics": [
+            "forecast_hour",
+            "mean_value",
+            "stddev",
+            "p05",
+            "p95",
+            "count"
+          ]
+        }
+      },
+      {
+        "columns": [
+          "valid_date",
+          "forecast_hour",
+          "mean_value",
+          "stddev",
+          "p05",
+          "p95",
+          "count"
+        ],
+        "rows": [
+          {
+            "valid_date": "2025-02-12T00:00:00Z",
+            "forecast_hour": 6,
+            "mean_value": 0.217195189204241,
+            "stddev": 0.5391302362709479,
+            "p05": -0.443383605439276,
+            "p95": 1.3205862966092,
+            "count": 10562
+          }
+        ],
+        "metadata": {
+          "variable": "UGRD",
+          "level": "AGL-10m",
+          "metrics": [
+            "forecast_hour",
+            "mean_value",
+            "stddev",
+            "p05",
+            "p95",
+            "count"
+          ]
+        }
+      },
+      {
+        "columns": [
+          "valid_date",
+          "forecast_hour",
+          "mean_value",
+          "stddev",
+          "p05",
+          "p95",
+          "count"
+        ],
+        "rows": [
+          {
+            "valid_date": "2025-02-12T00:00:00Z",
+            "forecast_hour": 6,
+            "mean_value": 4.530854663750336,
+            "stddev": 3.3041357323355345,
+            "p05": -0.484166514814883,
+            "p95": 9.361783134527592,
+            "count": 10562
+          }
+        ],
+        "metadata": {
+          "variable": "UGRD",
+          "level": "ISBL_0500",
+          "metrics": [
+            "forecast_hour",
+            "mean_value",
+            "stddev",
+            "p05",
+            "p95",
+            "count"
+          ]
+        }
+      },
+      {
+        "columns": [
+          "valid_date",
+          "forecast_hour",
+          "mean_value",
+          "stddev",
+          "p05",
+          "p95",
+          "count"
+        ],
+        "rows": [
+          {
+            "valid_date": "2025-02-12T00:00:00Z",
+            "forecast_hour": 6,
+            "mean_value": 2.1676228247946123,
+            "stddev": 1.8065073470550248,
+            "p05": 0.1024076334017544,
+            "p95": 4.944677952750512,
+            "count": 10562
+          }
+        ],
+        "metadata": {
+          "variable": "UGRD",
+          "level": "ISBL_0700",
+          "metrics": [
+            "forecast_hour",
+            "mean_value",
+            "stddev",
+            "p05",
+            "p95",
+            "count"
+          ]
+        }
+      },
+      {
+        "columns": [
+          "valid_date",
+          "forecast_hour",
+          "mean_value",
+          "stddev",
+          "p05",
+          "p95",
+          "count"
+        ],
+        "rows": [
+          {
+            "valid_date": "2025-02-12T00:00:00Z",
+            "forecast_hour": 6,
+            "mean_value": 0.7615821953339368,
+            "stddev": 0.6624158652412688,
+            "p05": -0.1497812793570413,
+            "p95": 2.040769579395968,
+            "count": 10562
+          }
+        ],
+        "metadata": {
+          "variable": "UGRD",
+          "level": "ISBL_0850",
+          "metrics": [
+            "forecast_hour",
+            "mean_value",
+            "stddev",
+            "p05",
+            "p95",
+            "count"
+          ]
+        }
+      },
+      {
+        "columns": [
+          "valid_date",
+          "forecast_hour",
+          "mean_value",
+          "stddev",
+          "p05",
+          "p95",
+          "count"
+        ],
+        "rows": [
+          {
+            "valid_date": "2025-02-12T00:00:00Z",
+            "forecast_hour": 6,
+            "mean_value": -0.2280554414105277,
+            "stddev": 0.5306245378380001,
+            "p05": -1.0693100664623885,
+            "p95": 0.6024261152175397,
+            "count": 10562
+          }
+        ],
+        "metadata": {
+          "variable": "VGRD",
+          "level": "AGL-10m",
+          "metrics": [
+            "forecast_hour",
+            "mean_value",
+            "stddev",
+            "p05",
+            "p95",
+            "count"
+          ]
+        }
+      },
+      {
+        "columns": [
+          "valid_date",
+          "forecast_hour",
+          "mean_value",
+          "stddev",
+          "p05",
+          "p95",
+          "count"
+        ],
+        "rows": [
+          {
+            "valid_date": "2025-02-12T00:00:00Z",
+            "forecast_hour": 6,
+            "mean_value": -15.629096089559887,
+            "stddev": 2.910366834082943,
+            "p05": -20.2329392399191,
+            "p95": -11.263209934077832,
+            "count": 10562
+          }
+        ],
+        "metadata": {
+          "variable": "VGRD",
+          "level": "ISBL_0500",
+          "metrics": [
+            "forecast_hour",
+            "mean_value",
+            "stddev",
+            "p05",
+            "p95",
+            "count"
+          ]
+        }
+      },
+      {
+        "columns": [
+          "valid_date",
+          "forecast_hour",
+          "mean_value",
+          "stddev",
+          "p05",
+          "p95",
+          "count"
+        ],
+        "rows": [
+          {
+            "valid_date": "2025-02-12T00:00:00Z",
+            "forecast_hour": 6,
+            "mean_value": -8.696116459236327,
+            "stddev": 1.7119538134171,
+            "p05": -11.17798494062938,
+            "p95": -6.404889911557033,
+            "count": 10562
+          }
+        ],
+        "metadata": {
+          "variable": "VGRD",
+          "level": "ISBL_0700",
+          "metrics": [
+            "forecast_hour",
+            "mean_value",
+            "stddev",
+            "p05",
+            "p95",
+            "count"
+          ]
+        }
+      },
+      {
+        "columns": [
+          "valid_date",
+          "forecast_hour",
+          "mean_value",
+          "stddev",
+          "p05",
+          "p95",
+          "count"
+        ],
+        "rows": [
+          {
+            "valid_date": "2025-02-12T00:00:00Z",
+            "forecast_hour": 6,
+            "mean_value": -1.029087201338169,
+            "stddev": 1.0673862687446394,
+            "p05": -2.6309634958131047,
+            "p95": 0.6202751471782043,
+            "count": 10562
+          }
+        ],
+        "metadata": {
+          "variable": "VGRD",
+          "level": "ISBL_0850",
+          "metrics": [
+            "forecast_hour",
+            "mean_value",
+            "stddev",
+            "p05",
+            "p95",
+            "count"
+          ]
+        }
+      },
+      {
+        "columns": [
+          "valid_date",
+          "forecast_hour",
+          "mean_value",
+          "stddev",
+          "p05",
+          "p95",
+          "count"
+        ],
+        "rows": [
+          {
+            "valid_date": "2025-02-12T00:00:00Z",
+            "forecast_hour": 6,
+            "mean_value": 0.0418091078840469,
+            "stddev": 0.4512630739390613,
+            "p05": -0.7154738545826779,
+            "p95": 0.8179117465444288,
+            "count": 10562
+          }
+        ],
+        "metadata": {
+          "variable": "VVEL",
+          "level": "ISBL_0500",
+          "metrics": [
+            "forecast_hour",
+            "mean_value",
+            "stddev",
+            "p05",
+            "p95",
+            "count"
+          ]
+        }
+      },
+      {
+        "columns": [
+          "valid_date",
+          "forecast_hour",
+          "mean_value",
+          "stddev",
+          "p05",
+          "p95",
+          "count"
+        ],
+        "rows": [
+          {
+            "valid_date": "2025-02-12T00:00:00Z",
+            "forecast_hour": 6,
+            "mean_value": 0.0576715752692398,
+            "stddev": 0.4340842781433551,
+            "p05": -0.6373649003891917,
+            "p95": 0.7691993352311617,
+            "count": 10562
+          }
+        ],
+        "metadata": {
+          "variable": "VVEL",
+          "level": "ISBL_0700",
+          "metrics": [
+            "forecast_hour",
+            "mean_value",
+            "stddev",
+            "p05",
+            "p95",
+            "count"
+          ]
+        }
+      },
+      {
+        "columns": [
+          "valid_date",
+          "forecast_hour",
+          "mean_value",
+          "stddev",
+          "p05",
+          "p95",
+          "count"
+        ],
+        "rows": [
+          {
+            "valid_date": "2025-02-12T00:00:00Z",
+            "forecast_hour": 6,
+            "mean_value": 0.1141422864959505,
+            "stddev": 0.3226702822966601,
+            "p05": -0.1177877779729455,
+            "p95": 0.8045494257125321,
+            "count": 10562
+          }
+        ],
+        "metadata": {
+          "variable": "VVEL",
+          "level": "ISBL_0850",
+          "metrics": [
+            "forecast_hour",
+            "mean_value",
+            "stddev",
+            "p05",
+            "p95",
+            "count"
+          ]
+        }
+      }
+    ],
+    "treeline": [
+      {
+        "columns": [
+          "valid_date",
+          "forecast_hour",
+          "mean_value",
+          "stddev",
+          "p05",
+          "p95",
+          "count"
+        ],
+        "rows": [
+          {
+            "valid_date": "2025-02-12T00:00:00Z",
+            "forecast_hour": 23,
+            "mean_value": 0.0,
+            "stddev": 0.0,
+            "p05": 0.0,
+            "p95": 0.0,
+            "count": 12830
+          }
+        ],
+        "metadata": {
+          "variable": "APCP",
+          "level": "Sfc",
+          "metrics": [
+            "forecast_hour",
+            "mean_value",
+            "stddev",
+            "p05",
+            "p95",
+            "count"
+          ]
+        }
+      },
+      {
+        "columns": [
+          "valid_date",
+          "forecast_hour",
+          "mean_value",
+          "stddev",
+          "p05",
+          "p95",
+          "count"
+        ],
+        "rows": [
+          {
+            "valid_date": "2025-02-12T00:00:00Z",
+            "forecast_hour": 0,
+            "mean_value": 2.303933139609124,
+            "stddev": 0.5454423408671281,
+            "p05": 1.671577676083668,
+            "p95": 3.4924730774221078,
+            "count": 12830
+          }
+        ],
+        "metadata": {
+          "variable": "CWAT",
+          "level": "EATM",
+          "metrics": [
+            "forecast_hour",
+            "mean_value",
+            "stddev",
+            "p05",
+            "p95",
+            "count"
+          ]
+        }
+      },
+      {
+        "columns": [
+          "valid_date",
+          "forecast_hour",
+          "mean_value",
+          "stddev",
+          "p05",
+          "p95",
+          "count"
+        ],
+        "rows": [
+          {
+            "valid_date": "2025-02-12T00:00:00Z",
+            "forecast_hour": 0,
+            "mean_value": 0.0,
+            "stddev": 0.0,
+            "p05": 0.0,
+            "p95": 0.0,
+            "count": 12830
+          }
+        ],
+        "metadata": {
+          "variable": "DLWRF",
+          "level": "Sfc",
+          "metrics": [
+            "forecast_hour",
+            "mean_value",
+            "stddev",
+            "p05",
+            "p95",
+            "count"
+          ]
+        }
+      },
+      {
+        "columns": [
+          "valid_date",
+          "forecast_hour",
+          "mean_value",
+          "stddev",
+          "p05",
+          "p95",
+          "count"
+        ],
+        "rows": [
+          {
+            "valid_date": "2025-02-12T00:00:00Z",
+            "forecast_hour": 0,
+            "mean_value": 0.0,
+            "stddev": 0.0,
+            "p05": 0.0,
+            "p95": 0.0,
+            "count": 12830
+          }
+        ],
+        "metadata": {
+          "variable": "DSWRF",
+          "level": "Sfc",
+          "metrics": [
+            "forecast_hour",
+            "mean_value",
+            "stddev",
+            "p05",
+            "p95",
+            "count"
+          ]
+        }
+      },
+      {
+        "columns": [
+          "valid_date",
+          "forecast_hour",
+          "mean_value",
+          "stddev",
+          "p05",
+          "p95",
+          "count"
+        ],
+        "rows": [
+          {
+            "valid_date": "2025-02-12T00:00:00Z",
+            "forecast_hour": 23,
+            "mean_value": 0.0,
+            "stddev": 0.0,
+            "p05": 0.0,
+            "p95": 0.0,
+            "count": 12830
+          }
+        ],
+        "metadata": {
+          "variable": "FPRATE",
+          "level": "Sfc",
+          "metrics": [
+            "forecast_hour",
+            "mean_value",
+            "stddev",
+            "p05",
+            "p95",
+            "count"
+          ]
+        }
+      },
+      {
+        "columns": [
+          "valid_date",
+          "forecast_hour",
+          "mean_value",
+          "stddev",
+          "p05",
+          "p95",
+          "count"
+        ],
+        "rows": [
+          {
+            "valid_date": "2025-02-12T00:00:00Z",
+            "forecast_hour": 0,
+            "mean_value": 2.023099824545848,
+            "stddev": 1.3786922359308194,
+            "p05": 0.5273419120145073,
+            "p95": 4.868091376859287,
+            "count": 12830
+          }
+        ],
+        "metadata": {
+          "variable": "GUST",
+          "level": "AGL-10m",
+          "metrics": [
+            "forecast_hour",
+            "mean_value",
+            "stddev",
+            "p05",
+            "p95",
+            "count"
+          ]
+        }
+      },
+      {
+        "columns": [
+          "valid_date",
+          "forecast_hour",
+          "mean_value",
+          "stddev",
+          "p05",
+          "p95",
+          "count"
+        ],
+        "rows": [
+          {
+            "valid_date": "2025-02-12T00:00:00Z",
+            "forecast_hour": 0,
+            "mean_value": 5398.190263666453,
+            "stddev": 30.574237707049814,
+            "p05": 5355.623391081735,
+            "p95": 5442.392263518445,
+            "count": 12830
+          }
+        ],
+        "metadata": {
+          "variable": "HGT",
+          "level": "ISBL_0500",
+          "metrics": [
+            "forecast_hour",
+            "mean_value",
+            "stddev",
+            "p05",
+            "p95",
+            "count"
+          ]
+        }
+      },
+      {
+        "columns": [
+          "valid_date",
+          "forecast_hour",
+          "mean_value",
+          "stddev",
+          "p05",
+          "p95",
+          "count"
+        ],
+        "rows": [
+          {
+            "valid_date": "2025-02-12T00:00:00Z",
+            "forecast_hour": 0,
+            "mean_value": 2897.403308799487,
+            "stddev": 16.046431757778638,
+            "p05": 2874.333651184568,
+            "p95": 2920.2660439281044,
+            "count": 12830
+          }
+        ],
+        "metadata": {
+          "variable": "HGT",
+          "level": "ISBL_0700",
+          "metrics": [
+            "forecast_hour",
+            "mean_value",
+            "stddev",
+            "p05",
+            "p95",
+            "count"
+          ]
+        }
+      },
+      {
+        "columns": [
+          "valid_date",
+          "forecast_hour",
+          "mean_value",
+          "stddev",
+          "p05",
+          "p95",
+          "count"
+        ],
+        "rows": [
+          {
+            "valid_date": "2025-02-12T00:00:00Z",
+            "forecast_hour": 0,
+            "mean_value": 12.761406498925128,
+            "stddev": 50.39752790577829,
+            "p05": 2.000000040081755,
+            "p95": 51.43727415762336,
+            "count": 12830
+          }
+        ],
+        "metadata": {
+          "variable": "HPBL",
+          "level": "Sfc",
+          "metrics": [
+            "forecast_hour",
+            "mean_value",
+            "stddev",
+            "p05",
+            "p95",
+            "count"
+          ]
+        }
+      },
+      {
+        "columns": [
+          "valid_date",
+          "forecast_hour",
+          "mean_value",
+          "stddev",
+          "p05",
+          "p95",
+          "count"
+        ],
+        "rows": [
+          {
+            "valid_date": "2025-02-12T00:00:00Z",
+            "forecast_hour": 23,
+            "mean_value": 0.0,
+            "stddev": 0.0,
+            "p05": 0.0,
+            "p95": 0.0,
+            "count": 12830
+          }
+        ],
+        "metadata": {
+          "variable": "IPRATE",
+          "level": "Sfc",
+          "metrics": [
+            "forecast_hour",
+            "mean_value",
+            "stddev",
+            "p05",
+            "p95",
+            "count"
+          ]
+        }
+      },
+      {
+        "columns": [
+          "valid_date",
+          "forecast_hour",
+          "mean_value",
+          "stddev",
+          "p05",
+          "p95",
+          "count"
+        ],
+        "rows": [
+          {
+            "valid_date": "2025-02-12T00:00:00Z",
+            "forecast_hour": 0,
+            "mean_value": 2.0138685093433324,
+            "stddev": 7.002053901613953,
+            "p05": -0.1044666228563928,
+            "p95": 17.558290827720505,
+            "count": 12830
+          }
+        ],
+        "metadata": {
+          "variable": "LHTFL",
+          "level": "Sfc",
+          "metrics": [
+            "forecast_hour",
+            "mean_value",
+            "stddev",
+            "p05",
+            "p95",
+            "count"
+          ]
+        }
+      },
+      {
+        "columns": [
+          "valid_date",
+          "forecast_hour",
+          "mean_value",
+          "stddev",
+          "p05",
+          "p95",
+          "count"
+        ],
+        "rows": [
+          {
+            "valid_date": "2025-02-12T00:00:00Z",
+            "forecast_hour": 0,
+            "mean_value": 0.0,
+            "stddev": 0.0,
+            "p05": 0.0,
+            "p95": 0.0,
+            "count": 12830
+          }
+        ],
+        "metadata": {
+          "variable": "NLWRS",
+          "level": "Sfc",
+          "metrics": [
+            "forecast_hour",
+            "mean_value",
+            "stddev",
+            "p05",
+            "p95",
+            "count"
+          ]
+        }
+      },
+      {
+        "columns": [
+          "valid_date",
+          "forecast_hour",
+          "mean_value",
+          "stddev",
+          "p05",
+          "p95",
+          "count"
+        ],
+        "rows": [
+          {
+            "valid_date": "2025-02-12T00:00:00Z",
+            "forecast_hour": 0,
+            "mean_value": 0.0,
+            "stddev": 0.0,
+            "p05": 0.0,
+            "p95": 0.0,
+            "count": 12830
+          }
+        ],
+        "metadata": {
+          "variable": "NSWRS",
+          "level": "Sfc",
+          "metrics": [
+            "forecast_hour",
+            "mean_value",
+            "stddev",
+            "p05",
+            "p95",
+            "count"
+          ]
+        }
+      },
+      {
+        "columns": [
+          "valid_date",
+          "forecast_hour",
+          "mean_value",
+          "stddev",
+          "p05",
+          "p95",
+          "count"
+        ],
+        "rows": [
+          {
+            "valid_date": "2025-02-12T00:00:00Z",
+            "forecast_hour": 23,
+            "mean_value": 0.0,
+            "stddev": 0.0,
+            "p05": 0.0,
+            "p95": 0.0,
+            "count": 12830
+          }
+        ],
+        "metadata": {
+          "variable": "PRATE",
+          "level": "Sfc",
+          "metrics": [
+            "forecast_hour",
+            "mean_value",
+            "stddev",
+            "p05",
+            "p95",
+            "count"
+          ]
+        }
+      },
+      {
+        "columns": [
+          "valid_date",
+          "forecast_hour",
+          "mean_value",
+          "stddev",
+          "p05",
+          "p95",
+          "count"
+        ],
+        "rows": [
+          {
+            "valid_date": "2025-02-12T00:00:00Z",
+            "forecast_hour": 0,
+            "mean_value": 88286.72128083573,
+            "stddev": 5675.095747068898,
+            "p05": 81535.32361712908,
+            "p95": 99509.83104255168,
+            "count": 12830
+          }
+        ],
+        "metadata": {
+          "variable": "PRES",
+          "level": "Sfc",
+          "metrics": [
+            "forecast_hour",
+            "mean_value",
+            "stddev",
+            "p05",
+            "p95",
+            "count"
+          ]
+        }
+      },
+      {
+        "columns": [
+          "valid_date",
+          "forecast_hour",
+          "mean_value",
+          "stddev",
+          "p05",
+          "p95",
+          "count"
+        ],
+        "rows": [
+          {
+            "valid_date": "2025-02-12T00:00:00Z",
+            "forecast_hour": 23,
+            "mean_value": 0.0,
+            "stddev": 0.0,
+            "p05": 0.0,
+            "p95": 0.0,
+            "count": 12830
+          }
+        ],
+        "metadata": {
+          "variable": "RPRATE",
+          "level": "Sfc",
+          "metrics": [
+            "forecast_hour",
+            "mean_value",
+            "stddev",
+            "p05",
+            "p95",
+            "count"
+          ]
+        }
+      },
+      {
+        "columns": [
+          "valid_date",
+          "forecast_hour",
+          "mean_value",
+          "stddev",
+          "p05",
+          "p95",
+          "count"
+        ],
+        "rows": [
+          {
+            "valid_date": "2025-02-12T00:00:00Z",
+            "forecast_hour": 0,
+            "mean_value": 281.3588226307869,
+            "stddev": 58.36195567564455,
+            "p05": 222.4863784313945,
+            "p95": 377.0355061239424,
+            "count": 12830
+          }
+        ],
+        "metadata": {
+          "variable": "SDEN",
+          "level": "Sfc",
+          "metrics": [
+            "forecast_hour",
+            "mean_value",
+            "stddev",
+            "p05",
+            "p95",
+            "count"
+          ]
+        }
+      },
+      {
+        "columns": [
+          "valid_date",
+          "forecast_hour",
+          "mean_value",
+          "stddev",
+          "p05",
+          "p95",
+          "count"
+        ],
+        "rows": [
+          {
+            "valid_date": "2025-02-12T00:00:00Z",
+            "forecast_hour": 0,
+            "mean_value": 300.1181622224371,
+            "stddev": 292.8779839907989,
+            "p05": 4.796153459164484,
+            "p95": 937.555767546288,
+            "count": 12830
+          }
+        ],
+        "metadata": {
+          "variable": "SDWE",
+          "level": "Sfc",
+          "metrics": [
+            "forecast_hour",
+            "mean_value",
+            "stddev",
+            "p05",
+            "p95",
+            "count"
+          ]
+        }
+      },
+      {
+        "columns": [
+          "valid_date",
+          "forecast_hour",
+          "mean_value",
+          "stddev",
+          "p05",
+          "p95",
+          "count"
+        ],
+        "rows": [
+          {
+            "valid_date": "2025-02-12T00:00:00Z",
+            "forecast_hour": 0,
+            "mean_value": 1.4186820471018748,
+            "stddev": 6.984614000956244,
+            "p05": -1.9634118115465784,
+            "p95": 17.544020046401275,
+            "count": 12830
+          }
+        ],
+        "metadata": {
+          "variable": "SHTFL",
+          "level": "Sfc",
+          "metrics": [
+            "forecast_hour",
+            "mean_value",
+            "stddev",
+            "p05",
+            "p95",
+            "count"
+          ]
+        }
+      },
+      {
+        "columns": [
+          "valid_date",
+          "forecast_hour",
+          "mean_value",
+          "stddev",
+          "p05",
+          "p95",
+          "count"
+        ],
+        "rows": [
+          {
+            "valid_date": "2025-02-12T00:00:00Z",
+            "forecast_hour": 0,
+            "mean_value": 246.6513336267376,
+            "stddev": 8.804003404116155,
+            "p05": 239.6836438244864,
+            "p95": 267.5540800464762,
+            "count": 12830
+          }
+        ],
+        "metadata": {
+          "variable": "SKINT",
+          "level": "Sfc",
+          "metrics": [
+            "forecast_hour",
+            "mean_value",
+            "stddev",
+            "p05",
+            "p95",
+            "count"
+          ]
+        }
+      },
+      {
+        "columns": [
+          "valid_date",
+          "forecast_hour",
+          "mean_value",
+          "stddev",
+          "p05",
+          "p95",
+          "count"
+        ],
+        "rows": [
+          {
+            "valid_date": "2025-02-12T00:00:00Z",
+            "forecast_hour": 0,
+            "mean_value": 1.0096597937200078,
+            "stddev": 0.9643331010499844,
+            "p05": 0.0180143985094819,
+            "p95": 2.730802670052374,
+            "count": 12830
+          }
+        ],
+        "metadata": {
+          "variable": "SNOD",
+          "level": "Sfc",
+          "metrics": [
+            "forecast_hour",
+            "mean_value",
+            "stddev",
+            "p05",
+            "p95",
+            "count"
+          ]
+        }
+      },
+      {
+        "columns": [
+          "valid_date",
+          "forecast_hour",
+          "mean_value",
+          "stddev",
+          "p05",
+          "p95",
+          "count"
+        ],
+        "rows": [
+          {
+            "valid_date": "2025-02-12T00:00:00Z",
+            "forecast_hour": 0,
+            "mean_value": 0.0005102650242252,
+            "stddev": 0.0003732484172215,
+            "p05": 0.0002852411368957,
+            "p95": 0.0014178260744352,
+            "count": 12830
+          }
+        ],
+        "metadata": {
+          "variable": "SPFH",
+          "level": "AGL-2m",
+          "metrics": [
+            "forecast_hour",
+            "mean_value",
+            "stddev",
+            "p05",
+            "p95",
+            "count"
+          ]
+        }
+      },
+      {
+        "columns": [
+          "valid_date",
+          "forecast_hour",
+          "mean_value",
+          "stddev",
+          "p05",
+          "p95",
+          "count"
+        ],
+        "rows": [
+          {
+            "valid_date": "2025-02-12T00:00:00Z",
+            "forecast_hour": 0,
+            "mean_value": 0.0002394212675587,
+            "stddev": 5.236702985581715e-05,
+            "p05": 0.0001371368778524,
+            "p95": 0.0003092324378319,
+            "count": 12830
+          }
+        ],
+        "metadata": {
+          "variable": "SPFH",
+          "level": "ISBL_0500",
+          "metrics": [
+            "forecast_hour",
+            "mean_value",
+            "stddev",
+            "p05",
+            "p95",
+            "count"
+          ]
+        }
+      },
+      {
+        "columns": [
+          "valid_date",
+          "forecast_hour",
+          "mean_value",
+          "stddev",
+          "p05",
+          "p95",
+          "count"
+        ],
+        "rows": [
+          {
+            "valid_date": "2025-02-12T00:00:00Z",
+            "forecast_hour": 0,
+            "mean_value": 0.0005468405957595,
+            "stddev": 9.361496130903544e-05,
+            "p05": 0.0003715879474403,
+            "p95": 0.0006980989204247,
+            "count": 12830
+          }
+        ],
+        "metadata": {
+          "variable": "SPFH",
+          "level": "ISBL_0700",
+          "metrics": [
+            "forecast_hour",
+            "mean_value",
+            "stddev",
+            "p05",
+            "p95",
+            "count"
+          ]
+        }
+      },
+      {
+        "columns": [
+          "valid_date",
+          "forecast_hour",
+          "mean_value",
+          "stddev",
+          "p05",
+          "p95",
+          "count"
+        ],
+        "rows": [
+          {
+            "valid_date": "2025-02-12T00:00:00Z",
+            "forecast_hour": 0,
+            "mean_value": 0.000509272307377,
+            "stddev": 0.000140052139777,
+            "p05": 0.0003022261823366,
+            "p95": 0.0007101889767066,
+            "count": 12830
+          }
+        ],
+        "metadata": {
+          "variable": "SPFH",
+          "level": "ISBL_0850",
+          "metrics": [
+            "forecast_hour",
+            "mean_value",
+            "stddev",
+            "p05",
+            "p95",
+            "count"
+          ]
+        }
+      },
+      {
+        "columns": [
+          "valid_date",
+          "forecast_hour",
+          "mean_value",
+          "stddev",
+          "p05",
+          "p95",
+          "count"
+        ],
+        "rows": [
+          {
+            "valid_date": "2025-02-12T00:00:00Z",
+            "forecast_hour": 23,
+            "mean_value": 0.0,
+            "stddev": 0.0,
+            "p05": 0.0,
+            "p95": 0.0,
+            "count": 12830
+          }
+        ],
+        "metadata": {
+          "variable": "SPRATE",
+          "level": "Sfc",
+          "metrics": [
+            "forecast_hour",
+            "mean_value",
+            "stddev",
+            "p05",
+            "p95",
+            "count"
+          ]
+        }
+      },
+      {
+        "columns": [
+          "valid_date",
+          "forecast_hour",
+          "mean_value",
+          "stddev",
+          "p05",
+          "p95",
+          "count"
+        ],
+        "rows": [
+          {
+            "valid_date": "2025-02-12T00:00:00Z",
+            "forecast_hour": 0,
+            "mean_value": 0.0,
+            "stddev": 0.0,
+            "p05": 0.0,
+            "p95": 0.0,
+            "count": 12830
+          }
+        ],
+        "metadata": {
+          "variable": "TCDC",
+          "level": "Sfc",
+          "metrics": [
+            "forecast_hour",
+            "mean_value",
+            "stddev",
+            "p05",
+            "p95",
+            "count"
+          ]
+        }
+      },
+      {
+        "columns": [
+          "valid_date",
+          "forecast_hour",
+          "mean_value",
+          "stddev",
+          "p05",
+          "p95",
+          "count"
+        ],
+        "rows": [
+          {
+            "valid_date": "2025-02-12T00:00:00Z",
+            "forecast_hour": 0,
+            "mean_value": 257.36508730576287,
+            "stddev": 5.175447671003915,
+            "p05": 246.9118987084179,
+            "p95": 264.90035648404626,
+            "count": 12830
+          }
+        ],
+        "metadata": {
+          "variable": "TMP",
+          "level": "AGL-2m",
+          "metrics": [
+            "forecast_hour",
+            "mean_value",
+            "stddev",
+            "p05",
+            "p95",
+            "count"
+          ]
+        }
+      },
+      {
+        "columns": [
+          "valid_date",
+          "forecast_hour",
+          "mean_value",
+          "stddev",
+          "p05",
+          "p95",
+          "count"
+        ],
+        "rows": [
+          {
+            "valid_date": "2025-02-12T00:00:00Z",
+            "forecast_hour": 0,
+            "mean_value": 244.7103682645756,
+            "stddev": 1.5076366738266798,
+            "p05": 242.6228055312991,
+            "p95": 246.93977599011131,
+            "count": 12830
+          }
+        ],
+        "metadata": {
+          "variable": "TMP",
+          "level": "ISBL_0500",
+          "metrics": [
+            "forecast_hour",
+            "mean_value",
+            "stddev",
+            "p05",
+            "p95",
+            "count"
+          ]
+        }
+      },
+      {
+        "columns": [
+          "valid_date",
+          "forecast_hour",
+          "mean_value",
+          "stddev",
+          "p05",
+          "p95",
+          "count"
+        ],
+        "rows": [
+          {
+            "valid_date": "2025-02-12T00:00:00Z",
+            "forecast_hour": 0,
+            "mean_value": 263.2374816364458,
+            "stddev": 1.3802868537844597,
+            "p05": 260.7438492799572,
+            "p95": 264.85905847546326,
+            "count": 12830
+          }
+        ],
+        "metadata": {
+          "variable": "TMP",
+          "level": "ISBL_0700",
+          "metrics": [
+            "forecast_hour",
+            "mean_value",
+            "stddev",
+            "p05",
+            "p95",
+            "count"
+          ]
+        }
+      },
+      {
+        "columns": [
+          "valid_date",
+          "forecast_hour",
+          "mean_value",
+          "stddev",
+          "p05",
+          "p95",
+          "count"
+        ],
+        "rows": [
+          {
+            "valid_date": "2025-02-12T00:00:00Z",
+            "forecast_hour": 0,
+            "mean_value": 261.84724510931704,
+            "stddev": 4.931388799369869,
+            "p05": 254.18415376070885,
+            "p95": 268.0955928656712,
+            "count": 12830
+          }
+        ],
+        "metadata": {
+          "variable": "TMP",
+          "level": "ISBL_0850",
+          "metrics": [
+            "forecast_hour",
+            "mean_value",
+            "stddev",
+            "p05",
+            "p95",
+            "count"
+          ]
+        }
+      },
+      {
+        "columns": [
+          "valid_date",
+          "forecast_hour",
+          "mean_value",
+          "stddev",
+          "p05",
+          "p95",
+          "count"
+        ],
+        "rows": [
+          {
+            "valid_date": "2025-02-12T00:00:00Z",
+            "forecast_hour": 0,
+            "mean_value": 0.1817621964111282,
+            "stddev": 0.5620134126198023,
+            "p05": -0.6219780707873037,
+            "p95": 1.303400841906131,
+            "count": 12830
+          }
+        ],
+        "metadata": {
+          "variable": "UGRD",
+          "level": "AGL-10m",
+          "metrics": [
+            "forecast_hour",
+            "mean_value",
+            "stddev",
+            "p05",
+            "p95",
+            "count"
+          ]
+        }
+      },
+      {
+        "columns": [
+          "valid_date",
+          "forecast_hour",
+          "mean_value",
+          "stddev",
+          "p05",
+          "p95",
+          "count"
+        ],
+        "rows": [
+          {
+            "valid_date": "2025-02-12T00:00:00Z",
+            "forecast_hour": 0,
+            "mean_value": 12.319015281405433,
+            "stddev": 1.5339479353928491,
+            "p05": 8.851229748020968,
+            "p95": 13.901025938198956,
+            "count": 12830
+          }
+        ],
+        "metadata": {
+          "variable": "UGRD",
+          "level": "ISBL_0500",
+          "metrics": [
+            "forecast_hour",
+            "mean_value",
+            "stddev",
+            "p05",
+            "p95",
+            "count"
+          ]
+        }
+      },
+      {
+        "columns": [
+          "valid_date",
+          "forecast_hour",
+          "mean_value",
+          "stddev",
+          "p05",
+          "p95",
+          "count"
+        ],
+        "rows": [
+          {
+            "valid_date": "2025-02-12T00:00:00Z",
+            "forecast_hour": 0,
+            "mean_value": 4.824426359960413,
+            "stddev": 1.105164379886481,
+            "p05": 2.6198480489828007,
+            "p95": 6.263080003540438,
+            "count": 12830
+          }
+        ],
+        "metadata": {
+          "variable": "UGRD",
+          "level": "ISBL_0700",
+          "metrics": [
+            "forecast_hour",
+            "mean_value",
+            "stddev",
+            "p05",
+            "p95",
+            "count"
+          ]
+        }
+      },
+      {
+        "columns": [
+          "valid_date",
+          "forecast_hour",
+          "mean_value",
+          "stddev",
+          "p05",
+          "p95",
+          "count"
+        ],
+        "rows": [
+          {
+            "valid_date": "2025-02-12T00:00:00Z",
+            "forecast_hour": 0,
+            "mean_value": 1.1196876948733083,
+            "stddev": 0.953908309791243,
+            "p05": -0.1742752318304026,
+            "p95": 2.661911669502441,
+            "count": 12830
+          }
+        ],
+        "metadata": {
+          "variable": "UGRD",
+          "level": "ISBL_0850",
+          "metrics": [
+            "forecast_hour",
+            "mean_value",
+            "stddev",
+            "p05",
+            "p95",
+            "count"
+          ]
+        }
+      },
+      {
+        "columns": [
+          "valid_date",
+          "forecast_hour",
+          "mean_value",
+          "stddev",
+          "p05",
+          "p95",
+          "count"
+        ],
+        "rows": [
+          {
+            "valid_date": "2025-02-12T00:00:00Z",
+            "forecast_hour": 0,
+            "mean_value": -0.0954775172280343,
+            "stddev": 0.3722818539743834,
+            "p05": -0.6952748584102003,
+            "p95": 0.5268219364730575,
+            "count": 12830
+          }
+        ],
+        "metadata": {
+          "variable": "VGRD",
+          "level": "AGL-10m",
+          "metrics": [
+            "forecast_hour",
+            "mean_value",
+            "stddev",
+            "p05",
+            "p95",
+            "count"
+          ]
+        }
+      },
+      {
+        "columns": [
+          "valid_date",
+          "forecast_hour",
+          "mean_value",
+          "stddev",
+          "p05",
+          "p95",
+          "count"
+        ],
+        "rows": [
+          {
+            "valid_date": "2025-02-12T00:00:00Z",
+            "forecast_hour": 0,
+            "mean_value": -10.998700045757367,
+            "stddev": 1.8406854646498847,
+            "p05": -13.693132742525115,
+            "p95": -7.674882488477376,
+            "count": 12830
+          }
+        ],
+        "metadata": {
+          "variable": "VGRD",
+          "level": "ISBL_0500",
+          "metrics": [
+            "forecast_hour",
+            "mean_value",
+            "stddev",
+            "p05",
+            "p95",
+            "count"
+          ]
+        }
+      },
+      {
+        "columns": [
+          "valid_date",
+          "forecast_hour",
+          "mean_value",
+          "stddev",
+          "p05",
+          "p95",
+          "count"
+        ],
+        "rows": [
+          {
+            "valid_date": "2025-02-12T00:00:00Z",
+            "forecast_hour": 0,
+            "mean_value": -6.851343162903929,
+            "stddev": 1.376365668017412,
+            "p05": -8.753505858231678,
+            "p95": -4.7874558823841245,
+            "count": 12830
+          }
+        ],
+        "metadata": {
+          "variable": "VGRD",
+          "level": "ISBL_0700",
+          "metrics": [
+            "forecast_hour",
+            "mean_value",
+            "stddev",
+            "p05",
+            "p95",
+            "count"
+          ]
+        }
+      },
+      {
+        "columns": [
+          "valid_date",
+          "forecast_hour",
+          "mean_value",
+          "stddev",
+          "p05",
+          "p95",
+          "count"
+        ],
+        "rows": [
+          {
+            "valid_date": "2025-02-12T00:00:00Z",
+            "forecast_hour": 0,
+            "mean_value": -0.2677534905809361,
+            "stddev": 0.7972907635549203,
+            "p05": -1.912647799496812,
+            "p95": 0.7621300911910736,
+            "count": 12830
+          }
+        ],
+        "metadata": {
+          "variable": "VGRD",
+          "level": "ISBL_0850",
+          "metrics": [
+            "forecast_hour",
+            "mean_value",
+            "stddev",
+            "p05",
+            "p95",
+            "count"
+          ]
+        }
+      },
+      {
+        "columns": [
+          "valid_date",
+          "forecast_hour",
+          "mean_value",
+          "stddev",
+          "p05",
+          "p95",
+          "count"
+        ],
+        "rows": [
+          {
+            "valid_date": "2025-02-12T00:00:00Z",
+            "forecast_hour": 0,
+            "mean_value": -0.0330640706565815,
+            "stddev": 1.048444743945535,
+            "p05": -1.75871546792073,
+            "p95": 1.7533716654878782,
+            "count": 12830
+          }
+        ],
+        "metadata": {
+          "variable": "VVEL",
+          "level": "ISBL_0500",
+          "metrics": [
+            "forecast_hour",
+            "mean_value",
+            "stddev",
+            "p05",
+            "p95",
+            "count"
+          ]
+        }
+      },
+      {
+        "columns": [
+          "valid_date",
+          "forecast_hour",
+          "mean_value",
+          "stddev",
+          "p05",
+          "p95",
+          "count"
+        ],
+        "rows": [
+          {
+            "valid_date": "2025-02-12T00:00:00Z",
+            "forecast_hour": 0,
+            "mean_value": -0.0573867093610841,
+            "stddev": 0.7781448229143607,
+            "p05": -1.3127873286919896,
+            "p95": 1.2683156897465897,
+            "count": 12830
+          }
+        ],
+        "metadata": {
+          "variable": "VVEL",
+          "level": "ISBL_0700",
+          "metrics": [
+            "forecast_hour",
+            "mean_value",
+            "stddev",
+            "p05",
+            "p95",
+            "count"
+          ]
+        }
+      },
+      {
+        "columns": [
+          "valid_date",
+          "forecast_hour",
+          "mean_value",
+          "stddev",
+          "p05",
+          "p95",
+          "count"
+        ],
+        "rows": [
+          {
+            "valid_date": "2025-02-12T00:00:00Z",
+            "forecast_hour": 0,
+            "mean_value": 0.0171521424215197,
+            "stddev": 0.711486371343565,
+            "p05": -1.1289261146859846,
+            "p95": 1.2100633877851563,
+            "count": 12830
+          }
+        ],
+        "metadata": {
+          "variable": "VVEL",
+          "level": "ISBL_0850",
+          "metrics": [
+            "forecast_hour",
+            "mean_value",
+            "stddev",
+            "p05",
+            "p95",
+            "count"
+          ]
+        }
+      }
+    ],
+    "below_treeline": [
+      {
+        "columns": [
+          "valid_date",
+          "forecast_hour",
+          "mean_value",
+          "stddev",
+          "p05",
+          "p95",
+          "count"
+        ],
+        "rows": [
+          {
+            "valid_date": "2025-02-12T00:00:00Z",
+            "forecast_hour": 11,
+            "mean_value": 0.0,
+            "stddev": 0.0,
+            "p05": 0.0,
+            "p95": 0.0,
+            "count": 13559
+          }
+        ],
+        "metadata": {
+          "variable": "APCP",
+          "level": "Sfc",
+          "metrics": [
+            "forecast_hour",
+            "mean_value",
+            "stddev",
+            "p05",
+            "p95",
+            "count"
+          ]
+        }
+      },
+      {
+        "columns": [
+          "valid_date",
+          "forecast_hour",
+          "mean_value",
+          "stddev",
+          "p05",
+          "p95",
+          "count"
+        ],
+        "rows": [
+          {
+            "valid_date": "2025-02-12T00:00:00Z",
+            "forecast_hour": 6,
+            "mean_value": 1.372197071215747,
+            "stddev": 0.4176596856145431,
+            "p05": 0.9182563552838708,
+            "p95": 2.3594082360424298,
+            "count": 13559
+          }
+        ],
+        "metadata": {
+          "variable": "CWAT",
+          "level": "EATM",
+          "metrics": [
+            "forecast_hour",
+            "mean_value",
+            "stddev",
+            "p05",
+            "p95",
+            "count"
+          ]
+        }
+      },
+      {
+        "columns": [
+          "valid_date",
+          "forecast_hour",
+          "mean_value",
+          "stddev",
+          "p05",
+          "p95",
+          "count"
+        ],
+        "rows": [
+          {
+            "valid_date": "2025-02-12T00:00:00Z",
+            "forecast_hour": 6,
+            "mean_value": 3574311.6324208886,
+            "stddev": 286791.84321014205,
+            "p05": 3342366.4810526376,
+            "p95": 4261150.103959756,
+            "count": 13559
+          }
+        ],
+        "metadata": {
+          "variable": "DLWRF",
+          "level": "Sfc",
+          "metrics": [
+            "forecast_hour",
+            "mean_value",
+            "stddev",
+            "p05",
+            "p95",
+            "count"
+          ]
+        }
+      },
+      {
+        "columns": [
+          "valid_date",
+          "forecast_hour",
+          "mean_value",
+          "stddev",
+          "p05",
+          "p95",
+          "count"
+        ],
+        "rows": [
+          {
+            "valid_date": "2025-02-12T00:00:00Z",
+            "forecast_hour": 6,
+            "mean_value": 296863.75702197826,
+            "stddev": 74579.89626507468,
+            "p05": 214962.12230022627,
+            "p95": 436724.45233578485,
+            "count": 13559
+          }
+        ],
+        "metadata": {
+          "variable": "DSWRF",
+          "level": "Sfc",
+          "metrics": [
+            "forecast_hour",
+            "mean_value",
+            "stddev",
+            "p05",
+            "p95",
+            "count"
+          ]
+        }
+      },
+      {
+        "columns": [
+          "valid_date",
+          "forecast_hour",
+          "mean_value",
+          "stddev",
+          "p05",
+          "p95",
+          "count"
+        ],
+        "rows": [
+          {
+            "valid_date": "2025-02-12T00:00:00Z",
+            "forecast_hour": 11,
+            "mean_value": 0.0,
+            "stddev": 0.0,
+            "p05": 0.0,
+            "p95": 0.0,
+            "count": 13559
+          }
+        ],
+        "metadata": {
+          "variable": "FPRATE",
+          "level": "Sfc",
+          "metrics": [
+            "forecast_hour",
+            "mean_value",
+            "stddev",
+            "p05",
+            "p95",
+            "count"
+          ]
+        }
+      },
+      {
+        "columns": [
+          "valid_date",
+          "forecast_hour",
+          "mean_value",
+          "stddev",
+          "p05",
+          "p95",
+          "count"
+        ],
+        "rows": [
+          {
+            "valid_date": "2025-02-12T00:00:00Z",
+            "forecast_hour": 6,
+            "mean_value": 0.7472123958175146,
+            "stddev": 0.5713408140227737,
+            "p05": 0.1051686746028245,
+            "p95": 1.857609361605232,
+            "count": 13559
+          }
+        ],
+        "metadata": {
+          "variable": "GUST",
+          "level": "AGL-10m",
+          "metrics": [
+            "forecast_hour",
+            "mean_value",
+            "stddev",
+            "p05",
+            "p95",
+            "count"
+          ]
+        }
+      },
+      {
+        "columns": [
+          "valid_date",
+          "forecast_hour",
+          "mean_value",
+          "stddev",
+          "p05",
+          "p95",
+          "count"
+        ],
+        "rows": [
+          {
+            "valid_date": "2025-02-12T00:00:00Z",
+            "forecast_hour": 6,
+            "mean_value": 5495.76372822833,
+            "stddev": 19.04729665419184,
+            "p05": 5470.650369596359,
+            "p95": 5530.048885513704,
+            "count": 13559
+          }
+        ],
+        "metadata": {
+          "variable": "HGT",
+          "level": "ISBL_0500",
+          "metrics": [
+            "forecast_hour",
+            "mean_value",
+            "stddev",
+            "p05",
+            "p95",
+            "count"
+          ]
+        }
+      },
+      {
+        "columns": [
+          "valid_date",
+          "forecast_hour",
+          "mean_value",
+          "stddev",
+          "p05",
+          "p95",
+          "count"
+        ],
+        "rows": [
+          {
+            "valid_date": "2025-02-12T00:00:00Z",
+            "forecast_hour": 6,
+            "mean_value": 2973.662713715028,
+            "stddev": 11.086640154905426,
+            "p05": 2959.0364522562263,
+            "p95": 2994.0852659962748,
+            "count": 13559
+          }
+        ],
+        "metadata": {
+          "variable": "HGT",
+          "level": "ISBL_0700",
+          "metrics": [
+            "forecast_hour",
+            "mean_value",
+            "stddev",
+            "p05",
+            "p95",
+            "count"
+          ]
+        }
+      },
+      {
+        "columns": [
+          "valid_date",
+          "forecast_hour",
+          "mean_value",
+          "stddev",
+          "p05",
+          "p95",
+          "count"
+        ],
+        "rows": [
+          {
+            "valid_date": "2025-02-12T00:00:00Z",
+            "forecast_hour": 6,
+            "mean_value": 14.060256168799189,
+            "stddev": 59.86834238676964,
+            "p05": 2.000000040081755,
+            "p95": 11.592306958410722,
+            "count": 13559
+          }
+        ],
+        "metadata": {
+          "variable": "HPBL",
+          "level": "Sfc",
+          "metrics": [
+            "forecast_hour",
+            "mean_value",
+            "stddev",
+            "p05",
+            "p95",
+            "count"
+          ]
+        }
+      },
+      {
+        "columns": [
+          "valid_date",
+          "forecast_hour",
+          "mean_value",
+          "stddev",
+          "p05",
+          "p95",
+          "count"
+        ],
+        "rows": [
+          {
+            "valid_date": "2025-02-12T00:00:00Z",
+            "forecast_hour": 11,
+            "mean_value": 0.0,
+            "stddev": 0.0,
+            "p05": 0.0,
+            "p95": 0.0,
+            "count": 13559
+          }
+        ],
+        "metadata": {
+          "variable": "IPRATE",
+          "level": "Sfc",
+          "metrics": [
+            "forecast_hour",
+            "mean_value",
+            "stddev",
+            "p05",
+            "p95",
+            "count"
+          ]
+        }
+      },
+      {
+        "columns": [
+          "valid_date",
+          "forecast_hour",
+          "mean_value",
+          "stddev",
+          "p05",
+          "p95",
+          "count"
+        ],
+        "rows": [
+          {
+            "valid_date": "2025-02-12T00:00:00Z",
+            "forecast_hour": 6,
+            "mean_value": 1.2760481392809182,
+            "stddev": 5.113535029802258,
+            "p05": -0.1835793871855734,
+            "p95": 8.30192288672082,
+            "count": 13559
+          }
+        ],
+        "metadata": {
+          "variable": "LHTFL",
+          "level": "Sfc",
+          "metrics": [
+            "forecast_hour",
+            "mean_value",
+            "stddev",
+            "p05",
+            "p95",
+            "count"
+          ]
+        }
+      },
+      {
+        "columns": [
+          "valid_date",
+          "forecast_hour",
+          "mean_value",
+          "stddev",
+          "p05",
+          "p95",
+          "count"
+        ],
+        "rows": [
+          {
+            "valid_date": "2025-02-12T00:00:00Z",
+            "forecast_hour": 6,
+            "mean_value": -1083169.552573341,
+            "stddev": 460409.6491217309,
+            "p05": -2146736.521164016,
+            "p95": -686958.5939793511,
+            "count": 13559
+          }
+        ],
+        "metadata": {
+          "variable": "NLWRS",
+          "level": "Sfc",
+          "metrics": [
+            "forecast_hour",
+            "mean_value",
+            "stddev",
+            "p05",
+            "p95",
+            "count"
+          ]
+        }
+      },
+      {
+        "columns": [
+          "valid_date",
+          "forecast_hour",
+          "mean_value",
+          "stddev",
+          "p05",
+          "p95",
+          "count"
+        ],
+        "rows": [
+          {
+            "valid_date": "2025-02-12T00:00:00Z",
+            "forecast_hour": 6,
+            "mean_value": -157643.20948694125,
+            "stddev": 76364.95662107735,
+            "p05": -356658.2043582559,
+            "p95": -94094.62791070358,
+            "count": 13559
+          }
+        ],
+        "metadata": {
+          "variable": "NSWRS",
+          "level": "Sfc",
+          "metrics": [
+            "forecast_hour",
+            "mean_value",
+            "stddev",
+            "p05",
+            "p95",
+            "count"
+          ]
+        }
+      },
+      {
+        "columns": [
+          "valid_date",
+          "forecast_hour",
+          "mean_value",
+          "stddev",
+          "p05",
+          "p95",
+          "count"
+        ],
+        "rows": [
+          {
+            "valid_date": "2025-02-12T00:00:00Z",
+            "forecast_hour": 11,
+            "mean_value": 0.0,
+            "stddev": 0.0,
+            "p05": 0.0,
+            "p95": 0.0,
+            "count": 13559
+          }
+        ],
+        "metadata": {
+          "variable": "PRATE",
+          "level": "Sfc",
+          "metrics": [
+            "forecast_hour",
+            "mean_value",
+            "stddev",
+            "p05",
+            "p95",
+            "count"
+          ]
+        }
+      },
+      {
+        "columns": [
+          "valid_date",
+          "forecast_hour",
+          "mean_value",
+          "stddev",
+          "p05",
+          "p95",
+          "count"
+        ],
+        "rows": [
+          {
+            "valid_date": "2025-02-12T00:00:00Z",
+            "forecast_hour": 6,
+            "mean_value": 87959.38348931154,
+            "stddev": 5046.069430916319,
+            "p05": 82029.30436499293,
+            "p95": 99742.6058943318,
+            "count": 13559
+          }
+        ],
+        "metadata": {
+          "variable": "PRES",
+          "level": "Sfc",
+          "metrics": [
+            "forecast_hour",
+            "mean_value",
+            "stddev",
+            "p05",
+            "p95",
+            "count"
+          ]
+        }
+      },
+      {
+        "columns": [
+          "valid_date",
+          "forecast_hour",
+          "mean_value",
+          "stddev",
+          "p05",
+          "p95",
+          "count"
+        ],
+        "rows": [
+          {
+            "valid_date": "2025-02-12T00:00:00Z",
+            "forecast_hour": 11,
+            "mean_value": 0.0,
+            "stddev": 0.0,
+            "p05": 0.0,
+            "p95": 0.0,
+            "count": 13559
+          }
+        ],
+        "metadata": {
+          "variable": "RPRATE",
+          "level": "Sfc",
+          "metrics": [
+            "forecast_hour",
+            "mean_value",
+            "stddev",
+            "p05",
+            "p95",
+            "count"
+          ]
+        }
+      },
+      {
+        "columns": [
+          "valid_date",
+          "forecast_hour",
+          "mean_value",
+          "stddev",
+          "p05",
+          "p95",
+          "count"
+        ],
+        "rows": [
+          {
+            "valid_date": "2025-02-12T00:00:00Z",
+            "forecast_hour": 6,
+            "mean_value": 272.33245355738035,
+            "stddev": 50.46328323048751,
+            "p05": 232.9520571664604,
+            "p95": 372.4094423637046,
+            "count": 13559
+          }
+        ],
+        "metadata": {
+          "variable": "SDEN",
+          "level": "Sfc",
+          "metrics": [
+            "forecast_hour",
+            "mean_value",
+            "stddev",
+            "p05",
+            "p95",
+            "count"
+          ]
+        }
+      },
+      {
+        "columns": [
+          "valid_date",
+          "forecast_hour",
+          "mean_value",
+          "stddev",
+          "p05",
+          "p95",
+          "count"
+        ],
+        "rows": [
+          {
+            "valid_date": "2025-02-12T00:00:00Z",
+            "forecast_hour": 6,
+            "mean_value": 259.72862791436523,
+            "stddev": 253.38196688450657,
+            "p05": 8.854437155380586,
+            "p95": 876.589278382678,
+            "count": 13559
+          }
+        ],
+        "metadata": {
+          "variable": "SDWE",
+          "level": "Sfc",
+          "metrics": [
+            "forecast_hour",
+            "mean_value",
+            "stddev",
+            "p05",
+            "p95",
+            "count"
+          ]
+        }
+      },
+      {
+        "columns": [
+          "valid_date",
+          "forecast_hour",
+          "mean_value",
+          "stddev",
+          "p05",
+          "p95",
+          "count"
+        ],
+        "rows": [
+          {
+            "valid_date": "2025-02-12T00:00:00Z",
+            "forecast_hour": 6,
+            "mean_value": 0.0066004131940499,
+            "stddev": 3.826786151139988,
+            "p05": -1.755064033785351,
+            "p95": 5.254698714224279,
+            "count": 13559
+          }
+        ],
+        "metadata": {
+          "variable": "SHTFL",
+          "level": "Sfc",
+          "metrics": [
+            "forecast_hour",
+            "mean_value",
+            "stddev",
+            "p05",
+            "p95",
+            "count"
+          ]
+        }
+      },
+      {
+        "columns": [
+          "valid_date",
+          "forecast_hour",
+          "mean_value",
+          "stddev",
+          "p05",
+          "p95",
+          "count"
+        ],
+        "rows": [
+          {
+            "valid_date": "2025-02-12T00:00:00Z",
+            "forecast_hour": 6,
+            "mean_value": 243.10378345264127,
+            "stddev": 9.037821016439509,
+            "p05": 236.0227802773876,
+            "p95": 265.4683955050465,
+            "count": 13559
+          }
+        ],
+        "metadata": {
+          "variable": "SKINT",
+          "level": "Sfc",
+          "metrics": [
+            "forecast_hour",
+            "mean_value",
+            "stddev",
+            "p05",
+            "p95",
+            "count"
+          ]
+        }
+      },
+      {
+        "columns": [
+          "valid_date",
+          "forecast_hour",
+          "mean_value",
+          "stddev",
+          "p05",
+          "p95",
+          "count"
+        ],
+        "rows": [
+          {
+            "valid_date": "2025-02-12T00:00:00Z",
+            "forecast_hour": 6,
+            "mean_value": 0.8654376275727399,
+            "stddev": 0.7214637399851243,
+            "p05": 0.025940733853654,
+            "p95": 2.4326643747204475,
+            "count": 13559
+          }
+        ],
+        "metadata": {
+          "variable": "SNOD",
+          "level": "Sfc",
+          "metrics": [
+            "forecast_hour",
+            "mean_value",
+            "stddev",
+            "p05",
+            "p95",
+            "count"
+          ]
+        }
+      },
+      {
+        "columns": [
+          "valid_date",
+          "forecast_hour",
+          "mean_value",
+          "stddev",
+          "p05",
+          "p95",
+          "count"
+        ],
+        "rows": [
+          {
+            "valid_date": "2025-02-12T00:00:00Z",
+            "forecast_hour": 6,
+            "mean_value": 0.0004353565869512,
+            "stddev": 0.000349769112052,
+            "p05": 0.0002485077338488,
+            "p95": 0.0014029069820834,
+            "count": 13559
+          }
+        ],
+        "metadata": {
+          "variable": "SPFH",
+          "level": "AGL-2m",
+          "metrics": [
+            "forecast_hour",
+            "mean_value",
+            "stddev",
+            "p05",
+            "p95",
+            "count"
+          ]
+        }
+      },
+      {
+        "columns": [
+          "valid_date",
+          "forecast_hour",
+          "mean_value",
+          "stddev",
+          "p05",
+          "p95",
+          "count"
+        ],
+        "rows": [
+          {
+            "valid_date": "2025-02-12T00:00:00Z",
+            "forecast_hour": 6,
+            "mean_value": 0.0001130753779063,
+            "stddev": 2.2572704901923937e-05,
+            "p05": 9.101939555958786e-05,
+            "p95": 0.0001662259908994,
+            "count": 13559
+          }
+        ],
+        "metadata": {
+          "variable": "SPFH",
+          "level": "ISBL_0500",
+          "metrics": [
+            "forecast_hour",
+            "mean_value",
+            "stddev",
+            "p05",
+            "p95",
+            "count"
+          ]
+        }
+      },
+      {
+        "columns": [
+          "valid_date",
+          "forecast_hour",
+          "mean_value",
+          "stddev",
+          "p05",
+          "p95",
+          "count"
+        ],
+        "rows": [
+          {
+            "valid_date": "2025-02-12T00:00:00Z",
+            "forecast_hour": 6,
+            "mean_value": 0.0002580574648787,
+            "stddev": 4.20360597095564e-05,
+            "p05": 0.000185773484629,
+            "p95": 0.0003221129264732,
+            "count": 13559
+          }
+        ],
+        "metadata": {
+          "variable": "SPFH",
+          "level": "ISBL_0700",
+          "metrics": [
+            "forecast_hour",
+            "mean_value",
+            "stddev",
+            "p05",
+            "p95",
+            "count"
+          ]
+        }
+      },
+      {
+        "columns": [
+          "valid_date",
+          "forecast_hour",
+          "mean_value",
+          "stddev",
+          "p05",
+          "p95",
+          "count"
+        ],
+        "rows": [
+          {
+            "valid_date": "2025-02-12T00:00:00Z",
+            "forecast_hour": 6,
+            "mean_value": 0.0004824318322656,
+            "stddev": 0.000143588042851,
+            "p05": 0.0002507562968678,
+            "p95": 0.0006560802633311,
+            "count": 13559
+          }
+        ],
+        "metadata": {
+          "variable": "SPFH",
+          "level": "ISBL_0850",
+          "metrics": [
+            "forecast_hour",
+            "mean_value",
+            "stddev",
+            "p05",
+            "p95",
+            "count"
+          ]
+        }
+      },
+      {
+        "columns": [
+          "valid_date",
+          "forecast_hour",
+          "mean_value",
+          "stddev",
+          "p05",
+          "p95",
+          "count"
+        ],
+        "rows": [
+          {
+            "valid_date": "2025-02-12T00:00:00Z",
+            "forecast_hour": 11,
+            "mean_value": 0.0,
+            "stddev": 0.0,
+            "p05": 0.0,
+            "p95": 0.0,
+            "count": 13559
+          }
+        ],
+        "metadata": {
+          "variable": "SPRATE",
+          "level": "Sfc",
+          "metrics": [
+            "forecast_hour",
+            "mean_value",
+            "stddev",
+            "p05",
+            "p95",
+            "count"
+          ]
+        }
+      },
+      {
+        "columns": [
+          "valid_date",
+          "forecast_hour",
+          "mean_value",
+          "stddev",
+          "p05",
+          "p95",
+          "count"
+        ],
+        "rows": [
+          {
+            "valid_date": "2025-02-12T00:00:00Z",
+            "forecast_hour": 6,
+            "mean_value": 0.046253202153923,
+            "stddev": 0.3244518466506282,
+            "p05": 0.0,
+            "p95": 0.2767011611056433,
+            "count": 13559
+          }
+        ],
+        "metadata": {
+          "variable": "TCDC",
+          "level": "Sfc",
+          "metrics": [
+            "forecast_hour",
+            "mean_value",
+            "stddev",
+            "p05",
+            "p95",
+            "count"
+          ]
+        }
+      },
+      {
+        "columns": [
+          "valid_date",
+          "forecast_hour",
+          "mean_value",
+          "stddev",
+          "p05",
+          "p95",
+          "count"
+        ],
+        "rows": [
+          {
+            "valid_date": "2025-02-12T00:00:00Z",
+            "forecast_hour": 6,
+            "mean_value": 258.62732136335256,
+            "stddev": 5.0532167087935616,
+            "p05": 251.02850401980848,
+            "p95": 267.48501734619043,
+            "count": 13559
+          }
+        ],
+        "metadata": {
+          "variable": "TMP",
+          "level": "AGL-2m",
+          "metrics": [
+            "forecast_hour",
+            "mean_value",
+            "stddev",
+            "p05",
+            "p95",
+            "count"
+          ]
+        }
+      },
+      {
+        "columns": [
+          "valid_date",
+          "forecast_hour",
+          "mean_value",
+          "stddev",
+          "p05",
+          "p95",
+          "count"
+        ],
+        "rows": [
+          {
+            "valid_date": "2025-02-12T00:00:00Z",
+            "forecast_hour": 6,
+            "mean_value": 247.5877878378257,
+            "stddev": 0.7607477141732024,
+            "p05": 246.47513961655557,
+            "p95": 248.8472756122841,
+            "count": 13559
+          }
+        ],
+        "metadata": {
+          "variable": "TMP",
+          "level": "ISBL_0500",
+          "metrics": [
+            "forecast_hour",
+            "mean_value",
+            "stddev",
+            "p05",
+            "p95",
+            "count"
+          ]
+        }
+      },
+      {
+        "columns": [
+          "valid_date",
+          "forecast_hour",
+          "mean_value",
+          "stddev",
+          "p05",
+          "p95",
+          "count"
+        ],
+        "rows": [
+          {
+            "valid_date": "2025-02-12T00:00:00Z",
+            "forecast_hour": 6,
+            "mean_value": 264.29259372814874,
+            "stddev": 0.8031354863768027,
+            "p05": 263.1180118955181,
+            "p95": 265.730099679393,
+            "count": 13559
+          }
+        ],
+        "metadata": {
+          "variable": "TMP",
+          "level": "ISBL_0700",
+          "metrics": [
+            "forecast_hour",
+            "mean_value",
+            "stddev",
+            "p05",
+            "p95",
+            "count"
+          ]
+        }
+      },
+      {
+        "columns": [
+          "valid_date",
+          "forecast_hour",
+          "mean_value",
+          "stddev",
+          "p05",
+          "p95",
+          "count"
+        ],
+        "rows": [
+          {
+            "valid_date": "2025-02-12T00:00:00Z",
+            "forecast_hour": 6,
+            "mean_value": 263.3618561292097,
+            "stddev": 4.527830169941227,
+            "p05": 257.36207380176654,
+            "p95": 271.24613102099454,
+            "count": 13559
+          }
+        ],
+        "metadata": {
+          "variable": "TMP",
+          "level": "ISBL_0850",
+          "metrics": [
+            "forecast_hour",
+            "mean_value",
+            "stddev",
+            "p05",
+            "p95",
+            "count"
+          ]
+        }
+      },
+      {
+        "columns": [
+          "valid_date",
+          "forecast_hour",
+          "mean_value",
+          "stddev",
+          "p05",
+          "p95",
+          "count"
+        ],
+        "rows": [
+          {
+            "valid_date": "2025-02-12T00:00:00Z",
+            "forecast_hour": 6,
+            "mean_value": 0.3222988887933765,
+            "stddev": 0.559071891206466,
+            "p05": -0.3511498850707282,
+            "p95": 1.3782323718395424,
+            "count": 13559
+          }
+        ],
+        "metadata": {
+          "variable": "UGRD",
+          "level": "AGL-10m",
+          "metrics": [
+            "forecast_hour",
+            "mean_value",
+            "stddev",
+            "p05",
+            "p95",
+            "count"
+          ]
+        }
+      },
+      {
+        "columns": [
+          "valid_date",
+          "forecast_hour",
+          "mean_value",
+          "stddev",
+          "p05",
+          "p95",
+          "count"
+        ],
+        "rows": [
+          {
+            "valid_date": "2025-02-12T00:00:00Z",
+            "forecast_hour": 6,
+            "mean_value": 7.112246836495938,
+            "stddev": 3.341194036063412,
+            "p05": -0.1382900634328288,
+            "p95": 10.722230509963673,
+            "count": 13559
+          }
+        ],
+        "metadata": {
+          "variable": "UGRD",
+          "level": "ISBL_0500",
+          "metrics": [
+            "forecast_hour",
+            "mean_value",
+            "stddev",
+            "p05",
+            "p95",
+            "count"
+          ]
+        }
+      },
+      {
+        "columns": [
+          "valid_date",
+          "forecast_hour",
+          "mean_value",
+          "stddev",
+          "p05",
+          "p95",
+          "count"
+        ],
+        "rows": [
+          {
+            "valid_date": "2025-02-12T00:00:00Z",
+            "forecast_hour": 6,
+            "mean_value": 3.471058841662905,
+            "stddev": 1.729740380409297,
+            "p05": 0.1254660634938913,
+            "p95": 5.428904984685388,
+            "count": 13559
+          }
+        ],
+        "metadata": {
+          "variable": "UGRD",
+          "level": "ISBL_0700",
+          "metrics": [
+            "forecast_hour",
+            "mean_value",
+            "stddev",
+            "p05",
+            "p95",
+            "count"
+          ]
+        }
+      },
+      {
+        "columns": [
+          "valid_date",
+          "forecast_hour",
+          "mean_value",
+          "stddev",
+          "p05",
+          "p95",
+          "count"
+        ],
+        "rows": [
+          {
+            "valid_date": "2025-02-12T00:00:00Z",
+            "forecast_hour": 6,
+            "mean_value": 1.0664937489413149,
+            "stddev": 0.8333460341920713,
+            "p05": -0.0806059890806305,
+            "p95": 2.617230331699392,
+            "count": 13559
+          }
+        ],
+        "metadata": {
+          "variable": "UGRD",
+          "level": "ISBL_0850",
+          "metrics": [
+            "forecast_hour",
+            "mean_value",
+            "stddev",
+            "p05",
+            "p95",
+            "count"
+          ]
+        }
+      },
+      {
+        "columns": [
+          "valid_date",
+          "forecast_hour",
+          "mean_value",
+          "stddev",
+          "p05",
+          "p95",
+          "count"
+        ],
+        "rows": [
+          {
+            "valid_date": "2025-02-12T00:00:00Z",
+            "forecast_hour": 6,
+            "mean_value": 0.0428703309662616,
+            "stddev": 0.6567398754540459,
+            "p05": -0.9424887009556352,
+            "p95": 1.3518250932119904,
+            "count": 13559
+          }
+        ],
+        "metadata": {
+          "variable": "VGRD",
+          "level": "AGL-10m",
+          "metrics": [
+            "forecast_hour",
+            "mean_value",
+            "stddev",
+            "p05",
+            "p95",
+            "count"
+          ]
+        }
+      },
+      {
+        "columns": [
+          "valid_date",
+          "forecast_hour",
+          "mean_value",
+          "stddev",
+          "p05",
+          "p95",
+          "count"
+        ],
+        "rows": [
+          {
+            "valid_date": "2025-02-12T00:00:00Z",
+            "forecast_hour": 6,
+            "mean_value": -16.982869276900423,
+            "stddev": 2.6315027180528188,
+            "p05": -20.163763949642693,
+            "p95": -11.170976213709285,
+            "count": 13559
+          }
+        ],
+        "metadata": {
+          "variable": "VGRD",
+          "level": "ISBL_0500",
+          "metrics": [
+            "forecast_hour",
+            "mean_value",
+            "stddev",
+            "p05",
+            "p95",
+            "count"
+          ]
+        }
+      },
+      {
+        "columns": [
+          "valid_date",
+          "forecast_hour",
+          "mean_value",
+          "stddev",
+          "p05",
+          "p95",
+          "count"
+        ],
+        "rows": [
+          {
+            "valid_date": "2025-02-12T00:00:00Z",
+            "forecast_hour": 6,
+            "mean_value": -9.811050419302775,
+            "stddev": 1.599051185155966,
+            "p05": -11.593036682287844,
+            "p95": -6.520182062017718,
+            "count": 13559
+          }
+        ],
+        "metadata": {
+          "variable": "VGRD",
+          "level": "ISBL_0700",
+          "metrics": [
+            "forecast_hour",
+            "mean_value",
+            "stddev",
+            "p05",
+            "p95",
+            "count"
+          ]
+        }
+      },
+      {
+        "columns": [
+          "valid_date",
+          "forecast_hour",
+          "mean_value",
+          "stddev",
+          "p05",
+          "p95",
+          "count"
+        ],
+        "rows": [
+          {
+            "valid_date": "2025-02-12T00:00:00Z",
+            "forecast_hour": 6,
+            "mean_value": -0.3643507112428941,
+            "stddev": 1.200706621445248,
+            "p05": -2.6309634958131047,
+            "p95": 1.473437060587271,
+            "count": 13559
+          }
+        ],
+        "metadata": {
+          "variable": "VGRD",
+          "level": "ISBL_0850",
+          "metrics": [
+            "forecast_hour",
+            "mean_value",
+            "stddev",
+            "p05",
+            "p95",
+            "count"
+          ]
+        }
+      },
+      {
+        "columns": [
+          "valid_date",
+          "forecast_hour",
+          "mean_value",
+          "stddev",
+          "p05",
+          "p95",
+          "count"
+        ],
+        "rows": [
+          {
+            "valid_date": "2025-02-12T00:00:00Z",
+            "forecast_hour": 6,
+            "mean_value": 0.0395159516321181,
+            "stddev": 0.5034814583416578,
+            "p05": -0.8077075749512257,
+            "p95": 0.8928516443438738,
+            "count": 13559
+          }
+        ],
+        "metadata": {
+          "variable": "VVEL",
+          "level": "ISBL_0500",
+          "metrics": [
+            "forecast_hour",
+            "mean_value",
+            "stddev",
+            "p05",
+            "p95",
+            "count"
+          ]
+        }
+      },
+      {
+        "columns": [
+          "valid_date",
+          "forecast_hour",
+          "mean_value",
+          "stddev",
+          "p05",
+          "p95",
+          "count"
+        ],
+        "rows": [
+          {
+            "valid_date": "2025-02-12T00:00:00Z",
+            "forecast_hour": 6,
+            "mean_value": 0.0423871078229887,
+            "stddev": 0.5636596808845484,
+            "p05": -0.8679492013105612,
+            "p95": 0.9536667759682572,
+            "count": 13559
+          }
+        ],
+        "metadata": {
+          "variable": "VVEL",
+          "level": "ISBL_0700",
+          "metrics": [
+            "forecast_hour",
+            "mean_value",
+            "stddev",
+            "p05",
+            "p95",
+            "count"
+          ]
+        }
+      },
+      {
+        "columns": [
+          "valid_date",
+          "forecast_hour",
+          "mean_value",
+          "stddev",
+          "p05",
+          "p95",
+          "count"
+        ],
+        "rows": [
+          {
+            "valid_date": "2025-02-12T00:00:00Z",
+            "forecast_hour": 6,
+            "mean_value": 0.1300035113590884,
+            "stddev": 0.3323144617060234,
+            "p05": -0.1408462080650825,
+            "p95": 0.827607855804669,
+            "count": 13559
+          }
+        ],
+        "metadata": {
+          "variable": "VVEL",
+          "level": "ISBL_0850",
+          "metrics": [
+            "forecast_hour",
+            "mean_value",
+            "stddev",
+            "p05",
+            "p95",
+            "count"
+          ]
+        }
+      }
+    ]
+  }
+}

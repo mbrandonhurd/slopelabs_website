@@ -24,6 +24,7 @@ from __future__ import annotations
 
 import argparse
 import json
+import logging
 import sys
 from dataclasses import dataclass
 from datetime import datetime
@@ -31,9 +32,30 @@ from pathlib import Path
 from typing import Iterable, List, Sequence, Set, Tuple
 
 import duckdb
+import numpy as np
 import pandas as pd
 
 BANDS = ["above_treeline", "treeline", "below_treeline"]
+BAND_ALIASES = {
+    "above_treeline": "above_treeline",
+    "above-treeline": "above_treeline",
+    "alpine": "above_treeline",
+    "upper": "above_treeline",
+    "above": "above_treeline",
+    "treeline": "treeline",
+    "mid": "treeline",
+    "middle": "treeline",
+    "midline": "treeline",
+    "between": "treeline",
+    "below_treeline": "below_treeline",
+    "below-treeline": "below_treeline",
+    "below": "below_treeline",
+    "valley": "below_treeline",
+    "lower": "below_treeline",
+}
+BAND_TOKENS = sorted(BAND_ALIASES.keys(), key=len, reverse=True)
+
+logger = logging.getLogger(__name__)
 
 
 @dataclass
@@ -78,6 +100,18 @@ def to_iso(series: Iterable[pd.Timestamp]) -> List[str]:
     return out
 
 
+def to_jsonable(value):
+    if pd.isna(value):
+        return None
+    if isinstance(value, (np.integer, np.int_)):
+        return int(value)
+    if isinstance(value, (np.floating, np.float_)):
+        return float(value)
+    if isinstance(value, (np.bool_,)):
+        return bool(value)
+    return value
+
+
 def normalize_region_name(value: str) -> str:
     text = str(value or "").lower().replace("_", " ").replace("-", " ")
     parts = text.split()
@@ -98,15 +132,60 @@ def region_aliases(slug: str) -> List[str]:
     })
 
 
+def resolve_station_csv_paths(station_path: Path) -> List[Path]:
+    """Return a sorted list of CSV files represented by `station_path`."""
+    if station_path.is_file():
+        return [station_path]
+    if station_path.is_dir():
+        candidates = []
+        for pattern in ("*.csv", "*.CSV"):
+            candidates.extend(station_path.glob(pattern))
+        csv_paths = sorted(p for p in candidates if p.is_file())
+        if not csv_paths:
+            raise FileNotFoundError(
+                f"No CSV files found in directory {station_path}"
+            )
+        logger.debug("Found %d station CSV files under %s", len(csv_paths), station_path)
+        return csv_paths
+    raise FileNotFoundError(station_path)
+
+
+def infer_region_band_from_filename(path: Path) -> Tuple[str | None, str | None]:
+    """Best-effort extraction of region slug and canonical band from file name."""
+    stem = path.stem.lower()
+    for token in BAND_TOKENS:
+        marker = f"_{token}_"
+        if marker in stem:
+            region_slug = stem.split(marker, 1)[0]
+            return region_slug, BAND_ALIASES[token]
+    for token in BAND_TOKENS:
+        suffix = f"_{token}"
+        if stem.endswith(suffix):
+            region_slug = stem[: -len(suffix)]
+            if region_slug.endswith("_"):
+                region_slug = region_slug[:-1]
+            return region_slug, BAND_ALIASES[token]
+    return None, None
+
+
+def canonicalize_band(value) -> str | None:
+    if pd.isna(value):
+        return None
+    key = str(value).strip().lower()
+    return BAND_ALIASES.get(key)
+
+
 def discover_regions(
-    model_parquet: Path,
+    model_parquet: Sequence[Path],
     station_csv: Path,
     *,
     model_region_col: str,
     station_region_col: str,
-) -> List[str]:
-    if not model_parquet.exists():
-        raise FileNotFoundError(model_parquet)
+) -> tuple[List[str], List[str]]:
+    model_paths = [Path(p) for p in model_parquet]
+    for path in model_paths:
+        if not path.exists():
+            raise FileNotFoundError(path)
     if not station_csv.exists():
         raise FileNotFoundError(station_csv)
 
@@ -115,33 +194,48 @@ def discover_regions(
         query = f"SELECT DISTINCT {model_region_col} FROM read_parquet(?) WHERE {model_region_col} IS NOT NULL"
         model_regions = {
             slugify_region(row[0])
-            for row in con.execute(query, [str(model_parquet)]).fetchall()
+            for row in con.execute(query, [[str(p) for p in model_paths]]).fetchall()
             if row[0]
         }
     finally:
         con.close()
 
-    try:
-        station_df = pd.read_csv(station_csv, usecols=[station_region_col])
-    except ValueError as exc:
-        raise KeyError(
-            f"Station region column '{station_region_col}' not found in {station_csv}"
-        ) from exc
-    station_regions = {
-        slugify_region(value)
-        for value in station_df[station_region_col].dropna().unique()
-    }
-
-    shared = sorted(model_regions & station_regions)
-    if not shared:
-        raise ValueError(
-            "No overlapping regions found between model parquet and station CSV"
+    station_paths = resolve_station_csv_paths(station_csv)
+    station_regions: Set[str] = set()
+    for path in station_paths:
+        try:
+            station_df = pd.read_csv(
+                path,
+                usecols=[station_region_col],
+                dtype=str,
+                low_memory=False,
+            )
+        except ValueError:
+            region_hint, _ = infer_region_band_from_filename(path)
+            if region_hint:
+                station_regions.add(slugify_region(region_hint))
+            continue
+        station_regions.update(
+            slugify_region(value)
+            for value in station_df[station_region_col].dropna().unique()
         )
-    return shared
+
+    logger.debug(
+        "Model regions discovered: %s | Station regions discovered: %s",
+        sorted(model_regions),
+        sorted(station_regions),
+    )
+    missing_stations = sorted(model_regions - station_regions)
+    if missing_stations:
+        logger.warning(
+            "Regions missing station data: %s",
+            missing_stations,
+        )
+    return sorted(model_regions), sorted(station_regions)
 
 
 def load_model_dataframe(
-    parquet_path: Path,
+    parquet_paths: Sequence[Path],
     region: str,
     *,
     region_col: str,
@@ -149,15 +243,63 @@ def load_model_dataframe(
     time_col: str,
     variable_col: str,
     level_col: str,
+    start_ts: pd.Timestamp | None = None,
+    end_ts: pd.Timestamp | None = None,
 ) -> pd.DataFrame:
-    if not parquet_path.exists():
-        raise FileNotFoundError(parquet_path)
+    paths = [Path(p) for p in parquet_paths]
+    for parquet_path in paths:
+        if not parquet_path.exists():
+            raise FileNotFoundError(parquet_path)
 
     aliases = region_aliases(region)
     placeholders = ",".join(["?"] * len(aliases))
 
     con = duckdb.connect(database=":memory:")
     try:
+        con.execute("SELECT * FROM read_parquet(?) LIMIT 0", [[str(p) for p in paths]])
+        available_cols = [desc[0] for desc in con.description]
+        if region_col not in available_cols:
+            raise KeyError(
+                f"Model region column '{region_col}' not found in model parquet files; available columns: {sorted(available_cols)}"
+            )
+        band_candidates = [band_col, "elevation_band", "elevation", "band"]
+        band_col_resolved = None
+        for candidate in band_candidates:
+            if candidate in available_cols:
+                band_col_resolved = candidate
+                break
+        if band_col_resolved is None:
+            raise KeyError(
+                f"Model band column '{band_col}' not found in model parquet files; available columns: {sorted(available_cols)}"
+            )
+        time_candidates = [time_col, "valid_date", "timestamp", "time"]
+        time_col_resolved = None
+        for candidate in time_candidates:
+            if candidate in available_cols:
+                time_col_resolved = candidate
+                break
+        if time_col_resolved is None:
+            raise KeyError(
+                f"Model time column '{time_col}' not found in model parquet files; available columns: {sorted(available_cols)}"
+            )
+        variable_candidates = [variable_col, "variable"]
+        for candidate in variable_candidates:
+            if candidate in available_cols:
+                variable_col_resolved = candidate
+                break
+        else:
+            raise KeyError(
+                f"Model variable column '{variable_col}' not found in model parquet files; available columns: {sorted(available_cols)}"
+            )
+        level_candidates = [level_col, "level"]
+        for candidate in level_candidates:
+            if candidate in available_cols:
+                level_col_resolved = candidate
+                break
+        else:
+            raise KeyError(
+                f"Model level column '{level_col}' not found in model parquet files; available columns: {sorted(available_cols)}"
+            )
         con.execute(
             """
             SELECT *,
@@ -165,8 +307,12 @@ def load_model_dataframe(
                    lower({region_col}) AS __region_lower
             FROM read_parquet(?)
             WHERE lower({region_col}) IN ({aliases})
-            """.format(region_col=region_col, band_col=band_col, aliases=placeholders),
-            [str(parquet_path), *aliases],
+            """.format(
+                region_col=region_col,
+                band_col=band_col_resolved,
+                aliases=placeholders,
+            ),
+            [[str(p) for p in paths], *aliases],
         )
         df = con.df()
     finally:
@@ -174,31 +320,75 @@ def load_model_dataframe(
 
     if df.empty:
         raise ValueError(
-            f"No records matching region='{region}' in {parquet_path}"
+            f"No records matching region='{region}' in provided model parquet files"
         )
 
-    required = {time_col, band_col, region_col, variable_col, level_col}
+    logger.debug(
+        "Model load for region '%s': %d rows before filtering (band column '%s', time column '%s')",
+        region,
+        len(df),
+        band_col_resolved,
+        time_col_resolved,
+    )
+
+    required = {
+        time_col_resolved,
+        band_col_resolved,
+        region_col,
+        variable_col_resolved,
+        level_col_resolved,
+    }
     missing = required.difference(df.columns)
     if missing:
         raise KeyError(
             f"Missing model columns {sorted(missing)}; available columns: {sorted(df.columns)}"
         )
 
-    df[time_col] = pd.to_datetime(df[time_col], utc=True, errors="coerce")
-    df = df[df[time_col].notna()]
+    df[time_col_resolved] = pd.to_datetime(df[time_col_resolved], utc=True, errors="coerce")
+    df = df[df[time_col_resolved].notna()]
+    if start_ts is not None:
+        df = df[df[time_col_resolved] >= start_ts]
+    if end_ts is not None:
+        df = df[df[time_col_resolved] <= end_ts]
+    if df.empty:
+        raise ValueError(
+            "No model rows remaining after applying date filters for "
+            f"region='{region}' in {parquet_path}"
+        )
     df = df.rename(
         columns={
-            variable_col: "variable",
-            level_col: "level",
-            band_col: "__band_original",
+            variable_col_resolved: "variable",
+            level_col_resolved: "level",
+            band_col_resolved: "__band_original",
+            time_col_resolved: time_col,
         }
     )
-    df["__band_lower"] = df["__band_original"].astype(str).str.lower()
+    df["__band_canonical"] = df["__band_original"].apply(canonicalize_band)
+    df = df[df["__band_canonical"].notna()]
+    if df.empty:
+        raise ValueError(
+            f"No model rows with recognized elevation bands for region='{region}'"
+        )
+    df["__band_original"] = df["__band_canonical"]
+    df["__band_lower"] = df["__band_canonical"]
+    logger.debug(
+        "Model load for region '%s': %d rows after filters",
+        region,
+        len(df),
+    )
     return df
 
 
 def discover_model_specs(df: pd.DataFrame, time_col: str) -> List[ModelSpec]:
-    exclude_cols = {time_col, "variable", "level", "__band_original", "__band_lower", "__region_lower"}
+    exclude_cols = {
+        time_col,
+        "variable",
+        "level",
+        "__band_original",
+        "__band_lower",
+        "__band_canonical",
+        "__region_lower",
+    }
     numeric_cols = [
         col
         for col in df.columns
@@ -229,28 +419,98 @@ def load_station_dataframe(
     region_col: str,
     band_col: str,
     time_col: str,
+    start_ts: pd.Timestamp | None = None,
+    end_ts: pd.Timestamp | None = None,
 ) -> pd.DataFrame:
     if not csv_path.exists():
         raise FileNotFoundError(csv_path)
 
-    df = pd.read_csv(csv_path)
-    df["__region_slug"] = df[region_col].apply(slugify_region)
+    station_paths = resolve_station_csv_paths(csv_path)
     target_slug = slugify_region(region)
-    df = df.loc[df["__region_slug"] == target_slug].copy()
+    time_candidates = [time_col, "obs_time", "timestamp", "UTC_DATE", "utc_date"]
+    logger.debug(
+        "Loading %d station CSV files for region '%s'",
+        len(station_paths),
+        region,
+    )
+    frames: List[pd.DataFrame] = []
+    for path in station_paths:
+        df = pd.read_csv(path, dtype=str, low_memory=False)
+        region_source_col = region_col
+        if region_col not in df.columns:
+            region_hint, band_hint = infer_region_band_from_filename(path)
+            if not region_hint:
+                raise KeyError(
+                    f"Station region column '{region_col}' not found in {path}"
+                )
+            df[region_col] = region_hint
+            region_source_col = region_col
+            if band_col not in df.columns and band_hint:
+                df[band_col] = band_hint
+        elif band_col not in df.columns:
+            _, band_hint = infer_region_band_from_filename(path)
+            if band_hint:
+                df[band_col] = band_hint
+        df["__region_slug"] = df[region_source_col].apply(slugify_region)
+        df = df.loc[df["__region_slug"] == target_slug].copy()
+        if df.empty:
+            continue
+        frames.append(df)
 
+    if not frames:
+        raise ValueError(
+            f"No station rows matching region='{region}' in provided station CSV files"
+        )
+
+    df = pd.concat(frames, ignore_index=True)
+    logger.debug(
+        "Station load for region '%s': %d rows before filtering",
+        region,
+        len(df),
+    )
+
+    if band_col not in df.columns:
+        raise KeyError(
+            f"Station column '{band_col}' not found; available columns: {sorted(df.columns)}"
+        )
+
+    time_col_resolved = None
+    for candidate in time_candidates:
+        if candidate in df.columns:
+            time_col_resolved = candidate
+            break
+    if time_col_resolved is None:
+        raise KeyError(
+            f"Station time column '{time_col}' not found; available columns: {sorted(df.columns)}"
+        )
+    if time_col_resolved != time_col:
+        logger.debug(
+            "Station time column '%s' not found, using '%s' instead",
+            time_col,
+            time_col_resolved,
+        )
+
+    df[band_col] = df[band_col].apply(canonicalize_band)
+    df = df[df[band_col].notna()]
+
+    df[time_col_resolved] = pd.to_datetime(df[time_col_resolved], utc=True, errors="coerce")
+    df = df[df[time_col_resolved].notna()]
+    if start_ts is not None:
+        df = df[df[time_col_resolved] >= start_ts]
+    if end_ts is not None:
+        df = df[df[time_col_resolved] <= end_ts]
     if df.empty:
         raise ValueError(
-            f"No station rows matching region='{region}' in {csv_path}"
+            "No station rows remaining after applying date filters for "
+            f"region='{region}'"
         )
-
-    if time_col not in df.columns or band_col not in df.columns:
-        raise KeyError(
-            f"Station columns '{time_col}' and/or '{band_col}' not found; available columns: {sorted(df.columns)}"
-        )
-
-    df[time_col] = pd.to_datetime(df[time_col], utc=True, errors="coerce")
-    df = df[df[time_col].notna()]
+    df = df.rename(columns={time_col_resolved: time_col})
     df["__band_lower"] = df[band_col].astype(str).str.lower()
+    logger.debug(
+        "Station load for region '%s': %d rows after filters",
+        region,
+        len(df),
+    )
     return df
 
 
@@ -274,15 +534,16 @@ def build_model_payload(
         for band, row in latest.groupby("__band_lower"):
             if band not in summary:
                 continue
+            summary_row = {}
+            for col in summary_columns:
+                if col == time_col:
+                    summary_row[col] = to_iso([row.iloc[0][time_col]])[0]
+                else:
+                    summary_row[col] = to_jsonable(row.iloc[0][col])
             summary[band].append(
                 {
                     "columns": summary_columns,
-                    "rows": [
-                        {
-                            col: (row.iloc[0][col] if col != time_col else to_iso([row.iloc[0][time_col]])[0])
-                            for col in summary_columns
-                        }
-                    ],
+                    "rows": [summary_row],
                     "metadata": {
                         "variable": spec.variable,
                         "level": spec.level,
@@ -333,12 +594,12 @@ def build_station_payload(
     timeseries = {band: [] for band in BANDS}
 
     for band in BANDS:
-        band_df = df[df["__band_lower"] == band]
+        band_df = df[df["__band_lower"] == band].copy()
         if band_df.empty:
             continue
 
         if id_col not in band_df.columns:
-            band_df[id_col] = "station"
+            band_df.loc[:, id_col] = "station"
         latest = band_df.sort_values(time_col).groupby(id_col, as_index=False).tail(1)
 
         cols = [id_col]
@@ -353,8 +614,11 @@ def build_station_payload(
             for col in filtered_cols:
                 if col == time_col:
                     entry[col] = to_iso([row[time_col]])[0]
+                elif col in metrics:
+                    value = pd.to_numeric(row[col], errors="coerce")
+                    entry[col] = None if pd.isna(value) else float(value)
                 else:
-                    entry[col] = row[col]
+                    entry[col] = to_jsonable(row[col])
             table_rows.append(entry)
         summary[band].append(
             {
@@ -372,10 +636,11 @@ def build_station_payload(
             for metric in metrics:
                 if metric not in station_df.columns:
                     continue
+                values_series = pd.to_numeric(station_df[metric], errors="coerce")
                 traces.append(
                     {
                         "name": metric,
-                        "values": station_df[metric].astype(float).round(4).tolist(),
+                        "values": values_series.round(4).tolist(),
                         "yAxis": "y",
                     }
                 )
@@ -399,8 +664,19 @@ def main(argv: Sequence[str] | None = None) -> int:
         "--region",
         help="Region slug (e.g. south_rockies). If omitted, bundles are generated for all shared regions",
     )
-    parser.add_argument("--model-parquet", required=True, type=Path)
-    parser.add_argument("--station-csv", required=True, type=Path)
+    parser.add_argument(
+        "--model-parquet",
+        required=True,
+        type=Path,
+        nargs="+",
+        help="One or more weather model parquet files",
+    )
+    parser.add_argument(
+        "--station-csv",
+        required=True,
+        type=Path,
+        help="Path to a station CSV file or a directory containing station CSV files",
+    )
     parser.add_argument(
         "--output",
         type=Path,
@@ -430,20 +706,65 @@ def main(argv: Sequence[str] | None = None) -> int:
     parser.add_argument("--station-name-column", default="station_name")
     parser.add_argument("--tiles-base", default="https://tile.openstreetmap.org/")
     parser.add_argument("--quicklook", default=None, help="Optional quicklook PNG path")
+    parser.add_argument(
+        "--start-date",
+        help="Inclusive UTC start date/time (e.g. 2024-01-01 or 2024-01-01T12:00Z) for filtering model and station data",
+    )
+    parser.add_argument(
+        "--end-date",
+        help="Inclusive UTC end date/time for filtering model and station data",
+    )
+    parser.add_argument(
+        "--verbose",
+        action="store_true",
+        help="Enable progress logging",
+    )
 
     args = parser.parse_args(argv)
+
+    logging.basicConfig(
+        level=logging.INFO if args.verbose else logging.WARNING,
+        format="%(asctime)s | %(levelname)s | %(message)s",
+    )
+    logger.setLevel(logging.INFO if args.verbose else logging.WARNING)
+    if args.verbose:
+        logger.info("Starting region bundle generation")
+
+    def parse_date_arg(label: str, value: str | None) -> pd.Timestamp | None:
+        if value is None:
+            return None
+        try:
+            ts = pd.to_datetime(value, utc=True)
+        except (TypeError, ValueError) as exc:
+            parser.error(f"Invalid --{label} value '{value}': {exc}")
+        if isinstance(ts, pd.DatetimeIndex):
+            if ts.empty:
+                parser.error(f"Invalid --{label} value '{value}'")
+            ts = ts[0]
+        if ts.tzinfo is None:
+            ts = ts.tz_localize("UTC")
+        return ts
+
+    start_ts = parse_date_arg("start-date", args.start_date)
+    end_ts = parse_date_arg("end-date", args.end_date)
+    if start_ts is not None and end_ts is not None and start_ts > end_ts:
+        parser.error("--start-date must be before or equal to --end-date")
 
     station_metrics = [m.strip() for m in args.station_metrics.split(",") if m.strip()]
 
     if args.region:
-        regions = [args.region.strip().lower()]
+        regions = [slugify_region(args.region.strip())]
+        station_region_list = []
     else:
-        regions = discover_regions(
+        regions, station_region_list = discover_regions(
             args.model_parquet,
             args.station_csv,
             model_region_col=args.model_region_column,
             station_region_col=args.station_region_column,
         )
+    station_region_set = {slugify_region(r) for r in station_region_list}
+
+    logger.info("Regions to process: %s", regions)
 
     multi_region = len(regions) > 1
     output_arg: Path | None = args.output
@@ -452,7 +773,13 @@ def main(argv: Sequence[str] | None = None) -> int:
 
     generated = []
 
-    for region_slug in regions:
+    for index, region_slug in enumerate(regions, start=1):
+        logger.info(
+            "[%d/%d] Processing region '%s'",
+            index,
+            len(regions),
+            region_slug,
+        )
         model_df = load_model_dataframe(
             args.model_parquet,
             region_slug,
@@ -461,14 +788,62 @@ def main(argv: Sequence[str] | None = None) -> int:
             time_col=args.model_time_column,
             variable_col=args.model_variable_column,
             level_col=args.model_level_column,
+            start_ts=start_ts,
+            end_ts=end_ts,
         )
-        station_df = load_station_dataframe(
-            args.station_csv,
+        logger.info(
+            "[%d/%d] Loaded model data (%d rows) for region '%s'",
+            index,
+            len(regions),
+            len(model_df),
             region_slug,
-            region_col=args.station_region_column,
-            band_col=args.station_band_column,
-            time_col=args.station_time_column,
         )
+        station_df = None
+        if station_region_set and region_slug not in station_region_set:
+            logger.info(
+                "[%d/%d] No station CSVs detected for region '%s'; proceeding with model data only",
+                index,
+                len(regions),
+                region_slug,
+            )
+        else:
+            try:
+                station_df = load_station_dataframe(
+                    args.station_csv,
+                    region_slug,
+                    region_col=args.station_region_column,
+                    band_col=args.station_band_column,
+                    time_col=args.station_time_column,
+                    start_ts=start_ts,
+                    end_ts=end_ts,
+                )
+                logger.info(
+                    "[%d/%d] Loaded station data (%d rows) for region '%s'",
+                    index,
+                    len(regions),
+                    len(station_df),
+                    region_slug,
+                )
+            except (ValueError, KeyError) as exc:
+                logger.warning(
+                    "[%d/%d] Station data unavailable for region '%s': %s",
+                    index,
+                    len(regions),
+                    region_slug,
+                    exc,
+                )
+        if station_df is None:
+            empty_cols = {
+                args.station_time_column: pd.Series(dtype="datetime64[ns, UTC]"),
+                "__band_lower": pd.Series(dtype=str),
+            }
+            empty_cols[args.station_band_column] = pd.Series(dtype=str)
+            empty_cols[args.station_region_column] = pd.Series(dtype=str)
+            empty_cols[args.station_id_column] = pd.Series(dtype=str)
+            empty_cols[args.station_name_column] = pd.Series(dtype=str)
+            for metric in station_metrics:
+                empty_cols[metric] = pd.Series(dtype=float)
+            station_df = pd.DataFrame(empty_cols)
 
         bundle = {
             "region": region_slug,
@@ -483,6 +858,14 @@ def main(argv: Sequence[str] | None = None) -> int:
         model_specs = args.model_spec or discover_model_specs(model_df, args.model_time_column)
         if not model_specs:
             print(f"[warn] No model metrics discovered for region '{region_slug}'. Skipping model summary/time-series.")
+        else:
+            logger.info(
+                "[%d/%d] Using %d model specs for region '%s'",
+                index,
+                len(regions),
+                len(model_specs),
+                region_slug,
+            )
 
         station_payload = build_station_payload(
             station_df,
@@ -511,6 +894,12 @@ def main(argv: Sequence[str] | None = None) -> int:
         summary_path = base_path / "summary.json"
         timeseries_path = base_path / "timeseries.json"
         base_path.mkdir(parents=True, exist_ok=True)
+        logger.info(
+            "[%d/%d] Writing outputs under %s",
+            index,
+            len(regions),
+            base_path,
+        )
 
         summary_payload = {
             **bundle,
@@ -535,6 +924,7 @@ def main(argv: Sequence[str] | None = None) -> int:
         print(f"Wrote summary -> {summary_path}")
         print(f"Wrote timeseries -> {timeseries_path}")
 
+    logger.info("Completed generation of %d bundle outputs", len(generated))
     print(f"Generated {len(generated)} bundle(s)")
     return 0
 
