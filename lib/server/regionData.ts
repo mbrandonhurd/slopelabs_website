@@ -134,7 +134,7 @@ async function loadStructuredBundle(region: string): Promise<RegionBundle | null
     artifacts: {
       forecast_json: summaryData.forecast ? `/data/${region}/summary.json` : `/data/${region}/forecast.json`,
       summary_json: `/data/${region}/summary.json`,
-      tiles_base: summaryData.tiles_base,
+      tiles_base: summaryData.tiles_base ?? 'https://tile.openstreetmap.org/',
       quicklook_png: summaryData.quicklook_png,
     },
   });
