@@ -25,6 +25,7 @@ from __future__ import annotations
 import argparse
 import json
 import logging
+import re
 import sys
 from dataclasses import dataclass
 from datetime import datetime
@@ -59,6 +60,16 @@ logger = logging.getLogger(__name__)
 
 SCRIPT_DIR = Path(__file__).resolve().parent
 DEFAULT_OUTPUT_ROOT = SCRIPT_DIR.parent / "public" / "data"
+
+STATION_METRIC_ALIASES: dict[str, List[str]] = {
+    "temp_c": ["temp", "temperature", "air_temp", "air_temperature"],
+    "wind_mps": ["wind_speed", "wind", "wind_speed_mps", "windspd"],
+    "hs_cm": ["hs", "snow_depth", "snow_height", "hs_cm"],
+    "precip_amount": ["precip", "precip_amount", "rrr", "precipitation"],
+    "relative_humidity": ["relative_humidity", "rh", "humidity"],
+}
+
+AGGREGATION_HOURS = 24
 
 
 @dataclass
@@ -176,6 +187,66 @@ def canonicalize_band(value) -> str | None:
         return None
     key = str(value).strip().lower()
     return BAND_ALIASES.get(key)
+
+
+def normalize_key(text: str) -> str:
+    return re.sub(r"[^a-z0-9]+", "", str(text or "").lower())
+
+
+def resolve_station_metrics(
+    df: pd.DataFrame,
+    requested_metrics: Sequence[str],
+    *,
+    time_col: str,
+    band_col: str,
+    id_col: str,
+    name_col: str,
+) -> List[str]:
+    available_map: dict[str, str] = {}
+    for col in df.columns:
+        available_map.setdefault(normalize_key(col), col)
+
+    resolved: List[str] = []
+    for metric in requested_metrics:
+        norm = normalize_key(metric)
+        if norm in available_map:
+            resolved.append(available_map[norm])
+            continue
+        for alias in STATION_METRIC_ALIASES.get(metric.lower(), []):
+            alias_norm = normalize_key(alias)
+            if alias_norm in available_map:
+                resolved.append(available_map[alias_norm])
+                break
+
+    # deduplicate while preserving order
+    seen: Set[str] = set()
+    deduped: List[str] = []
+    for col in resolved:
+        if col not in seen:
+            seen.add(col)
+            deduped.append(col)
+
+    if deduped:
+        return deduped
+
+    # Fallback: grab up to five numeric-looking columns
+    exclude = {
+        time_col,
+        band_col,
+        id_col,
+        name_col,
+        "__band_lower",
+        "__region_slug",
+        "region",
+    }
+    candidates: List[str] = []
+    for col in df.columns:
+        if col in exclude or col.startswith("__"):
+            continue
+        series = pd.to_numeric(df[col], errors="coerce")
+        if series.notna().any():
+            candidates.append(col)
+    return candidates[:5]
 
 
 def discover_regions(
@@ -531,26 +602,44 @@ def build_model_payload(
             continue
 
         subset = subset.sort_values(time_col)
-        latest = subset.groupby("__band_lower").tail(1)
+        window = pd.Timedelta(hours=AGGREGATION_HOURS)
 
-        summary_columns = [time_col] + spec.metrics
-        for band, row in latest.groupby("__band_lower"):
-            if band not in summary:
+        for band in BANDS:
+            band_df = subset[subset["__band_lower"] == band]
+            if band_df.empty:
                 continue
-            summary_row = {}
-            for col in summary_columns:
-                if col == time_col:
-                    summary_row[col] = to_iso([row.iloc[0][time_col]])[0]
-                else:
-                    summary_row[col] = to_jsonable(row.iloc[0][col])
+
+            window_end = band_df[time_col].max()
+            window_start = window_end - window
+            windowed = band_df[band_df[time_col] >= window_start]
+            if windowed.empty:
+                windowed = band_df.tail(1)
+
+            summary_row: dict[str, object] = {
+                "window_start_utc": to_iso([windowed[time_col].min()])[0] if not windowed.empty else "",
+                "window_end_utc": to_iso([window_end])[0],
+                "samples_24h": int(len(windowed)),
+            }
+            metric_columns: List[str] = []
+            for metric in spec.metrics:
+                if metric not in windowed.columns:
+                    continue
+                values = pd.to_numeric(windowed[metric], errors="coerce").dropna()
+                out_key = f"{metric}_avg_24h"
+                summary_row[out_key] = to_jsonable(values.mean()) if not values.empty else None
+                metric_columns.append(out_key)
+
+            columns = ["window_start_utc", "window_end_utc", "samples_24h"] + metric_columns
+
             summary[band].append(
                 {
-                    "columns": summary_columns,
+                    "columns": columns,
                     "rows": [summary_row],
                     "metadata": {
                         "variable": spec.variable,
                         "level": spec.level,
                         "metrics": spec.metrics,
+                        "aggregation_hours": AGGREGATION_HOURS,
                     },
                 }
             )
@@ -603,42 +692,59 @@ def build_station_payload(
 
         if id_col not in band_df.columns:
             band_df.loc[:, id_col] = "station"
-        latest = band_df.sort_values(time_col).groupby(id_col, as_index=False).tail(1)
+        if name_col not in band_df.columns:
+            band_df.loc[:, name_col] = band_df[id_col]
 
-        cols = [id_col]
-        if name_col in latest.columns:
-            cols.append(name_col)
-        cols.append(time_col)
-        cols.extend(metrics)
-        filtered_cols = [c for c in cols if c in latest.columns]
-        table_rows = []
-        for _, row in latest.iterrows():
-            entry = {}
-            for col in filtered_cols:
-                if col == time_col:
-                    entry[col] = to_iso([row[time_col]])[0]
-                elif col in metrics:
-                    value = pd.to_numeric(row[col], errors="coerce")
-                    entry[col] = None if pd.isna(value) else float(value)
-                else:
-                    entry[col] = to_jsonable(row[col])
-            table_rows.append(entry)
-        summary[band].append(
-            {
-                "columns": filtered_cols,
-                "rows": table_rows,
-                "metadata": {"count": len(table_rows)},
+        metric_columns = [metric for metric in metrics if metric in band_df.columns]
+
+        window = pd.Timedelta(hours=AGGREGATION_HOURS)
+        table_rows: List[dict[str, object]] = []
+        for station_id, station_slice in band_df.groupby(id_col):
+            station_slice = station_slice.sort_values(time_col)
+            if station_slice.empty:
+                continue
+            window_end = station_slice[time_col].max()
+            window_start = window_end - window
+            windowed = station_slice[station_slice[time_col] >= window_start]
+            if windowed.empty:
+                windowed = station_slice.tail(1)
+
+            row_entry: dict[str, object] = {
+                id_col: station_id,
+                name_col: station_slice[name_col].iloc[0] if name_col in station_slice.columns else station_id,
+                "window_start_utc": to_iso([windowed[time_col].min()])[0] if not windowed.empty else "",
+                "window_end_utc": to_iso([window_end])[0],
+                "samples_24h": int(len(windowed)),
             }
-        )
+
+            for metric in metric_columns:
+                values = pd.to_numeric(windowed[metric], errors="coerce").dropna()
+                out_key = f"{metric}_avg_24h"
+                row_entry[out_key] = to_jsonable(values.mean()) if not values.empty else None
+
+            table_rows.append(row_entry)
+
+        if table_rows:
+            summary_columns = [id_col]
+            if name_col in band_df.columns:
+                summary_columns.append(name_col)
+            summary_columns.extend(["window_start_utc", "window_end_utc", "samples_24h"])
+            summary_columns.extend(f"{metric}_avg_24h" for metric in metric_columns)
+
+            summary[band].append(
+                {
+                    "columns": summary_columns,
+                    "rows": table_rows,
+                    "metadata": {"count": len(table_rows), "aggregation_hours": AGGREGATION_HOURS},
+                }
+            )
 
         # Build timeseries per station
         station_groups = band_df.groupby(id_col)
         for station_id, station_df in station_groups:
             station_df = station_df.sort_values(time_col)
             traces = []
-            for metric in metrics:
-                if metric not in station_df.columns:
-                    continue
+            for metric in metric_columns:
                 values_series = pd.to_numeric(station_df[metric], errors="coerce")
                 traces.append(
                     {
@@ -849,6 +955,16 @@ def main(argv: Sequence[str] | None = None) -> int:
             for metric in station_metrics:
                 empty_cols[metric] = pd.Series(dtype=float)
             station_df = pd.DataFrame(empty_cols)
+            station_metric_columns = [metric for metric in station_metrics if metric in station_df.columns]
+        else:
+            station_metric_columns = resolve_station_metrics(
+                station_df,
+                station_metrics,
+                time_col=args.station_time_column,
+                band_col=args.station_band_column,
+                id_col=args.station_id_column,
+                name_col=args.station_name_column,
+            )
 
         bundle = {
             "region": region_slug,
@@ -874,7 +990,7 @@ def main(argv: Sequence[str] | None = None) -> int:
 
         station_payload = build_station_payload(
             station_df,
-            station_metrics,
+            station_metric_columns,
             time_col=args.station_time_column,
             id_col=args.station_id_column,
             name_col=args.station_name_column,

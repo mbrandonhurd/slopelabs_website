@@ -1,7 +1,7 @@
 {
   "region": "purcells",
-  "run_time_utc": "2025-10-05T23:14:21Z",
-  "version": "202510052314",
+  "run_time_utc": "2025-10-06T19:34:30Z",
+  "version": "202510061934",
   "tiles_base": "https://tile.openstreetmap.org/",
   "stations": {
     "above_treeline": [],
@@ -10,16 +10,27 @@
       {
         "columns": [
           "station_id",
-          "obs_time"
+          "station_name",
+          "window_start_utc",
+          "window_end_utc",
+          "samples_24h",
+          "TEMP_avg_24h",
+          "WIND_SPEED_avg_24h"
         ],
         "rows": [
           {
             "station_id": "station",
-            "obs_time": "2025-02-12T00:00:00Z"
+            "station_name": "station",
+            "window_start_utc": "2025-02-11T00:00:00Z",
+            "window_end_utc": "2025-02-12T00:00:00Z",
+            "samples_24h": 62,
+            "TEMP_avg_24h": -17.85645161290322,
+            "WIND_SPEED_avg_24h": 2.532258064516129
           }
         ],
         "metadata": {
-          "count": 1
+          "count": 1,
+          "aggregation_hours": 24
         }
       }
     ]
@@ -28,23 +39,27 @@
     "above_treeline": [
       {
         "columns": [
-          "valid_date",
-          "forecast_hour",
-          "mean_value",
-          "stddev",
-          "p05",
-          "p95",
-          "count"
+          "window_start_utc",
+          "window_end_utc",
+          "samples_24h",
+          "forecast_hour_avg_24h",
+          "mean_value_avg_24h",
+          "stddev_avg_24h",
+          "p05_avg_24h",
+          "p95_avg_24h",
+          "count_avg_24h"
         ],
         "rows": [
           {
-            "valid_date": "2025-02-12T00:00:00Z",
-            "forecast_hour": 6,
-            "mean_value": 4.812819674640612e-05,
-            "stddev": 0.0001431617324348,
-            "p05": 0.0,
-            "p95": 0.0003602879701896,
-            "count": 2571
+            "window_start_utc": "2025-02-11T00:00:00Z",
+            "window_end_utc": "2025-02-12T00:00:00Z",
+            "samples_24h": 48,
+            "forecast_hour_avg_24h": 12.5,
+            "mean_value_avg_24h": 0.007345714580831621,
+            "stddev_avg_24h": 0.004345110302273297,
+            "p05_avg_24h": 0.0020491378304535687,
+            "p95_avg_24h": 0.015259696737407008,
+            "count_avg_24h": 2571.0
           }
         ],
         "metadata": {
@@ -57,28 +72,33 @@
             "p05",
             "p95",
             "count"
-          ]
+          ],
+          "aggregation_hours": 24
         }
       },
       {
         "columns": [
-          "valid_date",
-          "forecast_hour",
-          "mean_value",
-          "stddev",
-          "p05",
-          "p95",
-          "count"
+          "window_start_utc",
+          "window_end_utc",
+          "samples_24h",
+          "forecast_hour_avg_24h",
+          "mean_value_avg_24h",
+          "stddev_avg_24h",
+          "p05_avg_24h",
+          "p95_avg_24h",
+          "count_avg_24h"
         ],
         "rows": [
           {
-            "valid_date": "2025-02-12T00:00:00Z",
-            "forecast_hour": 6,
-            "mean_value": 2.3580021298931406,
-            "stddev": 0.0690082766005903,
-            "p05": 2.267174515673882,
-            "p95": 2.5208172466873884,
-            "count": 2571
+            "window_start_utc": "2025-02-11T00:00:00Z",
+            "window_end_utc": "2025-02-12T00:00:00Z",
+            "samples_24h": 56,
+            "forecast_hour_avg_24h": 10.714285714285714,
+            "mean_value_avg_24h": 1.998436090608824,
+            "stddev_avg_24h": 0.07360066940643262,
+            "p05_avg_24h": 1.8989512858361386,
+            "p95_avg_24h": 2.1375391266667205,
+            "count_avg_24h": 2571.0
           }
         ],
         "metadata": {
@@ -91,28 +111,33 @@
             "p05",
             "p95",
             "count"
-          ]
+          ],
+          "aggregation_hours": 24
         }
       },
       {
         "columns": [
-          "valid_date",
-          "forecast_hour",
-          "mean_value",
-          "stddev",
-          "p05",
-          "p95",
-          "count"
+          "window_start_utc",
+          "window_end_utc",
+          "samples_24h",
+          "forecast_hour_avg_24h",
+          "mean_value_avg_24h",
+          "stddev_avg_24h",
+          "p05_avg_24h",
+          "p95_avg_24h",
+          "count_avg_24h"
         ],
         "rows": [
           {
-            "valid_date": "2025-02-12T00:00:00Z",
-            "forecast_hour": 6,
-            "mean_value": 3799965.276191177,
-            "stddev": 92233.03954981016,
-            "p05": 3656687.194152441,
-            "p95": 3967985.592703208,
-            "count": 2571
+            "window_start_utc": "2025-02-11T00:00:00Z",
+            "window_end_utc": "2025-02-12T00:00:00Z",
+            "samples_24h": 56,
+            "forecast_hour_avg_24h": 10.714285714285714,
+            "mean_value_avg_24h": 6974745.386801576,
+            "stddev_avg_24h": 250988.5691965288,
+            "p05_avg_24h": 6510348.155096718,
+            "p95_avg_24h": 7320686.004843652,
+            "count_avg_24h": 2571.0
           }
         ],
         "metadata": {
@@ -125,28 +150,33 @@
             "p05",
             "p95",
             "count"
-          ]
+          ],
+          "aggregation_hours": 24
         }
       },
       {
         "columns": [
-          "valid_date",
-          "forecast_hour",
-          "mean_value",
-          "stddev",
-          "p05",
-          "p95",
-          "count"
+          "window_start_utc",
+          "window_end_utc",
+          "samples_24h",
+          "forecast_hour_avg_24h",
+          "mean_value_avg_24h",
+          "stddev_avg_24h",
+          "p05_avg_24h",
+          "p95_avg_24h",
+          "count_avg_24h"
         ],
         "rows": [
           {
-            "valid_date": "2025-02-12T00:00:00Z",
-            "forecast_hour": 6,
-            "mean_value": 4941.399218110607,
-            "stddev": 2729.38703673932,
-            "p05": 0.0,
-            "p95": 9822.522284368864,
-            "count": 2571
+            "window_start_utc": "2025-02-11T00:00:00Z",
+            "window_end_utc": "2025-02-12T00:00:00Z",
+            "samples_24h": 56,
+            "forecast_hour_avg_24h": 10.714285714285714,
+            "mean_value_avg_24h": 496577.57869877067,
+            "stddev_avg_24h": 40552.987621930646,
+            "p05_avg_24h": 434825.8276292784,
+            "p95_avg_24h": 573164.1806260283,
+            "count_avg_24h": 2571.0
           }
         ],
         "metadata": {
@@ -159,28 +189,33 @@
             "p05",
             "p95",
             "count"
-          ]
+          ],
+          "aggregation_hours": 24
         }
       },
       {
         "columns": [
-          "valid_date",
-          "forecast_hour",
-          "mean_value",
-          "stddev",
-          "p05",
-          "p95",
-          "count"
+          "window_start_utc",
+          "window_end_utc",
+          "samples_24h",
+          "forecast_hour_avg_24h",
+          "mean_value_avg_24h",
+          "stddev_avg_24h",
+          "p05_avg_24h",
+          "p95_avg_24h",
+          "count_avg_24h"
         ],
         "rows": [
           {
-            "valid_date": "2025-02-12T00:00:00Z",
-            "forecast_hour": 6,
-            "mean_value": 0.0,
-            "stddev": 0.0,
-            "p05": 0.0,
-            "p95": 0.0,
-            "count": 2571
+            "window_start_utc": "2025-02-11T00:00:00Z",
+            "window_end_utc": "2025-02-12T00:00:00Z",
+            "samples_24h": 48,
+            "forecast_hour_avg_24h": 12.5,
+            "mean_value_avg_24h": 0.0,
+            "stddev_avg_24h": 0.0,
+            "p05_avg_24h": 0.0,
+            "p95_avg_24h": 0.0,
+            "count_avg_24h": 2571.0
           }
         ],
         "metadata": {
@@ -193,28 +228,33 @@
             "p05",
             "p95",
             "count"
-          ]
+          ],
+          "aggregation_hours": 24
         }
       },
       {
         "columns": [
-          "valid_date",
-          "forecast_hour",
-          "mean_value",
-          "stddev",
-          "p05",
-          "p95",
-          "count"
+          "window_start_utc",
+          "window_end_utc",
+          "samples_24h",
+          "forecast_hour_avg_24h",
+          "mean_value_avg_24h",
+          "stddev_avg_24h",
+          "p05_avg_24h",
+          "p95_avg_24h",
+          "count_avg_24h"
         ],
         "rows": [
           {
-            "valid_date": "2025-02-12T00:00:00Z",
-            "forecast_hour": 6,
-            "mean_value": 1.855874657297053,
-            "stddev": 0.2569056491442097,
-            "p05": 1.488674480131041,
-            "p95": 2.307248748401902,
-            "count": 2571
+            "window_start_utc": "2025-02-11T00:00:00Z",
+            "window_end_utc": "2025-02-12T00:00:00Z",
+            "samples_24h": 56,
+            "forecast_hour_avg_24h": 10.714285714285714,
+            "mean_value_avg_24h": 3.015923474650621,
+            "stddev_avg_24h": 0.801404659945592,
+            "p05_avg_24h": 1.8793982118858434,
+            "p95_avg_24h": 4.351411179922001,
+            "count_avg_24h": 2571.0
           }
         ],
         "metadata": {
@@ -227,28 +267,33 @@
             "p05",
             "p95",
             "count"
-          ]
+          ],
+          "aggregation_hours": 24
         }
       },
       {
         "columns": [
-          "valid_date",
-          "forecast_hour",
-          "mean_value",
-          "stddev",
-          "p05",
-          "p95",
-          "count"
+          "window_start_utc",
+          "window_end_utc",
+          "samples_24h",
+          "forecast_hour_avg_24h",
+          "mean_value_avg_24h",
+          "stddev_avg_24h",
+          "p05_avg_24h",
+          "p95_avg_24h",
+          "count_avg_24h"
         ],
         "rows": [
           {
-            "valid_date": "2025-02-12T00:00:00Z",
-            "forecast_hour": 6,
-            "mean_value": 5234.820155144008,
-            "stddev": 8.435497823614481,
-            "p05": 5222.726129245703,
-            "p95": 5250.765180237741,
-            "count": 2571
+            "window_start_utc": "2025-02-11T00:00:00Z",
+            "window_end_utc": "2025-02-12T00:00:00Z",
+            "samples_24h": 56,
+            "forecast_hour_avg_24h": 10.714285714285714,
+            "mean_value_avg_24h": 5239.509106711237,
+            "stddev_avg_24h": 6.988323698270634,
+            "p05_avg_24h": 5229.478292528742,
+            "p95_avg_24h": 5252.628132825886,
+            "count_avg_24h": 2571.0
           }
         ],
         "metadata": {
@@ -261,28 +306,33 @@
             "p05",
             "p95",
             "count"
-          ]
+          ],
+          "aggregation_hours": 24
         }
       },
       {
         "columns": [
-          "valid_date",
-          "forecast_hour",
-          "mean_value",
-          "stddev",
-          "p05",
-          "p95",
-          "count"
+          "window_start_utc",
+          "window_end_utc",
+          "samples_24h",
+          "forecast_hour_avg_24h",
+          "mean_value_avg_24h",
+          "stddev_avg_24h",
+          "p05_avg_24h",
+          "p95_avg_24h",
+          "count_avg_24h"
         ],
         "rows": [
           {
-            "valid_date": "2025-02-12T00:00:00Z",
-            "forecast_hour": 6,
-            "mean_value": 2822.4115068002147,
-            "stddev": 2.6136772416612035,
-            "p05": 2818.841197296034,
-            "p95": 2827.511167010677,
-            "count": 2571
+            "window_start_utc": "2025-02-11T00:00:00Z",
+            "window_end_utc": "2025-02-12T00:00:00Z",
+            "samples_24h": 56,
+            "forecast_hour_avg_24h": 10.714285714285714,
+            "mean_value_avg_24h": 2840.539740189012,
+            "stddev_avg_24h": 2.3766594901532434,
+            "p05_avg_24h": 2836.9811207777016,
+            "p95_avg_24h": 2844.828604526112,
+            "count_avg_24h": 2571.0
           }
         ],
         "metadata": {
@@ -295,28 +345,33 @@
             "p05",
             "p95",
             "count"
-          ]
+          ],
+          "aggregation_hours": 24
         }
       },
       {
         "columns": [
-          "valid_date",
-          "forecast_hour",
-          "mean_value",
-          "stddev",
-          "p05",
-          "p95",
-          "count"
+          "window_start_utc",
+          "window_end_utc",
+          "samples_24h",
+          "forecast_hour_avg_24h",
+          "mean_value_avg_24h",
+          "stddev_avg_24h",
+          "p05_avg_24h",
+          "p95_avg_24h",
+          "count_avg_24h"
         ],
         "rows": [
           {
-            "valid_date": "2025-02-12T00:00:00Z",
-            "forecast_hour": 6,
-            "mean_value": 14.169220974292132,
-            "stddev": 9.14509708298622,
-            "p05": 5.689348854823666,
-            "p95": 30.03905103212028,
-            "count": 2571
+            "window_start_utc": "2025-02-11T00:00:00Z",
+            "window_end_utc": "2025-02-12T00:00:00Z",
+            "samples_24h": 56,
+            "forecast_hour_avg_24h": 10.714285714285714,
+            "mean_value_avg_24h": 89.97114059366356,
+            "stddev_avg_24h": 35.43403244886436,
+            "p05_avg_24h": 38.58384641197788,
+            "p95_avg_24h": 148.74384914644125,
+            "count_avg_24h": 2571.0
           }
         ],
         "metadata": {
@@ -329,28 +384,33 @@
             "p05",
             "p95",
             "count"
-          ]
+          ],
+          "aggregation_hours": 24
         }
       },
       {
         "columns": [
-          "valid_date",
-          "forecast_hour",
-          "mean_value",
-          "stddev",
-          "p05",
-          "p95",
-          "count"
+          "window_start_utc",
+          "window_end_utc",
+          "samples_24h",
+          "forecast_hour_avg_24h",
+          "mean_value_avg_24h",
+          "stddev_avg_24h",
+          "p05_avg_24h",
+          "p95_avg_24h",
+          "count_avg_24h"
         ],
         "rows": [
           {
-            "valid_date": "2025-02-12T00:00:00Z",
-            "forecast_hour": 6,
-            "mean_value": 0.0,
-            "stddev": 0.0,
-            "p05": 0.0,
-            "p95": 0.0,
-            "count": 2571
+            "window_start_utc": "2025-02-11T00:00:00Z",
+            "window_end_utc": "2025-02-12T00:00:00Z",
+            "samples_24h": 48,
+            "forecast_hour_avg_24h": 12.5,
+            "mean_value_avg_24h": 0.0,
+            "stddev_avg_24h": 0.0,
+            "p05_avg_24h": 0.0,
+            "p95_avg_24h": 0.0,
+            "count_avg_24h": 2571.0
           }
         ],
         "metadata": {
@@ -363,28 +423,33 @@
             "p05",
             "p95",
             "count"
-          ]
+          ],
+          "aggregation_hours": 24
         }
       },
       {
         "columns": [
-          "valid_date",
-          "forecast_hour",
-          "mean_value",
-          "stddev",
-          "p05",
-          "p95",
-          "count"
+          "window_start_utc",
+          "window_end_utc",
+          "samples_24h",
+          "forecast_hour_avg_24h",
+          "mean_value_avg_24h",
+          "stddev_avg_24h",
+          "p05_avg_24h",
+          "p95_avg_24h",
+          "count_avg_24h"
         ],
         "rows": [
           {
-            "valid_date": "2025-02-12T00:00:00Z",
-            "forecast_hour": 6,
-            "mean_value": -0.8057720284005773,
-            "stddev": 0.6136148566087887,
-            "p05": -1.8437863538194328,
-            "p95": 0.1853554942886176,
-            "count": 2571
+            "window_start_utc": "2025-02-11T00:00:00Z",
+            "window_end_utc": "2025-02-12T00:00:00Z",
+            "samples_24h": 56,
+            "forecast_hour_avg_24h": 10.714285714285714,
+            "mean_value_avg_24h": 0.0371370913164769,
+            "stddev_avg_24h": 0.5153246570988301,
+            "p05_avg_24h": -0.7888040547932117,
+            "p95_avg_24h": 0.8590501814341461,
+            "count_avg_24h": 2571.0
           }
         ],
         "metadata": {
@@ -397,28 +462,33 @@
             "p05",
             "p95",
             "count"
-          ]
+          ],
+          "aggregation_hours": 24
         }
       },
       {
         "columns": [
-          "valid_date",
-          "forecast_hour",
-          "mean_value",
-          "stddev",
-          "p05",
-          "p95",
-          "count"
+          "window_start_utc",
+          "window_end_utc",
+          "samples_24h",
+          "forecast_hour_avg_24h",
+          "mean_value_avg_24h",
+          "stddev_avg_24h",
+          "p05_avg_24h",
+          "p95_avg_24h",
+          "count_avg_24h"
         ],
         "rows": [
           {
-            "valid_date": "2025-02-12T00:00:00Z",
-            "forecast_hour": 6,
-            "mean_value": -442934.2179724208,
-            "stddev": 113107.50210393156,
-            "p05": -641623.8757438025,
-            "p95": -268368.02893778577,
-            "count": 2571
+            "window_start_utc": "2025-02-11T00:00:00Z",
+            "window_end_utc": "2025-02-12T00:00:00Z",
+            "samples_24h": 56,
+            "forecast_hour_avg_24h": 10.714285714285714,
+            "mean_value_avg_24h": -957648.3872823401,
+            "stddev_avg_24h": 176156.89960459256,
+            "p05_avg_24h": -1276619.6930502485,
+            "p95_avg_24h": -711682.990704553,
+            "count_avg_24h": 2571.0
           }
         ],
         "metadata": {
@@ -431,28 +501,33 @@
             "p05",
             "p95",
             "count"
-          ]
+          ],
+          "aggregation_hours": 24
         }
       },
       {
         "columns": [
-          "valid_date",
-          "forecast_hour",
-          "mean_value",
-          "stddev",
-          "p05",
-          "p95",
-          "count"
+          "window_start_utc",
+          "window_end_utc",
+          "samples_24h",
+          "forecast_hour_avg_24h",
+          "mean_value_avg_24h",
+          "stddev_avg_24h",
+          "p05_avg_24h",
+          "p95_avg_24h",
+          "count_avg_24h"
         ],
         "rows": [
           {
-            "valid_date": "2025-02-12T00:00:00Z",
-            "forecast_hour": 6,
-            "mean_value": -3327.668648993716,
-            "stddev": 2254.0533141708147,
-            "p05": -7580.873944531678,
-            "p95": -25.08757194024499,
-            "count": 2571
+            "window_start_utc": "2025-02-11T00:00:00Z",
+            "window_end_utc": "2025-02-12T00:00:00Z",
+            "samples_24h": 56,
+            "forecast_hour_avg_24h": 10.714285714285714,
+            "mean_value_avg_24h": -312918.0961106286,
+            "stddev_avg_24h": 80774.52855872991,
+            "p05_avg_24h": -439653.5103583752,
+            "p95_avg_24h": -161576.96001459612,
+            "count_avg_24h": 2571.0
           }
         ],
         "metadata": {
@@ -465,28 +540,33 @@
             "p05",
             "p95",
             "count"
-          ]
+          ],
+          "aggregation_hours": 24
         }
       },
       {
         "columns": [
-          "valid_date",
-          "forecast_hour",
-          "mean_value",
-          "stddev",
-          "p05",
-          "p95",
-          "count"
+          "window_start_utc",
+          "window_end_utc",
+          "samples_24h",
+          "forecast_hour_avg_24h",
+          "mean_value_avg_24h",
+          "stddev_avg_24h",
+          "p05_avg_24h",
+          "p95_avg_24h",
+          "count_avg_24h"
         ],
         "rows": [
           {
-            "valid_date": "2025-02-12T00:00:00Z",
-            "forecast_hour": 6,
-            "mean_value": 0.0,
-            "stddev": 0.0,
-            "p05": 0.0,
-            "p95": 0.0,
-            "count": 2571
+            "window_start_utc": "2025-02-11T00:00:00Z",
+            "window_end_utc": "2025-02-12T00:00:00Z",
+            "samples_24h": 48,
+            "forecast_hour_avg_24h": 12.5,
+            "mean_value_avg_24h": 2.542305283396395e-07,
+            "stddev_avg_24h": 6.231262657927475e-07,
+            "p05_avg_24h": 0.0,
+            "p95_avg_24h": 1.524656123849387e-06,
+            "count_avg_24h": 2571.0
           }
         ],
         "metadata": {
@@ -499,28 +579,33 @@
             "p05",
             "p95",
             "count"
-          ]
+          ],
+          "aggregation_hours": 24
         }
       },
       {
         "columns": [
-          "valid_date",
-          "forecast_hour",
-          "mean_value",
-          "stddev",
-          "p05",
-          "p95",
-          "count"
+          "window_start_utc",
+          "window_end_utc",
+          "samples_24h",
+          "forecast_hour_avg_24h",
+          "mean_value_avg_24h",
+          "stddev_avg_24h",
+          "p05_avg_24h",
+          "p95_avg_24h",
+          "count_avg_24h"
         ],
         "rows": [
           {
-            "valid_date": "2025-02-12T00:00:00Z",
-            "forecast_hour": 6,
-            "mean_value": 99683.88546660452,
-            "stddev": 483.3372065556908,
-            "p05": 99003.26039185752,
-            "p95": 100543.93245689372,
-            "count": 2571
+            "window_start_utc": "2025-02-11T00:00:00Z",
+            "window_end_utc": "2025-02-12T00:00:00Z",
+            "samples_24h": 56,
+            "forecast_hour_avg_24h": 10.714285714285714,
+            "mean_value_avg_24h": 100037.8623006868,
+            "stddev_avg_24h": 484.5473632996791,
+            "p05_avg_24h": 99361.73364301103,
+            "p95_avg_24h": 100891.75930146757,
+            "count_avg_24h": 2571.0
           }
         ],
         "metadata": {
@@ -533,28 +618,33 @@
             "p05",
             "p95",
             "count"
-          ]
+          ],
+          "aggregation_hours": 24
         }
       },
       {
         "columns": [
-          "valid_date",
-          "forecast_hour",
-          "mean_value",
-          "stddev",
-          "p05",
-          "p95",
-          "count"
+          "window_start_utc",
+          "window_end_utc",
+          "samples_24h",
+          "forecast_hour_avg_24h",
+          "mean_value_avg_24h",
+          "stddev_avg_24h",
+          "p05_avg_24h",
+          "p95_avg_24h",
+          "count_avg_24h"
         ],
         "rows": [
           {
-            "valid_date": "2025-02-12T00:00:00Z",
-            "forecast_hour": 6,
-            "mean_value": 0.0,
-            "stddev": 0.0,
-            "p05": 0.0,
-            "p95": 0.0,
-            "count": 2571
+            "window_start_utc": "2025-02-11T00:00:00Z",
+            "window_end_utc": "2025-02-12T00:00:00Z",
+            "samples_24h": 48,
+            "forecast_hour_avg_24h": 12.5,
+            "mean_value_avg_24h": 0.0,
+            "stddev_avg_24h": 0.0,
+            "p05_avg_24h": 0.0,
+            "p95_avg_24h": 0.0,
+            "count_avg_24h": 2571.0
           }
         ],
         "metadata": {
@@ -567,28 +657,33 @@
             "p05",
             "p95",
             "count"
-          ]
+          ],
+          "aggregation_hours": 24
         }
       },
       {
         "columns": [
-          "valid_date",
-          "forecast_hour",
-          "mean_value",
-          "stddev",
-          "p05",
-          "p95",
-          "count"
+          "window_start_utc",
+          "window_end_utc",
+          "samples_24h",
+          "forecast_hour_avg_24h",
+          "mean_value_avg_24h",
+          "stddev_avg_24h",
+          "p05_avg_24h",
+          "p95_avg_24h",
+          "count_avg_24h"
         ],
         "rows": [
           {
-            "valid_date": "2025-02-12T00:00:00Z",
-            "forecast_hour": 6,
-            "mean_value": 209.87598188122192,
-            "stddev": 14.6185201703796,
-            "p05": 198.08771086714933,
-            "p95": 228.8937734702443,
-            "count": 2571
+            "window_start_utc": "2025-02-11T00:00:00Z",
+            "window_end_utc": "2025-02-12T00:00:00Z",
+            "samples_24h": 56,
+            "forecast_hour_avg_24h": 10.714285714285714,
+            "mean_value_avg_24h": 209.80678503500167,
+            "stddev_avg_24h": 14.633239473943405,
+            "p05_avg_24h": 198.1130275307689,
+            "p95_avg_24h": 228.90591388809693,
+            "count_avg_24h": 2571.0
           }
         ],
         "metadata": {
@@ -601,28 +696,33 @@
             "p05",
             "p95",
             "count"
-          ]
+          ],
+          "aggregation_hours": 24
         }
       },
       {
         "columns": [
-          "valid_date",
-          "forecast_hour",
-          "mean_value",
-          "stddev",
-          "p05",
-          "p95",
-          "count"
+          "window_start_utc",
+          "window_end_utc",
+          "samples_24h",
+          "forecast_hour_avg_24h",
+          "mean_value_avg_24h",
+          "stddev_avg_24h",
+          "p05_avg_24h",
+          "p95_avg_24h",
+          "count_avg_24h"
         ],
         "rows": [
           {
-            "valid_date": "2025-02-12T00:00:00Z",
-            "forecast_hour": 6,
-            "mean_value": 53.71797626334602,
-            "stddev": 11.1203174021123,
-            "p05": 38.36922767331587,
-            "p95": 70.83549724304468,
-            "count": 2571
+            "window_start_utc": "2025-02-11T00:00:00Z",
+            "window_end_utc": "2025-02-12T00:00:00Z",
+            "samples_24h": 56,
+            "forecast_hour_avg_24h": 10.714285714285714,
+            "mean_value_avg_24h": 53.93375959906842,
+            "stddev_avg_24h": 11.128101640081342,
+            "p05_avg_24h": 38.365933611874134,
+            "p95_avg_24h": 71.60795465113128,
+            "count_avg_24h": 2571.0
           }
         ],
         "metadata": {
@@ -635,28 +735,33 @@
             "p05",
             "p95",
             "count"
-          ]
+          ],
+          "aggregation_hours": 24
         }
       },
       {
         "columns": [
-          "valid_date",
-          "forecast_hour",
-          "mean_value",
-          "stddev",
-          "p05",
-          "p95",
-          "count"
+          "window_start_utc",
+          "window_end_utc",
+          "samples_24h",
+          "forecast_hour_avg_24h",
+          "mean_value_avg_24h",
+          "stddev_avg_24h",
+          "p05_avg_24h",
+          "p95_avg_24h",
+          "count_avg_24h"
         ],
         "rows": [
           {
-            "valid_date": "2025-02-12T00:00:00Z",
-            "forecast_hour": 6,
-            "mean_value": -9.146939870721225,
-            "stddev": 5.661102527846552,
-            "p05": -18.35713370012395,
-            "p95": 1.1964150180081776,
-            "count": 2571
+            "window_start_utc": "2025-02-11T00:00:00Z",
+            "window_end_utc": "2025-02-12T00:00:00Z",
+            "samples_24h": 56,
+            "forecast_hour_avg_24h": 10.714285714285714,
+            "mean_value_avg_24h": 1.0657986059709808,
+            "stddev_avg_24h": 6.655078217285874,
+            "p05_avg_24h": -10.37538668940273,
+            "p95_avg_24h": 11.546592205336037,
+            "count_avg_24h": 2571.0
           }
         ],
         "metadata": {
@@ -669,28 +774,33 @@
             "p05",
             "p95",
             "count"
-          ]
+          ],
+          "aggregation_hours": 24
         }
       },
       {
         "columns": [
-          "valid_date",
-          "forecast_hour",
-          "mean_value",
-          "stddev",
-          "p05",
-          "p95",
-          "count"
+          "window_start_utc",
+          "window_end_utc",
+          "samples_24h",
+          "forecast_hour_avg_24h",
+          "mean_value_avg_24h",
+          "stddev_avg_24h",
+          "p05_avg_24h",
+          "p95_avg_24h",
+          "count_avg_24h"
         ],
         "rows": [
           {
-            "valid_date": "2025-02-12T00:00:00Z",
-            "forecast_hour": 6,
-            "mean_value": 243.78867137141867,
-            "stddev": 1.386062945361287,
-            "p05": 241.7412709402376,
-            "p95": 246.19154794802,
-            "count": 2571
+            "window_start_utc": "2025-02-11T00:00:00Z",
+            "window_end_utc": "2025-02-12T00:00:00Z",
+            "samples_24h": 56,
+            "forecast_hour_avg_24h": 10.714285714285714,
+            "mean_value_avg_24h": 245.98325648399637,
+            "stddev_avg_24h": 1.3829039669674459,
+            "p05_avg_24h": 243.40936925889704,
+            "p95_avg_24h": 247.91667470538954,
+            "count_avg_24h": 2571.0
           }
         ],
         "metadata": {
@@ -703,28 +813,33 @@
             "p05",
             "p95",
             "count"
-          ]
+          ],
+          "aggregation_hours": 24
         }
       },
       {
         "columns": [
-          "valid_date",
-          "forecast_hour",
-          "mean_value",
-          "stddev",
-          "p05",
-          "p95",
-          "count"
+          "window_start_utc",
+          "window_end_utc",
+          "samples_24h",
+          "forecast_hour_avg_24h",
+          "mean_value_avg_24h",
+          "stddev_avg_24h",
+          "p05_avg_24h",
+          "p95_avg_24h",
+          "count_avg_24h"
         ],
         "rows": [
           {
-            "valid_date": "2025-02-12T00:00:00Z",
-            "forecast_hour": 6,
-            "mean_value": 0.2522798827601168,
-            "stddev": 0.0435760356049209,
-            "p05": 0.1931143520216469,
-            "p95": 0.3285826288129514,
-            "count": 2571
+            "window_start_utc": "2025-02-11T00:00:00Z",
+            "window_end_utc": "2025-02-12T00:00:00Z",
+            "samples_24h": 56,
+            "forecast_hour_avg_24h": 10.714285714285714,
+            "mean_value_avg_24h": 0.25322106775080616,
+            "stddev_avg_24h": 0.04360540559427754,
+            "p05_avg_24h": 0.19289238889715504,
+            "p95_avg_24h": 0.32848290624977394,
+            "count_avg_24h": 2571.0
           }
         ],
         "metadata": {
@@ -737,28 +852,33 @@
             "p05",
             "p95",
             "count"
-          ]
+          ],
+          "aggregation_hours": 24
         }
       },
       {
         "columns": [
-          "valid_date",
-          "forecast_hour",
-          "mean_value",
-          "stddev",
-          "p05",
-          "p95",
-          "count"
+          "window_start_utc",
+          "window_end_utc",
+          "samples_24h",
+          "forecast_hour_avg_24h",
+          "mean_value_avg_24h",
+          "stddev_avg_24h",
+          "p05_avg_24h",
+          "p95_avg_24h",
+          "count_avg_24h"
         ],
         "rows": [
           {
-            "valid_date": "2025-02-12T00:00:00Z",
-            "forecast_hour": 6,
-            "mean_value": 0.0002870585972269,
-            "stddev": 3.0695955691390856e-05,
-            "p05": 0.000238656109664,
-            "p95": 0.000339283413838,
-            "count": 2571
+            "window_start_utc": "2025-02-11T00:00:00Z",
+            "window_end_utc": "2025-02-12T00:00:00Z",
+            "samples_24h": 56,
+            "forecast_hour_avg_24h": 10.714285714285714,
+            "mean_value_avg_24h": 0.000328405434030475,
+            "stddev_avg_24h": 3.702247240817308e-05,
+            "p05_avg_24h": 0.0002635019197731411,
+            "p95_avg_24h": 0.00038384503816411435,
+            "count_avg_24h": 2571.0
           }
         ],
         "metadata": {
@@ -771,28 +891,33 @@
             "p05",
             "p95",
             "count"
-          ]
+          ],
+          "aggregation_hours": 24
         }
       },
       {
         "columns": [
-          "valid_date",
-          "forecast_hour",
-          "mean_value",
-          "stddev",
-          "p05",
-          "p95",
-          "count"
+          "window_start_utc",
+          "window_end_utc",
+          "samples_24h",
+          "forecast_hour_avg_24h",
+          "mean_value_avg_24h",
+          "stddev_avg_24h",
+          "p05_avg_24h",
+          "p95_avg_24h",
+          "count_avg_24h"
         ],
         "rows": [
           {
-            "valid_date": "2025-02-12T00:00:00Z",
-            "forecast_hour": 6,
-            "mean_value": 0.0002675951747027,
-            "stddev": 1.0177012719830944e-05,
-            "p05": 0.0002521198392613,
-            "p95": 0.000285676934141,
-            "count": 2571
+            "window_start_utc": "2025-02-11T00:00:00Z",
+            "window_end_utc": "2025-02-12T00:00:00Z",
+            "samples_24h": 56,
+            "forecast_hour_avg_24h": 10.714285714285714,
+            "mean_value_avg_24h": 0.0001316451891647785,
+            "stddev_avg_24h": 1.975260978600256e-05,
+            "p05_avg_24h": 0.00010226660932406866,
+            "p95_avg_24h": 0.00016400575795457305,
+            "count_avg_24h": 2571.0
           }
         ],
         "metadata": {
@@ -805,28 +930,33 @@
             "p05",
             "p95",
             "count"
-          ]
+          ],
+          "aggregation_hours": 24
         }
       },
       {
         "columns": [
-          "valid_date",
-          "forecast_hour",
-          "mean_value",
-          "stddev",
-          "p05",
-          "p95",
-          "count"
+          "window_start_utc",
+          "window_end_utc",
+          "samples_24h",
+          "forecast_hour_avg_24h",
+          "mean_value_avg_24h",
+          "stddev_avg_24h",
+          "p05_avg_24h",
+          "p95_avg_24h",
+          "count_avg_24h"
         ],
         "rows": [
           {
-            "valid_date": "2025-02-12T00:00:00Z",
-            "forecast_hour": 6,
-            "mean_value": 0.0002017220238005,
-            "stddev": 3.910631303669748e-05,
-            "p05": 0.000133876535798,
-            "p95": 0.0002624754157826,
-            "count": 2571
+            "window_start_utc": "2025-02-11T00:00:00Z",
+            "window_end_utc": "2025-02-12T00:00:00Z",
+            "samples_24h": 56,
+            "forecast_hour_avg_24h": 10.714285714285714,
+            "mean_value_avg_24h": 0.0003053263977091589,
+            "stddev_avg_24h": 4.691799887378527e-05,
+            "p05_avg_24h": 0.00024196353614493808,
+            "p95_avg_24h": 0.00038705037835356425,
+            "count_avg_24h": 2571.0
           }
         ],
         "metadata": {
@@ -839,28 +969,33 @@
             "p05",
             "p95",
             "count"
-          ]
+          ],
+          "aggregation_hours": 24
         }
       },
       {
         "columns": [
-          "valid_date",
-          "forecast_hour",
-          "mean_value",
-          "stddev",
-          "p05",
-          "p95",
-          "count"
+          "window_start_utc",
+          "window_end_utc",
+          "samples_24h",
+          "forecast_hour_avg_24h",
+          "mean_value_avg_24h",
+          "stddev_avg_24h",
+          "p05_avg_24h",
+          "p95_avg_24h",
+          "count_avg_24h"
         ],
         "rows": [
           {
-            "valid_date": "2025-02-12T00:00:00Z",
-            "forecast_hour": 6,
-            "mean_value": 0.0005488246420338,
-            "stddev": 1.7326069859982643e-05,
-            "p05": 0.0005211481963705,
-            "p95": 0.0005730451452015,
-            "count": 2571
+            "window_start_utc": "2025-02-11T00:00:00Z",
+            "window_end_utc": "2025-02-12T00:00:00Z",
+            "samples_24h": 56,
+            "forecast_hour_avg_24h": 10.714285714285714,
+            "mean_value_avg_24h": 0.000518683391282375,
+            "stddev_avg_24h": 2.1622279966198334e-05,
+            "p05_avg_24h": 0.00048505965743369465,
+            "p95_avg_24h": 0.0005543257485217929,
+            "count_avg_24h": 2571.0
           }
         ],
         "metadata": {
@@ -873,28 +1008,33 @@
             "p05",
             "p95",
             "count"
-          ]
+          ],
+          "aggregation_hours": 24
         }
       },
       {
         "columns": [
-          "valid_date",
-          "forecast_hour",
-          "mean_value",
-          "stddev",
-          "p05",
-          "p95",
-          "count"
+          "window_start_utc",
+          "window_end_utc",
+          "samples_24h",
+          "forecast_hour_avg_24h",
+          "mean_value_avg_24h",
+          "stddev_avg_24h",
+          "p05_avg_24h",
+          "p95_avg_24h",
+          "count_avg_24h"
         ],
         "rows": [
           {
-            "valid_date": "2025-02-12T00:00:00Z",
-            "forecast_hour": 6,
-            "mean_value": 4.818382996721274e-05,
-            "stddev": 0.0001433710267315,
-            "p05": 0.0,
-            "p95": 0.0003602879701896,
-            "count": 2571
+            "window_start_utc": "2025-02-11T00:00:00Z",
+            "window_end_utc": "2025-02-12T00:00:00Z",
+            "samples_24h": 48,
+            "forecast_hour_avg_24h": 12.5,
+            "mean_value_avg_24h": 0.0073473558488221,
+            "stddev_avg_24h": 0.004345198442473768,
+            "p05_avg_24h": 0.0020491378304535687,
+            "p95_avg_24h": 0.015259696737407008,
+            "count_avg_24h": 2571.0
           }
         ],
         "metadata": {
@@ -907,28 +1047,33 @@
             "p05",
             "p95",
             "count"
-          ]
+          ],
+          "aggregation_hours": 24
         }
       },
       {
         "columns": [
-          "valid_date",
-          "forecast_hour",
-          "mean_value",
-          "stddev",
-          "p05",
-          "p95",
-          "count"
+          "window_start_utc",
+          "window_end_utc",
+          "samples_24h",
+          "forecast_hour_avg_24h",
+          "mean_value_avg_24h",
+          "stddev_avg_24h",
+          "p05_avg_24h",
+          "p95_avg_24h",
+          "count_avg_24h"
         ],
         "rows": [
           {
-            "valid_date": "2025-02-12T00:00:00Z",
-            "forecast_hour": 6,
-            "mean_value": 36.37938908891277,
-            "stddev": 4.496859878403413,
-            "p05": 29.88372539940948,
-            "p95": 44.45665321764002,
-            "count": 2571
+            "window_start_utc": "2025-02-11T00:00:00Z",
+            "window_end_utc": "2025-02-12T00:00:00Z",
+            "samples_24h": 56,
+            "forecast_hour_avg_24h": 10.714285714285714,
+            "mean_value_avg_24h": 21.35723799216391,
+            "stddev_avg_24h": 4.826118090393952,
+            "p05_avg_24h": 14.32175563329834,
+            "p95_avg_24h": 29.80137386336613,
+            "count_avg_24h": 2571.0
           }
         ],
         "metadata": {
@@ -941,28 +1086,33 @@
             "p05",
             "p95",
             "count"
-          ]
+          ],
+          "aggregation_hours": 24
         }
       },
       {
         "columns": [
-          "valid_date",
-          "forecast_hour",
-          "mean_value",
-          "stddev",
-          "p05",
-          "p95",
-          "count"
+          "window_start_utc",
+          "window_end_utc",
+          "samples_24h",
+          "forecast_hour_avg_24h",
+          "mean_value_avg_24h",
+          "stddev_avg_24h",
+          "p05_avg_24h",
+          "p95_avg_24h",
+          "count_avg_24h"
         ],
         "rows": [
           {
-            "valid_date": "2025-02-12T00:00:00Z",
-            "forecast_hour": 6,
-            "mean_value": 244.78677047807244,
-            "stddev": 1.042924746712485,
-            "p05": 243.11081558692092,
-            "p95": 246.6041677458797,
-            "count": 2571
+            "window_start_utc": "2025-02-11T00:00:00Z",
+            "window_end_utc": "2025-02-12T00:00:00Z",
+            "samples_24h": 56,
+            "forecast_hour_avg_24h": 10.714285714285714,
+            "mean_value_avg_24h": 246.41329846135952,
+            "stddev_avg_24h": 1.22122047191713,
+            "p05_avg_24h": 244.15922704110355,
+            "p95_avg_24h": 248.12324396340503,
+            "count_avg_24h": 2571.0
           }
         ],
         "metadata": {
@@ -975,28 +1125,33 @@
             "p05",
             "p95",
             "count"
-          ]
+          ],
+          "aggregation_hours": 24
         }
       },
       {
         "columns": [
-          "valid_date",
-          "forecast_hour",
-          "mean_value",
-          "stddev",
-          "p05",
-          "p95",
-          "count"
+          "window_start_utc",
+          "window_end_utc",
+          "samples_24h",
+          "forecast_hour_avg_24h",
+          "mean_value_avg_24h",
+          "stddev_avg_24h",
+          "p05_avg_24h",
+          "p95_avg_24h",
+          "count_avg_24h"
         ],
         "rows": [
           {
-            "valid_date": "2025-02-12T00:00:00Z",
-            "forecast_hour": 6,
-            "mean_value": 237.6122204830395,
-            "stddev": 0.324481475796205,
-            "p05": 237.1494457961669,
-            "p95": 238.2512064090068,
-            "count": 2571
+            "window_start_utc": "2025-02-11T00:00:00Z",
+            "window_end_utc": "2025-02-12T00:00:00Z",
+            "samples_24h": 56,
+            "forecast_hour_avg_24h": 10.714285714285714,
+            "mean_value_avg_24h": 237.35714953298734,
+            "stddev_avg_24h": 0.45890672996630055,
+            "p05_avg_24h": 236.67706242703778,
+            "p95_avg_24h": 238.1928711221906,
+            "count_avg_24h": 2571.0
           }
         ],
         "metadata": {
@@ -1009,28 +1164,33 @@
             "p05",
             "p95",
             "count"
-          ]
+          ],
+          "aggregation_hours": 24
         }
       },
       {
         "columns": [
-          "valid_date",
-          "forecast_hour",
-          "mean_value",
-          "stddev",
-          "p05",
-          "p95",
-          "count"
+          "window_start_utc",
+          "window_end_utc",
+          "samples_24h",
+          "forecast_hour_avg_24h",
+          "mean_value_avg_24h",
+          "stddev_avg_24h",
+          "p05_avg_24h",
+          "p95_avg_24h",
+          "count_avg_24h"
         ],
         "rows": [
           {
-            "valid_date": "2025-02-12T00:00:00Z",
-            "forecast_hour": 6,
-            "mean_value": 249.54264761304347,
-            "stddev": 0.6068929165176955,
-            "p05": 248.8088148714664,
-            "p95": 250.7867958278075,
-            "count": 2571
+            "window_start_utc": "2025-02-11T00:00:00Z",
+            "window_end_utc": "2025-02-12T00:00:00Z",
+            "samples_24h": 56,
+            "forecast_hour_avg_24h": 10.714285714285714,
+            "mean_value_avg_24h": 248.59061853344434,
+            "stddev_avg_24h": 0.31791444427443577,
+            "p05_avg_24h": 248.15048068847292,
+            "p95_avg_24h": 249.19500698376274,
+            "count_avg_24h": 2571.0
           }
         ],
         "metadata": {
@@ -1043,28 +1203,33 @@
             "p05",
             "p95",
             "count"
-          ]
+          ],
+          "aggregation_hours": 24
         }
       },
       {
         "columns": [
-          "valid_date",
-          "forecast_hour",
-          "mean_value",
-          "stddev",
-          "p05",
-          "p95",
-          "count"
+          "window_start_utc",
+          "window_end_utc",
+          "samples_24h",
+          "forecast_hour_avg_24h",
+          "mean_value_avg_24h",
+          "stddev_avg_24h",
+          "p05_avg_24h",
+          "p95_avg_24h",
+          "count_avg_24h"
         ],
         "rows": [
           {
-            "valid_date": "2025-02-12T00:00:00Z",
-            "forecast_hour": 6,
-            "mean_value": 251.6939791260553,
-            "stddev": 0.3969599641038189,
-            "p05": 251.17953223331236,
-            "p95": 252.47512777411427,
-            "count": 2571
+            "window_start_utc": "2025-02-11T00:00:00Z",
+            "window_end_utc": "2025-02-12T00:00:00Z",
+            "samples_24h": 56,
+            "forecast_hour_avg_24h": 10.714285714285714,
+            "mean_value_avg_24h": 250.97235657265733,
+            "stddev_avg_24h": 0.40722493066051896,
+            "p05_avg_24h": 250.40114615800198,
+            "p95_avg_24h": 251.77906749999232,
+            "count_avg_24h": 2571.0
           }
         ],
         "metadata": {
@@ -1077,28 +1242,33 @@
             "p05",
             "p95",
             "count"
-          ]
+          ],
+          "aggregation_hours": 24
         }
       },
       {
         "columns": [
-          "valid_date",
-          "forecast_hour",
-          "mean_value",
-          "stddev",
-          "p05",
-          "p95",
-          "count"
+          "window_start_utc",
+          "window_end_utc",
+          "samples_24h",
+          "forecast_hour_avg_24h",
+          "mean_value_avg_24h",
+          "stddev_avg_24h",
+          "p05_avg_24h",
+          "p95_avg_24h",
+          "count_avg_24h"
         ],
         "rows": [
           {
-            "valid_date": "2025-02-12T00:00:00Z",
-            "forecast_hour": 6,
-            "mean_value": -1.4807805113101806,
-            "stddev": 0.3237766124343831,
-            "p05": -1.9652399915203145,
-            "p95": -0.8584353470977409,
-            "count": 2571
+            "window_start_utc": "2025-02-11T00:00:00Z",
+            "window_end_utc": "2025-02-12T00:00:00Z",
+            "samples_24h": 56,
+            "forecast_hour_avg_24h": 10.714285714285714,
+            "mean_value_avg_24h": 0.013557436070648188,
+            "stddev_avg_24h": 0.33002726943234334,
+            "p05_avg_24h": -0.4622023689580974,
+            "p95_avg_24h": 0.6310142720173236,
+            "count_avg_24h": 2571.0
           }
         ],
         "metadata": {
@@ -1111,28 +1281,33 @@
             "p05",
             "p95",
             "count"
-          ]
+          ],
+          "aggregation_hours": 24
         }
       },
       {
         "columns": [
-          "valid_date",
-          "forecast_hour",
-          "mean_value",
-          "stddev",
-          "p05",
-          "p95",
-          "count"
+          "window_start_utc",
+          "window_end_utc",
+          "samples_24h",
+          "forecast_hour_avg_24h",
+          "mean_value_avg_24h",
+          "stddev_avg_24h",
+          "p05_avg_24h",
+          "p95_avg_24h",
+          "count_avg_24h"
         ],
         "rows": [
           {
-            "valid_date": "2025-02-12T00:00:00Z",
-            "forecast_hour": 6,
-            "mean_value": 7.441636191921406,
-            "stddev": 0.4632066633041687,
-            "p05": 6.710063673931843,
-            "p95": 8.185803199828607,
-            "count": 2571
+            "window_start_utc": "2025-02-11T00:00:00Z",
+            "window_end_utc": "2025-02-12T00:00:00Z",
+            "samples_24h": 56,
+            "forecast_hour_avg_24h": 10.714285714285714,
+            "mean_value_avg_24h": 3.191596721317847,
+            "stddev_avg_24h": 0.5578354568591781,
+            "p05_avg_24h": 2.3437877209513664,
+            "p95_avg_24h": 4.156756786945634,
+            "count_avg_24h": 2571.0
           }
         ],
         "metadata": {
@@ -1145,28 +1320,33 @@
             "p05",
             "p95",
             "count"
-          ]
+          ],
+          "aggregation_hours": 24
         }
       },
       {
         "columns": [
-          "valid_date",
-          "forecast_hour",
-          "mean_value",
-          "stddev",
-          "p05",
-          "p95",
-          "count"
+          "window_start_utc",
+          "window_end_utc",
+          "samples_24h",
+          "forecast_hour_avg_24h",
+          "mean_value_avg_24h",
+          "stddev_avg_24h",
+          "p05_avg_24h",
+          "p95_avg_24h",
+          "count_avg_24h"
         ],
         "rows": [
           {
-            "valid_date": "2025-02-12T00:00:00Z",
-            "forecast_hour": 6,
-            "mean_value": 1.154023371691994,
-            "stddev": 0.5427728617733544,
-            "p05": 0.4021672245995347,
-            "p95": 2.24684163197049,
-            "count": 2571
+            "window_start_utc": "2025-02-11T00:00:00Z",
+            "window_end_utc": "2025-02-12T00:00:00Z",
+            "samples_24h": 56,
+            "forecast_hour_avg_24h": 10.714285714285714,
+            "mean_value_avg_24h": 0.4685019372134592,
+            "stddev_avg_24h": 0.4975057548453526,
+            "p05_avg_24h": -0.2866967773332898,
+            "p95_avg_24h": 1.3117465372680603,
+            "count_avg_24h": 2571.0
           }
         ],
         "metadata": {
@@ -1179,28 +1359,33 @@
             "p05",
             "p95",
             "count"
-          ]
+          ],
+          "aggregation_hours": 24
         }
       },
       {
         "columns": [
-          "valid_date",
-          "forecast_hour",
-          "mean_value",
-          "stddev",
-          "p05",
-          "p95",
-          "count"
+          "window_start_utc",
+          "window_end_utc",
+          "samples_24h",
+          "forecast_hour_avg_24h",
+          "mean_value_avg_24h",
+          "stddev_avg_24h",
+          "p05_avg_24h",
+          "p95_avg_24h",
+          "count_avg_24h"
         ],
         "rows": [
           {
-            "valid_date": "2025-02-12T00:00:00Z",
-            "forecast_hour": 6,
-            "mean_value": 0.2433442995881861,
-            "stddev": 0.2833846380176842,
-            "p05": -0.0806059890806305,
-            "p95": 0.887848074789121,
-            "count": 2571
+            "window_start_utc": "2025-02-11T00:00:00Z",
+            "window_end_utc": "2025-02-12T00:00:00Z",
+            "samples_24h": 56,
+            "forecast_hour_avg_24h": 10.714285714285714,
+            "mean_value_avg_24h": -0.5591086043509093,
+            "stddev_avg_24h": 0.33474422528326403,
+            "p05_avg_24h": -1.0949822555960744,
+            "p95_avg_24h": -0.03573562323853378,
+            "count_avg_24h": 2571.0
           }
         ],
         "metadata": {
@@ -1213,28 +1398,33 @@
             "p05",
             "p95",
             "count"
-          ]
+          ],
+          "aggregation_hours": 24
         }
       },
       {
         "columns": [
-          "valid_date",
-          "forecast_hour",
-          "mean_value",
-          "stddev",
-          "p05",
-          "p95",
-          "count"
+          "window_start_utc",
+          "window_end_utc",
+          "samples_24h",
+          "forecast_hour_avg_24h",
+          "mean_value_avg_24h",
+          "stddev_avg_24h",
+          "p05_avg_24h",
+          "p95_avg_24h",
+          "count_avg_24h"
         ],
         "rows": [
           {
-            "valid_date": "2025-02-12T00:00:00Z",
-            "forecast_hour": 6,
-            "mean_value": 1.01805168088794,
-            "stddev": 0.4075405289401244,
-            "p05": 0.3487833842040334,
-            "p95": 1.5939386091794283,
-            "count": 2571
+            "window_start_utc": "2025-02-11T00:00:00Z",
+            "window_end_utc": "2025-02-12T00:00:00Z",
+            "samples_24h": 56,
+            "forecast_hour_avg_24h": 10.714285714285714,
+            "mean_value_avg_24h": -0.9473625174008229,
+            "stddev_avg_24h": 0.36023121598402025,
+            "p05_avg_24h": -1.5344402778121637,
+            "p95_avg_24h": -0.3767835598828242,
+            "count_avg_24h": 2571.0
           }
         ],
         "metadata": {
@@ -1247,28 +1437,33 @@
             "p05",
             "p95",
             "count"
-          ]
+          ],
+          "aggregation_hours": 24
         }
       },
       {
         "columns": [
-          "valid_date",
-          "forecast_hour",
-          "mean_value",
-          "stddev",
-          "p05",
-          "p95",
-          "count"
+          "window_start_utc",
+          "window_end_utc",
+          "samples_24h",
+          "forecast_hour_avg_24h",
+          "mean_value_avg_24h",
+          "stddev_avg_24h",
+          "p05_avg_24h",
+          "p95_avg_24h",
+          "count_avg_24h"
         ],
         "rows": [
           {
-            "valid_date": "2025-02-12T00:00:00Z",
-            "forecast_hour": 6,
-            "mean_value": -22.26967001089888,
-            "stddev": 0.553969602164656,
-            "p05": -23.11524300143622,
-            "p95": -21.33974388434168,
-            "count": 2571
+            "window_start_utc": "2025-02-11T00:00:00Z",
+            "window_end_utc": "2025-02-12T00:00:00Z",
+            "samples_24h": 56,
+            "forecast_hour_avg_24h": 10.714285714285714,
+            "mean_value_avg_24h": -25.505346201424498,
+            "stddev_avg_24h": 1.24528641647599,
+            "p05_avg_24h": -27.665488762473984,
+            "p95_avg_24h": -23.619146038984166,
+            "count_avg_24h": 2571.0
           }
         ],
         "metadata": {
@@ -1281,28 +1476,33 @@
             "p05",
             "p95",
             "count"
-          ]
+          ],
+          "aggregation_hours": 24
         }
       },
       {
         "columns": [
-          "valid_date",
-          "forecast_hour",
-          "mean_value",
-          "stddev",
-          "p05",
-          "p95",
-          "count"
+          "window_start_utc",
+          "window_end_utc",
+          "samples_24h",
+          "forecast_hour_avg_24h",
+          "mean_value_avg_24h",
+          "stddev_avg_24h",
+          "p05_avg_24h",
+          "p95_avg_24h",
+          "count_avg_24h"
         ],
         "rows": [
           {
-            "valid_date": "2025-02-12T00:00:00Z",
-            "forecast_hour": 6,
-            "mean_value": -7.086321888600509,
-            "stddev": 0.4271871861850195,
-            "p05": -8.111213738375167,
-            "p95": -6.704649502754814,
-            "count": 2571
+            "window_start_utc": "2025-02-11T00:00:00Z",
+            "window_end_utc": "2025-02-12T00:00:00Z",
+            "samples_24h": 56,
+            "forecast_hour_avg_24h": 10.714285714285714,
+            "mean_value_avg_24h": -9.129065704108335,
+            "stddev_avg_24h": 0.7250880966683756,
+            "p05_avg_24h": -10.366450512316218,
+            "p95_avg_24h": -8.038372588370821,
+            "count_avg_24h": 2571.0
           }
         ],
         "metadata": {
@@ -1315,28 +1515,33 @@
             "p05",
             "p95",
             "count"
-          ]
+          ],
+          "aggregation_hours": 24
         }
       },
       {
         "columns": [
-          "valid_date",
-          "forecast_hour",
-          "mean_value",
-          "stddev",
-          "p05",
-          "p95",
-          "count"
+          "window_start_utc",
+          "window_end_utc",
+          "samples_24h",
+          "forecast_hour_avg_24h",
+          "mean_value_avg_24h",
+          "stddev_avg_24h",
+          "p05_avg_24h",
+          "p95_avg_24h",
+          "count_avg_24h"
         ],
         "rows": [
           {
-            "valid_date": "2025-02-12T00:00:00Z",
-            "forecast_hour": 6,
-            "mean_value": -1.322502253503951,
-            "stddev": 0.9749954635099988,
-            "p05": -2.769314076365926,
-            "p95": 0.2974571258882871,
-            "count": 2571
+            "window_start_utc": "2025-02-11T00:00:00Z",
+            "window_end_utc": "2025-02-12T00:00:00Z",
+            "samples_24h": 56,
+            "forecast_hour_avg_24h": 10.714285714285714,
+            "mean_value_avg_24h": -5.51865012438449,
+            "stddev_avg_24h": 0.6783145659825082,
+            "p05_avg_24h": -6.55010948680937,
+            "p95_avg_24h": -4.428528039492662,
+            "count_avg_24h": 2571.0
           }
         ],
         "metadata": {
@@ -1349,28 +1554,33 @@
             "p05",
             "p95",
             "count"
-          ]
+          ],
+          "aggregation_hours": 24
         }
       },
       {
         "columns": [
-          "valid_date",
-          "forecast_hour",
-          "mean_value",
-          "stddev",
-          "p05",
-          "p95",
-          "count"
+          "window_start_utc",
+          "window_end_utc",
+          "samples_24h",
+          "forecast_hour_avg_24h",
+          "mean_value_avg_24h",
+          "stddev_avg_24h",
+          "p05_avg_24h",
+          "p95_avg_24h",
+          "count_avg_24h"
         ],
         "rows": [
           {
-            "valid_date": "2025-02-12T00:00:00Z",
-            "forecast_hour": 6,
-            "mean_value": -0.0258836511878429,
-            "stddev": 0.0379820641876385,
-            "p05": -0.081367027048912,
-            "p95": 0.0339251234117727,
-            "count": 2571
+            "window_start_utc": "2025-02-11T00:00:00Z",
+            "window_end_utc": "2025-02-12T00:00:00Z",
+            "samples_24h": 56,
+            "forecast_hour_avg_24h": 10.714285714285714,
+            "mean_value_avg_24h": 0.007867250298174222,
+            "stddev_avg_24h": 0.09988152159297689,
+            "p05_avg_24h": -0.1542579189592988,
+            "p95_avg_24h": 0.17617118570087448,
+            "count_avg_24h": 2571.0
           }
         ],
         "metadata": {
@@ -1383,28 +1593,33 @@
             "p05",
             "p95",
             "count"
-          ]
+          ],
+          "aggregation_hours": 24
         }
       },
       {
         "columns": [
-          "valid_date",
-          "forecast_hour",
-          "mean_value",
-          "stddev",
-          "p05",
-          "p95",
-          "count"
+          "window_start_utc",
+          "window_end_utc",
+          "samples_24h",
+          "forecast_hour_avg_24h",
+          "mean_value_avg_24h",
+          "stddev_avg_24h",
+          "p05_avg_24h",
+          "p95_avg_24h",
+          "count_avg_24h"
         ],
         "rows": [
           {
-            "valid_date": "2025-02-12T00:00:00Z",
-            "forecast_hour": 6,
-            "mean_value": -0.0099518186247597,
-            "stddev": 0.010256893998174,
-            "p05": -0.0263165029475627,
-            "p95": 0.0082711421906426,
-            "count": 2571
+            "window_start_utc": "2025-02-11T00:00:00Z",
+            "window_end_utc": "2025-02-12T00:00:00Z",
+            "samples_24h": 56,
+            "forecast_hour_avg_24h": 10.714285714285714,
+            "mean_value_avg_24h": 0.013080639975698725,
+            "stddev_avg_24h": 0.060693066852602943,
+            "p05_avg_24h": -0.08039925576291429,
+            "p95_avg_24h": 0.11826095751415164,
+            "count_avg_24h": 2571.0
           }
         ],
         "metadata": {
@@ -1417,28 +1632,33 @@
             "p05",
             "p95",
             "count"
-          ]
+          ],
+          "aggregation_hours": 24
         }
       },
       {
         "columns": [
-          "valid_date",
-          "forecast_hour",
-          "mean_value",
-          "stddev",
-          "p05",
-          "p95",
-          "count"
+          "window_start_utc",
+          "window_end_utc",
+          "samples_24h",
+          "forecast_hour_avg_24h",
+          "mean_value_avg_24h",
+          "stddev_avg_24h",
+          "p05_avg_24h",
+          "p95_avg_24h",
+          "count_avg_24h"
         ],
         "rows": [
           {
-            "valid_date": "2025-02-12T00:00:00Z",
-            "forecast_hour": 6,
-            "mean_value": 0.01219413309664,
-            "stddev": 0.0129434107348994,
-            "p05": -0.0024956275122608,
-            "p95": 0.020562802579876,
-            "count": 2571
+            "window_start_utc": "2025-02-11T00:00:00Z",
+            "window_end_utc": "2025-02-12T00:00:00Z",
+            "samples_24h": 56,
+            "forecast_hour_avg_24h": 10.714285714285714,
+            "mean_value_avg_24h": 0.018406372064691996,
+            "stddev_avg_24h": 0.05142900614886316,
+            "p05_avg_24h": -0.0653433037659038,
+            "p95_avg_24h": 0.09773847245493518,
+            "count_avg_24h": 2571.0
           }
         ],
         "metadata": {
@@ -1451,30 +1671,35 @@
             "p05",
             "p95",
             "count"
-          ]
+          ],
+          "aggregation_hours": 24
         }
       }
     ],
     "treeline": [
       {
         "columns": [
-          "valid_date",
-          "forecast_hour",
-          "mean_value",
-          "stddev",
-          "p05",
-          "p95",
-          "count"
+          "window_start_utc",
+          "window_end_utc",
+          "samples_24h",
+          "forecast_hour_avg_24h",
+          "mean_value_avg_24h",
+          "stddev_avg_24h",
+          "p05_avg_24h",
+          "p95_avg_24h",
+          "count_avg_24h"
         ],
         "rows": [
           {
-            "valid_date": "2025-02-12T00:00:00Z",
-            "forecast_hour": 23,
-            "mean_value": 0.0321243175541037,
-            "stddev": 0.022056503603596,
-            "p05": 0.0014411518807585,
-            "p95": 0.0706164421571693,
-            "count": 3478
+            "window_start_utc": "2025-02-11T00:00:00Z",
+            "window_end_utc": "2025-02-12T00:00:00Z",
+            "samples_24h": 48,
+            "forecast_hour_avg_24h": 12.5,
+            "mean_value_avg_24h": 0.008704865182294836,
+            "stddev_avg_24h": 0.0057983822183393,
+            "p05_avg_24h": 0.0018051928506376625,
+            "p95_avg_24h": 0.01906899142222455,
+            "count_avg_24h": 3478.0
           }
         ],
         "metadata": {
@@ -1487,28 +1712,33 @@
             "p05",
             "p95",
             "count"
-          ]
+          ],
+          "aggregation_hours": 24
         }
       },
       {
         "columns": [
-          "valid_date",
-          "forecast_hour",
-          "mean_value",
-          "stddev",
-          "p05",
-          "p95",
-          "count"
+          "window_start_utc",
+          "window_end_utc",
+          "samples_24h",
+          "forecast_hour_avg_24h",
+          "mean_value_avg_24h",
+          "stddev_avg_24h",
+          "p05_avg_24h",
+          "p95_avg_24h",
+          "count_avg_24h"
         ],
         "rows": [
           {
-            "valid_date": "2025-02-12T00:00:00Z",
-            "forecast_hour": 0,
-            "mean_value": 1.889406990022792,
-            "stddev": 0.0639209423562346,
-            "p05": 1.7695760039752502,
-            "p95": 1.9453965334277945,
-            "count": 3478
+            "window_start_utc": "2025-02-11T00:00:00Z",
+            "window_end_utc": "2025-02-12T00:00:00Z",
+            "samples_24h": 56,
+            "forecast_hour_avg_24h": 10.714285714285714,
+            "mean_value_avg_24h": 1.9858466506330321,
+            "stddev_avg_24h": 0.0885222852192064,
+            "p05_avg_24h": 1.8681981340949514,
+            "p95_avg_24h": 2.151037058121325,
+            "count_avg_24h": 3478.0
           }
         ],
         "metadata": {
@@ -1521,28 +1751,33 @@
             "p05",
             "p95",
             "count"
-          ]
+          ],
+          "aggregation_hours": 24
         }
       },
       {
         "columns": [
-          "valid_date",
-          "forecast_hour",
-          "mean_value",
-          "stddev",
-          "p05",
-          "p95",
-          "count"
+          "window_start_utc",
+          "window_end_utc",
+          "samples_24h",
+          "forecast_hour_avg_24h",
+          "mean_value_avg_24h",
+          "stddev_avg_24h",
+          "p05_avg_24h",
+          "p95_avg_24h",
+          "count_avg_24h"
         ],
         "rows": [
           {
-            "valid_date": "2025-02-12T00:00:00Z",
-            "forecast_hour": 0,
-            "mean_value": 0.0,
-            "stddev": 0.0,
-            "p05": 0.0,
-            "p95": 0.0,
-            "count": 3478
+            "window_start_utc": "2025-02-11T00:00:00Z",
+            "window_end_utc": "2025-02-12T00:00:00Z",
+            "samples_24h": 56,
+            "forecast_hour_avg_24h": 10.714285714285714,
+            "mean_value_avg_24h": 6890953.244795912,
+            "stddev_avg_24h": 282505.836557391,
+            "p05_avg_24h": 6434108.921349704,
+            "p95_avg_24h": 7306977.649567665,
+            "count_avg_24h": 3478.0
           }
         ],
         "metadata": {
@@ -1555,28 +1790,33 @@
             "p05",
             "p95",
             "count"
-          ]
+          ],
+          "aggregation_hours": 24
         }
       },
       {
         "columns": [
-          "valid_date",
-          "forecast_hour",
-          "mean_value",
-          "stddev",
-          "p05",
-          "p95",
-          "count"
+          "window_start_utc",
+          "window_end_utc",
+          "samples_24h",
+          "forecast_hour_avg_24h",
+          "mean_value_avg_24h",
+          "stddev_avg_24h",
+          "p05_avg_24h",
+          "p95_avg_24h",
+          "count_avg_24h"
         ],
         "rows": [
           {
-            "valid_date": "2025-02-12T00:00:00Z",
-            "forecast_hour": 0,
-            "mean_value": 0.0,
-            "stddev": 0.0,
-            "p05": 0.0,
-            "p95": 0.0,
-            "count": 3478
+            "window_start_utc": "2025-02-11T00:00:00Z",
+            "window_end_utc": "2025-02-12T00:00:00Z",
+            "samples_24h": 56,
+            "forecast_hour_avg_24h": 10.714285714285714,
+            "mean_value_avg_24h": 489666.48890485056,
+            "stddev_avg_24h": 45281.77529936708,
+            "p05_avg_24h": 424733.4558316026,
+            "p95_avg_24h": 578244.0977140294,
+            "count_avg_24h": 3478.0
           }
         ],
         "metadata": {
@@ -1589,28 +1829,33 @@
             "p05",
             "p95",
             "count"
-          ]
+          ],
+          "aggregation_hours": 24
         }
       },
       {
         "columns": [
-          "valid_date",
-          "forecast_hour",
-          "mean_value",
-          "stddev",
-          "p05",
-          "p95",
-          "count"
+          "window_start_utc",
+          "window_end_utc",
+          "samples_24h",
+          "forecast_hour_avg_24h",
+          "mean_value_avg_24h",
+          "stddev_avg_24h",
+          "p05_avg_24h",
+          "p95_avg_24h",
+          "count_avg_24h"
         ],
         "rows": [
           {
-            "valid_date": "2025-02-12T00:00:00Z",
-            "forecast_hour": 23,
-            "mean_value": 0.0,
-            "stddev": 0.0,
-            "p05": 0.0,
-            "p95": 0.0,
-            "count": 3478
+            "window_start_utc": "2025-02-11T00:00:00Z",
+            "window_end_utc": "2025-02-12T00:00:00Z",
+            "samples_24h": 48,
+            "forecast_hour_avg_24h": 12.5,
+            "mean_value_avg_24h": 0.0,
+            "stddev_avg_24h": 0.0,
+            "p05_avg_24h": 0.0,
+            "p95_avg_24h": 0.0,
+            "count_avg_24h": 3478.0
           }
         ],
         "metadata": {
@@ -1623,28 +1868,33 @@
             "p05",
             "p95",
             "count"
-          ]
+          ],
+          "aggregation_hours": 24
         }
       },
       {
         "columns": [
-          "valid_date",
-          "forecast_hour",
-          "mean_value",
-          "stddev",
-          "p05",
-          "p95",
-          "count"
+          "window_start_utc",
+          "window_end_utc",
+          "samples_24h",
+          "forecast_hour_avg_24h",
+          "mean_value_avg_24h",
+          "stddev_avg_24h",
+          "p05_avg_24h",
+          "p95_avg_24h",
+          "count_avg_24h"
         ],
         "rows": [
           {
-            "valid_date": "2025-02-12T00:00:00Z",
-            "forecast_hour": 0,
-            "mean_value": 2.517213135007851,
-            "stddev": 0.4322441089095736,
-            "p05": 1.965611489011549,
-            "p95": 3.226619384675288,
-            "count": 3478
+            "window_start_utc": "2025-02-11T00:00:00Z",
+            "window_end_utc": "2025-02-12T00:00:00Z",
+            "samples_24h": 56,
+            "forecast_hour_avg_24h": 10.714285714285714,
+            "mean_value_avg_24h": 2.8783190235853557,
+            "stddev_avg_24h": 0.8146542135349064,
+            "p05_avg_24h": 1.8154470971771821,
+            "p95_avg_24h": 4.3094118965398955,
+            "count_avg_24h": 3478.0
           }
         ],
         "metadata": {
@@ -1657,28 +1907,33 @@
             "p05",
             "p95",
             "count"
-          ]
+          ],
+          "aggregation_hours": 24
         }
       },
       {
         "columns": [
-          "valid_date",
-          "forecast_hour",
-          "mean_value",
-          "stddev",
-          "p05",
-          "p95",
-          "count"
+          "window_start_utc",
+          "window_end_utc",
+          "samples_24h",
+          "forecast_hour_avg_24h",
+          "mean_value_avg_24h",
+          "stddev_avg_24h",
+          "p05_avg_24h",
+          "p95_avg_24h",
+          "count_avg_24h"
         ],
         "rows": [
           {
-            "valid_date": "2025-02-12T00:00:00Z",
-            "forecast_hour": 0,
-            "mean_value": 5142.093840233118,
-            "stddev": 10.628592812074675,
-            "p05": 5128.5209131042775,
-            "p95": 5162.301513189258,
-            "count": 3478
+            "window_start_utc": "2025-02-11T00:00:00Z",
+            "window_end_utc": "2025-02-12T00:00:00Z",
+            "samples_24h": 56,
+            "forecast_hour_avg_24h": 10.714285714285714,
+            "mean_value_avg_24h": 5237.552115156601,
+            "stddev_avg_24h": 8.360710818836205,
+            "p05_avg_24h": 5226.451461821467,
+            "p95_avg_24h": 5253.454530490081,
+            "count_avg_24h": 3478.0
           }
         ],
         "metadata": {
@@ -1691,28 +1946,33 @@
             "p05",
             "p95",
             "count"
-          ]
+          ],
+          "aggregation_hours": 24
         }
       },
       {
         "columns": [
-          "valid_date",
-          "forecast_hour",
-          "mean_value",
-          "stddev",
-          "p05",
-          "p95",
-          "count"
+          "window_start_utc",
+          "window_end_utc",
+          "samples_24h",
+          "forecast_hour_avg_24h",
+          "mean_value_avg_24h",
+          "stddev_avg_24h",
+          "p05_avg_24h",
+          "p95_avg_24h",
+          "count_avg_24h"
         ],
         "rows": [
           {
-            "valid_date": "2025-02-12T00:00:00Z",
-            "forecast_hour": 0,
-            "mean_value": 2777.575505956604,
-            "stddev": 3.6050169014592126,
-            "p05": 2772.3923317472304,
-            "p95": 2783.5526119118244,
-            "count": 3478
+            "window_start_utc": "2025-02-11T00:00:00Z",
+            "window_end_utc": "2025-02-12T00:00:00Z",
+            "samples_24h": 56,
+            "forecast_hour_avg_24h": 10.714285714285714,
+            "mean_value_avg_24h": 2839.8736374646987,
+            "stddev_avg_24h": 2.9362810365916796,
+            "p05_avg_24h": 2835.859492856791,
+            "p95_avg_24h": 2845.1652164296893,
+            "count_avg_24h": 3478.0
           }
         ],
         "metadata": {
@@ -1725,28 +1985,33 @@
             "p05",
             "p95",
             "count"
-          ]
+          ],
+          "aggregation_hours": 24
         }
       },
       {
         "columns": [
-          "valid_date",
-          "forecast_hour",
-          "mean_value",
-          "stddev",
-          "p05",
-          "p95",
-          "count"
+          "window_start_utc",
+          "window_end_utc",
+          "samples_24h",
+          "forecast_hour_avg_24h",
+          "mean_value_avg_24h",
+          "stddev_avg_24h",
+          "p05_avg_24h",
+          "p95_avg_24h",
+          "count_avg_24h"
         ],
         "rows": [
           {
-            "valid_date": "2025-02-12T00:00:00Z",
-            "forecast_hour": 0,
-            "mean_value": 87.63591491559421,
-            "stddev": 31.257067988244028,
-            "p05": 7.902958143668812,
-            "p95": 109.72898543054556,
-            "count": 3478
+            "window_start_utc": "2025-02-11T00:00:00Z",
+            "window_end_utc": "2025-02-12T00:00:00Z",
+            "samples_24h": 56,
+            "forecast_hour_avg_24h": 10.714285714285714,
+            "mean_value_avg_24h": 82.59469059528246,
+            "stddev_avg_24h": 37.190011690690085,
+            "p05_avg_24h": 34.97355507183759,
+            "p95_avg_24h": 148.17068245557954,
+            "count_avg_24h": 3478.0
           }
         ],
         "metadata": {
@@ -1759,28 +2024,33 @@
             "p05",
             "p95",
             "count"
-          ]
+          ],
+          "aggregation_hours": 24
         }
       },
       {
         "columns": [
-          "valid_date",
-          "forecast_hour",
-          "mean_value",
-          "stddev",
-          "p05",
-          "p95",
-          "count"
+          "window_start_utc",
+          "window_end_utc",
+          "samples_24h",
+          "forecast_hour_avg_24h",
+          "mean_value_avg_24h",
+          "stddev_avg_24h",
+          "p05_avg_24h",
+          "p95_avg_24h",
+          "count_avg_24h"
         ],
         "rows": [
           {
-            "valid_date": "2025-02-12T00:00:00Z",
-            "forecast_hour": 23,
-            "mean_value": 0.0,
-            "stddev": 0.0,
-            "p05": 0.0,
-            "p95": 0.0,
-            "count": 3478
+            "window_start_utc": "2025-02-11T00:00:00Z",
+            "window_end_utc": "2025-02-12T00:00:00Z",
+            "samples_24h": 48,
+            "forecast_hour_avg_24h": 12.5,
+            "mean_value_avg_24h": 0.0,
+            "stddev_avg_24h": 0.0,
+            "p05_avg_24h": 0.0,
+            "p95_avg_24h": 0.0,
+            "count_avg_24h": 3478.0
           }
         ],
         "metadata": {
@@ -1793,28 +2063,33 @@
             "p05",
             "p95",
             "count"
-          ]
+          ],
+          "aggregation_hours": 24
         }
       },
       {
         "columns": [
-          "valid_date",
-          "forecast_hour",
-          "mean_value",
-          "stddev",
-          "p05",
-          "p95",
-          "count"
+          "window_start_utc",
+          "window_end_utc",
+          "samples_24h",
+          "forecast_hour_avg_24h",
+          "mean_value_avg_24h",
+          "stddev_avg_24h",
+          "p05_avg_24h",
+          "p95_avg_24h",
+          "count_avg_24h"
         ],
         "rows": [
           {
-            "valid_date": "2025-02-12T00:00:00Z",
-            "forecast_hour": 0,
-            "mean_value": 1.0165818869126697,
-            "stddev": 0.7258363603153063,
-            "p05": -0.1044666228563928,
-            "p95": 2.293610106725849,
-            "count": 3478
+            "window_start_utc": "2025-02-11T00:00:00Z",
+            "window_end_utc": "2025-02-12T00:00:00Z",
+            "samples_24h": 56,
+            "forecast_hour_avg_24h": 10.714285714285714,
+            "mean_value_avg_24h": 0.0772078246231512,
+            "stddev_avg_24h": 0.5182426833366003,
+            "p05_avg_24h": -0.7780983551075765,
+            "p95_avg_24h": 0.9220491065073062,
+            "count_avg_24h": 3478.0
           }
         ],
         "metadata": {
@@ -1827,28 +2102,33 @@
             "p05",
             "p95",
             "count"
-          ]
+          ],
+          "aggregation_hours": 24
         }
       },
       {
         "columns": [
-          "valid_date",
-          "forecast_hour",
-          "mean_value",
-          "stddev",
-          "p05",
-          "p95",
-          "count"
+          "window_start_utc",
+          "window_end_utc",
+          "samples_24h",
+          "forecast_hour_avg_24h",
+          "mean_value_avg_24h",
+          "stddev_avg_24h",
+          "p05_avg_24h",
+          "p95_avg_24h",
+          "count_avg_24h"
         ],
         "rows": [
           {
-            "valid_date": "2025-02-12T00:00:00Z",
-            "forecast_hour": 0,
-            "mean_value": 0.0,
-            "stddev": 0.0,
-            "p05": 0.0,
-            "p95": 0.0,
-            "count": 3478
+            "window_start_utc": "2025-02-11T00:00:00Z",
+            "window_end_utc": "2025-02-12T00:00:00Z",
+            "samples_24h": 56,
+            "forecast_hour_avg_24h": 10.714285714285714,
+            "mean_value_avg_24h": -967818.1548558661,
+            "stddev_avg_24h": 180978.34736016724,
+            "p05_avg_24h": -1267404.33217082,
+            "p95_avg_24h": -692456.2128814406,
+            "count_avg_24h": 3478.0
           }
         ],
         "metadata": {
@@ -1861,28 +2141,33 @@
             "p05",
             "p95",
             "count"
-          ]
+          ],
+          "aggregation_hours": 24
         }
       },
       {
         "columns": [
-          "valid_date",
-          "forecast_hour",
-          "mean_value",
-          "stddev",
-          "p05",
-          "p95",
-          "count"
+          "window_start_utc",
+          "window_end_utc",
+          "samples_24h",
+          "forecast_hour_avg_24h",
+          "mean_value_avg_24h",
+          "stddev_avg_24h",
+          "p05_avg_24h",
+          "p95_avg_24h",
+          "count_avg_24h"
         ],
         "rows": [
           {
-            "valid_date": "2025-02-12T00:00:00Z",
-            "forecast_hour": 0,
-            "mean_value": 0.0,
-            "stddev": 0.0,
-            "p05": 0.0,
-            "p95": 0.0,
-            "count": 3478
+            "window_start_utc": "2025-02-11T00:00:00Z",
+            "window_end_utc": "2025-02-12T00:00:00Z",
+            "samples_24h": 56,
+            "forecast_hour_avg_24h": 10.714285714285714,
+            "mean_value_avg_24h": -296904.06660969934,
+            "stddev_avg_24h": 84305.89222134098,
+            "p05_avg_24h": -443616.9250850693,
+            "p95_avg_24h": -164491.33475830994,
+            "count_avg_24h": 3478.0
           }
         ],
         "metadata": {
@@ -1895,28 +2180,33 @@
             "p05",
             "p95",
             "count"
-          ]
+          ],
+          "aggregation_hours": 24
         }
       },
       {
         "columns": [
-          "valid_date",
-          "forecast_hour",
-          "mean_value",
-          "stddev",
-          "p05",
-          "p95",
-          "count"
+          "window_start_utc",
+          "window_end_utc",
+          "samples_24h",
+          "forecast_hour_avg_24h",
+          "mean_value_avg_24h",
+          "stddev_avg_24h",
+          "p05_avg_24h",
+          "p95_avg_24h",
+          "count_avg_24h"
         ],
         "rows": [
           {
-            "valid_date": "2025-02-12T00:00:00Z",
-            "forecast_hour": 23,
-            "mean_value": 1.1680526206339895e-06,
-            "stddev": 2.282806334147846e-06,
-            "p05": 0.0,
-            "p95": 5.6294995342131205e-06,
-            "count": 3478
+            "window_start_utc": "2025-02-11T00:00:00Z",
+            "window_end_utc": "2025-02-12T00:00:00Z",
+            "samples_24h": 48,
+            "forecast_hour_avg_24h": 12.5,
+            "mean_value_avg_24h": 3.148516594159646e-07,
+            "stddev_avg_24h": 7.19834106814773e-07,
+            "p05_avg_24h": 0.0,
+            "p95_avg_24h": 1.7298982943675737e-06,
+            "count_avg_24h": 3478.0
           }
         ],
         "metadata": {
@@ -1929,28 +2219,33 @@
             "p05",
             "p95",
             "count"
-          ]
+          ],
+          "aggregation_hours": 24
         }
       },
       {
         "columns": [
-          "valid_date",
-          "forecast_hour",
-          "mean_value",
-          "stddev",
-          "p05",
-          "p95",
-          "count"
+          "window_start_utc",
+          "window_end_utc",
+          "samples_24h",
+          "forecast_hour_avg_24h",
+          "mean_value_avg_24h",
+          "stddev_avg_24h",
+          "p05_avg_24h",
+          "p95_avg_24h",
+          "count_avg_24h"
         ],
         "rows": [
           {
-            "valid_date": "2025-02-12T00:00:00Z",
-            "forecast_hour": 0,
-            "mean_value": 99513.89997999092,
-            "stddev": 479.5805129631223,
-            "p05": 98739.49501003356,
-            "p95": 100250.65228455183,
-            "count": 3478
+            "window_start_utc": "2025-02-11T00:00:00Z",
+            "window_end_utc": "2025-02-12T00:00:00Z",
+            "samples_24h": 56,
+            "forecast_hour_avg_24h": 10.714285714285714,
+            "mean_value_avg_24h": 100157.91986893646,
+            "stddev_avg_24h": 477.43994902664207,
+            "p05_avg_24h": 99383.28998108573,
+            "p95_avg_24h": 100878.53035071756,
+            "count_avg_24h": 3478.0
           }
         ],
         "metadata": {
@@ -1963,28 +2258,33 @@
             "p05",
             "p95",
             "count"
-          ]
+          ],
+          "aggregation_hours": 24
         }
       },
       {
         "columns": [
-          "valid_date",
-          "forecast_hour",
-          "mean_value",
-          "stddev",
-          "p05",
-          "p95",
-          "count"
+          "window_start_utc",
+          "window_end_utc",
+          "samples_24h",
+          "forecast_hour_avg_24h",
+          "mean_value_avg_24h",
+          "stddev_avg_24h",
+          "p05_avg_24h",
+          "p95_avg_24h",
+          "count_avg_24h"
         ],
         "rows": [
           {
-            "valid_date": "2025-02-12T00:00:00Z",
-            "forecast_hour": 23,
-            "mean_value": 0.0,
-            "stddev": 0.0,
-            "p05": 0.0,
-            "p95": 0.0,
-            "count": 3478
+            "window_start_utc": "2025-02-11T00:00:00Z",
+            "window_end_utc": "2025-02-12T00:00:00Z",
+            "samples_24h": 48,
+            "forecast_hour_avg_24h": 12.5,
+            "mean_value_avg_24h": 0.0,
+            "stddev_avg_24h": 0.0,
+            "p05_avg_24h": 0.0,
+            "p95_avg_24h": 0.0,
+            "count_avg_24h": 3478.0
           }
         ],
         "metadata": {
@@ -1997,28 +2297,33 @@
             "p05",
             "p95",
             "count"
-          ]
+          ],
+          "aggregation_hours": 24
         }
       },
       {
         "columns": [
-          "valid_date",
-          "forecast_hour",
-          "mean_value",
-          "stddev",
-          "p05",
-          "p95",
-          "count"
+          "window_start_utc",
+          "window_end_utc",
+          "samples_24h",
+          "forecast_hour_avg_24h",
+          "mean_value_avg_24h",
+          "stddev_avg_24h",
+          "p05_avg_24h",
+          "p95_avg_24h",
+          "count_avg_24h"
         ],
         "rows": [
           {
-            "valid_date": "2025-02-12T00:00:00Z",
-            "forecast_hour": 0,
-            "mean_value": 212.89404446779068,
-            "stddev": 12.62877706728156,
-            "p05": 199.162776393198,
-            "p95": 232.21703593027632,
-            "count": 3478
+            "window_start_utc": "2025-02-11T00:00:00Z",
+            "window_end_utc": "2025-02-12T00:00:00Z",
+            "samples_24h": 56,
+            "forecast_hour_avg_24h": 10.714285714285714,
+            "mean_value_avg_24h": 212.82322789930248,
+            "stddev_avg_24h": 12.65925913266282,
+            "p05_avg_24h": 199.025070792449,
+            "p95_avg_24h": 232.2252984271641,
+            "count_avg_24h": 3478.0
           }
         ],
         "metadata": {
@@ -2031,28 +2336,33 @@
             "p05",
             "p95",
             "count"
-          ]
+          ],
+          "aggregation_hours": 24
         }
       },
       {
         "columns": [
-          "valid_date",
-          "forecast_hour",
-          "mean_value",
-          "stddev",
-          "p05",
-          "p95",
-          "count"
+          "window_start_utc",
+          "window_end_utc",
+          "samples_24h",
+          "forecast_hour_avg_24h",
+          "mean_value_avg_24h",
+          "stddev_avg_24h",
+          "p05_avg_24h",
+          "p95_avg_24h",
+          "count_avg_24h"
         ],
         "rows": [
           {
-            "valid_date": "2025-02-12T00:00:00Z",
-            "forecast_hour": 0,
-            "mean_value": 59.81658409462069,
-            "stddev": 14.682638419453337,
-            "p05": 37.90805907147313,
-            "p95": 85.13172390016959,
-            "count": 3478
+            "window_start_utc": "2025-02-11T00:00:00Z",
+            "window_end_utc": "2025-02-12T00:00:00Z",
+            "samples_24h": 56,
+            "forecast_hour_avg_24h": 10.714285714285714,
+            "mean_value_avg_24h": 60.00888086956052,
+            "stddev_avg_24h": 14.676967459585114,
+            "p05_avg_24h": 38.31322862880639,
+            "p95_avg_24h": 85.535246426782,
+            "count_avg_24h": 3478.0
           }
         ],
         "metadata": {
@@ -2065,28 +2375,33 @@
             "p05",
             "p95",
             "count"
-          ]
+          ],
+          "aggregation_hours": 24
         }
       },
       {
         "columns": [
-          "valid_date",
-          "forecast_hour",
-          "mean_value",
-          "stddev",
-          "p05",
-          "p95",
-          "count"
+          "window_start_utc",
+          "window_end_utc",
+          "samples_24h",
+          "forecast_hour_avg_24h",
+          "mean_value_avg_24h",
+          "stddev_avg_24h",
+          "p05_avg_24h",
+          "p95_avg_24h",
+          "count_avg_24h"
         ],
         "rows": [
           {
-            "valid_date": "2025-02-12T00:00:00Z",
-            "forecast_hour": 0,
-            "mean_value": 13.817796868553412,
-            "stddev": 11.328127242139198,
-            "p05": -4.476780691589505,
-            "p95": 31.932480423894727,
-            "count": 3478
+            "window_start_utc": "2025-02-11T00:00:00Z",
+            "window_end_utc": "2025-02-12T00:00:00Z",
+            "samples_24h": 56,
+            "forecast_hour_avg_24h": 10.714285714285714,
+            "mean_value_avg_24h": 0.5260921130781642,
+            "stddev_avg_24h": 6.83778106795135,
+            "p05_avg_24h": -10.776026912253608,
+            "p95_avg_24h": 11.379418587168042,
+            "count_avg_24h": 3478.0
           }
         ],
         "metadata": {
@@ -2099,28 +2414,33 @@
             "p05",
             "p95",
             "count"
-          ]
+          ],
+          "aggregation_hours": 24
         }
       },
       {
         "columns": [
-          "valid_date",
-          "forecast_hour",
-          "mean_value",
-          "stddev",
-          "p05",
-          "p95",
-          "count"
+          "window_start_utc",
+          "window_end_utc",
+          "samples_24h",
+          "forecast_hour_avg_24h",
+          "mean_value_avg_24h",
+          "stddev_avg_24h",
+          "p05_avg_24h",
+          "p95_avg_24h",
+          "count_avg_24h"
         ],
         "rows": [
           {
-            "valid_date": "2025-02-12T00:00:00Z",
-            "forecast_hour": 0,
-            "mean_value": 245.48440046860307,
-            "stddev": 0.9218410484031112,
-            "p05": 244.0099817705236,
-            "p95": 246.97154888548243,
-            "count": 3478
+            "window_start_utc": "2025-02-11T00:00:00Z",
+            "window_end_utc": "2025-02-12T00:00:00Z",
+            "samples_24h": 56,
+            "forecast_hour_avg_24h": 10.714285714285714,
+            "mean_value_avg_24h": 245.428459295274,
+            "stddev_avg_24h": 1.6445734976435933,
+            "p05_avg_24h": 242.74970772033484,
+            "p95_avg_24h": 247.9128659468475,
+            "count_avg_24h": 3478.0
           }
         ],
         "metadata": {
@@ -2133,28 +2453,33 @@
             "p05",
             "p95",
             "count"
-          ]
+          ],
+          "aggregation_hours": 24
         }
       },
       {
         "columns": [
-          "valid_date",
-          "forecast_hour",
-          "mean_value",
-          "stddev",
-          "p05",
-          "p95",
-          "count"
+          "window_start_utc",
+          "window_end_utc",
+          "samples_24h",
+          "forecast_hour_avg_24h",
+          "mean_value_avg_24h",
+          "stddev_avg_24h",
+          "p05_avg_24h",
+          "p95_avg_24h",
+          "count_avg_24h"
         ],
         "rows": [
           {
-            "valid_date": "2025-02-12T00:00:00Z",
-            "forecast_hour": 0,
-            "mean_value": 0.2747613599382945,
-            "stddev": 0.0598508381143562,
-            "p05": 0.1875298884837074,
-            "p95": 0.3801038085500699,
-            "count": 3478
+            "window_start_utc": "2025-02-11T00:00:00Z",
+            "window_end_utc": "2025-02-12T00:00:00Z",
+            "samples_24h": 56,
+            "forecast_hour_avg_24h": 10.714285714285714,
+            "mean_value_avg_24h": 0.27585760451804414,
+            "stddev_avg_24h": 0.059690870090754196,
+            "p05_avg_24h": 0.18874586038309743,
+            "p95_avg_24h": 0.38043192795149255,
+            "count_avg_24h": 3478.0
           }
         ],
         "metadata": {
@@ -2167,28 +2492,33 @@
             "p05",
             "p95",
             "count"
-          ]
+          ],
+          "aggregation_hours": 24
         }
       },
       {
         "columns": [
-          "valid_date",
-          "forecast_hour",
-          "mean_value",
-          "stddev",
-          "p05",
-          "p95",
-          "count"
+          "window_start_utc",
+          "window_end_utc",
+          "samples_24h",
+          "forecast_hour_avg_24h",
+          "mean_value_avg_24h",
+          "stddev_avg_24h",
+          "p05_avg_24h",
+          "p95_avg_24h",
+          "count_avg_24h"
         ],
         "rows": [
           {
-            "valid_date": "2025-02-12T00:00:00Z",
-            "forecast_hour": 0,
-            "mean_value": 0.0002857367526763,
-            "stddev": 3.1558035206710545e-05,
-            "p05": 0.0002419643592264,
-            "p95": 0.0003436471945632,
-            "count": 3478
+            "window_start_utc": "2025-02-11T00:00:00Z",
+            "window_end_utc": "2025-02-12T00:00:00Z",
+            "samples_24h": 56,
+            "forecast_hour_avg_24h": 10.714285714285714,
+            "mean_value_avg_24h": 0.00031341829044792855,
+            "stddev_avg_24h": 4.3227740717917264e-05,
+            "p05_avg_24h": 0.00024871191764865713,
+            "p95_avg_24h": 0.00038356230660268757,
+            "count_avg_24h": 3478.0
           }
         ],
         "metadata": {
@@ -2201,28 +2531,33 @@
             "p05",
             "p95",
             "count"
-          ]
+          ],
+          "aggregation_hours": 24
         }
       },
       {
         "columns": [
-          "valid_date",
-          "forecast_hour",
-          "mean_value",
-          "stddev",
-          "p05",
-          "p95",
-          "count"
+          "window_start_utc",
+          "window_end_utc",
+          "samples_24h",
+          "forecast_hour_avg_24h",
+          "mean_value_avg_24h",
+          "stddev_avg_24h",
+          "p05_avg_24h",
+          "p95_avg_24h",
+          "count_avg_24h"
         ],
         "rows": [
           {
-            "valid_date": "2025-02-12T00:00:00Z",
-            "forecast_hour": 0,
-            "mean_value": 7.156497809673884e-05,
-            "stddev": 1.8985037522749748e-05,
-            "p05": 5.374991600189441e-05,
-            "p95": 0.0001057348257631,
-            "count": 3478
+            "window_start_utc": "2025-02-11T00:00:00Z",
+            "window_end_utc": "2025-02-12T00:00:00Z",
+            "samples_24h": 56,
+            "forecast_hour_avg_24h": 10.714285714285714,
+            "mean_value_avg_24h": 0.00012832448962740972,
+            "stddev_avg_24h": 2.496128882872304e-05,
+            "p05_avg_24h": 9.443337434161376e-05,
+            "p95_avg_24h": 0.00016736790743922245,
+            "count_avg_24h": 3478.0
           }
         ],
         "metadata": {
@@ -2235,28 +2570,33 @@
             "p05",
             "p95",
             "count"
-          ]
+          ],
+          "aggregation_hours": 24
         }
       },
       {
         "columns": [
-          "valid_date",
-          "forecast_hour",
-          "mean_value",
-          "stddev",
-          "p05",
-          "p95",
-          "count"
+          "window_start_utc",
+          "window_end_utc",
+          "samples_24h",
+          "forecast_hour_avg_24h",
+          "mean_value_avg_24h",
+          "stddev_avg_24h",
+          "p05_avg_24h",
+          "p95_avg_24h",
+          "count_avg_24h"
         ],
         "rows": [
           {
-            "valid_date": "2025-02-12T00:00:00Z",
-            "forecast_hour": 0,
-            "mean_value": 0.0003722286247329,
-            "stddev": 6.766930379754878e-05,
-            "p05": 0.0002531925353614,
-            "p95": 0.0004463547381291,
-            "count": 3478
+            "window_start_utc": "2025-02-11T00:00:00Z",
+            "window_end_utc": "2025-02-12T00:00:00Z",
+            "samples_24h": 56,
+            "forecast_hour_avg_24h": 10.714285714285714,
+            "mean_value_avg_24h": 0.0003093289488410339,
+            "stddev_avg_24h": 5.09947313913196e-05,
+            "p05_avg_24h": 0.00023942523501567045,
+            "p95_avg_24h": 0.00039443752576132855,
+            "count_avg_24h": 3478.0
           }
         ],
         "metadata": {
@@ -2269,28 +2609,33 @@
             "p05",
             "p95",
             "count"
-          ]
+          ],
+          "aggregation_hours": 24
         }
       },
       {
         "columns": [
-          "valid_date",
-          "forecast_hour",
-          "mean_value",
-          "stddev",
-          "p05",
-          "p95",
-          "count"
+          "window_start_utc",
+          "window_end_utc",
+          "samples_24h",
+          "forecast_hour_avg_24h",
+          "mean_value_avg_24h",
+          "stddev_avg_24h",
+          "p05_avg_24h",
+          "p95_avg_24h",
+          "count_avg_24h"
         ],
         "rows": [
           {
-            "valid_date": "2025-02-12T00:00:00Z",
-            "forecast_hour": 0,
-            "mean_value": 0.0004910959264205,
-            "stddev": 1.383366713459448e-05,
-            "p05": 0.0004651298251079,
-            "p95": 0.0005143879460323,
-            "count": 3478
+            "window_start_utc": "2025-02-11T00:00:00Z",
+            "window_end_utc": "2025-02-12T00:00:00Z",
+            "samples_24h": 56,
+            "forecast_hour_avg_24h": 10.714285714285714,
+            "mean_value_avg_24h": 0.0005162768355150231,
+            "stddev_avg_24h": 2.564137173253074e-05,
+            "p05_avg_24h": 0.00047815472441125895,
+            "p95_avg_24h": 0.0005596159701822839,
+            "count_avg_24h": 3478.0
           }
         ],
         "metadata": {
@@ -2303,28 +2648,33 @@
             "p05",
             "p95",
             "count"
-          ]
+          ],
+          "aggregation_hours": 24
         }
       },
       {
         "columns": [
-          "valid_date",
-          "forecast_hour",
-          "mean_value",
-          "stddev",
-          "p05",
-          "p95",
-          "count"
+          "window_start_utc",
+          "window_end_utc",
+          "samples_24h",
+          "forecast_hour_avg_24h",
+          "mean_value_avg_24h",
+          "stddev_avg_24h",
+          "p05_avg_24h",
+          "p95_avg_24h",
+          "count_avg_24h"
         ],
         "rows": [
           {
-            "valid_date": "2025-02-12T00:00:00Z",
-            "forecast_hour": 23,
-            "mean_value": 0.032131284203498,
-            "stddev": 0.0220561852939202,
-            "p05": 0.0014411518807585,
-            "p95": 0.0706164421571693,
-            "count": 3478
+            "window_start_utc": "2025-02-11T00:00:00Z",
+            "window_end_utc": "2025-02-12T00:00:00Z",
+            "samples_24h": 48,
+            "forecast_hour_avg_24h": 12.5,
+            "mean_value_avg_24h": 0.008706766736197922,
+            "stddev_avg_24h": 0.005798522520644754,
+            "p05_avg_24h": 0.0018089458503271376,
+            "p95_avg_24h": 0.01906899142222455,
+            "count_avg_24h": 3478.0
           }
         ],
         "metadata": {
@@ -2337,28 +2687,33 @@
             "p05",
             "p95",
             "count"
-          ]
+          ],
+          "aggregation_hours": 24
         }
       },
       {
         "columns": [
-          "valid_date",
-          "forecast_hour",
-          "mean_value",
-          "stddev",
-          "p05",
-          "p95",
-          "count"
+          "window_start_utc",
+          "window_end_utc",
+          "samples_24h",
+          "forecast_hour_avg_24h",
+          "mean_value_avg_24h",
+          "stddev_avg_24h",
+          "p05_avg_24h",
+          "p95_avg_24h",
+          "count_avg_24h"
         ],
         "rows": [
           {
-            "valid_date": "2025-02-12T00:00:00Z",
-            "forecast_hour": 0,
-            "mean_value": 0.0,
-            "stddev": 0.0,
-            "p05": 0.0,
-            "p95": 0.0,
-            "count": 3478
+            "window_start_utc": "2025-02-11T00:00:00Z",
+            "window_end_utc": "2025-02-12T00:00:00Z",
+            "samples_24h": 56,
+            "forecast_hour_avg_24h": 10.714285714285714,
+            "mean_value_avg_24h": 20.795346824964692,
+            "stddev_avg_24h": 4.872717799256598,
+            "p05_avg_24h": 13.854822423932566,
+            "p95_avg_24h": 29.1705610972741,
+            "count_avg_24h": 3478.0
           }
         ],
         "metadata": {
@@ -2371,28 +2726,33 @@
             "p05",
             "p95",
             "count"
-          ]
+          ],
+          "aggregation_hours": 24
         }
       },
       {
         "columns": [
-          "valid_date",
-          "forecast_hour",
-          "mean_value",
-          "stddev",
-          "p05",
-          "p95",
-          "count"
+          "window_start_utc",
+          "window_end_utc",
+          "samples_24h",
+          "forecast_hour_avg_24h",
+          "mean_value_avg_24h",
+          "stddev_avg_24h",
+          "p05_avg_24h",
+          "p95_avg_24h",
+          "count_avg_24h"
         ],
         "rows": [
           {
-            "valid_date": "2025-02-12T00:00:00Z",
-            "forecast_hour": 0,
-            "mean_value": 245.35417140282908,
-            "stddev": 1.0763614007865971,
-            "p05": 243.99356614988184,
-            "p95": 247.263539767323,
-            "count": 3478
+            "window_start_utc": "2025-02-11T00:00:00Z",
+            "window_end_utc": "2025-02-12T00:00:00Z",
+            "samples_24h": 56,
+            "forecast_hour_avg_24h": 10.714285714285714,
+            "mean_value_avg_24h": 245.8787244986473,
+            "stddev_avg_24h": 1.4916723476258364,
+            "p05_avg_24h": 243.5155468475048,
+            "p95_avg_24h": 248.13150485186438,
+            "count_avg_24h": 3478.0
           }
         ],
         "metadata": {
@@ -2405,28 +2765,33 @@
             "p05",
             "p95",
             "count"
-          ]
+          ],
+          "aggregation_hours": 24
         }
       },
       {
         "columns": [
-          "valid_date",
-          "forecast_hour",
-          "mean_value",
-          "stddev",
-          "p05",
-          "p95",
-          "count"
+          "window_start_utc",
+          "window_end_utc",
+          "samples_24h",
+          "forecast_hour_avg_24h",
+          "mean_value_avg_24h",
+          "stddev_avg_24h",
+          "p05_avg_24h",
+          "p95_avg_24h",
+          "count_avg_24h"
         ],
         "rows": [
           {
-            "valid_date": "2025-02-12T00:00:00Z",
-            "forecast_hour": 0,
-            "mean_value": 233.11671913950212,
-            "stddev": 0.7638182280865361,
-            "p05": 232.22561528756648,
-            "p95": 234.71952861721917,
-            "count": 3478
+            "window_start_utc": "2025-02-11T00:00:00Z",
+            "window_end_utc": "2025-02-12T00:00:00Z",
+            "samples_24h": 56,
+            "forecast_hour_avg_24h": 10.714285714285714,
+            "mean_value_avg_24h": 237.2169851605027,
+            "stddev_avg_24h": 0.557560783259976,
+            "p05_avg_24h": 236.4603749478237,
+            "p95_avg_24h": 238.24095669878346,
+            "count_avg_24h": 3478.0
           }
         ],
         "metadata": {
@@ -2439,28 +2804,33 @@
             "p05",
             "p95",
             "count"
-          ]
+          ],
+          "aggregation_hours": 24
         }
       },
       {
         "columns": [
-          "valid_date",
-          "forecast_hour",
-          "mean_value",
-          "stddev",
-          "p05",
-          "p95",
-          "count"
+          "window_start_utc",
+          "window_end_utc",
+          "samples_24h",
+          "forecast_hour_avg_24h",
+          "mean_value_avg_24h",
+          "stddev_avg_24h",
+          "p05_avg_24h",
+          "p95_avg_24h",
+          "count_avg_24h"
         ],
         "rows": [
           {
-            "valid_date": "2025-02-12T00:00:00Z",
-            "forecast_hour": 0,
-            "mean_value": 246.3709349948044,
-            "stddev": 0.536726123127192,
-            "p05": 245.75659029600857,
-            "p95": 247.3555483077102,
-            "count": 3478
+            "window_start_utc": "2025-02-11T00:00:00Z",
+            "window_end_utc": "2025-02-12T00:00:00Z",
+            "samples_24h": 56,
+            "forecast_hour_avg_24h": 10.714285714285714,
+            "mean_value_avg_24h": 248.533264763512,
+            "stddev_avg_24h": 0.38192184016906655,
+            "p05_avg_24h": 248.03715725442075,
+            "p95_avg_24h": 249.27032003695987,
+            "count_avg_24h": 3478.0
           }
         ],
         "metadata": {
@@ -2473,28 +2843,33 @@
             "p05",
             "p95",
             "count"
-          ]
+          ],
+          "aggregation_hours": 24
         }
       },
       {
         "columns": [
-          "valid_date",
-          "forecast_hour",
-          "mean_value",
-          "stddev",
-          "p05",
-          "p95",
-          "count"
+          "window_start_utc",
+          "window_end_utc",
+          "samples_24h",
+          "forecast_hour_avg_24h",
+          "mean_value_avg_24h",
+          "stddev_avg_24h",
+          "p05_avg_24h",
+          "p95_avg_24h",
+          "count_avg_24h"
         ],
         "rows": [
           {
-            "valid_date": "2025-02-12T00:00:00Z",
-            "forecast_hour": 0,
-            "mean_value": 249.08639686221264,
-            "stddev": 0.5058746514576793,
-            "p05": 248.3554149789809,
-            "p95": 250.1107379697448,
-            "count": 3478
+            "window_start_utc": "2025-02-11T00:00:00Z",
+            "window_end_utc": "2025-02-12T00:00:00Z",
+            "samples_24h": 56,
+            "forecast_hour_avg_24h": 10.714285714285714,
+            "mean_value_avg_24h": 250.86853904547934,
+            "stddev_avg_24h": 0.49282349263929437,
+            "p05_avg_24h": 250.2148000728489,
+            "p95_avg_24h": 251.83791024598077,
+            "count_avg_24h": 3478.0
           }
         ],
         "metadata": {
@@ -2507,28 +2882,33 @@
             "p05",
             "p95",
             "count"
-          ]
+          ],
+          "aggregation_hours": 24
         }
       },
       {
         "columns": [
-          "valid_date",
-          "forecast_hour",
-          "mean_value",
-          "stddev",
-          "p05",
-          "p95",
-          "count"
+          "window_start_utc",
+          "window_end_utc",
+          "samples_24h",
+          "forecast_hour_avg_24h",
+          "mean_value_avg_24h",
+          "stddev_avg_24h",
+          "p05_avg_24h",
+          "p95_avg_24h",
+          "count_avg_24h"
         ],
         "rows": [
           {
-            "valid_date": "2025-02-12T00:00:00Z",
-            "forecast_hour": 0,
-            "mean_value": -0.2057310832953058,
-            "stddev": 0.3164683216745932,
-            "p05": -0.6335072858333722,
-            "p95": 0.3464759930824478,
-            "count": 3478
+            "window_start_utc": "2025-02-11T00:00:00Z",
+            "window_end_utc": "2025-02-12T00:00:00Z",
+            "samples_24h": 56,
+            "forecast_hour_avg_24h": 10.714285714285714,
+            "mean_value_avg_24h": 0.018291040262997358,
+            "stddev_avg_24h": 0.35773888703280926,
+            "p05_avg_24h": -0.5192308076681147,
+            "p95_avg_24h": 0.6332789392585157,
+            "count_avg_24h": 3478.0
           }
         ],
         "metadata": {
@@ -2541,28 +2921,33 @@
             "p05",
             "p95",
             "count"
-          ]
+          ],
+          "aggregation_hours": 24
         }
       },
       {
         "columns": [
-          "valid_date",
-          "forecast_hour",
-          "mean_value",
-          "stddev",
-          "p05",
-          "p95",
-          "count"
+          "window_start_utc",
+          "window_end_utc",
+          "samples_24h",
+          "forecast_hour_avg_24h",
+          "mean_value_avg_24h",
+          "stddev_avg_24h",
+          "p05_avg_24h",
+          "p95_avg_24h",
+          "count_avg_24h"
         ],
         "rows": [
           {
-            "valid_date": "2025-02-12T00:00:00Z",
-            "forecast_hour": 0,
-            "mean_value": 5.645476850350525,
-            "stddev": 0.8400189241401237,
-            "p05": 4.00895942867221,
-            "p95": 6.591503598991547,
-            "count": 3478
+            "window_start_utc": "2025-02-11T00:00:00Z",
+            "window_end_utc": "2025-02-12T00:00:00Z",
+            "samples_24h": 56,
+            "forecast_hour_avg_24h": 10.714285714285714,
+            "mean_value_avg_24h": 3.096343731032021,
+            "stddev_avg_24h": 0.7030982156854247,
+            "p05_avg_24h": 2.080262805612659,
+            "p95_avg_24h": 4.323106889753193,
+            "count_avg_24h": 3478.0
           }
         ],
         "metadata": {
@@ -2575,28 +2960,33 @@
             "p05",
             "p95",
             "count"
-          ]
+          ],
+          "aggregation_hours": 24
         }
       },
       {
         "columns": [
-          "valid_date",
-          "forecast_hour",
-          "mean_value",
-          "stddev",
-          "p05",
-          "p95",
-          "count"
+          "window_start_utc",
+          "window_end_utc",
+          "samples_24h",
+          "forecast_hour_avg_24h",
+          "mean_value_avg_24h",
+          "stddev_avg_24h",
+          "p05_avg_24h",
+          "p95_avg_24h",
+          "count_avg_24h"
         ],
         "rows": [
           {
-            "valid_date": "2025-02-12T00:00:00Z",
-            "forecast_hour": 0,
-            "mean_value": 1.5669663038818231,
-            "stddev": 0.5591406692366994,
-            "p05": 0.4754140504140651,
-            "p95": 2.25091316750861,
-            "count": 3478
+            "window_start_utc": "2025-02-11T00:00:00Z",
+            "window_end_utc": "2025-02-12T00:00:00Z",
+            "samples_24h": 56,
+            "forecast_hour_avg_24h": 10.714285714285714,
+            "mean_value_avg_24h": 0.40698560607339396,
+            "stddev_avg_24h": 0.6101063244907545,
+            "p05_avg_24h": -0.4761053102329861,
+            "p95_avg_24h": 1.4451560256582814,
+            "count_avg_24h": 3478.0
           }
         ],
         "metadata": {
@@ -2609,28 +2999,33 @@
             "p05",
             "p95",
             "count"
-          ]
+          ],
+          "aggregation_hours": 24
         }
       },
       {
         "columns": [
-          "valid_date",
-          "forecast_hour",
-          "mean_value",
-          "stddev",
-          "p05",
-          "p95",
-          "count"
+          "window_start_utc",
+          "window_end_utc",
+          "samples_24h",
+          "forecast_hour_avg_24h",
+          "mean_value_avg_24h",
+          "stddev_avg_24h",
+          "p05_avg_24h",
+          "p95_avg_24h",
+          "count_avg_24h"
         ],
         "rows": [
           {
-            "valid_date": "2025-02-12T00:00:00Z",
-            "forecast_hour": 0,
-            "mean_value": -2.2681117973965788,
-            "stddev": 0.2932462670609757,
-            "p05": -2.733760972057603,
-            "p95": -1.8575406285563996,
-            "count": 3478
+            "window_start_utc": "2025-02-11T00:00:00Z",
+            "window_end_utc": "2025-02-12T00:00:00Z",
+            "samples_24h": 56,
+            "forecast_hour_avg_24h": 10.714285714285714,
+            "mean_value_avg_24h": -0.6271647487475691,
+            "stddev_avg_24h": 0.4004793960297829,
+            "p05_avg_24h": -1.2008039794117746,
+            "p95_avg_24h": 0.03591021311917743,
+            "count_avg_24h": 3478.0
           }
         ],
         "metadata": {
@@ -2643,28 +3038,33 @@
             "p05",
             "p95",
             "count"
-          ]
+          ],
+          "aggregation_hours": 24
         }
       },
       {
         "columns": [
-          "valid_date",
-          "forecast_hour",
-          "mean_value",
-          "stddev",
-          "p05",
-          "p95",
-          "count"
+          "window_start_utc",
+          "window_end_utc",
+          "samples_24h",
+          "forecast_hour_avg_24h",
+          "mean_value_avg_24h",
+          "stddev_avg_24h",
+          "p05_avg_24h",
+          "p95_avg_24h",
+          "count_avg_24h"
         ],
         "rows": [
           {
-            "valid_date": "2025-02-12T00:00:00Z",
-            "forecast_hour": 0,
-            "mean_value": -0.7183531961510399,
-            "stddev": 0.2067412404082269,
-            "p05": -1.0642097398843915,
-            "p95": -0.3839860521663516,
-            "count": 3478
+            "window_start_utc": "2025-02-11T00:00:00Z",
+            "window_end_utc": "2025-02-12T00:00:00Z",
+            "samples_24h": 56,
+            "forecast_hour_avg_24h": 10.714285714285714,
+            "mean_value_avg_24h": -0.9898087629423481,
+            "stddev_avg_24h": 0.3903396937053621,
+            "p05_avg_24h": -1.6040273257687914,
+            "p95_avg_24h": -0.34301943010505226,
+            "count_avg_24h": 3478.0
           }
         ],
         "metadata": {
@@ -2677,28 +3077,33 @@
             "p05",
             "p95",
             "count"
-          ]
+          ],
+          "aggregation_hours": 24
         }
       },
       {
         "columns": [
-          "valid_date",
-          "forecast_hour",
-          "mean_value",
-          "stddev",
-          "p05",
-          "p95",
-          "count"
+          "window_start_utc",
+          "window_end_utc",
+          "samples_24h",
+          "forecast_hour_avg_24h",
+          "mean_value_avg_24h",
+          "stddev_avg_24h",
+          "p05_avg_24h",
+          "p95_avg_24h",
+          "count_avg_24h"
         ],
         "rows": [
           {
-            "valid_date": "2025-02-12T00:00:00Z",
-            "forecast_hour": 0,
-            "mean_value": -20.11275933421645,
-            "stddev": 0.8891090106499369,
-            "p05": -21.07183037200894,
-            "p95": -18.466227771597467,
-            "count": 3478
+            "window_start_utc": "2025-02-11T00:00:00Z",
+            "window_end_utc": "2025-02-12T00:00:00Z",
+            "samples_24h": 56,
+            "forecast_hour_avg_24h": 10.714285714285714,
+            "mean_value_avg_24h": -25.19569265598373,
+            "stddev_avg_24h": 1.5485533188061074,
+            "p05_avg_24h": -27.861897175937365,
+            "p95_avg_24h": -22.997803699537123,
+            "count_avg_24h": 3478.0
           }
         ],
         "metadata": {
@@ -2711,28 +3116,33 @@
             "p05",
             "p95",
             "count"
-          ]
+          ],
+          "aggregation_hours": 24
         }
       },
       {
         "columns": [
-          "valid_date",
-          "forecast_hour",
-          "mean_value",
-          "stddev",
-          "p05",
-          "p95",
-          "count"
+          "window_start_utc",
+          "window_end_utc",
+          "samples_24h",
+          "forecast_hour_avg_24h",
+          "mean_value_avg_24h",
+          "stddev_avg_24h",
+          "p05_avg_24h",
+          "p95_avg_24h",
+          "count_avg_24h"
         ],
         "rows": [
           {
-            "valid_date": "2025-02-12T00:00:00Z",
-            "forecast_hour": 0,
-            "mean_value": -9.833115118098434,
-            "stddev": 1.0388581642620611,
-            "p05": -10.759589276247592,
-            "p95": -7.462233773072009,
-            "count": 3478
+            "window_start_utc": "2025-02-11T00:00:00Z",
+            "window_end_utc": "2025-02-12T00:00:00Z",
+            "samples_24h": 56,
+            "forecast_hour_avg_24h": 10.714285714285714,
+            "mean_value_avg_24h": -9.251349938640121,
+            "stddev_avg_24h": 0.8972340407638703,
+            "p05_avg_24h": -10.711915206018054,
+            "p95_avg_24h": -7.913610011265151,
+            "count_avg_24h": 3478.0
           }
         ],
         "metadata": {
@@ -2745,28 +3155,33 @@
             "p05",
             "p95",
             "count"
-          ]
+          ],
+          "aggregation_hours": 24
         }
       },
       {
         "columns": [
-          "valid_date",
-          "forecast_hour",
-          "mean_value",
-          "stddev",
-          "p05",
-          "p95",
-          "count"
+          "window_start_utc",
+          "window_end_utc",
+          "samples_24h",
+          "forecast_hour_avg_24h",
+          "mean_value_avg_24h",
+          "stddev_avg_24h",
+          "p05_avg_24h",
+          "p95_avg_24h",
+          "count_avg_24h"
         ],
         "rows": [
           {
-            "valid_date": "2025-02-12T00:00:00Z",
-            "forecast_hour": 0,
-            "mean_value": -5.249513385449651,
-            "stddev": 0.3576044690397983,
-            "p05": -5.69423033460727,
-            "p95": -4.587425690184697,
-            "count": 3478
+            "window_start_utc": "2025-02-11T00:00:00Z",
+            "window_end_utc": "2025-02-12T00:00:00Z",
+            "samples_24h": 56,
+            "forecast_hour_avg_24h": 10.714285714285714,
+            "mean_value_avg_24h": -5.633713301602595,
+            "stddev_avg_24h": 0.8001015150219752,
+            "p05_avg_24h": -6.749811961714483,
+            "p95_avg_24h": -4.312618252511652,
+            "count_avg_24h": 3478.0
           }
         ],
         "metadata": {
@@ -2779,28 +3194,33 @@
             "p05",
             "p95",
             "count"
-          ]
+          ],
+          "aggregation_hours": 24
         }
       },
       {
         "columns": [
-          "valid_date",
-          "forecast_hour",
-          "mean_value",
-          "stddev",
-          "p05",
-          "p95",
-          "count"
+          "window_start_utc",
+          "window_end_utc",
+          "samples_24h",
+          "forecast_hour_avg_24h",
+          "mean_value_avg_24h",
+          "stddev_avg_24h",
+          "p05_avg_24h",
+          "p95_avg_24h",
+          "count_avg_24h"
         ],
         "rows": [
           {
-            "valid_date": "2025-02-12T00:00:00Z",
-            "forecast_hour": 0,
-            "mean_value": -0.0906137864207861,
-            "stddev": 0.0702904519328965,
-            "p05": -0.1903819336852281,
-            "p95": 0.0221879687266592,
-            "count": 3478
+            "window_start_utc": "2025-02-11T00:00:00Z",
+            "window_end_utc": "2025-02-12T00:00:00Z",
+            "samples_24h": 56,
+            "forecast_hour_avg_24h": 10.714285714285714,
+            "mean_value_avg_24h": 0.002279969002636891,
+            "stddev_avg_24h": 0.100020621452909,
+            "p05_avg_24h": -0.16101331840035454,
+            "p95_avg_24h": 0.17474933496137604,
+            "count_avg_24h": 3478.0
           }
         ],
         "metadata": {
@@ -2813,28 +3233,33 @@
             "p05",
             "p95",
             "count"
-          ]
+          ],
+          "aggregation_hours": 24
         }
       },
       {
         "columns": [
-          "valid_date",
-          "forecast_hour",
-          "mean_value",
-          "stddev",
-          "p05",
-          "p95",
-          "count"
+          "window_start_utc",
+          "window_end_utc",
+          "samples_24h",
+          "forecast_hour_avg_24h",
+          "mean_value_avg_24h",
+          "stddev_avg_24h",
+          "p05_avg_24h",
+          "p95_avg_24h",
+          "count_avg_24h"
         ],
         "rows": [
           {
-            "valid_date": "2025-02-12T00:00:00Z",
-            "forecast_hour": 0,
-            "mean_value": -0.0970154952293831,
-            "stddev": 0.0573176064375888,
-            "p05": -0.1865271338791757,
-            "p95": -0.0006185412613216,
-            "count": 3478
+            "window_start_utc": "2025-02-11T00:00:00Z",
+            "window_end_utc": "2025-02-12T00:00:00Z",
+            "samples_24h": 56,
+            "forecast_hour_avg_24h": 10.714285714285714,
+            "mean_value_avg_24h": 0.015346125495581658,
+            "stddev_avg_24h": 0.06440646089060885,
+            "p05_avg_24h": -0.08564273247192422,
+            "p95_avg_24h": 0.12541524720791733,
+            "count_avg_24h": 3478.0
           }
         ],
         "metadata": {
@@ -2847,28 +3272,33 @@
             "p05",
             "p95",
             "count"
-          ]
+          ],
+          "aggregation_hours": 24
         }
       },
       {
         "columns": [
-          "valid_date",
-          "forecast_hour",
-          "mean_value",
-          "stddev",
-          "p05",
-          "p95",
-          "count"
+          "window_start_utc",
+          "window_end_utc",
+          "samples_24h",
+          "forecast_hour_avg_24h",
+          "mean_value_avg_24h",
+          "stddev_avg_24h",
+          "p05_avg_24h",
+          "p95_avg_24h",
+          "count_avg_24h"
         ],
         "rows": [
           {
-            "valid_date": "2025-02-12T00:00:00Z",
-            "forecast_hour": 0,
-            "mean_value": 0.0539019406914766,
-            "stddev": 0.0722646736916544,
-            "p05": -0.0451799003555482,
-            "p95": 0.1781986411620283,
-            "count": 3478
+            "window_start_utc": "2025-02-11T00:00:00Z",
+            "window_end_utc": "2025-02-12T00:00:00Z",
+            "samples_24h": 56,
+            "forecast_hour_avg_24h": 10.714285714285714,
+            "mean_value_avg_24h": 0.018545466758863084,
+            "stddev_avg_24h": 0.052923617966632315,
+            "p05_avg_24h": -0.07029726335601136,
+            "p95_avg_24h": 0.09951417745086985,
+            "count_avg_24h": 3478.0
           }
         ],
         "metadata": {
@@ -2881,30 +3311,35 @@
             "p05",
             "p95",
             "count"
-          ]
+          ],
+          "aggregation_hours": 24
         }
       }
     ],
     "below_treeline": [
       {
         "columns": [
-          "valid_date",
-          "forecast_hour",
-          "mean_value",
-          "stddev",
-          "p05",
-          "p95",
-          "count"
+          "window_start_utc",
+          "window_end_utc",
+          "samples_24h",
+          "forecast_hour_avg_24h",
+          "mean_value_avg_24h",
+          "stddev_avg_24h",
+          "p05_avg_24h",
+          "p95_avg_24h",
+          "count_avg_24h"
         ],
         "rows": [
           {
-            "valid_date": "2025-02-12T00:00:00Z",
-            "forecast_hour": 11,
-            "mean_value": 0.0024367849050111,
-            "stddev": 0.0033247518665467,
-            "p05": 0.0,
-            "p95": 0.0097277751951202,
-            "count": 5362
+            "window_start_utc": "2025-02-11T00:00:00Z",
+            "window_end_utc": "2025-02-12T00:00:00Z",
+            "samples_24h": 48,
+            "forecast_hour_avg_24h": 12.5,
+            "mean_value_avg_24h": 0.012595193287667185,
+            "stddev_avg_24h": 0.008384461460629702,
+            "p05_avg_24h": 0.0020003488344903834,
+            "p95_avg_24h": 0.028490897142652582,
+            "count_avg_24h": 5362.0
           }
         ],
         "metadata": {
@@ -2917,28 +3352,33 @@
             "p05",
             "p95",
             "count"
-          ]
+          ],
+          "aggregation_hours": 24
         }
       },
       {
         "columns": [
-          "valid_date",
-          "forecast_hour",
-          "mean_value",
-          "stddev",
-          "p05",
-          "p95",
-          "count"
+          "window_start_utc",
+          "window_end_utc",
+          "samples_24h",
+          "forecast_hour_avg_24h",
+          "mean_value_avg_24h",
+          "stddev_avg_24h",
+          "p05_avg_24h",
+          "p95_avg_24h",
+          "count_avg_24h"
         ],
         "rows": [
           {
-            "valid_date": "2025-02-12T00:00:00Z",
-            "forecast_hour": 6,
-            "mean_value": 2.271935860763993,
-            "stddev": 0.1105831875859069,
-            "p05": 2.0596486448446494,
-            "p95": 2.451641956410977,
-            "count": 5362
+            "window_start_utc": "2025-02-11T00:00:00Z",
+            "window_end_utc": "2025-02-12T00:00:00Z",
+            "samples_24h": 56,
+            "forecast_hour_avg_24h": 10.714285714285714,
+            "mean_value_avg_24h": 1.9406670872967775,
+            "stddev_avg_24h": 0.10127768587216769,
+            "p05_avg_24h": 1.7974530176627144,
+            "p95_avg_24h": 2.1148023822622526,
+            "count_avg_24h": 5362.0
           }
         ],
         "metadata": {
@@ -2951,28 +3391,33 @@
             "p05",
             "p95",
             "count"
-          ]
+          ],
+          "aggregation_hours": 24
         }
       },
       {
         "columns": [
-          "valid_date",
-          "forecast_hour",
-          "mean_value",
-          "stddev",
-          "p05",
-          "p95",
-          "count"
+          "window_start_utc",
+          "window_end_utc",
+          "samples_24h",
+          "forecast_hour_avg_24h",
+          "mean_value_avg_24h",
+          "stddev_avg_24h",
+          "p05_avg_24h",
+          "p95_avg_24h",
+          "count_avg_24h"
         ],
         "rows": [
           {
-            "valid_date": "2025-02-12T00:00:00Z",
-            "forecast_hour": 6,
-            "mean_value": 3722965.463143639,
-            "stddev": 178671.10005286703,
-            "p05": 3433035.9175237347,
-            "p95": 3992164.109095501,
-            "count": 5362
+            "window_start_utc": "2025-02-11T00:00:00Z",
+            "window_end_utc": "2025-02-12T00:00:00Z",
+            "samples_24h": 56,
+            "forecast_hour_avg_24h": 10.714285714285714,
+            "mean_value_avg_24h": 6756873.853635341,
+            "stddev_avg_24h": 329615.14613064367,
+            "p05_avg_24h": 6265635.123954413,
+            "p95_avg_24h": 7272106.346210589,
+            "count_avg_24h": 5362.0
           }
         ],
         "metadata": {
@@ -2985,28 +3430,33 @@
             "p05",
             "p95",
             "count"
-          ]
+          ],
+          "aggregation_hours": 24
         }
       },
       {
         "columns": [
-          "valid_date",
-          "forecast_hour",
-          "mean_value",
-          "stddev",
-          "p05",
-          "p95",
-          "count"
+          "window_start_utc",
+          "window_end_utc",
+          "samples_24h",
+          "forecast_hour_avg_24h",
+          "mean_value_avg_24h",
+          "stddev_avg_24h",
+          "p05_avg_24h",
+          "p95_avg_24h",
+          "count_avg_24h"
         ],
         "rows": [
           {
-            "valid_date": "2025-02-12T00:00:00Z",
-            "forecast_hour": 6,
-            "mean_value": 2256.251347718526,
-            "stddev": 3147.001585960235,
-            "p05": 0.0,
-            "p95": 8689.154328480148,
-            "count": 5362
+            "window_start_utc": "2025-02-11T00:00:00Z",
+            "window_end_utc": "2025-02-12T00:00:00Z",
+            "samples_24h": 56,
+            "forecast_hour_avg_24h": 10.714285714285714,
+            "mean_value_avg_24h": 477988.1747834349,
+            "stddev_avg_24h": 46002.762551632695,
+            "p05_avg_24h": 416530.03062707477,
+            "p95_avg_24h": 569170.4078290871,
+            "count_avg_24h": 5362.0
           }
         ],
         "metadata": {
@@ -3019,28 +3469,33 @@
             "p05",
             "p95",
             "count"
-          ]
+          ],
+          "aggregation_hours": 24
         }
       },
       {
         "columns": [
-          "valid_date",
-          "forecast_hour",
-          "mean_value",
-          "stddev",
-          "p05",
-          "p95",
-          "count"
+          "window_start_utc",
+          "window_end_utc",
+          "samples_24h",
+          "forecast_hour_avg_24h",
+          "mean_value_avg_24h",
+          "stddev_avg_24h",
+          "p05_avg_24h",
+          "p95_avg_24h",
+          "count_avg_24h"
         ],
         "rows": [
           {
-            "valid_date": "2025-02-12T00:00:00Z",
-            "forecast_hour": 11,
-            "mean_value": 0.0,
-            "stddev": 0.0,
-            "p05": 0.0,
-            "p95": 0.0,
-            "count": 5362
+            "window_start_utc": "2025-02-11T00:00:00Z",
+            "window_end_utc": "2025-02-12T00:00:00Z",
+            "samples_24h": 48,
+            "forecast_hour_avg_24h": 12.5,
+            "mean_value_avg_24h": 0.0,
+            "stddev_avg_24h": 0.0,
+            "p05_avg_24h": 0.0,
+            "p95_avg_24h": 0.0,
+            "count_avg_24h": 5362.0
           }
         ],
         "metadata": {
@@ -3053,28 +3508,33 @@
             "p05",
             "p95",
             "count"
-          ]
+          ],
+          "aggregation_hours": 24
         }
       },
       {
         "columns": [
-          "valid_date",
-          "forecast_hour",
-          "mean_value",
-          "stddev",
-          "p05",
-          "p95",
-          "count"
+          "window_start_utc",
+          "window_end_utc",
+          "samples_24h",
+          "forecast_hour_avg_24h",
+          "mean_value_avg_24h",
+          "stddev_avg_24h",
+          "p05_avg_24h",
+          "p95_avg_24h",
+          "count_avg_24h"
         ],
         "rows": [
           {
-            "valid_date": "2025-02-12T00:00:00Z",
-            "forecast_hour": 6,
-            "mean_value": 1.7605146374054583,
-            "stddev": 0.2813719740253321,
-            "p05": 1.2811486093018083,
-            "p95": 2.226544243079424,
-            "count": 5362
+            "window_start_utc": "2025-02-11T00:00:00Z",
+            "window_end_utc": "2025-02-12T00:00:00Z",
+            "samples_24h": 56,
+            "forecast_hour_avg_24h": 10.714285714285714,
+            "mean_value_avg_24h": 2.7710435567020966,
+            "stddev_avg_24h": 0.7498298021905027,
+            "p05_avg_24h": 1.8266288916805682,
+            "p95_avg_24h": 4.187634562615797,
+            "count_avg_24h": 5362.0
           }
         ],
         "metadata": {
@@ -3087,28 +3547,33 @@
             "p05",
             "p95",
             "count"
-          ]
+          ],
+          "aggregation_hours": 24
         }
       },
       {
         "columns": [
-          "valid_date",
-          "forecast_hour",
-          "mean_value",
-          "stddev",
-          "p05",
-          "p95",
-          "count"
+          "window_start_utc",
+          "window_end_utc",
+          "samples_24h",
+          "forecast_hour_avg_24h",
+          "mean_value_avg_24h",
+          "stddev_avg_24h",
+          "p05_avg_24h",
+          "p95_avg_24h",
+          "count_avg_24h"
         ],
         "rows": [
           {
-            "valid_date": "2025-02-12T00:00:00Z",
-            "forecast_hour": 6,
-            "mean_value": 5223.585377892981,
-            "stddev": 12.656451811302196,
-            "p05": 5204.648320053468,
-            "p95": 5247.444766304474,
-            "count": 5362
+            "window_start_utc": "2025-02-11T00:00:00Z",
+            "window_end_utc": "2025-02-12T00:00:00Z",
+            "samples_24h": 56,
+            "forecast_hour_avg_24h": 10.714285714285714,
+            "mean_value_avg_24h": 5230.958845104796,
+            "stddev_avg_24h": 10.52062223982935,
+            "p05_avg_24h": 5214.732838242499,
+            "p95_avg_24h": 5249.80512217032,
+            "count_avg_24h": 5362.0
           }
         ],
         "metadata": {
@@ -3121,28 +3586,33 @@
             "p05",
             "p95",
             "count"
-          ]
+          ],
+          "aggregation_hours": 24
         }
       },
       {
         "columns": [
-          "valid_date",
-          "forecast_hour",
-          "mean_value",
-          "stddev",
-          "p05",
-          "p95",
-          "count"
+          "window_start_utc",
+          "window_end_utc",
+          "samples_24h",
+          "forecast_hour_avg_24h",
+          "mean_value_avg_24h",
+          "stddev_avg_24h",
+          "p05_avg_24h",
+          "p95_avg_24h",
+          "count_avg_24h"
         ],
         "rows": [
           {
-            "valid_date": "2025-02-12T00:00:00Z",
-            "forecast_hour": 6,
-            "mean_value": 2819.0023766645927,
-            "stddev": 3.990270110517343,
-            "p05": 2812.5693043109727,
-            "p95": 2826.404362366254,
-            "count": 5362
+            "window_start_utc": "2025-02-11T00:00:00Z",
+            "window_end_utc": "2025-02-12T00:00:00Z",
+            "samples_24h": 56,
+            "forecast_hour_avg_24h": 10.714285714285714,
+            "mean_value_avg_24h": 2837.399814408384,
+            "stddev_avg_24h": 4.005327997825707,
+            "p05_avg_24h": 2830.8502547981147,
+            "p95_avg_24h": 2844.146733807673,
+            "count_avg_24h": 5362.0
           }
         ],
         "metadata": {
@@ -3155,28 +3625,33 @@
             "p05",
             "p95",
             "count"
-          ]
+          ],
+          "aggregation_hours": 24
         }
       },
       {
         "columns": [
-          "valid_date",
-          "forecast_hour",
-          "mean_value",
-          "stddev",
-          "p05",
-          "p95",
-          "count"
+          "window_start_utc",
+          "window_end_utc",
+          "samples_24h",
+          "forecast_hour_avg_24h",
+          "mean_value_avg_24h",
+          "stddev_avg_24h",
+          "p05_avg_24h",
+          "p95_avg_24h",
+          "count_avg_24h"
         ],
         "rows": [
           {
-            "valid_date": "2025-02-12T00:00:00Z",
-            "forecast_hour": 6,
-            "mean_value": 11.201765120289702,
-            "stddev": 9.588255292022508,
-            "p05": 4.213609328926902,
-            "p95": 30.03905103212028,
-            "count": 5362
+            "window_start_utc": "2025-02-11T00:00:00Z",
+            "window_end_utc": "2025-02-12T00:00:00Z",
+            "samples_24h": 56,
+            "forecast_hour_avg_24h": 10.714285714285714,
+            "mean_value_avg_24h": 68.12994028974485,
+            "stddev_avg_24h": 35.69428006114265,
+            "p05_avg_24h": 31.22491315114446,
+            "p95_avg_24h": 140.2912874869522,
+            "count_avg_24h": 5362.0
           }
         ],
         "metadata": {
@@ -3189,28 +3664,33 @@
             "p05",
             "p95",
             "count"
-          ]
+          ],
+          "aggregation_hours": 24
         }
       },
       {
         "columns": [
-          "valid_date",
-          "forecast_hour",
-          "mean_value",
-          "stddev",
-          "p05",
-          "p95",
-          "count"
+          "window_start_utc",
+          "window_end_utc",
+          "samples_24h",
+          "forecast_hour_avg_24h",
+          "mean_value_avg_24h",
+          "stddev_avg_24h",
+          "p05_avg_24h",
+          "p95_avg_24h",
+          "count_avg_24h"
         ],
         "rows": [
           {
-            "valid_date": "2025-02-12T00:00:00Z",
-            "forecast_hour": 11,
-            "mean_value": 0.0,
-            "stddev": 0.0,
-            "p05": 0.0,
-            "p95": 0.0,
-            "count": 5362
+            "window_start_utc": "2025-02-11T00:00:00Z",
+            "window_end_utc": "2025-02-12T00:00:00Z",
+            "samples_24h": 48,
+            "forecast_hour_avg_24h": 12.5,
+            "mean_value_avg_24h": 0.0,
+            "stddev_avg_24h": 0.0,
+            "p05_avg_24h": 0.0,
+            "p95_avg_24h": 0.0,
+            "count_avg_24h": 5362.0
           }
         ],
         "metadata": {
@@ -3223,28 +3703,33 @@
             "p05",
             "p95",
             "count"
-          ]
+          ],
+          "aggregation_hours": 24
         }
       },
       {
         "columns": [
-          "valid_date",
-          "forecast_hour",
-          "mean_value",
-          "stddev",
-          "p05",
-          "p95",
-          "count"
+          "window_start_utc",
+          "window_end_utc",
+          "samples_24h",
+          "forecast_hour_avg_24h",
+          "mean_value_avg_24h",
+          "stddev_avg_24h",
+          "p05_avg_24h",
+          "p95_avg_24h",
+          "count_avg_24h"
         ],
         "rows": [
           {
-            "valid_date": "2025-02-12T00:00:00Z",
-            "forecast_hour": 6,
-            "mean_value": -0.4458254044008186,
-            "stddev": 0.5724618806310875,
-            "p05": -1.6593189130823376,
-            "p95": 0.1853554942886176,
-            "count": 5362
+            "window_start_utc": "2025-02-11T00:00:00Z",
+            "window_end_utc": "2025-02-12T00:00:00Z",
+            "samples_24h": 56,
+            "forecast_hour_avg_24h": 10.714285714285714,
+            "mean_value_avg_24h": 0.022084154698420955,
+            "stddev_avg_24h": 0.5182718815484156,
+            "p05_avg_24h": -0.7916863585547288,
+            "p95_avg_24h": 0.8672853350384807,
+            "count_avg_24h": 5362.0
           }
         ],
         "metadata": {
@@ -3257,28 +3742,33 @@
             "p05",
             "p95",
             "count"
-          ]
+          ],
+          "aggregation_hours": 24
         }
       },
       {
         "columns": [
-          "valid_date",
-          "forecast_hour",
-          "mean_value",
-          "stddev",
-          "p05",
-          "p95",
-          "count"
+          "window_start_utc",
+          "window_end_utc",
+          "samples_24h",
+          "forecast_hour_avg_24h",
+          "mean_value_avg_24h",
+          "stddev_avg_24h",
+          "p05_avg_24h",
+          "p95_avg_24h",
+          "count_avg_24h"
         ],
         "rows": [
           {
-            "valid_date": "2025-02-12T00:00:00Z",
-            "forecast_hour": 6,
-            "mean_value": -408049.5109773014,
-            "stddev": 121913.39882047074,
-            "p05": -605356.1011553636,
-            "p95": -204899.4234080177,
-            "count": 5362
+            "window_start_utc": "2025-02-11T00:00:00Z",
+            "window_end_utc": "2025-02-12T00:00:00Z",
+            "samples_24h": 56,
+            "forecast_hour_avg_24h": 10.714285714285714,
+            "mean_value_avg_24h": -955341.5992835563,
+            "stddev_avg_24h": 182476.38550864975,
+            "p05_avg_24h": -1262776.413017608,
+            "p95_avg_24h": -668028.0856893392,
+            "count_avg_24h": 5362.0
           }
         ],
         "metadata": {
@@ -3291,28 +3781,33 @@
             "p05",
             "p95",
             "count"
-          ]
+          ],
+          "aggregation_hours": 24
         }
       },
       {
         "columns": [
-          "valid_date",
-          "forecast_hour",
-          "mean_value",
-          "stddev",
-          "p05",
-          "p95",
-          "count"
+          "window_start_utc",
+          "window_end_utc",
+          "samples_24h",
+          "forecast_hour_avg_24h",
+          "mean_value_avg_24h",
+          "stddev_avg_24h",
+          "p05_avg_24h",
+          "p95_avg_24h",
+          "count_avg_24h"
         ],
         "rows": [
           {
-            "valid_date": "2025-02-12T00:00:00Z",
-            "forecast_hour": 6,
-            "mean_value": -1504.9473316868575,
-            "stddev": 2268.192425987545,
-            "p05": -6825.295307272535,
-            "p95": -25.08757194024499,
-            "count": 5362
+            "window_start_utc": "2025-02-11T00:00:00Z",
+            "window_end_utc": "2025-02-12T00:00:00Z",
+            "samples_24h": 56,
+            "forecast_hour_avg_24h": 10.714285714285714,
+            "mean_value_avg_24h": -253257.93458075056,
+            "stddev_avg_24h": 86161.61429497045,
+            "p05_avg_24h": -428994.45458275505,
+            "p95_avg_24h": -139125.48050746726,
+            "count_avg_24h": 5362.0
           }
         ],
         "metadata": {
@@ -3325,28 +3820,33 @@
             "p05",
             "p95",
             "count"
-          ]
+          ],
+          "aggregation_hours": 24
         }
       },
       {
         "columns": [
-          "valid_date",
-          "forecast_hour",
-          "mean_value",
-          "stddev",
-          "p05",
-          "p95",
-          "count"
+          "window_start_utc",
+          "window_end_utc",
+          "samples_24h",
+          "forecast_hour_avg_24h",
+          "mean_value_avg_24h",
+          "stddev_avg_24h",
+          "p05_avg_24h",
+          "p95_avg_24h",
+          "count_avg_24h"
         ],
         "rows": [
           {
-            "valid_date": "2025-02-12T00:00:00Z",
-            "forecast_hour": 11,
-            "mean_value": 6.49875548879598e-08,
-            "stddev": 6.013518335226922e-07,
-            "p05": 0.0,
-            "p95": 0.0,
-            "count": 5362
+            "window_start_utc": "2025-02-11T00:00:00Z",
+            "window_end_utc": "2025-02-12T00:00:00Z",
+            "samples_24h": 48,
+            "forecast_hour_avg_24h": 12.5,
+            "mean_value_avg_24h": 4.788621478594535e-07,
+            "stddev_avg_24h": 9.281375939818834e-07,
+            "p05_avg_24h": 0.0,
+            "p95_avg_24h": 1.788538914515627e-06,
+            "count_avg_24h": 5362.0
           }
         ],
         "metadata": {
@@ -3359,28 +3859,33 @@
             "p05",
             "p95",
             "count"
-          ]
+          ],
+          "aggregation_hours": 24
         }
       },
       {
         "columns": [
-          "valid_date",
-          "forecast_hour",
-          "mean_value",
-          "stddev",
-          "p05",
-          "p95",
-          "count"
+          "window_start_utc",
+          "window_end_utc",
+          "samples_24h",
+          "forecast_hour_avg_24h",
+          "mean_value_avg_24h",
+          "stddev_avg_24h",
+          "p05_avg_24h",
+          "p95_avg_24h",
+          "count_avg_24h"
         ],
         "rows": [
           {
-            "valid_date": "2025-02-12T00:00:00Z",
-            "forecast_hour": 6,
-            "mean_value": 99552.45183236012,
-            "stddev": 563.2737534105929,
-            "p05": 98649.0829056423,
-            "p95": 100515.8934059017,
-            "count": 5362
+            "window_start_utc": "2025-02-11T00:00:00Z",
+            "window_end_utc": "2025-02-12T00:00:00Z",
+            "samples_24h": 56,
+            "forecast_hour_avg_24h": 10.714285714285714,
+            "mean_value_avg_24h": 99897.90596476862,
+            "stddev_avg_24h": 569.1893432755727,
+            "p05_avg_24h": 98971.32148093673,
+            "p95_avg_24h": 100861.00594384754,
+            "count_avg_24h": 5362.0
           }
         ],
         "metadata": {
@@ -3393,28 +3898,33 @@
             "p05",
             "p95",
             "count"
-          ]
+          ],
+          "aggregation_hours": 24
         }
       },
       {
         "columns": [
-          "valid_date",
-          "forecast_hour",
-          "mean_value",
-          "stddev",
-          "p05",
-          "p95",
-          "count"
+          "window_start_utc",
+          "window_end_utc",
+          "samples_24h",
+          "forecast_hour_avg_24h",
+          "mean_value_avg_24h",
+          "stddev_avg_24h",
+          "p05_avg_24h",
+          "p95_avg_24h",
+          "count_avg_24h"
         ],
         "rows": [
           {
-            "valid_date": "2025-02-12T00:00:00Z",
-            "forecast_hour": 11,
-            "mean_value": 0.0,
-            "stddev": 0.0,
-            "p05": 0.0,
-            "p95": 0.0,
-            "count": 5362
+            "window_start_utc": "2025-02-11T00:00:00Z",
+            "window_end_utc": "2025-02-12T00:00:00Z",
+            "samples_24h": 48,
+            "forecast_hour_avg_24h": 12.5,
+            "mean_value_avg_24h": 0.0,
+            "stddev_avg_24h": 0.0,
+            "p05_avg_24h": 0.0,
+            "p95_avg_24h": 0.0,
+            "count_avg_24h": 5362.0
           }
         ],
         "metadata": {
@@ -3427,28 +3937,33 @@
             "p05",
             "p95",
             "count"
-          ]
+          ],
+          "aggregation_hours": 24
         }
       },
       {
         "columns": [
-          "valid_date",
-          "forecast_hour",
-          "mean_value",
-          "stddev",
-          "p05",
-          "p95",
-          "count"
+          "window_start_utc",
+          "window_end_utc",
+          "samples_24h",
+          "forecast_hour_avg_24h",
+          "mean_value_avg_24h",
+          "stddev_avg_24h",
+          "p05_avg_24h",
+          "p95_avg_24h",
+          "count_avg_24h"
         ],
         "rows": [
           {
-            "valid_date": "2025-02-12T00:00:00Z",
-            "forecast_hour": 6,
-            "mean_value": 215.9043624709712,
-            "stddev": 12.478843510116103,
-            "p05": 200.3013201559945,
-            "p95": 228.52483858877008,
-            "count": 5362
+            "window_start_utc": "2025-02-11T00:00:00Z",
+            "window_end_utc": "2025-02-12T00:00:00Z",
+            "samples_24h": 56,
+            "forecast_hour_avg_24h": 10.714285714285714,
+            "mean_value_avg_24h": 215.8316447958762,
+            "stddev_avg_24h": 12.48703052640415,
+            "p05_avg_24h": 200.24243237400972,
+            "p95_avg_24h": 228.482421113994,
+            "count_avg_24h": 5362.0
           }
         ],
         "metadata": {
@@ -3461,28 +3976,33 @@
             "p05",
             "p95",
             "count"
-          ]
+          ],
+          "aggregation_hours": 24
         }
       },
       {
         "columns": [
-          "valid_date",
-          "forecast_hour",
-          "mean_value",
-          "stddev",
-          "p05",
-          "p95",
-          "count"
+          "window_start_utc",
+          "window_end_utc",
+          "samples_24h",
+          "forecast_hour_avg_24h",
+          "mean_value_avg_24h",
+          "stddev_avg_24h",
+          "p05_avg_24h",
+          "p95_avg_24h",
+          "count_avg_24h"
         ],
         "rows": [
           {
-            "valid_date": "2025-02-12T00:00:00Z",
-            "forecast_hour": 6,
-            "mean_value": 71.93225206448041,
-            "stddev": 19.556760330373297,
-            "p05": 39.84496719921263,
-            "p95": 95.92306918328968,
-            "count": 5362
+            "window_start_utc": "2025-02-11T00:00:00Z",
+            "window_end_utc": "2025-02-12T00:00:00Z",
+            "samples_24h": 56,
+            "forecast_hour_avg_24h": 10.714285714285714,
+            "mean_value_avg_24h": 72.10101463436153,
+            "stddev_avg_24h": 19.5021020418616,
+            "p05_avg_24h": 39.79390924686576,
+            "p95_avg_24h": 95.92636324473142,
+            "count_avg_24h": 5362.0
           }
         ],
         "metadata": {
@@ -3495,28 +4015,33 @@
             "p05",
             "p95",
             "count"
-          ]
+          ],
+          "aggregation_hours": 24
         }
       },
       {
         "columns": [
-          "valid_date",
-          "forecast_hour",
-          "mean_value",
-          "stddev",
-          "p05",
-          "p95",
-          "count"
+          "window_start_utc",
+          "window_end_utc",
+          "samples_24h",
+          "forecast_hour_avg_24h",
+          "mean_value_avg_24h",
+          "stddev_avg_24h",
+          "p05_avg_24h",
+          "p95_avg_24h",
+          "count_avg_24h"
         ],
         "rows": [
           {
-            "valid_date": "2025-02-12T00:00:00Z",
-            "forecast_hour": 6,
-            "mean_value": -5.6828688092713335,
-            "stddev": 5.42468856660386,
-            "p05": -17.619263937175567,
-            "p95": 0.0896103735856044,
-            "count": 5362
+            "window_start_utc": "2025-02-11T00:00:00Z",
+            "window_end_utc": "2025-02-12T00:00:00Z",
+            "samples_24h": 56,
+            "forecast_hour_avg_24h": 10.714285714285714,
+            "mean_value_avg_24h": -0.8894136315951947,
+            "stddev_avg_24h": 7.045312334448952,
+            "p05_avg_24h": -11.138785428524548,
+            "p95_avg_24h": 11.395477136696494,
+            "count_avg_24h": 5362.0
           }
         ],
         "metadata": {
@@ -3529,28 +4054,33 @@
             "p05",
             "p95",
             "count"
-          ]
+          ],
+          "aggregation_hours": 24
         }
       },
       {
         "columns": [
-          "valid_date",
-          "forecast_hour",
-          "mean_value",
-          "stddev",
-          "p05",
-          "p95",
-          "count"
+          "window_start_utc",
+          "window_end_utc",
+          "samples_24h",
+          "forecast_hour_avg_24h",
+          "mean_value_avg_24h",
+          "stddev_avg_24h",
+          "p05_avg_24h",
+          "p95_avg_24h",
+          "count_avg_24h"
         ],
         "rows": [
           {
-            "valid_date": "2025-02-12T00:00:00Z",
-            "forecast_hour": 6,
-            "mean_value": 241.95701283338585,
-            "stddev": 2.3870005158446235,
-            "p05": 237.79827939448217,
-            "p95": 245.77649620636157,
-            "count": 5362
+            "window_start_utc": "2025-02-11T00:00:00Z",
+            "window_end_utc": "2025-02-12T00:00:00Z",
+            "samples_24h": 56,
+            "forecast_hour_avg_24h": 10.714285714285714,
+            "mean_value_avg_24h": 244.48448458336716,
+            "stddev_avg_24h": 1.8850477901074432,
+            "p05_avg_24h": 241.73161112114397,
+            "p95_avg_24h": 247.6143930984004,
+            "count_avg_24h": 5362.0
           }
         ],
         "metadata": {
@@ -3563,28 +4093,33 @@
             "p05",
             "p95",
             "count"
-          ]
+          ],
+          "aggregation_hours": 24
         }
       },
       {
         "columns": [
-          "valid_date",
-          "forecast_hour",
-          "mean_value",
-          "stddev",
-          "p05",
-          "p95",
-          "count"
+          "window_start_utc",
+          "window_end_utc",
+          "samples_24h",
+          "forecast_hour_avg_24h",
+          "mean_value_avg_24h",
+          "stddev_avg_24h",
+          "p05_avg_24h",
+          "p95_avg_24h",
+          "count_avg_24h"
         ],
         "rows": [
           {
-            "valid_date": "2025-02-12T00:00:00Z",
-            "forecast_hour": 6,
-            "mean_value": 0.3218323914505547,
-            "stddev": 0.0778043304811398,
-            "p05": 0.1931143520216469,
-            "p95": 0.4208163491814992,
-            "count": 5362
+            "window_start_utc": "2025-02-11T00:00:00Z",
+            "window_end_utc": "2025-02-12T00:00:00Z",
+            "samples_24h": 56,
+            "forecast_hour_avg_24h": 10.714285714285714,
+            "mean_value_avg_24h": 0.32261700988292447,
+            "stddev_avg_24h": 0.07766298666590672,
+            "p05_avg_24h": 0.19433032392103694,
+            "p95_avg_24h": 0.42210952564592985,
+            "count_avg_24h": 5362.0
           }
         ],
         "metadata": {
@@ -3597,28 +4132,33 @@
             "p05",
             "p95",
             "count"
-          ]
+          ],
+          "aggregation_hours": 24
         }
       },
       {
         "columns": [
-          "valid_date",
-          "forecast_hour",
-          "mean_value",
-          "stddev",
-          "p05",
-          "p95",
-          "count"
+          "window_start_utc",
+          "window_end_utc",
+          "samples_24h",
+          "forecast_hour_avg_24h",
+          "mean_value_avg_24h",
+          "stddev_avg_24h",
+          "p05_avg_24h",
+          "p95_avg_24h",
+          "count_avg_24h"
         ],
         "rows": [
           {
-            "valid_date": "2025-02-12T00:00:00Z",
-            "forecast_hour": 6,
-            "mean_value": 0.0002523812972735,
-            "stddev": 4.184120286679769e-05,
-            "p05": 0.0001932682696694,
-            "p95": 0.0003311910082576,
-            "count": 5362
+            "window_start_utc": "2025-02-11T00:00:00Z",
+            "window_end_utc": "2025-02-12T00:00:00Z",
+            "samples_24h": 56,
+            "forecast_hour_avg_24h": 10.714285714285714,
+            "mean_value_avg_24h": 0.0002941166000068339,
+            "stddev_avg_24h": 4.5148631197766426e-05,
+            "p05_avg_24h": 0.00023506540761705538,
+            "p95_avg_24h": 0.00037368555072347145,
+            "count_avg_24h": 5362.0
           }
         ],
         "metadata": {
@@ -3631,28 +4171,33 @@
             "p05",
             "p95",
             "count"
-          ]
+          ],
+          "aggregation_hours": 24
         }
       },
       {
         "columns": [
-          "valid_date",
-          "forecast_hour",
-          "mean_value",
-          "stddev",
-          "p05",
-          "p95",
-          "count"
+          "window_start_utc",
+          "window_end_utc",
+          "samples_24h",
+          "forecast_hour_avg_24h",
+          "mean_value_avg_24h",
+          "stddev_avg_24h",
+          "p05_avg_24h",
+          "p95_avg_24h",
+          "count_avg_24h"
         ],
         "rows": [
           {
-            "valid_date": "2025-02-12T00:00:00Z",
-            "forecast_hour": 6,
-            "mean_value": 0.0002462656899407,
-            "stddev": 3.473279991628239e-05,
-            "p05": 0.0001692606429921,
-            "p95": 0.0002819385946066,
-            "count": 5362
+            "window_start_utc": "2025-02-11T00:00:00Z",
+            "window_end_utc": "2025-02-12T00:00:00Z",
+            "samples_24h": 56,
+            "forecast_hour_avg_24h": 10.714285714285714,
+            "mean_value_avg_24h": 0.00011823237484147416,
+            "stddev_avg_24h": 3.4589926523706285e-05,
+            "p05_avg_24h": 6.157132788374271e-05,
+            "p95_avg_24h": 0.00016791687788765024,
+            "count_avg_24h": 5362.0
           }
         ],
         "metadata": {
@@ -3665,28 +4210,33 @@
             "p05",
             "p95",
             "count"
-          ]
+          ],
+          "aggregation_hours": 24
         }
       },
       {
         "columns": [
-          "valid_date",
-          "forecast_hour",
-          "mean_value",
-          "stddev",
-          "p05",
-          "p95",
-          "count"
+          "window_start_utc",
+          "window_end_utc",
+          "samples_24h",
+          "forecast_hour_avg_24h",
+          "mean_value_avg_24h",
+          "stddev_avg_24h",
+          "p05_avg_24h",
+          "p95_avg_24h",
+          "count_avg_24h"
         ],
         "rows": [
           {
-            "valid_date": "2025-02-12T00:00:00Z",
-            "forecast_hour": 6,
-            "mean_value": 0.0002585172411329,
-            "stddev": 5.904862222475757e-05,
-            "p05": 0.0001442559255642,
-            "p95": 0.0003310849413559,
-            "count": 5362
+            "window_start_utc": "2025-02-11T00:00:00Z",
+            "window_end_utc": "2025-02-12T00:00:00Z",
+            "samples_24h": 56,
+            "forecast_hour_avg_24h": 10.714285714285714,
+            "mean_value_avg_24h": 0.00031975156835605537,
+            "stddev_avg_24h": 5.037360963942207e-05,
+            "p05_avg_24h": 0.0002445363933539307,
+            "p95_avg_24h": 0.0004017131512754054,
+            "count_avg_24h": 5362.0
           }
         ],
         "metadata": {
@@ -3699,28 +4249,33 @@
             "p05",
             "p95",
             "count"
-          ]
+          ],
+          "aggregation_hours": 24
         }
       },
       {
         "columns": [
-          "valid_date",
-          "forecast_hour",
-          "mean_value",
-          "stddev",
-          "p05",
-          "p95",
-          "count"
+          "window_start_utc",
+          "window_end_utc",
+          "samples_24h",
+          "forecast_hour_avg_24h",
+          "mean_value_avg_24h",
+          "stddev_avg_24h",
+          "p05_avg_24h",
+          "p95_avg_24h",
+          "count_avg_24h"
         ],
         "rows": [
           {
-            "valid_date": "2025-02-12T00:00:00Z",
-            "forecast_hour": 6,
-            "mean_value": 0.0005519112417812,
-            "stddev": 1.4744498261765363e-05,
-            "p05": 0.0005213241182309,
-            "p95": 0.000572869223341,
-            "count": 5362
+            "window_start_utc": "2025-02-11T00:00:00Z",
+            "window_end_utc": "2025-02-12T00:00:00Z",
+            "samples_24h": 56,
+            "forecast_hour_avg_24h": 10.714285714285714,
+            "mean_value_avg_24h": 0.0005092536508772822,
+            "stddev_avg_24h": 2.7622273017073675e-05,
+            "p05_avg_24h": 0.00046899108035919465,
+            "p95_avg_24h": 0.0005565310547009268,
+            "count_avg_24h": 5362.0
           }
         ],
         "metadata": {
@@ -3733,28 +4288,33 @@
             "p05",
             "p95",
             "count"
-          ]
+          ],
+          "aggregation_hours": 24
         }
       },
       {
         "columns": [
-          "valid_date",
-          "forecast_hour",
-          "mean_value",
-          "stddev",
-          "p05",
-          "p95",
-          "count"
+          "window_start_utc",
+          "window_end_utc",
+          "samples_24h",
+          "forecast_hour_avg_24h",
+          "mean_value_avg_24h",
+          "stddev_avg_24h",
+          "p05_avg_24h",
+          "p95_avg_24h",
+          "count_avg_24h"
         ],
         "rows": [
           {
-            "valid_date": "2025-02-12T00:00:00Z",
-            "forecast_hour": 11,
-            "mean_value": 0.0024405783282324,
-            "stddev": 0.0033266596784403,
-            "p05": 0.0,
-            "p95": 0.0097277751951202,
-            "count": 5362
+            "window_start_utc": "2025-02-11T00:00:00Z",
+            "window_end_utc": "2025-02-12T00:00:00Z",
+            "samples_24h": 48,
+            "forecast_hour_avg_24h": 12.5,
+            "mean_value_avg_24h": 0.012596936417916663,
+            "stddev_avg_24h": 0.008384466279044725,
+            "p05_avg_24h": 0.0020041018341798588,
+            "p95_avg_24h": 0.02849840314203153,
+            "count_avg_24h": 5362.0
           }
         ],
         "metadata": {
@@ -3767,28 +4327,33 @@
             "p05",
             "p95",
             "count"
-          ]
+          ],
+          "aggregation_hours": 24
         }
       },
       {
         "columns": [
-          "valid_date",
-          "forecast_hour",
-          "mean_value",
-          "stddev",
-          "p05",
-          "p95",
-          "count"
+          "window_start_utc",
+          "window_end_utc",
+          "samples_24h",
+          "forecast_hour_avg_24h",
+          "mean_value_avg_24h",
+          "stddev_avg_24h",
+          "p05_avg_24h",
+          "p95_avg_24h",
+          "count_avg_24h"
         ],
         "rows": [
           {
-            "valid_date": "2025-02-12T00:00:00Z",
-            "forecast_hour": 6,
-            "mean_value": 33.724608185256585,
-            "stddev": 5.842798753758233,
-            "p05": 24.073001016190968,
-            "p95": 42.5658619500848,
-            "count": 5362
+            "window_start_utc": "2025-02-11T00:00:00Z",
+            "window_end_utc": "2025-02-12T00:00:00Z",
+            "samples_24h": 56,
+            "forecast_hour_avg_24h": 10.714285714285714,
+            "mean_value_avg_24h": 19.958374275509083,
+            "stddev_avg_24h": 5.0572882784009865,
+            "p05_avg_24h": 12.794134639694269,
+            "p95_avg_24h": 28.539748331182068,
+            "count_avg_24h": 5362.0
           }
         ],
         "metadata": {
@@ -3801,28 +4366,33 @@
             "p05",
             "p95",
             "count"
-          ]
+          ],
+          "aggregation_hours": 24
         }
       },
       {
         "columns": [
-          "valid_date",
-          "forecast_hour",
-          "mean_value",
-          "stddev",
-          "p05",
-          "p95",
-          "count"
+          "window_start_utc",
+          "window_end_utc",
+          "samples_24h",
+          "forecast_hour_avg_24h",
+          "mean_value_avg_24h",
+          "stddev_avg_24h",
+          "p05_avg_24h",
+          "p95_avg_24h",
+          "count_avg_24h"
         ],
         "rows": [
           {
-            "valid_date": "2025-02-12T00:00:00Z",
-            "forecast_hour": 6,
-            "mean_value": 243.63846720812776,
-            "stddev": 1.3854334922877674,
-            "p05": 241.940600259745,
-            "p95": 246.29720239527813,
-            "count": 5362
+            "window_start_utc": "2025-02-11T00:00:00Z",
+            "window_end_utc": "2025-02-12T00:00:00Z",
+            "samples_24h": 56,
+            "forecast_hour_avg_24h": 10.714285714285714,
+            "mean_value_avg_24h": 245.10108733095305,
+            "stddev_avg_24h": 1.6114382202287707,
+            "p05_avg_24h": 242.94994620401707,
+            "p95_avg_24h": 247.83954292173573,
+            "count_avg_24h": 5362.0
           }
         ],
         "metadata": {
@@ -3835,28 +4405,33 @@
             "p05",
             "p95",
             "count"
-          ]
+          ],
+          "aggregation_hours": 24
         }
       },
       {
         "columns": [
-          "valid_date",
-          "forecast_hour",
-          "mean_value",
-          "stddev",
-          "p05",
-          "p95",
-          "count"
+          "window_start_utc",
+          "window_end_utc",
+          "samples_24h",
+          "forecast_hour_avg_24h",
+          "mean_value_avg_24h",
+          "stddev_avg_24h",
+          "p05_avg_24h",
+          "p95_avg_24h",
+          "count_avg_24h"
         ],
         "rows": [
           {
-            "valid_date": "2025-02-12T00:00:00Z",
-            "forecast_hour": 6,
-            "mean_value": 237.09946801597184,
-            "stddev": 0.5779300851267302,
-            "p05": 236.14928639092045,
-            "p95": 238.10060603746757,
-            "count": 5362
+            "window_start_utc": "2025-02-11T00:00:00Z",
+            "window_end_utc": "2025-02-12T00:00:00Z",
+            "samples_24h": 56,
+            "forecast_hour_avg_24h": 10.714285714285714,
+            "mean_value_avg_24h": 236.75552790683247,
+            "stddev_avg_24h": 0.7377431767177817,
+            "p05_avg_24h": 235.57913630759487,
+            "p95_avg_24h": 238.03291613085392,
+            "count_avg_24h": 5362.0
           }
         ],
         "metadata": {
@@ -3869,28 +4444,33 @@
             "p05",
             "p95",
             "count"
-          ]
+          ],
+          "aggregation_hours": 24
         }
       },
       {
         "columns": [
-          "valid_date",
-          "forecast_hour",
-          "mean_value",
-          "stddev",
-          "p05",
-          "p95",
-          "count"
+          "window_start_utc",
+          "window_end_utc",
+          "samples_24h",
+          "forecast_hour_avg_24h",
+          "mean_value_avg_24h",
+          "stddev_avg_24h",
+          "p05_avg_24h",
+          "p95_avg_24h",
+          "count_avg_24h"
         ],
         "rows": [
           {
-            "valid_date": "2025-02-12T00:00:00Z",
-            "forecast_hour": 6,
-            "mean_value": 249.0666024036783,
-            "stddev": 0.6120106273274003,
-            "p05": 248.5328342863011,
-            "p95": 250.476227597504,
-            "count": 5362
+            "window_start_utc": "2025-02-11T00:00:00Z",
+            "window_end_utc": "2025-02-12T00:00:00Z",
+            "samples_24h": 56,
+            "forecast_hour_avg_24h": 10.714285714285714,
+            "mean_value_avg_24h": 248.32976655534898,
+            "stddev_avg_24h": 0.4281764022800462,
+            "p05_avg_24h": 247.709951440351,
+            "p95_avg_24h": 249.1011519675283,
+            "count_avg_24h": 5362.0
           }
         ],
         "metadata": {
@@ -3903,28 +4483,33 @@
             "p05",
             "p95",
             "count"
-          ]
+          ],
+          "aggregation_hours": 24
         }
       },
       {
         "columns": [
-          "valid_date",
-          "forecast_hour",
-          "mean_value",
-          "stddev",
-          "p05",
-          "p95",
-          "count"
+          "window_start_utc",
+          "window_end_utc",
+          "samples_24h",
+          "forecast_hour_avg_24h",
+          "mean_value_avg_24h",
+          "stddev_avg_24h",
+          "p05_avg_24h",
+          "p95_avg_24h",
+          "count_avg_24h"
         ],
         "rows": [
           {
-            "valid_date": "2025-02-12T00:00:00Z",
-            "forecast_hour": 6,
-            "mean_value": 251.24178880756705,
-            "stddev": 0.5835836124138462,
-            "p05": 250.2730477003152,
-            "p95": 252.297866092781,
-            "count": 5362
+            "window_start_utc": "2025-02-11T00:00:00Z",
+            "window_end_utc": "2025-02-12T00:00:00Z",
+            "samples_24h": 56,
+            "forecast_hour_avg_24h": 10.714285714285714,
+            "mean_value_avg_24h": 250.53979058610503,
+            "stddev_avg_24h": 0.58970392738225,
+            "p05_avg_24h": 249.69549643353062,
+            "p95_avg_24h": 251.62045072111627,
+            "count_avg_24h": 5362.0
           }
         ],
         "metadata": {
@@ -3937,28 +4522,33 @@
             "p05",
             "p95",
             "count"
-          ]
+          ],
+          "aggregation_hours": 24
         }
       },
       {
         "columns": [
-          "valid_date",
-          "forecast_hour",
-          "mean_value",
-          "stddev",
-          "p05",
-          "p95",
-          "count"
+          "window_start_utc",
+          "window_end_utc",
+          "samples_24h",
+          "forecast_hour_avg_24h",
+          "mean_value_avg_24h",
+          "stddev_avg_24h",
+          "p05_avg_24h",
+          "p95_avg_24h",
+          "count_avg_24h"
         ],
         "rows": [
           {
-            "valid_date": "2025-02-12T00:00:00Z",
-            "forecast_hour": 6,
-            "mean_value": -1.5577994082266446,
-            "stddev": 0.2869332910789927,
-            "p05": -1.988298421612451,
-            "p95": -1.0659612179269735,
-            "count": 5362
+            "window_start_utc": "2025-02-11T00:00:00Z",
+            "window_end_utc": "2025-02-12T00:00:00Z",
+            "samples_24h": 56,
+            "forecast_hour_avg_24h": 10.714285714285714,
+            "mean_value_avg_24h": -0.03282571678035224,
+            "stddev_avg_24h": 0.3952875054743214,
+            "p05_avg_24h": -0.6569637517006112,
+            "p95_avg_24h": 0.6170145108899548,
+            "count_avg_24h": 5362.0
           }
         ],
         "metadata": {
@@ -3971,28 +4561,33 @@
             "p05",
             "p95",
             "count"
-          ]
+          ],
+          "aggregation_hours": 24
         }
       },
       {
         "columns": [
-          "valid_date",
-          "forecast_hour",
-          "mean_value",
-          "stddev",
-          "p05",
-          "p95",
-          "count"
+          "window_start_utc",
+          "window_end_utc",
+          "samples_24h",
+          "forecast_hour_avg_24h",
+          "mean_value_avg_24h",
+          "stddev_avg_24h",
+          "p05_avg_24h",
+          "p95_avg_24h",
+          "count_avg_24h"
         ],
         "rows": [
           {
-            "valid_date": "2025-02-12T00:00:00Z",
-            "forecast_hour": 6,
-            "mean_value": 6.4133101523915,
-            "stddev": 1.152875482204134,
-            "p05": 4.17363636379678,
-            "p95": 8.047452619275786,
-            "count": 5362
+            "window_start_utc": "2025-02-11T00:00:00Z",
+            "window_end_utc": "2025-02-12T00:00:00Z",
+            "samples_24h": 56,
+            "forecast_hour_avg_24h": 10.714285714285714,
+            "mean_value_avg_24h": 2.790841582644075,
+            "stddev_avg_24h": 0.8455017431086336,
+            "p05_avg_24h": 1.5552717633363267,
+            "p95_avg_24h": 4.226755592582478,
+            "count_avg_24h": 5362.0
           }
         ],
         "metadata": {
@@ -4005,28 +4600,33 @@
             "p05",
             "p95",
             "count"
-          ]
+          ],
+          "aggregation_hours": 24
         }
       },
       {
         "columns": [
-          "valid_date",
-          "forecast_hour",
-          "mean_value",
-          "stddev",
-          "p05",
-          "p95",
-          "count"
+          "window_start_utc",
+          "window_end_utc",
+          "samples_24h",
+          "forecast_hour_avg_24h",
+          "mean_value_avg_24h",
+          "stddev_avg_24h",
+          "p05_avg_24h",
+          "p95_avg_24h",
+          "count_avg_24h"
         ],
         "rows": [
           {
-            "valid_date": "2025-02-12T00:00:00Z",
-            "forecast_hour": 6,
-            "mean_value": 0.5596581644456281,
-            "stddev": 0.6975770204216958,
-            "p05": -0.1742935277038888,
-            "p95": 1.993198900956984,
-            "count": 5362
+            "window_start_utc": "2025-02-11T00:00:00Z",
+            "window_end_utc": "2025-02-12T00:00:00Z",
+            "samples_24h": 56,
+            "forecast_hour_avg_24h": 10.714285714285714,
+            "mean_value_avg_24h": 0.29165599002207376,
+            "stddev_avg_24h": 0.705323048007017,
+            "p05_avg_24h": -0.728924525886059,
+            "p95_avg_24h": 1.4270386877287449,
+            "count_avg_24h": 5362.0
           }
         ],
         "metadata": {
@@ -4039,28 +4639,33 @@
             "p05",
             "p95",
             "count"
-          ]
+          ],
+          "aggregation_hours": 24
         }
       },
       {
         "columns": [
-          "valid_date",
-          "forecast_hour",
-          "mean_value",
-          "stddev",
-          "p05",
-          "p95",
-          "count"
+          "window_start_utc",
+          "window_end_utc",
+          "samples_24h",
+          "forecast_hour_avg_24h",
+          "mean_value_avg_24h",
+          "stddev_avg_24h",
+          "p05_avg_24h",
+          "p95_avg_24h",
+          "count_avg_24h"
         ],
         "rows": [
           {
-            "valid_date": "2025-02-12T00:00:00Z",
-            "forecast_hour": 6,
-            "mean_value": -0.000391128315203,
-            "stddev": 0.3897408012293386,
-            "p05": -0.4495408705548216,
-            "p95": 0.7725559243284362,
-            "count": 5362
+            "window_start_utc": "2025-02-11T00:00:00Z",
+            "window_end_utc": "2025-02-12T00:00:00Z",
+            "samples_24h": 56,
+            "forecast_hour_avg_24h": 10.714285714285714,
+            "mean_value_avg_24h": -0.7233684868458995,
+            "stddev_avg_24h": 0.46120145649869887,
+            "p05_avg_24h": -1.4015358485174307,
+            "p95_avg_24h": 0.046615912804812455,
+            "count_avg_24h": 5362.0
           }
         ],
         "metadata": {
@@ -4073,28 +4678,33 @@
             "p05",
             "p95",
             "count"
-          ]
+          ],
+          "aggregation_hours": 24
         }
       },
       {
         "columns": [
-          "valid_date",
-          "forecast_hour",
-          "mean_value",
-          "stddev",
-          "p05",
-          "p95",
-          "count"
+          "window_start_utc",
+          "window_end_utc",
+          "samples_24h",
+          "forecast_hour_avg_24h",
+          "mean_value_avg_24h",
+          "stddev_avg_24h",
+          "p05_avg_24h",
+          "p95_avg_24h",
+          "count_avg_24h"
         ],
         "rows": [
           {
-            "valid_date": "2025-02-12T00:00:00Z",
-            "forecast_hour": 6,
-            "mean_value": 0.6147351951298801,
-            "stddev": 0.5410260594891921,
-            "p05": -0.1123852176387054,
-            "p95": 1.5593509640412229,
-            "count": 5362
+            "window_start_utc": "2025-02-11T00:00:00Z",
+            "window_end_utc": "2025-02-12T00:00:00Z",
+            "samples_24h": 56,
+            "forecast_hour_avg_24h": 10.714285714285714,
+            "mean_value_avg_24h": -1.1758934858109644,
+            "stddev_avg_24h": 0.4582922846426377,
+            "p05_avg_24h": -1.8570524202619725,
+            "p95_avg_24h": -0.3743130138015239,
+            "count_avg_24h": 5362.0
           }
         ],
         "metadata": {
@@ -4107,28 +4717,33 @@
             "p05",
             "p95",
             "count"
-          ]
+          ],
+          "aggregation_hours": 24
         }
       },
       {
         "columns": [
-          "valid_date",
-          "forecast_hour",
-          "mean_value",
-          "stddev",
-          "p05",
-          "p95",
-          "count"
+          "window_start_utc",
+          "window_end_utc",
+          "samples_24h",
+          "forecast_hour_avg_24h",
+          "mean_value_avg_24h",
+          "stddev_avg_24h",
+          "p05_avg_24h",
+          "p95_avg_24h",
+          "count_avg_24h"
         ],
         "rows": [
           {
-            "valid_date": "2025-02-12T00:00:00Z",
-            "forecast_hour": 6,
-            "mean_value": -21.541453365484703,
-            "stddev": 1.0714398634542308,
-            "p05": -23.368885732449726,
-            "p95": -20.11764708945842,
-            "count": 5362
+            "window_start_utc": "2025-02-11T00:00:00Z",
+            "window_end_utc": "2025-02-12T00:00:00Z",
+            "samples_24h": 56,
+            "forecast_hour_avg_24h": 10.714285714285714,
+            "mean_value_avg_24h": -24.06909728035946,
+            "stddev_avg_24h": 2.0923886899862993,
+            "p05_avg_24h": -27.434492703872397,
+            "p95_avg_24h": -20.691137174962993,
+            "count_avg_24h": 5362.0
           }
         ],
         "metadata": {
@@ -4141,28 +4756,33 @@
             "p05",
             "p95",
             "count"
-          ]
+          ],
+          "aggregation_hours": 24
         }
       },
       {
         "columns": [
-          "valid_date",
-          "forecast_hour",
-          "mean_value",
-          "stddev",
-          "p05",
-          "p95",
-          "count"
+          "window_start_utc",
+          "window_end_utc",
+          "samples_24h",
+          "forecast_hour_avg_24h",
+          "mean_value_avg_24h",
+          "stddev_avg_24h",
+          "p05_avg_24h",
+          "p95_avg_24h",
+          "count_avg_24h"
         ],
         "rows": [
           {
-            "valid_date": "2025-02-12T00:00:00Z",
-            "forecast_hour": 6,
-            "mean_value": -7.646387566322678,
-            "stddev": 0.93601485620732,
-            "p05": -9.610011694364069,
-            "p95": -6.566298922201992,
-            "count": 5362
+            "window_start_utc": "2025-02-11T00:00:00Z",
+            "window_end_utc": "2025-02-12T00:00:00Z",
+            "samples_24h": 56,
+            "forecast_hour_avg_24h": 10.714285714285714,
+            "mean_value_avg_24h": -9.575326797788964,
+            "stddev_avg_24h": 1.130449459777784,
+            "p05_avg_24h": -11.417256112229316,
+            "p95_avg_24h": -7.820141017855953,
+            "count_avg_24h": 5362.0
           }
         ],
         "metadata": {
@@ -4175,28 +4795,33 @@
             "p05",
             "p95",
             "count"
-          ]
+          ],
+          "aggregation_hours": 24
         }
       },
       {
         "columns": [
-          "valid_date",
-          "forecast_hour",
-          "mean_value",
-          "stddev",
-          "p05",
-          "p95",
-          "count"
+          "window_start_utc",
+          "window_end_utc",
+          "samples_24h",
+          "forecast_hour_avg_24h",
+          "mean_value_avg_24h",
+          "stddev_avg_24h",
+          "p05_avg_24h",
+          "p95_avg_24h",
+          "count_avg_24h"
         ],
         "rows": [
           {
-            "valid_date": "2025-02-12T00:00:00Z",
-            "forecast_hour": 6,
-            "mean_value": -2.2116573947608664,
-            "stddev": 1.0462522754159551,
-            "p05": -3.2765995383929387,
-            "p95": 0.0899312550590546,
-            "count": 5362
+            "window_start_utc": "2025-02-11T00:00:00Z",
+            "window_end_utc": "2025-02-12T00:00:00Z",
+            "samples_24h": 56,
+            "forecast_hour_avg_24h": 10.714285714285714,
+            "mean_value_avg_24h": -5.79080962954323,
+            "stddev_avg_24h": 0.8680005870828423,
+            "p05_avg_24h": -6.964955349627725,
+            "p95_avg_24h": -4.207825922896494,
+            "count_avg_24h": 5362.0
           }
         ],
         "metadata": {
@@ -4209,28 +4834,33 @@
             "p05",
             "p95",
             "count"
-          ]
+          ],
+          "aggregation_hours": 24
         }
       },
       {
         "columns": [
-          "valid_date",
-          "forecast_hour",
-          "mean_value",
-          "stddev",
-          "p05",
-          "p95",
-          "count"
+          "window_start_utc",
+          "window_end_utc",
+          "samples_24h",
+          "forecast_hour_avg_24h",
+          "mean_value_avg_24h",
+          "stddev_avg_24h",
+          "p05_avg_24h",
+          "p95_avg_24h",
+          "count_avg_24h"
         ],
         "rows": [
           {
-            "valid_date": "2025-02-12T00:00:00Z",
-            "forecast_hour": 6,
-            "mean_value": -0.0228469008577341,
-            "stddev": 0.039919396004576,
-            "p05": -0.081367027048912,
-            "p95": 0.0454543384578411,
-            "count": 5362
+            "window_start_utc": "2025-02-11T00:00:00Z",
+            "window_end_utc": "2025-02-12T00:00:00Z",
+            "samples_24h": 56,
+            "forecast_hour_avg_24h": 10.714285714285714,
+            "mean_value_avg_24h": 0.0032711901870219906,
+            "stddev_avg_24h": 0.09243715981463756,
+            "p05_avg_24h": -0.14996663188579,
+            "p95_avg_24h": 0.15574414453387256,
+            "count_avg_24h": 5362.0
           }
         ],
         "metadata": {
@@ -4243,28 +4873,33 @@
             "p05",
             "p95",
             "count"
-          ]
+          ],
+          "aggregation_hours": 24
         }
       },
       {
         "columns": [
-          "valid_date",
-          "forecast_hour",
-          "mean_value",
-          "stddev",
-          "p05",
-          "p95",
-          "count"
+          "window_start_utc",
+          "window_end_utc",
+          "samples_24h",
+          "forecast_hour_avg_24h",
+          "mean_value_avg_24h",
+          "stddev_avg_24h",
+          "p05_avg_24h",
+          "p95_avg_24h",
+          "count_avg_24h"
         ],
         "rows": [
           {
-            "valid_date": "2025-02-12T00:00:00Z",
-            "forecast_hour": 6,
-            "mean_value": -0.0296728095248854,
-            "stddev": 0.0240613417864549,
-            "p05": -0.0724333631318366,
-            "p95": -0.0032580728554258,
-            "count": 5362
+            "window_start_utc": "2025-02-11T00:00:00Z",
+            "window_end_utc": "2025-02-12T00:00:00Z",
+            "samples_24h": 56,
+            "forecast_hour_avg_24h": 10.714285714285714,
+            "mean_value_avg_24h": 0.016382606136409444,
+            "stddev_avg_24h": 0.06317828009835844,
+            "p05_avg_24h": -0.08634400727104334,
+            "p95_avg_24h": 0.11548159317268869,
+            "count_avg_24h": 5362.0
           }
         ],
         "metadata": {
@@ -4277,28 +4912,33 @@
             "p05",
             "p95",
             "count"
-          ]
+          ],
+          "aggregation_hours": 24
         }
       },
       {
         "columns": [
-          "valid_date",
-          "forecast_hour",
-          "mean_value",
-          "stddev",
-          "p05",
-          "p95",
-          "count"
+          "window_start_utc",
+          "window_end_utc",
+          "samples_24h",
+          "forecast_hour_avg_24h",
+          "mean_value_avg_24h",
+          "stddev_avg_24h",
+          "p05_avg_24h",
+          "p95_avg_24h",
+          "count_avg_24h"
         ],
         "rows": [
           {
-            "valid_date": "2025-02-12T00:00:00Z",
-            "forecast_hour": 6,
-            "mean_value": 0.0219014704885833,
-            "stddev": 0.0190321911219381,
-            "p05": -0.0024956275122608,
-            "p95": 0.0666796627641499,
-            "count": 5362
+            "window_start_utc": "2025-02-11T00:00:00Z",
+            "window_end_utc": "2025-02-12T00:00:00Z",
+            "samples_24h": 56,
+            "forecast_hour_avg_24h": 10.714285714285714,
+            "mean_value_avg_24h": 0.019221404927513803,
+            "stddev_avg_24h": 0.051956046437988734,
+            "p05_avg_24h": -0.06530470148338349,
+            "p95_avg_24h": 0.10207479552471763,
+            "count_avg_24h": 5362.0
           }
         ],
         "metadata": {
@@ -4311,7 +4951,8 @@
             "p05",
             "p95",
             "count"
-          ]
+          ],
+          "aggregation_hours": 24
         }
       }
     ]
