@@ -57,6 +57,9 @@ BAND_TOKENS = sorted(BAND_ALIASES.keys(), key=len, reverse=True)
 
 logger = logging.getLogger(__name__)
 
+SCRIPT_DIR = Path(__file__).resolve().parent
+DEFAULT_OUTPUT_ROOT = SCRIPT_DIR.parent / "public" / "data"
+
 
 @dataclass
 class ModelSpec:
@@ -119,7 +122,7 @@ def normalize_region_name(value: str) -> str:
 
 
 def slugify_region(value: str) -> str:
-    return normalize_region_name(value).replace(" ", "_")
+    return normalize_region_name(value).replace(" ", "-")
 
 
 def region_aliases(slug: str) -> List[str]:
@@ -767,7 +770,9 @@ def main(argv: Sequence[str] | None = None) -> int:
     logger.info("Regions to process: %s", regions)
 
     multi_region = len(regions) > 1
-    output_arg: Path | None = args.output
+    output_arg: Path | None = args.output.expanduser() if args.output else None
+    if output_arg and not output_arg.is_absolute():
+        output_arg = (Path.cwd() / output_arg).resolve()
     if multi_region and output_arg and output_arg.suffix == ".json":
         parser.error("When generating multiple regions, --output must be a directory")
 
@@ -889,7 +894,7 @@ def main(argv: Sequence[str] | None = None) -> int:
             else:
                 base_path = output_arg / region_slug
         else:
-            base_path = Path("public/data") / region_slug
+            base_path = DEFAULT_OUTPUT_ROOT / region_slug
 
         summary_path = base_path / "summary.json"
         timeseries_path = base_path / "timeseries.json"
