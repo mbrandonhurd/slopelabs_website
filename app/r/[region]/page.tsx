@@ -55,8 +55,11 @@ export default async function RegionPage({ params }: { params: { region: string 
             <ProblemsChips forecast={forecast} />
           </>
         ) : (
-          <div className="text-xs text-neutral-500">
-            No forecast data found for this region.
+          <div className="card">
+            <div className="card-h"><h3 className="font-medium">Forecast Unavailable</h3></div>
+            <div className="card-c text-sm text-neutral-600">
+              We don't have an avalanche forecast for this region yet. Live station snapshots and model summaries below still reflect the latest conditions.
+            </div>
           </div>
         )}
 
