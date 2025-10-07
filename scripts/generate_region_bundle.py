@@ -616,6 +616,8 @@ def build_model_payload(
                 windowed = band_df.tail(1)
 
             summary_row: dict[str, object] = {
+                "variable": spec.variable,
+                "level": spec.level,
                 "window_start_utc": to_iso([windowed[time_col].min()])[0] if not windowed.empty else "",
                 "window_end_utc": to_iso([window_end])[0],
                 "samples_24h": int(len(windowed)),
@@ -629,7 +631,7 @@ def build_model_payload(
                 summary_row[out_key] = to_jsonable(values.mean()) if not values.empty else None
                 metric_columns.append(out_key)
 
-            columns = ["window_start_utc", "window_end_utc", "samples_24h"] + metric_columns
+            columns = ["variable", "level", "window_start_utc", "window_end_utc", "samples_24h"] + metric_columns
 
             summary[band].append(
                 {

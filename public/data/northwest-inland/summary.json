@@ -1,7 +1,7 @@
 {
   "region": "northwest-inland",
-  "run_time_utc": "2025-10-06T19:31:27Z",
-  "version": "202510061931",
+  "run_time_utc": "2025-10-06T21:09:49Z",
+  "version": "202510062109",
   "tiles_base": "https://tile.openstreetmap.org/",
   "stations": {
     "above_treeline": [],
@@ -39,6 +39,8 @@
     "above_treeline": [
       {
         "columns": [
+          "variable",
+          "level",
           "window_start_utc",
           "window_end_utc",
           "samples_24h",
@@ -51,6 +53,8 @@
         ],
         "rows": [
           {
+            "variable": "APCP",
+            "level": "Sfc",
             "window_start_utc": "2025-02-11T00:00:00Z",
             "window_end_utc": "2025-02-12T00:00:00Z",
             "samples_24h": 48,
@@ -78,6 +82,8 @@
       },
       {
         "columns": [
+          "variable",
+          "level",
           "window_start_utc",
           "window_end_utc",
           "samples_24h",
@@ -90,6 +96,8 @@
         ],
         "rows": [
           {
+            "variable": "CWAT",
+            "level": "EATM",
             "window_start_utc": "2025-02-11T00:00:00Z",
             "window_end_utc": "2025-02-12T00:00:00Z",
             "samples_24h": 56,
@@ -117,6 +125,8 @@
       },
       {
         "columns": [
+          "variable",
+          "level",
           "window_start_utc",
           "window_end_utc",
           "samples_24h",
@@ -129,6 +139,8 @@
         ],
         "rows": [
           {
+            "variable": "DLWRF",
+            "level": "Sfc",
             "window_start_utc": "2025-02-11T00:00:00Z",
             "window_end_utc": "2025-02-12T00:00:00Z",
             "samples_24h": 56,
@@ -156,6 +168,8 @@
       },
       {
         "columns": [
+          "variable",
+          "level",
           "window_start_utc",
           "window_end_utc",
           "samples_24h",
@@ -168,6 +182,8 @@
         ],
         "rows": [
           {
+            "variable": "DSWRF",
+            "level": "Sfc",
             "window_start_utc": "2025-02-11T00:00:00Z",
             "window_end_utc": "2025-02-12T00:00:00Z",
             "samples_24h": 56,
@@ -195,6 +211,8 @@
       },
       {
         "columns": [
+          "variable",
+          "level",
           "window_start_utc",
           "window_end_utc",
           "samples_24h",
@@ -207,6 +225,8 @@
         ],
         "rows": [
           {
+            "variable": "FPRATE",
+            "level": "Sfc",
             "window_start_utc": "2025-02-11T00:00:00Z",
             "window_end_utc": "2025-02-12T00:00:00Z",
             "samples_24h": 48,
@@ -234,6 +254,8 @@
       },
       {
         "columns": [
+          "variable",
+          "level",
           "window_start_utc",
           "window_end_utc",
           "samples_24h",
@@ -246,6 +268,8 @@
         ],
         "rows": [
           {
+            "variable": "GUST",
+            "level": "AGL-10m",
             "window_start_utc": "2025-02-11T00:00:00Z",
             "window_end_utc": "2025-02-12T00:00:00Z",
             "samples_24h": 56,
@@ -273,6 +297,8 @@
       },
       {
         "columns": [
+          "variable",
+          "level",
           "window_start_utc",
           "window_end_utc",
           "samples_24h",
@@ -285,6 +311,8 @@
         ],
         "rows": [
           {
+            "variable": "HGT",
+            "level": "ISBL_0500",
             "window_start_utc": "2025-02-11T00:00:00Z",
             "window_end_utc": "2025-02-12T00:00:00Z",
             "samples_24h": 56,
@@ -312,6 +340,8 @@
       },
       {
         "columns": [
+          "variable",
+          "level",
           "window_start_utc",
           "window_end_utc",
           "samples_24h",
@@ -324,6 +354,8 @@
         ],
         "rows": [
           {
+            "variable": "HGT",
+            "level": "ISBL_0700",
             "window_start_utc": "2025-02-11T00:00:00Z",
             "window_end_utc": "2025-02-12T00:00:00Z",
             "samples_24h": 56,
@@ -351,6 +383,8 @@
       },
       {
         "columns": [
+          "variable",
+          "level",
           "window_start_utc",
           "window_end_utc",
           "samples_24h",
@@ -363,6 +397,8 @@
         ],
         "rows": [
           {
+            "variable": "HPBL",
+            "level": "Sfc",
             "window_start_utc": "2025-02-11T00:00:00Z",
             "window_end_utc": "2025-02-12T00:00:00Z",
             "samples_24h": 56,
@@ -390,6 +426,8 @@
       },
       {
         "columns": [
+          "variable",
+          "level",
           "window_start_utc",
           "window_end_utc",
           "samples_24h",
@@ -402,6 +440,8 @@
         ],
         "rows": [
           {
+            "variable": "IPRATE",
+            "level": "Sfc",
             "window_start_utc": "2025-02-11T00:00:00Z",
             "window_end_utc": "2025-02-12T00:00:00Z",
             "samples_24h": 48,
@@ -429,6 +469,8 @@
       },
       {
         "columns": [
+          "variable",
+          "level",
           "window_start_utc",
           "window_end_utc",
           "samples_24h",
@@ -441,6 +483,8 @@
         ],
         "rows": [
           {
+            "variable": "LHTFL",
+            "level": "Sfc",
             "window_start_utc": "2025-02-11T00:00:00Z",
             "window_end_utc": "2025-02-12T00:00:00Z",
             "samples_24h": 56,
@@ -468,6 +512,8 @@
       },
       {
         "columns": [
+          "variable",
+          "level",
           "window_start_utc",
           "window_end_utc",
           "samples_24h",
@@ -480,6 +526,8 @@
         ],
         "rows": [
           {
+            "variable": "NLWRS",
+            "level": "Sfc",
             "window_start_utc": "2025-02-11T00:00:00Z",
             "window_end_utc": "2025-02-12T00:00:00Z",
             "samples_24h": 56,
@@ -507,6 +555,8 @@
       },
       {
         "columns": [
+          "variable",
+          "level",
           "window_start_utc",
           "window_end_utc",
           "samples_24h",
@@ -519,6 +569,8 @@
         ],
         "rows": [
           {
+            "variable": "NSWRS",
+            "level": "Sfc",
             "window_start_utc": "2025-02-11T00:00:00Z",
             "window_end_utc": "2025-02-12T00:00:00Z",
             "samples_24h": 56,
@@ -546,6 +598,8 @@
       },
       {
         "columns": [
+          "variable",
+          "level",
           "window_start_utc",
           "window_end_utc",
           "samples_24h",
@@ -558,6 +612,8 @@
         ],
         "rows": [
           {
+            "variable": "PRATE",
+            "level": "Sfc",
             "window_start_utc": "2025-02-11T00:00:00Z",
             "window_end_utc": "2025-02-12T00:00:00Z",
             "samples_24h": 48,
@@ -585,6 +641,8 @@
       },
       {
         "columns": [
+          "variable",
+          "level",
           "window_start_utc",
           "window_end_utc",
           "samples_24h",
@@ -597,6 +655,8 @@
         ],
         "rows": [
           {
+            "variable": "PRES",
+            "level": "Sfc",
             "window_start_utc": "2025-02-11T00:00:00Z",
             "window_end_utc": "2025-02-12T00:00:00Z",
             "samples_24h": 56,
@@ -624,6 +684,8 @@
       },
       {
         "columns": [
+          "variable",
+          "level",
           "window_start_utc",
           "window_end_utc",
           "samples_24h",
@@ -636,6 +698,8 @@
         ],
         "rows": [
           {
+            "variable": "RPRATE",
+            "level": "Sfc",
             "window_start_utc": "2025-02-11T00:00:00Z",
             "window_end_utc": "2025-02-12T00:00:00Z",
             "samples_24h": 48,
@@ -663,6 +727,8 @@
       },
       {
         "columns": [
+          "variable",
+          "level",
           "window_start_utc",
           "window_end_utc",
           "samples_24h",
@@ -675,6 +741,8 @@
         ],
         "rows": [
           {
+            "variable": "SDEN",
+            "level": "Sfc",
             "window_start_utc": "2025-02-11T00:00:00Z",
             "window_end_utc": "2025-02-12T00:00:00Z",
             "samples_24h": 56,
@@ -702,6 +770,8 @@
       },
       {
         "columns": [
+          "variable",
+          "level",
           "window_start_utc",
           "window_end_utc",
           "samples_24h",
@@ -714,6 +784,8 @@
         ],
         "rows": [
           {
+            "variable": "SDWE",
+            "level": "Sfc",
             "window_start_utc": "2025-02-11T00:00:00Z",
             "window_end_utc": "2025-02-12T00:00:00Z",
             "samples_24h": 56,
@@ -741,6 +813,8 @@
       },
       {
         "columns": [
+          "variable",
+          "level",
           "window_start_utc",
           "window_end_utc",
           "samples_24h",
@@ -753,6 +827,8 @@
         ],
         "rows": [
           {
+            "variable": "SHTFL",
+            "level": "Sfc",
             "window_start_utc": "2025-02-11T00:00:00Z",
             "window_end_utc": "2025-02-12T00:00:00Z",
             "samples_24h": 56,
@@ -780,6 +856,8 @@
       },
       {
         "columns": [
+          "variable",
+          "level",
           "window_start_utc",
           "window_end_utc",
           "samples_24h",
@@ -792,6 +870,8 @@
         ],
         "rows": [
           {
+            "variable": "SKINT",
+            "level": "Sfc",
             "window_start_utc": "2025-02-11T00:00:00Z",
             "window_end_utc": "2025-02-12T00:00:00Z",
             "samples_24h": 56,
@@ -819,6 +899,8 @@
       },
       {
         "columns": [
+          "variable",
+          "level",
           "window_start_utc",
           "window_end_utc",
           "samples_24h",
@@ -831,6 +913,8 @@
         ],
         "rows": [
           {
+            "variable": "SNOD",
+            "level": "Sfc",
             "window_start_utc": "2025-02-11T00:00:00Z",
             "window_end_utc": "2025-02-12T00:00:00Z",
             "samples_24h": 56,
@@ -858,6 +942,8 @@
       },
       {
         "columns": [
+          "variable",
+          "level",
           "window_start_utc",
           "window_end_utc",
           "samples_24h",
@@ -870,6 +956,8 @@
         ],
         "rows": [
           {
+            "variable": "SPFH",
+            "level": "AGL-2m",
             "window_start_utc": "2025-02-11T00:00:00Z",
             "window_end_utc": "2025-02-12T00:00:00Z",
             "samples_24h": 56,
@@ -897,6 +985,8 @@
       },
       {
         "columns": [
+          "variable",
+          "level",
           "window_start_utc",
           "window_end_utc",
           "samples_24h",
@@ -909,6 +999,8 @@
         ],
         "rows": [
           {
+            "variable": "SPFH",
+            "level": "ISBL_0500",
             "window_start_utc": "2025-02-11T00:00:00Z",
             "window_end_utc": "2025-02-12T00:00:00Z",
             "samples_24h": 56,
@@ -936,6 +1028,8 @@
       },
       {
         "columns": [
+          "variable",
+          "level",
           "window_start_utc",
           "window_end_utc",
           "samples_24h",
@@ -948,6 +1042,8 @@
         ],
         "rows": [
           {
+            "variable": "SPFH",
+            "level": "ISBL_0700",
             "window_start_utc": "2025-02-11T00:00:00Z",
             "window_end_utc": "2025-02-12T00:00:00Z",
             "samples_24h": 56,
@@ -975,6 +1071,8 @@
       },
       {
         "columns": [
+          "variable",
+          "level",
           "window_start_utc",
           "window_end_utc",
           "samples_24h",
@@ -987,6 +1085,8 @@
         ],
         "rows": [
           {
+            "variable": "SPFH",
+            "level": "ISBL_0850",
             "window_start_utc": "2025-02-11T00:00:00Z",
             "window_end_utc": "2025-02-12T00:00:00Z",
             "samples_24h": 56,
@@ -1014,6 +1114,8 @@
       },
       {
         "columns": [
+          "variable",
+          "level",
           "window_start_utc",
           "window_end_utc",
           "samples_24h",
@@ -1026,6 +1128,8 @@
         ],
         "rows": [
           {
+            "variable": "SPRATE",
+            "level": "Sfc",
             "window_start_utc": "2025-02-11T00:00:00Z",
             "window_end_utc": "2025-02-12T00:00:00Z",
             "samples_24h": 48,
@@ -1053,6 +1157,8 @@
       },
       {
         "columns": [
+          "variable",
+          "level",
           "window_start_utc",
           "window_end_utc",
           "samples_24h",
@@ -1065,6 +1171,8 @@
         ],
         "rows": [
           {
+            "variable": "TCDC",
+            "level": "Sfc",
             "window_start_utc": "2025-02-11T00:00:00Z",
             "window_end_utc": "2025-02-12T00:00:00Z",
             "samples_24h": 56,
@@ -1092,6 +1200,8 @@
       },
       {
         "columns": [
+          "variable",
+          "level",
           "window_start_utc",
           "window_end_utc",
           "samples_24h",
@@ -1104,6 +1214,8 @@
         ],
         "rows": [
           {
+            "variable": "TMP",
+            "level": "AGL-2m",
             "window_start_utc": "2025-02-11T00:00:00Z",
             "window_end_utc": "2025-02-12T00:00:00Z",
             "samples_24h": 56,
@@ -1131,6 +1243,8 @@
       },
       {
         "columns": [
+          "variable",
+          "level",
           "window_start_utc",
           "window_end_utc",
           "samples_24h",
@@ -1143,6 +1257,8 @@
         ],
         "rows": [
           {
+            "variable": "TMP",
+            "level": "ISBL_0500",
             "window_start_utc": "2025-02-11T00:00:00Z",
             "window_end_utc": "2025-02-12T00:00:00Z",
             "samples_24h": 56,
@@ -1170,6 +1286,8 @@
       },
       {
         "columns": [
+          "variable",
+          "level",
           "window_start_utc",
           "window_end_utc",
           "samples_24h",
@@ -1182,6 +1300,8 @@
         ],
         "rows": [
           {
+            "variable": "TMP",
+            "level": "ISBL_0700",
             "window_start_utc": "2025-02-11T00:00:00Z",
             "window_end_utc": "2025-02-12T00:00:00Z",
             "samples_24h": 56,
@@ -1209,6 +1329,8 @@
       },
       {
         "columns": [
+          "variable",
+          "level",
           "window_start_utc",
           "window_end_utc",
           "samples_24h",
@@ -1221,6 +1343,8 @@
         ],
         "rows": [
           {
+            "variable": "TMP",
+            "level": "ISBL_0850",
             "window_start_utc": "2025-02-11T00:00:00Z",
             "window_end_utc": "2025-02-12T00:00:00Z",
             "samples_24h": 56,
@@ -1248,6 +1372,8 @@
       },
       {
         "columns": [
+          "variable",
+          "level",
           "window_start_utc",
           "window_end_utc",
           "samples_24h",
@@ -1260,6 +1386,8 @@
         ],
         "rows": [
           {
+            "variable": "UGRD",
+            "level": "AGL-10m",
             "window_start_utc": "2025-02-11T00:00:00Z",
             "window_end_utc": "2025-02-12T00:00:00Z",
             "samples_24h": 56,
@@ -1287,6 +1415,8 @@
       },
       {
         "columns": [
+          "variable",
+          "level",
           "window_start_utc",
           "window_end_utc",
           "samples_24h",
@@ -1299,6 +1429,8 @@
         ],
         "rows": [
           {
+            "variable": "UGRD",
+            "level": "ISBL_0500",
             "window_start_utc": "2025-02-11T00:00:00Z",
             "window_end_utc": "2025-02-12T00:00:00Z",
             "samples_24h": 56,
@@ -1326,6 +1458,8 @@
       },
       {
         "columns": [
+          "variable",
+          "level",
           "window_start_utc",
           "window_end_utc",
           "samples_24h",
@@ -1338,6 +1472,8 @@
         ],
         "rows": [
           {
+            "variable": "UGRD",
+            "level": "ISBL_0700",
             "window_start_utc": "2025-02-11T00:00:00Z",
             "window_end_utc": "2025-02-12T00:00:00Z",
             "samples_24h": 56,
@@ -1365,6 +1501,8 @@
       },
       {
         "columns": [
+          "variable",
+          "level",
           "window_start_utc",
           "window_end_utc",
           "samples_24h",
@@ -1377,6 +1515,8 @@
         ],
         "rows": [
           {
+            "variable": "UGRD",
+            "level": "ISBL_0850",
             "window_start_utc": "2025-02-11T00:00:00Z",
             "window_end_utc": "2025-02-12T00:00:00Z",
             "samples_24h": 56,
@@ -1404,6 +1544,8 @@
       },
       {
         "columns": [
+          "variable",
+          "level",
           "window_start_utc",
           "window_end_utc",
           "samples_24h",
@@ -1416,6 +1558,8 @@
         ],
         "rows": [
           {
+            "variable": "VGRD",
+            "level": "AGL-10m",
             "window_start_utc": "2025-02-11T00:00:00Z",
             "window_end_utc": "2025-02-12T00:00:00Z",
             "samples_24h": 56,
@@ -1443,6 +1587,8 @@
       },
       {
         "columns": [
+          "variable",
+          "level",
           "window_start_utc",
           "window_end_utc",
           "samples_24h",
@@ -1455,6 +1601,8 @@
         ],
         "rows": [
           {
+            "variable": "VGRD",
+            "level": "ISBL_0500",
             "window_start_utc": "2025-02-11T00:00:00Z",
             "window_end_utc": "2025-02-12T00:00:00Z",
             "samples_24h": 56,
@@ -1482,6 +1630,8 @@
       },
       {
         "columns": [
+          "variable",
+          "level",
           "window_start_utc",
           "window_end_utc",
           "samples_24h",
@@ -1494,6 +1644,8 @@
         ],
         "rows": [
           {
+            "variable": "VGRD",
+            "level": "ISBL_0700",
             "window_start_utc": "2025-02-11T00:00:00Z",
             "window_end_utc": "2025-02-12T00:00:00Z",
             "samples_24h": 56,
@@ -1521,6 +1673,8 @@
       },
       {
         "columns": [
+          "variable",
+          "level",
           "window_start_utc",
           "window_end_utc",
           "samples_24h",
@@ -1533,6 +1687,8 @@
         ],
         "rows": [
           {
+            "variable": "VGRD",
+            "level": "ISBL_0850",
             "window_start_utc": "2025-02-11T00:00:00Z",
             "window_end_utc": "2025-02-12T00:00:00Z",
             "samples_24h": 56,
@@ -1560,6 +1716,8 @@
       },
       {
         "columns": [
+          "variable",
+          "level",
           "window_start_utc",
           "window_end_utc",
           "samples_24h",
@@ -1572,6 +1730,8 @@
         ],
         "rows": [
           {
+            "variable": "VVEL",
+            "level": "ISBL_0500",
             "window_start_utc": "2025-02-11T00:00:00Z",
             "window_end_utc": "2025-02-12T00:00:00Z",
             "samples_24h": 56,
@@ -1599,6 +1759,8 @@
       },
       {
         "columns": [
+          "variable",
+          "level",
           "window_start_utc",
           "window_end_utc",
           "samples_24h",
@@ -1611,6 +1773,8 @@
         ],
         "rows": [
           {
+            "variable": "VVEL",
+            "level": "ISBL_0700",
             "window_start_utc": "2025-02-11T00:00:00Z",
             "window_end_utc": "2025-02-12T00:00:00Z",
             "samples_24h": 56,
@@ -1638,6 +1802,8 @@
       },
       {
         "columns": [
+          "variable",
+          "level",
           "window_start_utc",
           "window_end_utc",
           "samples_24h",
@@ -1650,6 +1816,8 @@
         ],
         "rows": [
           {
+            "variable": "VVEL",
+            "level": "ISBL_0850",
             "window_start_utc": "2025-02-11T00:00:00Z",
             "window_end_utc": "2025-02-12T00:00:00Z",
             "samples_24h": 56,
@@ -1679,6 +1847,8 @@
     "treeline": [
       {
         "columns": [
+          "variable",
+          "level",
           "window_start_utc",
           "window_end_utc",
           "samples_24h",
@@ -1691,6 +1861,8 @@
         ],
         "rows": [
           {
+            "variable": "APCP",
+            "level": "Sfc",
             "window_start_utc": "2025-02-11T00:00:00Z",
             "window_end_utc": "2025-02-12T00:00:00Z",
             "samples_24h": 48,
@@ -1718,6 +1890,8 @@
       },
       {
         "columns": [
+          "variable",
+          "level",
           "window_start_utc",
           "window_end_utc",
           "samples_24h",
@@ -1730,6 +1904,8 @@
         ],
         "rows": [
           {
+            "variable": "CWAT",
+            "level": "EATM",
             "window_start_utc": "2025-02-11T00:00:00Z",
             "window_end_utc": "2025-02-12T00:00:00Z",
             "samples_24h": 56,
@@ -1757,6 +1933,8 @@
       },
       {
         "columns": [
+          "variable",
+          "level",
           "window_start_utc",
           "window_end_utc",
           "samples_24h",
@@ -1769,6 +1947,8 @@
         ],
         "rows": [
           {
+            "variable": "DLWRF",
+            "level": "Sfc",
             "window_start_utc": "2025-02-11T00:00:00Z",
             "window_end_utc": "2025-02-12T00:00:00Z",
             "samples_24h": 56,
@@ -1796,6 +1976,8 @@
       },
       {
         "columns": [
+          "variable",
+          "level",
           "window_start_utc",
           "window_end_utc",
           "samples_24h",
@@ -1808,6 +1990,8 @@
         ],
         "rows": [
           {
+            "variable": "DSWRF",
+            "level": "Sfc",
             "window_start_utc": "2025-02-11T00:00:00Z",
             "window_end_utc": "2025-02-12T00:00:00Z",
             "samples_24h": 56,
@@ -1835,6 +2019,8 @@
       },
       {
         "columns": [
+          "variable",
+          "level",
           "window_start_utc",
           "window_end_utc",
           "samples_24h",
@@ -1847,6 +2033,8 @@
         ],
         "rows": [
           {
+            "variable": "FPRATE",
+            "level": "Sfc",
             "window_start_utc": "2025-02-11T00:00:00Z",
             "window_end_utc": "2025-02-12T00:00:00Z",
             "samples_24h": 48,
@@ -1874,6 +2062,8 @@
       },
       {
         "columns": [
+          "variable",
+          "level",
           "window_start_utc",
           "window_end_utc",
           "samples_24h",
@@ -1886,6 +2076,8 @@
         ],
         "rows": [
           {
+            "variable": "GUST",
+            "level": "AGL-10m",
             "window_start_utc": "2025-02-11T00:00:00Z",
             "window_end_utc": "2025-02-12T00:00:00Z",
             "samples_24h": 56,
@@ -1913,6 +2105,8 @@
       },
       {
         "columns": [
+          "variable",
+          "level",
           "window_start_utc",
           "window_end_utc",
           "samples_24h",
@@ -1925,6 +2119,8 @@
         ],
         "rows": [
           {
+            "variable": "HGT",
+            "level": "ISBL_0500",
             "window_start_utc": "2025-02-11T00:00:00Z",
             "window_end_utc": "2025-02-12T00:00:00Z",
             "samples_24h": 56,
@@ -1952,6 +2148,8 @@
       },
       {
         "columns": [
+          "variable",
+          "level",
           "window_start_utc",
           "window_end_utc",
           "samples_24h",
@@ -1964,6 +2162,8 @@
         ],
         "rows": [
           {
+            "variable": "HGT",
+            "level": "ISBL_0700",
             "window_start_utc": "2025-02-11T00:00:00Z",
             "window_end_utc": "2025-02-12T00:00:00Z",
             "samples_24h": 56,
@@ -1991,6 +2191,8 @@
       },
       {
         "columns": [
+          "variable",
+          "level",
           "window_start_utc",
           "window_end_utc",
           "samples_24h",
@@ -2003,6 +2205,8 @@
         ],
         "rows": [
           {
+            "variable": "HPBL",
+            "level": "Sfc",
             "window_start_utc": "2025-02-11T00:00:00Z",
             "window_end_utc": "2025-02-12T00:00:00Z",
             "samples_24h": 56,
@@ -2030,6 +2234,8 @@
       },
       {
         "columns": [
+          "variable",
+          "level",
           "window_start_utc",
           "window_end_utc",
           "samples_24h",
@@ -2042,6 +2248,8 @@
         ],
         "rows": [
           {
+            "variable": "IPRATE",
+            "level": "Sfc",
             "window_start_utc": "2025-02-11T00:00:00Z",
             "window_end_utc": "2025-02-12T00:00:00Z",
             "samples_24h": 48,
@@ -2069,6 +2277,8 @@
       },
       {
         "columns": [
+          "variable",
+          "level",
           "window_start_utc",
           "window_end_utc",
           "samples_24h",
@@ -2081,6 +2291,8 @@
         ],
         "rows": [
           {
+            "variable": "LHTFL",
+            "level": "Sfc",
             "window_start_utc": "2025-02-11T00:00:00Z",
             "window_end_utc": "2025-02-12T00:00:00Z",
             "samples_24h": 56,
@@ -2108,6 +2320,8 @@
       },
       {
         "columns": [
+          "variable",
+          "level",
           "window_start_utc",
           "window_end_utc",
           "samples_24h",
@@ -2120,6 +2334,8 @@
         ],
         "rows": [
           {
+            "variable": "NLWRS",
+            "level": "Sfc",
             "window_start_utc": "2025-02-11T00:00:00Z",
             "window_end_utc": "2025-02-12T00:00:00Z",
             "samples_24h": 56,
@@ -2147,6 +2363,8 @@
       },
       {
         "columns": [
+          "variable",
+          "level",
           "window_start_utc",
           "window_end_utc",
           "samples_24h",
@@ -2159,6 +2377,8 @@
         ],
         "rows": [
           {
+            "variable": "NSWRS",
+            "level": "Sfc",
             "window_start_utc": "2025-02-11T00:00:00Z",
             "window_end_utc": "2025-02-12T00:00:00Z",
             "samples_24h": 56,
@@ -2186,6 +2406,8 @@
       },
       {
         "columns": [
+          "variable",
+          "level",
           "window_start_utc",
           "window_end_utc",
           "samples_24h",
@@ -2198,6 +2420,8 @@
         ],
         "rows": [
           {
+            "variable": "PRATE",
+            "level": "Sfc",
             "window_start_utc": "2025-02-11T00:00:00Z",
             "window_end_utc": "2025-02-12T00:00:00Z",
             "samples_24h": 48,
@@ -2225,6 +2449,8 @@
       },
       {
         "columns": [
+          "variable",
+          "level",
           "window_start_utc",
           "window_end_utc",
           "samples_24h",
@@ -2237,6 +2463,8 @@
         ],
         "rows": [
           {
+            "variable": "PRES",
+            "level": "Sfc",
             "window_start_utc": "2025-02-11T00:00:00Z",
             "window_end_utc": "2025-02-12T00:00:00Z",
             "samples_24h": 56,
@@ -2264,6 +2492,8 @@
       },
       {
         "columns": [
+          "variable",
+          "level",
           "window_start_utc",
           "window_end_utc",
           "samples_24h",
@@ -2276,6 +2506,8 @@
         ],
         "rows": [
           {
+            "variable": "RPRATE",
+            "level": "Sfc",
             "window_start_utc": "2025-02-11T00:00:00Z",
             "window_end_utc": "2025-02-12T00:00:00Z",
             "samples_24h": 48,
@@ -2303,6 +2535,8 @@
       },
       {
         "columns": [
+          "variable",
+          "level",
           "window_start_utc",
           "window_end_utc",
           "samples_24h",
@@ -2315,6 +2549,8 @@
         ],
         "rows": [
           {
+            "variable": "SDEN",
+            "level": "Sfc",
             "window_start_utc": "2025-02-11T00:00:00Z",
             "window_end_utc": "2025-02-12T00:00:00Z",
             "samples_24h": 56,
@@ -2342,6 +2578,8 @@
       },
       {
         "columns": [
+          "variable",
+          "level",
           "window_start_utc",
           "window_end_utc",
           "samples_24h",
@@ -2354,6 +2592,8 @@
         ],
         "rows": [
           {
+            "variable": "SDWE",
+            "level": "Sfc",
             "window_start_utc": "2025-02-11T00:00:00Z",
             "window_end_utc": "2025-02-12T00:00:00Z",
             "samples_24h": 56,
@@ -2381,6 +2621,8 @@
       },
       {
         "columns": [
+          "variable",
+          "level",
           "window_start_utc",
           "window_end_utc",
           "samples_24h",
@@ -2393,6 +2635,8 @@
         ],
         "rows": [
           {
+            "variable": "SHTFL",
+            "level": "Sfc",
             "window_start_utc": "2025-02-11T00:00:00Z",
             "window_end_utc": "2025-02-12T00:00:00Z",
             "samples_24h": 56,
@@ -2420,6 +2664,8 @@
       },
       {
         "columns": [
+          "variable",
+          "level",
           "window_start_utc",
           "window_end_utc",
           "samples_24h",
@@ -2432,6 +2678,8 @@
         ],
         "rows": [
           {
+            "variable": "SKINT",
+            "level": "Sfc",
             "window_start_utc": "2025-02-11T00:00:00Z",
             "window_end_utc": "2025-02-12T00:00:00Z",
             "samples_24h": 56,
@@ -2459,6 +2707,8 @@
       },
       {
         "columns": [
+          "variable",
+          "level",
           "window_start_utc",
           "window_end_utc",
           "samples_24h",
@@ -2471,6 +2721,8 @@
         ],
         "rows": [
           {
+            "variable": "SNOD",
+            "level": "Sfc",
             "window_start_utc": "2025-02-11T00:00:00Z",
             "window_end_utc": "2025-02-12T00:00:00Z",
             "samples_24h": 56,
@@ -2498,6 +2750,8 @@
       },
       {
         "columns": [
+          "variable",
+          "level",
           "window_start_utc",
           "window_end_utc",
           "samples_24h",
@@ -2510,6 +2764,8 @@
         ],
         "rows": [
           {
+            "variable": "SPFH",
+            "level": "AGL-2m",
             "window_start_utc": "2025-02-11T00:00:00Z",
             "window_end_utc": "2025-02-12T00:00:00Z",
             "samples_24h": 56,
@@ -2537,6 +2793,8 @@
       },
       {
         "columns": [
+          "variable",
+          "level",
           "window_start_utc",
           "window_end_utc",
           "samples_24h",
@@ -2549,6 +2807,8 @@
         ],
         "rows": [
           {
+            "variable": "SPFH",
+            "level": "ISBL_0500",
             "window_start_utc": "2025-02-11T00:00:00Z",
             "window_end_utc": "2025-02-12T00:00:00Z",
             "samples_24h": 56,
@@ -2576,6 +2836,8 @@
       },
       {
         "columns": [
+          "variable",
+          "level",
           "window_start_utc",
           "window_end_utc",
           "samples_24h",
@@ -2588,6 +2850,8 @@
         ],
         "rows": [
           {
+            "variable": "SPFH",
+            "level": "ISBL_0700",
             "window_start_utc": "2025-02-11T00:00:00Z",
             "window_end_utc": "2025-02-12T00:00:00Z",
             "samples_24h": 56,
@@ -2615,6 +2879,8 @@
       },
       {
         "columns": [
+          "variable",
+          "level",
           "window_start_utc",
           "window_end_utc",
           "samples_24h",
@@ -2627,6 +2893,8 @@
         ],
         "rows": [
           {
+            "variable": "SPFH",
+            "level": "ISBL_0850",
             "window_start_utc": "2025-02-11T00:00:00Z",
             "window_end_utc": "2025-02-12T00:00:00Z",
             "samples_24h": 56,
@@ -2654,6 +2922,8 @@
       },
       {
         "columns": [
+          "variable",
+          "level",
           "window_start_utc",
           "window_end_utc",
           "samples_24h",
@@ -2666,6 +2936,8 @@
         ],
         "rows": [
           {
+            "variable": "SPRATE",
+            "level": "Sfc",
             "window_start_utc": "2025-02-11T00:00:00Z",
             "window_end_utc": "2025-02-12T00:00:00Z",
             "samples_24h": 48,
@@ -2693,6 +2965,8 @@
       },
       {
         "columns": [
+          "variable",
+          "level",
           "window_start_utc",
           "window_end_utc",
           "samples_24h",
@@ -2705,6 +2979,8 @@
         ],
         "rows": [
           {
+            "variable": "TCDC",
+            "level": "Sfc",
             "window_start_utc": "2025-02-11T00:00:00Z",
             "window_end_utc": "2025-02-12T00:00:00Z",
             "samples_24h": 56,
@@ -2732,6 +3008,8 @@
       },
       {
         "columns": [
+          "variable",
+          "level",
           "window_start_utc",
           "window_end_utc",
           "samples_24h",
@@ -2744,6 +3022,8 @@
         ],
         "rows": [
           {
+            "variable": "TMP",
+            "level": "AGL-2m",
             "window_start_utc": "2025-02-11T00:00:00Z",
             "window_end_utc": "2025-02-12T00:00:00Z",
             "samples_24h": 56,
@@ -2771,6 +3051,8 @@
       },
       {
         "columns": [
+          "variable",
+          "level",
           "window_start_utc",
           "window_end_utc",
           "samples_24h",
@@ -2783,6 +3065,8 @@
         ],
         "rows": [
           {
+            "variable": "TMP",
+            "level": "ISBL_0500",
             "window_start_utc": "2025-02-11T00:00:00Z",
             "window_end_utc": "2025-02-12T00:00:00Z",
             "samples_24h": 56,
@@ -2810,6 +3094,8 @@
       },
       {
         "columns": [
+          "variable",
+          "level",
           "window_start_utc",
           "window_end_utc",
           "samples_24h",
@@ -2822,6 +3108,8 @@
         ],
         "rows": [
           {
+            "variable": "TMP",
+            "level": "ISBL_0700",
             "window_start_utc": "2025-02-11T00:00:00Z",
             "window_end_utc": "2025-02-12T00:00:00Z",
             "samples_24h": 56,
@@ -2849,6 +3137,8 @@
       },
       {
         "columns": [
+          "variable",
+          "level",
           "window_start_utc",
           "window_end_utc",
           "samples_24h",
@@ -2861,6 +3151,8 @@
         ],
         "rows": [
           {
+            "variable": "TMP",
+            "level": "ISBL_0850",
             "window_start_utc": "2025-02-11T00:00:00Z",
             "window_end_utc": "2025-02-12T00:00:00Z",
             "samples_24h": 56,
@@ -2888,6 +3180,8 @@
       },
       {
         "columns": [
+          "variable",
+          "level",
           "window_start_utc",
           "window_end_utc",
           "samples_24h",
@@ -2900,6 +3194,8 @@
         ],
         "rows": [
           {
+            "variable": "UGRD",
+            "level": "AGL-10m",
             "window_start_utc": "2025-02-11T00:00:00Z",
             "window_end_utc": "2025-02-12T00:00:00Z",
             "samples_24h": 56,
@@ -2927,6 +3223,8 @@
       },
       {
         "columns": [
+          "variable",
+          "level",
           "window_start_utc",
           "window_end_utc",
           "samples_24h",
@@ -2939,6 +3237,8 @@
         ],
         "rows": [
           {
+            "variable": "UGRD",
+            "level": "ISBL_0500",
             "window_start_utc": "2025-02-11T00:00:00Z",
             "window_end_utc": "2025-02-12T00:00:00Z",
             "samples_24h": 56,
@@ -2966,6 +3266,8 @@
       },
       {
         "columns": [
+          "variable",
+          "level",
           "window_start_utc",
           "window_end_utc",
           "samples_24h",
@@ -2978,6 +3280,8 @@
         ],
         "rows": [
           {
+            "variable": "UGRD",
+            "level": "ISBL_0700",
             "window_start_utc": "2025-02-11T00:00:00Z",
             "window_end_utc": "2025-02-12T00:00:00Z",
             "samples_24h": 56,
@@ -3005,6 +3309,8 @@
       },
       {
         "columns": [
+          "variable",
+          "level",
           "window_start_utc",
           "window_end_utc",
           "samples_24h",
@@ -3017,6 +3323,8 @@
         ],
         "rows": [
           {
+            "variable": "UGRD",
+            "level": "ISBL_0850",
             "window_start_utc": "2025-02-11T00:00:00Z",
             "window_end_utc": "2025-02-12T00:00:00Z",
             "samples_24h": 56,
@@ -3044,6 +3352,8 @@
       },
       {
         "columns": [
+          "variable",
+          "level",
           "window_start_utc",
           "window_end_utc",
           "samples_24h",
@@ -3056,6 +3366,8 @@
         ],
         "rows": [
           {
+            "variable": "VGRD",
+            "level": "AGL-10m",
             "window_start_utc": "2025-02-11T00:00:00Z",
             "window_end_utc": "2025-02-12T00:00:00Z",
             "samples_24h": 56,
@@ -3083,6 +3395,8 @@
       },
       {
         "columns": [
+          "variable",
+          "level",
           "window_start_utc",
           "window_end_utc",
           "samples_24h",
@@ -3095,6 +3409,8 @@
         ],
         "rows": [
           {
+            "variable": "VGRD",
+            "level": "ISBL_0500",
             "window_start_utc": "2025-02-11T00:00:00Z",
             "window_end_utc": "2025-02-12T00:00:00Z",
             "samples_24h": 56,
@@ -3122,6 +3438,8 @@
       },
       {
         "columns": [
+          "variable",
+          "level",
           "window_start_utc",
           "window_end_utc",
           "samples_24h",
@@ -3134,6 +3452,8 @@
         ],
         "rows": [
           {
+            "variable": "VGRD",
+            "level": "ISBL_0700",
             "window_start_utc": "2025-02-11T00:00:00Z",
             "window_end_utc": "2025-02-12T00:00:00Z",
             "samples_24h": 56,
@@ -3161,6 +3481,8 @@
       },
       {
         "columns": [
+          "variable",
+          "level",
           "window_start_utc",
           "window_end_utc",
           "samples_24h",
@@ -3173,6 +3495,8 @@
         ],
         "rows": [
           {
+            "variable": "VGRD",
+            "level": "ISBL_0850",
             "window_start_utc": "2025-02-11T00:00:00Z",
             "window_end_utc": "2025-02-12T00:00:00Z",
             "samples_24h": 56,
@@ -3200,6 +3524,8 @@
       },
       {
         "columns": [
+          "variable",
+          "level",
           "window_start_utc",
           "window_end_utc",
           "samples_24h",
@@ -3212,6 +3538,8 @@
         ],
         "rows": [
           {
+            "variable": "VVEL",
+            "level": "ISBL_0500",
             "window_start_utc": "2025-02-11T00:00:00Z",
             "window_end_utc": "2025-02-12T00:00:00Z",
             "samples_24h": 56,
@@ -3239,6 +3567,8 @@
       },
       {
         "columns": [
+          "variable",
+          "level",
           "window_start_utc",
           "window_end_utc",
           "samples_24h",
@@ -3251,6 +3581,8 @@
         ],
         "rows": [
           {
+            "variable": "VVEL",
+            "level": "ISBL_0700",
             "window_start_utc": "2025-02-11T00:00:00Z",
             "window_end_utc": "2025-02-12T00:00:00Z",
             "samples_24h": 56,
@@ -3278,6 +3610,8 @@
       },
       {
         "columns": [
+          "variable",
+          "level",
           "window_start_utc",
           "window_end_utc",
           "samples_24h",
@@ -3290,6 +3624,8 @@
         ],
         "rows": [
           {
+            "variable": "VVEL",
+            "level": "ISBL_0850",
             "window_start_utc": "2025-02-11T00:00:00Z",
             "window_end_utc": "2025-02-12T00:00:00Z",
             "samples_24h": 56,
@@ -3319,6 +3655,8 @@
     "below_treeline": [
       {
         "columns": [
+          "variable",
+          "level",
           "window_start_utc",
           "window_end_utc",
           "samples_24h",
@@ -3331,6 +3669,8 @@
         ],
         "rows": [
           {
+            "variable": "APCP",
+            "level": "Sfc",
             "window_start_utc": "2025-02-11T00:00:00Z",
             "window_end_utc": "2025-02-12T00:00:00Z",
             "samples_24h": 48,
@@ -3358,6 +3698,8 @@
       },
       {
         "columns": [
+          "variable",
+          "level",
           "window_start_utc",
           "window_end_utc",
           "samples_24h",
@@ -3370,6 +3712,8 @@
         ],
         "rows": [
           {
+            "variable": "CWAT",
+            "level": "EATM",
             "window_start_utc": "2025-02-11T00:00:00Z",
             "window_end_utc": "2025-02-12T00:00:00Z",
             "samples_24h": 56,
@@ -3397,6 +3741,8 @@
       },
       {
         "columns": [
+          "variable",
+          "level",
           "window_start_utc",
           "window_end_utc",
           "samples_24h",
@@ -3409,6 +3755,8 @@
         ],
         "rows": [
           {
+            "variable": "DLWRF",
+            "level": "Sfc",
             "window_start_utc": "2025-02-11T00:00:00Z",
             "window_end_utc": "2025-02-12T00:00:00Z",
             "samples_24h": 56,
@@ -3436,6 +3784,8 @@
       },
       {
         "columns": [
+          "variable",
+          "level",
           "window_start_utc",
           "window_end_utc",
           "samples_24h",
@@ -3448,6 +3798,8 @@
         ],
         "rows": [
           {
+            "variable": "DSWRF",
+            "level": "Sfc",
             "window_start_utc": "2025-02-11T00:00:00Z",
             "window_end_utc": "2025-02-12T00:00:00Z",
             "samples_24h": 56,
@@ -3475,6 +3827,8 @@
       },
       {
         "columns": [
+          "variable",
+          "level",
           "window_start_utc",
           "window_end_utc",
           "samples_24h",
@@ -3487,6 +3841,8 @@
         ],
         "rows": [
           {
+            "variable": "FPRATE",
+            "level": "Sfc",
             "window_start_utc": "2025-02-11T00:00:00Z",
             "window_end_utc": "2025-02-12T00:00:00Z",
             "samples_24h": 48,
@@ -3514,6 +3870,8 @@
       },
       {
         "columns": [
+          "variable",
+          "level",
           "window_start_utc",
           "window_end_utc",
           "samples_24h",
@@ -3526,6 +3884,8 @@
         ],
         "rows": [
           {
+            "variable": "GUST",
+            "level": "AGL-10m",
             "window_start_utc": "2025-02-11T00:00:00Z",
             "window_end_utc": "2025-02-12T00:00:00Z",
             "samples_24h": 56,
@@ -3553,6 +3913,8 @@
       },
       {
         "columns": [
+          "variable",
+          "level",
           "window_start_utc",
           "window_end_utc",
           "samples_24h",
@@ -3565,6 +3927,8 @@
         ],
         "rows": [
           {
+            "variable": "HGT",
+            "level": "ISBL_0500",
             "window_start_utc": "2025-02-11T00:00:00Z",
             "window_end_utc": "2025-02-12T00:00:00Z",
             "samples_24h": 56,
@@ -3592,6 +3956,8 @@
       },
       {
         "columns": [
+          "variable",
+          "level",
           "window_start_utc",
           "window_end_utc",
           "samples_24h",
@@ -3604,6 +3970,8 @@
         ],
         "rows": [
           {
+            "variable": "HGT",
+            "level": "ISBL_0700",
             "window_start_utc": "2025-02-11T00:00:00Z",
             "window_end_utc": "2025-02-12T00:00:00Z",
             "samples_24h": 56,
@@ -3631,6 +3999,8 @@
       },
       {
         "columns": [
+          "variable",
+          "level",
           "window_start_utc",
           "window_end_utc",
           "samples_24h",
@@ -3643,6 +4013,8 @@
         ],
         "rows": [
           {
+            "variable": "HPBL",
+            "level": "Sfc",
             "window_start_utc": "2025-02-11T00:00:00Z",
             "window_end_utc": "2025-02-12T00:00:00Z",
             "samples_24h": 56,
@@ -3670,6 +4042,8 @@
       },
       {
         "columns": [
+          "variable",
+          "level",
           "window_start_utc",
           "window_end_utc",
           "samples_24h",
@@ -3682,6 +4056,8 @@
         ],
         "rows": [
           {
+            "variable": "IPRATE",
+            "level": "Sfc",
             "window_start_utc": "2025-02-11T00:00:00Z",
             "window_end_utc": "2025-02-12T00:00:00Z",
             "samples_24h": 48,
@@ -3709,6 +4085,8 @@
       },
       {
         "columns": [
+          "variable",
+          "level",
           "window_start_utc",
           "window_end_utc",
           "samples_24h",
@@ -3721,6 +4099,8 @@
         ],
         "rows": [
           {
+            "variable": "LHTFL",
+            "level": "Sfc",
             "window_start_utc": "2025-02-11T00:00:00Z",
             "window_end_utc": "2025-02-12T00:00:00Z",
             "samples_24h": 56,
@@ -3748,6 +4128,8 @@
       },
       {
         "columns": [
+          "variable",
+          "level",
           "window_start_utc",
           "window_end_utc",
           "samples_24h",
@@ -3760,6 +4142,8 @@
         ],
         "rows": [
           {
+            "variable": "NLWRS",
+            "level": "Sfc",
             "window_start_utc": "2025-02-11T00:00:00Z",
             "window_end_utc": "2025-02-12T00:00:00Z",
             "samples_24h": 56,
@@ -3787,6 +4171,8 @@
       },
       {
         "columns": [
+          "variable",
+          "level",
           "window_start_utc",
           "window_end_utc",
           "samples_24h",
@@ -3799,6 +4185,8 @@
         ],
         "rows": [
           {
+            "variable": "NSWRS",
+            "level": "Sfc",
             "window_start_utc": "2025-02-11T00:00:00Z",
             "window_end_utc": "2025-02-12T00:00:00Z",
             "samples_24h": 56,
@@ -3826,6 +4214,8 @@
       },
       {
         "columns": [
+          "variable",
+          "level",
           "window_start_utc",
           "window_end_utc",
           "samples_24h",
@@ -3838,6 +4228,8 @@
         ],
         "rows": [
           {
+            "variable": "PRATE",
+            "level": "Sfc",
             "window_start_utc": "2025-02-11T00:00:00Z",
             "window_end_utc": "2025-02-12T00:00:00Z",
             "samples_24h": 48,
@@ -3865,6 +4257,8 @@
       },
       {
         "columns": [
+          "variable",
+          "level",
           "window_start_utc",
           "window_end_utc",
           "samples_24h",
@@ -3877,6 +4271,8 @@
         ],
         "rows": [
           {
+            "variable": "PRES",
+            "level": "Sfc",
             "window_start_utc": "2025-02-11T00:00:00Z",
             "window_end_utc": "2025-02-12T00:00:00Z",
             "samples_24h": 56,
@@ -3904,6 +4300,8 @@
       },
       {
         "columns": [
+          "variable",
+          "level",
           "window_start_utc",
           "window_end_utc",
           "samples_24h",
@@ -3916,6 +4314,8 @@
         ],
         "rows": [
           {
+            "variable": "RPRATE",
+            "level": "Sfc",
             "window_start_utc": "2025-02-11T00:00:00Z",
             "window_end_utc": "2025-02-12T00:00:00Z",
             "samples_24h": 48,
@@ -3943,6 +4343,8 @@
       },
       {
         "columns": [
+          "variable",
+          "level",
           "window_start_utc",
           "window_end_utc",
           "samples_24h",
@@ -3955,6 +4357,8 @@
         ],
         "rows": [
           {
+            "variable": "SDEN",
+            "level": "Sfc",
             "window_start_utc": "2025-02-11T00:00:00Z",
             "window_end_utc": "2025-02-12T00:00:00Z",
             "samples_24h": 56,
@@ -3982,6 +4386,8 @@
       },
       {
         "columns": [
+          "variable",
+          "level",
           "window_start_utc",
           "window_end_utc",
           "samples_24h",
@@ -3994,6 +4400,8 @@
         ],
         "rows": [
           {
+            "variable": "SDWE",
+            "level": "Sfc",
             "window_start_utc": "2025-02-11T00:00:00Z",
             "window_end_utc": "2025-02-12T00:00:00Z",
             "samples_24h": 56,
@@ -4021,6 +4429,8 @@
       },
       {
         "columns": [
+          "variable",
+          "level",
           "window_start_utc",
           "window_end_utc",
           "samples_24h",
@@ -4033,6 +4443,8 @@
         ],
         "rows": [
           {
+            "variable": "SHTFL",
+            "level": "Sfc",
             "window_start_utc": "2025-02-11T00:00:00Z",
             "window_end_utc": "2025-02-12T00:00:00Z",
             "samples_24h": 56,
@@ -4060,6 +4472,8 @@
       },
       {
         "columns": [
+          "variable",
+          "level",
           "window_start_utc",
           "window_end_utc",
           "samples_24h",
@@ -4072,6 +4486,8 @@
         ],
         "rows": [
           {
+            "variable": "SKINT",
+            "level": "Sfc",
             "window_start_utc": "2025-02-11T00:00:00Z",
             "window_end_utc": "2025-02-12T00:00:00Z",
             "samples_24h": 56,
@@ -4099,6 +4515,8 @@
       },
       {
         "columns": [
+          "variable",
+          "level",
           "window_start_utc",
           "window_end_utc",
           "samples_24h",
@@ -4111,6 +4529,8 @@
         ],
         "rows": [
           {
+            "variable": "SNOD",
+            "level": "Sfc",
             "window_start_utc": "2025-02-11T00:00:00Z",
             "window_end_utc": "2025-02-12T00:00:00Z",
             "samples_24h": 56,
@@ -4138,6 +4558,8 @@
       },
       {
         "columns": [
+          "variable",
+          "level",
           "window_start_utc",
           "window_end_utc",
           "samples_24h",
@@ -4150,6 +4572,8 @@
         ],
         "rows": [
           {
+            "variable": "SPFH",
+            "level": "AGL-2m",
             "window_start_utc": "2025-02-11T00:00:00Z",
             "window_end_utc": "2025-02-12T00:00:00Z",
             "samples_24h": 56,
@@ -4177,6 +4601,8 @@
       },
       {
         "columns": [
+          "variable",
+          "level",
           "window_start_utc",
           "window_end_utc",
           "samples_24h",
@@ -4189,6 +4615,8 @@
         ],
         "rows": [
           {
+            "variable": "SPFH",
+            "level": "ISBL_0500",
             "window_start_utc": "2025-02-11T00:00:00Z",
             "window_end_utc": "2025-02-12T00:00:00Z",
             "samples_24h": 56,
@@ -4216,6 +4644,8 @@
       },
       {
         "columns": [
+          "variable",
+          "level",
           "window_start_utc",
           "window_end_utc",
           "samples_24h",
@@ -4228,6 +4658,8 @@
         ],
         "rows": [
           {
+            "variable": "SPFH",
+            "level": "ISBL_0700",
             "window_start_utc": "2025-02-11T00:00:00Z",
             "window_end_utc": "2025-02-12T00:00:00Z",
             "samples_24h": 56,
@@ -4255,6 +4687,8 @@
       },
       {
         "columns": [
+          "variable",
+          "level",
           "window_start_utc",
           "window_end_utc",
           "samples_24h",
@@ -4267,6 +4701,8 @@
         ],
         "rows": [
           {
+            "variable": "SPFH",
+            "level": "ISBL_0850",
             "window_start_utc": "2025-02-11T00:00:00Z",
             "window_end_utc": "2025-02-12T00:00:00Z",
             "samples_24h": 56,
@@ -4294,6 +4730,8 @@
       },
       {
         "columns": [
+          "variable",
+          "level",
           "window_start_utc",
           "window_end_utc",
           "samples_24h",
@@ -4306,6 +4744,8 @@
         ],
         "rows": [
           {
+            "variable": "SPRATE",
+            "level": "Sfc",
             "window_start_utc": "2025-02-11T00:00:00Z",
             "window_end_utc": "2025-02-12T00:00:00Z",
             "samples_24h": 48,
@@ -4333,6 +4773,8 @@
       },
       {
         "columns": [
+          "variable",
+          "level",
           "window_start_utc",
           "window_end_utc",
           "samples_24h",
@@ -4345,6 +4787,8 @@
         ],
         "rows": [
           {
+            "variable": "TCDC",
+            "level": "Sfc",
             "window_start_utc": "2025-02-11T00:00:00Z",
             "window_end_utc": "2025-02-12T00:00:00Z",
             "samples_24h": 56,
@@ -4372,6 +4816,8 @@
       },
       {
         "columns": [
+          "variable",
+          "level",
           "window_start_utc",
           "window_end_utc",
           "samples_24h",
@@ -4384,6 +4830,8 @@
         ],
         "rows": [
           {
+            "variable": "TMP",
+            "level": "AGL-2m",
             "window_start_utc": "2025-02-11T00:00:00Z",
             "window_end_utc": "2025-02-12T00:00:00Z",
             "samples_24h": 56,
@@ -4411,6 +4859,8 @@
       },
       {
         "columns": [
+          "variable",
+          "level",
           "window_start_utc",
           "window_end_utc",
           "samples_24h",
@@ -4423,6 +4873,8 @@
         ],
         "rows": [
           {
+            "variable": "TMP",
+            "level": "ISBL_0500",
             "window_start_utc": "2025-02-11T00:00:00Z",
             "window_end_utc": "2025-02-12T00:00:00Z",
             "samples_24h": 56,
@@ -4450,6 +4902,8 @@
       },
       {
         "columns": [
+          "variable",
+          "level",
           "window_start_utc",
           "window_end_utc",
           "samples_24h",
@@ -4462,6 +4916,8 @@
         ],
         "rows": [
           {
+            "variable": "TMP",
+            "level": "ISBL_0700",
             "window_start_utc": "2025-02-11T00:00:00Z",
             "window_end_utc": "2025-02-12T00:00:00Z",
             "samples_24h": 56,
@@ -4489,6 +4945,8 @@
       },
       {
         "columns": [
+          "variable",
+          "level",
           "window_start_utc",
           "window_end_utc",
           "samples_24h",
@@ -4501,6 +4959,8 @@
         ],
         "rows": [
           {
+            "variable": "TMP",
+            "level": "ISBL_0850",
             "window_start_utc": "2025-02-11T00:00:00Z",
             "window_end_utc": "2025-02-12T00:00:00Z",
             "samples_24h": 56,
@@ -4528,6 +4988,8 @@
       },
       {
         "columns": [
+          "variable",
+          "level",
           "window_start_utc",
           "window_end_utc",
           "samples_24h",
@@ -4540,6 +5002,8 @@
         ],
         "rows": [
           {
+            "variable": "UGRD",
+            "level": "AGL-10m",
             "window_start_utc": "2025-02-11T00:00:00Z",
             "window_end_utc": "2025-02-12T00:00:00Z",
             "samples_24h": 56,
@@ -4567,6 +5031,8 @@
       },
       {
         "columns": [
+          "variable",
+          "level",
           "window_start_utc",
           "window_end_utc",
           "samples_24h",
@@ -4579,6 +5045,8 @@
         ],
         "rows": [
           {
+            "variable": "UGRD",
+            "level": "ISBL_0500",
             "window_start_utc": "2025-02-11T00:00:00Z",
             "window_end_utc": "2025-02-12T00:00:00Z",
             "samples_24h": 56,
@@ -4606,6 +5074,8 @@
       },
       {
         "columns": [
+          "variable",
+          "level",
           "window_start_utc",
           "window_end_utc",
           "samples_24h",
@@ -4618,6 +5088,8 @@
         ],
         "rows": [
           {
+            "variable": "UGRD",
+            "level": "ISBL_0700",
             "window_start_utc": "2025-02-11T00:00:00Z",
             "window_end_utc": "2025-02-12T00:00:00Z",
             "samples_24h": 56,
@@ -4645,6 +5117,8 @@
       },
       {
         "columns": [
+          "variable",
+          "level",
           "window_start_utc",
           "window_end_utc",
           "samples_24h",
@@ -4657,6 +5131,8 @@
         ],
         "rows": [
           {
+            "variable": "UGRD",
+            "level": "ISBL_0850",
             "window_start_utc": "2025-02-11T00:00:00Z",
             "window_end_utc": "2025-02-12T00:00:00Z",
             "samples_24h": 56,
@@ -4684,6 +5160,8 @@
       },
       {
         "columns": [
+          "variable",
+          "level",
           "window_start_utc",
           "window_end_utc",
           "samples_24h",
@@ -4696,6 +5174,8 @@
         ],
         "rows": [
           {
+            "variable": "VGRD",
+            "level": "AGL-10m",
             "window_start_utc": "2025-02-11T00:00:00Z",
             "window_end_utc": "2025-02-12T00:00:00Z",
             "samples_24h": 56,
@@ -4723,6 +5203,8 @@
       },
       {
         "columns": [
+          "variable",
+          "level",
           "window_start_utc",
           "window_end_utc",
           "samples_24h",
@@ -4735,6 +5217,8 @@
         ],
         "rows": [
           {
+            "variable": "VGRD",
+            "level": "ISBL_0500",
             "window_start_utc": "2025-02-11T00:00:00Z",
             "window_end_utc": "2025-02-12T00:00:00Z",
             "samples_24h": 56,
@@ -4762,6 +5246,8 @@
       },
       {
         "columns": [
+          "variable",
+          "level",
           "window_start_utc",
           "window_end_utc",
           "samples_24h",
@@ -4774,6 +5260,8 @@
         ],
         "rows": [
           {
+            "variable": "VGRD",
+            "level": "ISBL_0700",
             "window_start_utc": "2025-02-11T00:00:00Z",
             "window_end_utc": "2025-02-12T00:00:00Z",
             "samples_24h": 56,
@@ -4801,6 +5289,8 @@
       },
       {
         "columns": [
+          "variable",
+          "level",
           "window_start_utc",
           "window_end_utc",
           "samples_24h",
@@ -4813,6 +5303,8 @@
         ],
         "rows": [
           {
+            "variable": "VGRD",
+            "level": "ISBL_0850",
             "window_start_utc": "2025-02-11T00:00:00Z",
             "window_end_utc": "2025-02-12T00:00:00Z",
             "samples_24h": 56,
@@ -4840,6 +5332,8 @@
       },
       {
         "columns": [
+          "variable",
+          "level",
           "window_start_utc",
           "window_end_utc",
           "samples_24h",
@@ -4852,6 +5346,8 @@
         ],
         "rows": [
           {
+            "variable": "VVEL",
+            "level": "ISBL_0500",
             "window_start_utc": "2025-02-11T00:00:00Z",
             "window_end_utc": "2025-02-12T00:00:00Z",
             "samples_24h": 56,
@@ -4879,6 +5375,8 @@
       },
       {
         "columns": [
+          "variable",
+          "level",
           "window_start_utc",
           "window_end_utc",
           "samples_24h",
@@ -4891,6 +5389,8 @@
         ],
         "rows": [
           {
+            "variable": "VVEL",
+            "level": "ISBL_0700",
             "window_start_utc": "2025-02-11T00:00:00Z",
             "window_end_utc": "2025-02-12T00:00:00Z",
             "samples_24h": 56,
@@ -4918,6 +5418,8 @@
       },
       {
         "columns": [
+          "variable",
+          "level",
           "window_start_utc",
           "window_end_utc",
           "samples_24h",
@@ -4930,6 +5432,8 @@
         ],
         "rows": [
           {
+            "variable": "VVEL",
+            "level": "ISBL_0850",
             "window_start_utc": "2025-02-11T00:00:00Z",
             "window_end_utc": "2025-02-12T00:00:00Z",
             "samples_24h": 56,
